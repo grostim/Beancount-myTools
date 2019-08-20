@@ -28,13 +28,13 @@ class ImporterQIF(importer.ImporterProtocol):
     def __init__(self):
         self.logger = logging.getLogger(__file__)  # pylint: disable=W0612
         self.accountList = dict()
-        self.accountList["00040754305"] = "Actif:CCJoint"
+        self.accountList["00040754305"] = "Actif:Boursorama:CCJoint"
 
     def identify(self, file):
         return re.match(r".*.qif", path.basename(file.name))
 
     def file_account(self, _):
-        return accountList[path.basename(file.name).replace(".qif",'')]
+        return self.accountList[path.basename(file.name).replace(".qif",'')]
 
     def check_before_add(self, transac):
         try:
