@@ -1,0 +1,102 @@
+
+2019-07-23 ! "CHQ. N.8128293" ""
+  dateImport: "2019-08-20 21:40:39.540887"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -58.00 EUR
+  Depenses:AClasser          58.00 EUR
+
+2019-07-23 ! "CARTE 22/07/19 21 BILLET WEEZEVE CB*5969" ""
+  dateImport: "2019-08-20 21:40:39.583433"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -37.98 EUR
+  Depenses:AClasser          37.98 EUR
+
+2019-07-26 ! "ECH PRET:80280000606862232607" ""
+  dateImport: "2019-08-20 21:40:39.583782"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -1082.26 EUR
+  Depenses:AClasser          1082.26 EUR
+
+2019-07-26 ! "PRLV SEPA Engie" ""
+  dateImport: "2019-08-20 21:40:39.584081"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -87.06 EUR
+  Depenses:AClasser          87.06 EUR
+
+2019-07-29 ! "PRLV SEPA ELECTRICITE DE FRANCE" ""
+  dateImport: "2019-08-20 21:40:39.584373"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -112.62 EUR
+  Depenses:AClasser          112.62 EUR
+
+2019-07-29 ! "CARTE 28/07/19 ITUNES.COM/BILL   CB*5969" ""
+  dateImport: "2019-08-20 21:40:39.584664"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -2.99 EUR
+  Depenses:AClasser          2.99 EUR
+
+2019-08-01 ! "Relev{ diff{r{ Carte 4979********1979" ""
+  dateImport: "2019-08-20 21:40:39.584955"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -368.74 EUR
+  Depenses:AClasser          368.74 EUR
+
+2019-08-01 ! "VIR Contribution compte commun" ""
+  dateImport: "2019-08-20 21:40:39.585250"
+  source: "qif"
+  Actif:Boursorama:CCJoint   500.00 EUR
+  Depenses:AClasser         -500.00 EUR
+
+2019-08-02 ! "VIR Versement Mensuel TG" ""
+  dateImport: "2019-08-20 21:40:39.585542"
+  source: "qif"
+  Actif:Boursorama:CCJoint   1500.00 EUR
+  Depenses:AClasser         -1500.00 EUR
+
+2019-08-05 ! "PRLV SEPA GMF ASSURANCES" ""
+  dateImport: "2019-08-20 21:40:39.585831"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -86.18 EUR
+  Depenses:AClasser          86.18 EUR
+
+2019-08-05 ! "VIR SEPA CAF DES DEUX SEVRES" ""
+  dateImport: "2019-08-20 21:40:39.586121"
+  source: "qif"
+  Actif:Boursorama:CCJoint   131.55 EUR
+  Depenses:AClasser         -131.55 EUR
+
+2019-08-06 ! "PRLV SEPA FREE MOBILE" ""
+  dateImport: "2019-08-20 21:40:39.586412"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -4.55 EUR
+  Depenses:AClasser          4.55 EUR
+
+2019-08-07 ! "*FRAIS BOURSORAMA PROTEC. DUO +" ""
+  dateImport: "2019-08-20 21:40:39.586718"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -3.50 EUR
+  Depenses:AClasser          3.50 EUR
+
+2019-08-08 ! "REM CHQ N. 1183403" ""
+  dateImport: "2019-08-20 21:40:39.587064"
+  source: "qif"
+  Actif:Boursorama:CCJoint   112.90 EUR
+  Depenses:AClasser         -112.90 EUR
+
+2019-08-08 ! "REM CHQ N. 2190584" ""
+  dateImport: "2019-08-20 21:40:39.587385"
+  source: "qif"
+  Actif:Boursorama:CCJoint   70.00 EUR
+  Depenses:AClasser         -70.00 EUR
+
+2019-08-16 ! "PRLV SEPA DIRECTION GENERALE DES FINANCE" ""
+  dateImport: "2019-08-20 21:40:39.587683"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -106.00 EUR
+  Depenses:AClasser          106.00 EUR
+
+2019-08-16 ! "PRLV SEPA DIRECTION GENERALE DES FINANCE" ""
+  dateImport: "2019-08-20 21:40:39.587970"
+  source: "qif"
+  Actif:Boursorama:CCJoint  -96.00 EUR
+  Depenses:AClasser          96.00 EUR

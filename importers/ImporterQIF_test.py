@@ -9,10 +9,10 @@ from beancount.ingest import regression_pytest as regtest
 from . import ImporterQIF
 
 
-IMPORTER = ImporterQIF()
+IMPORTER = ImporterQIF.ImporterQIF()
 
 @regtest.with_importer(IMPORTER)
-@regtest.with_testdir("./regtest")
+@regtest.with_testdir("/myData/importers/regtest")
 class TestImporter(regtest.ImporterTestBase):
     pass
 

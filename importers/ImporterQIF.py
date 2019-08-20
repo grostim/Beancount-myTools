@@ -33,8 +33,17 @@ class ImporterQIF(importer.ImporterProtocol):
     def identify(self, file):
         return re.match(r".*.qif", path.basename(file.name))
 
-    def file_account(self, _):
+    def file_account(self, file):
         return self.accountList[path.basename(file.name).replace(".qif",'')]
+
+    def file_name(self, file):
+        return format(path.basename(file.name))
+
+    def file_date(self, file):
+        with open(file.name, "r", encoding="windows-1250") as fichier:
+            chunks = fichier.read().split("\n^\n")
+            lines = chunks[-2].split("\n")
+            return datetime.datetime.strptime(lines[-3][1:], "%d/%m/%Y")
 
     def check_before_add(self, transac):
         try:
@@ -47,7 +56,6 @@ class ImporterQIF(importer.ImporterProtocol):
         entries = []
         with open(file.name, "r", encoding="windows-1250") as fichier:
             chunks = fichier.read().split("\n^\n")
-            #print(path.basename(file.name).replace(".qif",''))
             index = 0
             for chunk in chunks:
                 index += 1
