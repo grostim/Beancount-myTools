@@ -25,10 +25,10 @@ NoneType = type(None)
 
 class ImporterQIF(importer.ImporterProtocol):
 
-    def __init__(self):
+    def __init__(self,accountList):
         self.logger = logging.getLogger(__file__)  # pylint: disable=W0612
-        self.accountList = dict()
-        self.accountList["00040754305"] = "Actif:Boursorama:CCJoint"
+        assert isinstance(accountList, dict), "La liste de comptes doit etre un type dict"
+        self.accountList=accountList
 
     def identify(self, file):
         return re.match(r".*.qif", path.basename(file.name))
@@ -61,7 +61,8 @@ class ImporterQIF(importer.ImporterProtocol):
                 index += 1
                 meta = data.new_metadata(file.name, index)
                 meta["source"] = "qif"
-                meta["dateImport"] = str(datetime.datetime.now())
+#		A supprimer car fait planter le test de regression
+#                meta["dateImport"] = str(datetime.datetime.now())
                 ope = dict()
                 first_line = chunk.split("\n")[0]
                 if first_line == "!Account":

@@ -15,8 +15,12 @@ from beancount.ingest import extract
 
 
 # Setting this variable provides a list of importer instances.
+
+ACCOUNTLIST = {
+        '00040754305'       : 'Actif:Boursorama:CCJoint',
+    }
 CONFIG = [
-     ImporterQIF(),
+     ImporterQIF(ACCOUNTLIST),
 #    utrade_csv.Importer("USD",
 #                        "Assets:US:UTrade",
 #                        "Assets:US:UTrade:Cash",

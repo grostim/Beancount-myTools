@@ -8,8 +8,10 @@ import pytest
 from beancount.ingest import regression_pytest as regtest
 from . import ImporterQIF
 
-
-IMPORTER = ImporterQIF.ImporterQIF()
+ACCOUNTLIST = {
+        '00040754305'       : 'Actif:Boursorama:CCJoint',
+    }
+IMPORTER = ImporterQIF.ImporterQIF(ACCOUNTLIST)
 
 @regtest.with_importer(IMPORTER)
 @regtest.with_testdir("/myData/importers/regtest")
