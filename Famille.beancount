@@ -345,6 +345,6 @@ option "documents" "./"
 * Cash Daybook
 ;; This is a section you can use to enter transactions by hand,
 ;; that is, not from imported OFX files.
-;test
+;t
 
 
