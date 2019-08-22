@@ -19,7 +19,7 @@ option "documents" "./"
 1981-02-07 custom "fava-option" "interval" "month"
 1981-02-07 custom "fava-option" "import-config" "./Famille.import"
 1981-02-07 custom "fava-option" "import-dirs" "./A_Importer"
-1981-02-07 custom "fava-extension" "myAutoCommit"
+1981-02-07 custom "fava-extension" "ext.myAutoCommit"
 
 ** General Accounts
 ;; We need to declare a few general accounts that we will use below.
@@ -160,9 +160,6 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -96.00 EUR
   Depenses:Impots:TF                                  96.00 EUR
 
-2019-08-22 # "REM CHQ N. 1183403" "dd"
-  Actif:Boursorama:CCJoint                           112.90 EUR
-  Revenus:VentesAnna                                -112.90 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
