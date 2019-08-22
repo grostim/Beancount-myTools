@@ -160,6 +160,10 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -96.00 EUR
   Depenses:Impots:TF                                  96.00 EUR
 
+2019-08-22 # "PRLV SEPA GMF ASSURANCES" "TEST"
+  Actif:Boursorama:CCJoint                           -86.18 EUR
+  Depenses:Assurance:Habitation
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
