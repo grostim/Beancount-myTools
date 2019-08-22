@@ -19,6 +19,7 @@ option "documents" "./"
 1981-02-07 custom "fava-option" "interval" "month"
 1981-02-07 custom "fava-option" "import-config" "./Famille.import"
 1981-02-07 custom "fava-option" "import-dirs" "./A_Importer"
+2010-02-07 custom "fava-extension" "myAutoCommit"
 
 ** General Accounts
 ;; We need to declare a few general accounts that we will use below.
