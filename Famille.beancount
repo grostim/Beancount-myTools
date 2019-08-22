@@ -320,86 +320,31 @@ option "documents" "./"
 
 * Comptes Revenus et Depenses
 
-1981-07-02 open Depenses:Abo:Apple EUR
-1981-07-02 open Depenses:Abo:Elec EUR
-1981-07-02 open Depenses:Abo:Gaz EUR
-1981-07-02 open Depenses:Abo:Telephone EUR
-1981-07-02 open Depenses:Assurance:Auto EUR
-1981-07-02 open Depenses:Assurance:Habitation EUR
-1981-07-02 open Depenses:Assurance:CB EUR
-1981-07-02 open Depenses:Banque:Frais EUR
-1981-07-02 open Depenses:Divers EUR
-1981-07-02 open Depenses:Immobilier:FraisNotaire EUR
-1981-07-02 open Depenses:Impots EUR
-1981-07-02 open Depenses:Impots:IR EUR
-1981-07-02 open Depenses:Impots:TH EUR
-1981-07-02 open Depenses:Impots:TF EUR
-1981-07-02 open Depenses:Loisirs:Billeterie EUR
+1981-07-02 open Depenses:Abo:Apple                          EUR
+1981-07-02 open Depenses:Abo:Elec                           EUR
+1981-07-02 open Depenses:Abo:Gaz                            EUR
+1981-07-02 open Depenses:Abo:Telephone                      EUR
+1981-07-02 open Depenses:Assurance:Auto                     EUR
+1981-07-02 open Depenses:Assurance:Habitation               EUR
+1981-07-02 open Depenses:Assurance:CB                       EUR
+1981-07-02 open Depenses:Banque:Frais                       EUR
+1981-07-02 open Depenses:Divers                             EUR
+1981-07-02 open Depenses:Immobilier:FraisNotaire            EUR
+1981-07-02 open Depenses:Impots                             EUR
+1981-07-02 open Depenses:Impots:IR                          EUR
+1981-07-02 open Depenses:Impots:TH                          EUR
+1981-07-02 open Depenses:Impots:TF                          EUR
+1981-07-02 open Depenses:Loisirs:Billeterie                 EUR
 
-1981-07-02 open Revenus:CAF EUR
-1981-07-02 open Revenus:Cerises EUR
-1981-07-02 open Revenus:VentesAnna EUR
-;1982-04-01 open Expenses:Financial:Fees
-;1982-04-01 open Expenses:Financial:Commissions    USD
-;1982-04-01 open Expenses:Financial:Interest
-;1982-04-01 open Expenses:Insurance:Life
-;1982-04-01 open Expenses:Communications:Phone
-;1982-04-01 open Expenses:Communications:Email
-;1982-04-01 open Expenses:Communications:Internet
-;1982-04-01 open Expenses:Clothing
-;1982-04-01 open Expenses:Clothing:Cleaning
-;1982-04-01 open Expenses:Beauty:Hair
-;1982-04-01 open Expenses:Health:Massage
-;1982-04-01 open Expenses:Sports:Gear
-;1982-04-01 open Expenses:Sports:Cycling
-;1982-04-01 open Expenses:Sports:Yoga
-;1982-04-01 open Expenses:Fun:Movie
-;1982-04-01 open Expenses:Fun:Theater
-;1982-04-01 open Expenses:Fun:Concerts
-;1982-04-01 open Expenses:Fun:Museum
-;1982-04-01 open Expenses:Food:Restaurant
-;1982-04-01 open Expenses:Food:Grocery
-;1982-04-01 open Expenses:Food:Alcohol
-;1982-04-01 open Expenses:Books
-;1982-04-01 open Expenses:Gifts
-;1982-04-01 open Expenses:Travel:Accommodation
-;1982-04-01 open Expenses:Travel:Gear
-;1982-04-01 open Expenses:Travel:Documents
-;1982-04-01 open Expenses:Travel:Tours
-;1982-04-01 open Expenses:Travel:Communications
-;1982-04-01 open Expenses:Travel:Insurance
-;1982-04-01 open Expenses:Transportation:Flights
-;1982-04-01 open Expenses:Transportation:Parking
-;1982-04-01 open Expenses:Transportation:Taxi
-;1982-04-01 open Expenses:Transportation:Train
-;1982-04-01 open Expenses:Transportation:Bus
-;1982-04-01 open Expenses:Transportation:Car-Rental
-;1982-04-01 open Expenses:Transportation:Gas
-;1982-04-01 open Expenses:Moving
-;1982-04-01 open Expenses:Toys:Photography
-;1982-04-01 open Expenses:Toys:Computer
-;1982-04-01 open Expenses:Toys:Electronics
-;1982-04-01 open Expenses:Office-Supplies
-;1982-04-01 open Expenses:Misc
-;1982-04-01 open Expenses:Govt-Services:Drivers-License
-;1982-04-01 open Expenses:Medical:Insurance                 ;; Paying for insurance coverage
-;1982-04-01 open Expenses:Medical:Copay                     ;; Copays
-;1982-04-01 open Expenses:Medical:Deductible                ;; Amount towards deductible
-;1982-04-01 open Expenses:Medical:MaxOutOfPocket            ;; Amount towards max out-of-pocket expenses
-;1982-04-01 open Expenses:Medical:Drugs                     ;; Pills, drugs, and other OTC medicine
-;1982-04-01 open Expenses:Medical:Dental                    ;; Costs of dentist
-;1982-04-01 open Expenses:Medical:Glasses                   ;; Corrective glasses
-;1982-04-01 open Expenses:Medical:Acupuncture
-;1982-04-01 open Expenses:Charity
-;1982-04-01 open Expenses:Tips
-
-;;; ... add more here, add your own categories ...
+1981-07-02 open Revenus:CAF                                 EUR
+1981-07-02 open Revenus:Cerises                             EUR
+1981-07-02 open Revenus:VentesAnna                          EUR
 
 
 
 * Cash Daybook
 ;; This is a section you can use to enter transactions by hand,
 ;; that is, not from imported OFX files.
-
+;test
 
 
