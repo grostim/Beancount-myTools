@@ -160,7 +160,7 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -96.00 EUR
   Depenses:Impots:TF                                  96.00 EUR
 
-2019-08-22 1 "REM CHQ N. 1183403" "dd"
+2019-08-22 # "REM CHQ N. 1183403" "dd"
   Actif:Boursorama:CCJoint                           112.90 EUR
   Revenus:VentesAnna                                -112.90 EUR
 
