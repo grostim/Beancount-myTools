@@ -36,7 +36,7 @@ option "documents" "./"
 ;2008-07-01 event "address" "12345 Brick Lane, New York City, NY 10011, USD"
 
 ;; Same thing with your employer.
-;2011-02-15 event "employer" "Boogle Tech Inc."
+1981-07-02 event "Ma Vie" "Naissance !"
 
 
 * Comptes
