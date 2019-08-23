@@ -213,6 +213,20 @@ option "documents" "./"
 2007-09-08 pad  Actif:Boursorama:LDDAnna  Equity:Opening-Balances
 2019-08-19 balance  Actif:Boursorama:LDDAnna         217.16 EUR
 
+1980-06-21 open Actif:BanquePostale:LAAnna                  EUR
+  account: "00040239557"
+1980-06-22 pad  Actif:BanquePostale:LAAnna  Equity:Opening-Balances
+
+2018-12-31 * "Versement interets"
+  Actif:BanquePostale:LAAnna                           60.5 EUR
+  Revenus:Interets
+
+2019-08-03 * "" "Versement cash issu du don Parents"
+  Actif:BanquePostale:LAAnna                           2000 EUR
+  Actif:Cash
+
+2019-08-23 balance  Actif:Boursorama:CCAnna        10126.72 EUR
+
 ** Emprunts
 
 2016-02-26 open   Passif:Boursorama:EmpruntRP               EUR
@@ -340,7 +354,7 @@ option "documents" "./"
 1981-07-02 open Revenus:CAF                                 EUR
 1981-07-02 open Revenus:Cerises                             EUR
 1981-07-02 open Revenus:VentesAnna                          EUR
-
+1981-07-02 open Revenus:Interets                            EUR
 
 
 * Cash Daybook
