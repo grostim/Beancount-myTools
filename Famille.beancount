@@ -225,7 +225,7 @@ option "documents" "./"
   Actif:BanquePostale:LAAnna                           2000 EUR
   Actif:Cash
 
-2019-08-23 balance  Actif:Boursorama:CCAnna        10126.72 EUR
+2019-08-23 balance  Actif:BanquePostale:LAAnna     10126.72 EUR
 
 ** Emprunts
 
