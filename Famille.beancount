@@ -604,6 +604,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -38.50 EUR
   Depenses:Alimentaire:Epicerie                       38.50 EUR
 
+2019-03-19 * "CARTE 18/03/19 79 BIOMARCHE      CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -52.33 EUR
+  Depenses:Alimentaire:Epicerie                       52.33 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
