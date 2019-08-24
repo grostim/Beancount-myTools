@@ -2333,3 +2333,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.40 EUR
   Depenses:Alimentaire:Restaurant                      8.40 EUR
 
+2019-01-28 * "CARTE 26012019 17 PAILLE M" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -14.75 EUR
+  Depenses:Alimentaire:Restaurant                     14.75 EUR
+
