@@ -1133,6 +1133,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           131.55 EUR
   Revenus:CAF                                       -131.55 EUR
 
+2019-07-05 * "*INTERETS DEBITEURS AU 30/06/19" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -0.38 EUR
+  Depenses:Banque:Frais                                0.38 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
