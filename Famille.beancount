@@ -416,6 +416,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             455.60 EUR
   Actif:NoteDeFrais                                 -455.60 EUR
 
+2019-04-23 * "*CION CB OP. ETR 04/19 BNI GAB 65 IHO" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                              -0.97 EUR
+  Depenses:Banque:Frais                                0.97 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
