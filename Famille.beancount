@@ -1002,6 +1002,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -19.84 EUR
   Depenses:Alimentaire:Epicerie                       19.84 EUR
 
+2019-06-12 * "RETRAIT DAB 08/06/19 CHABRIERES  CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -40.00 EUR
+  Actif:Cash                                          40.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
