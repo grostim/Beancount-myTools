@@ -107,6 +107,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                           -1295.79 EUR
   Passif:Boursorama:CBTim                           1295.79 EUR
 
+2019-01-07 * "CHQ. N.0255103" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -110.00 EUR
+  Depenses:Immobilier:Menage:Salaire                 110.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
