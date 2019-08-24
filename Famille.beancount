@@ -2298,3 +2298,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.67 EUR
   Depenses:Sante                                       8.67 EUR
 
+2019-01-14 * "CARTE 12012019 LE GRAND BLEU" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -11.40 EUR
+  Depenses:Alimentaire:Epicerie                       11.40 EUR
+
