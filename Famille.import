@@ -24,6 +24,8 @@ ACCOUNTLIST = {
         '00040239557'       : 'Actif:Boursorama:CCAnna',
         '10014570396'       : 'Passif:Boursorama:CBJoint',
         '4979********1979'  : 'Passif:Boursorama:CBJoint',
+        '10014935408'       : 'Passif:Boursorama:CBTim',
+        '4979********1974'  : 'Passif:Boursorama:CBTim',
     }
 
 smart_ImporterQIF =  ImporterQIF(ACCOUNTLIST)
