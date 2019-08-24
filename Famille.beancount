@@ -2328,3 +2328,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.00 EUR
   Depenses:Alimentaire:Restaurant                      8.00 EUR
 
+2019-01-24 * "CARTE 22012019 LE FOURNIL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.40 EUR
+  Depenses:Alimentaire:Restaurant                      8.40 EUR
+
