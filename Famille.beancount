@@ -735,6 +735,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -96.00 EUR
   Depenses:Impots:TH                                  96.00 EUR
 
+2019-04-16 * "REM CHQ N. 0882524" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            70.00 EUR
+  Revenus:VentesAnna                                 -70.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
