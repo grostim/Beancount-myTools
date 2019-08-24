@@ -2353,3 +2353,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -10.50 EUR
   Depenses:Abo:Serveur                                10.50 EUR
 
+2019-01-28 * "CARTE 26012019 79 FROMAGES DE SYL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.90 EUR
+  Depenses:Alimentaire:Epicerie                        8.90 EUR
+
