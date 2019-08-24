@@ -1145,9 +1145,8 @@ option "documents" "./"
   dateImport: "2019-08-19 20:54:29.367089"
   source: "qif"
   Actif:Boursorama:CCJoint                           -86.18 EUR
-  ! Depenses:Voitures:Assurance                           45 EUR
-  ! Depenses:Immobilier:Assurance 
-;TODO: A vérifier
+    Depenses:Voitures:Assurance                          
+    Depenses:Immobilier:Assurance                     51.81 EUR
 
 2019-08-05 * "VIR SEPA CAF DES DEUX SEVRES" ""
   dateImport: "2019-08-19 20:54:29.367370"
@@ -1247,6 +1246,8 @@ option "documents" "./"
 2010-03-03 open   Passif:Boursorama:CBJoint                 EUR
 2010-03-04 pad    Passif:Boursorama:CBJoint  Equity:Opening-Balances
 2019-08-19 balance  Passif:Boursorama:CBJoint             0 EUR
+
+1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBJoint"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
 ;2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
