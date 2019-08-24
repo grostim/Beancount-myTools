@@ -202,6 +202,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           292.44 EUR
   Revenus:VentesAnna                                -292.44 EUR
 
+2019-01-04 ! "RETRAIT DAB 03012019 NIORT       CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -60.00 EUR
+  Actif:Cash                                          60.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
