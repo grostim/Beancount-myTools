@@ -191,6 +191,12 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -4.55 EUR
   Depenses:Abo:Telephone                               4.55 EUR
 
+2019-01-03 ! "PRLV SEPA GMF ASSURANCES" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -83.74 EUR
+  Depenses:Voitures:Assurance                            32 EUR
+  Depenses:Immobilier:Assurance
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
