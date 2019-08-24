@@ -539,6 +539,11 @@ option "documents" "./"
   Depenses:Voitures:Assurance                            35 EUR
   Depenses:Immobilier:Assurance
 
+2019-03-06 * "CARTE 04032019 79 BIOMARCHE      CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -135.93 EUR
+  Depenses:Alimentaire:Epicerie                      135.93 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
