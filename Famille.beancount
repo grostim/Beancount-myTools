@@ -1178,6 +1178,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -285.70 EUR
   Depenses:Enfants:Scolarite                         285.70 EUR
 
+2019-07-15 * "PRLV SEPA DIRECTION GENERALE DES FINANCE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -96.00 EUR
+  Depenses:Impots:TH                                  96.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
