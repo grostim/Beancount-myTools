@@ -705,6 +705,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -29.12 EUR
   Depenses:Loisirs:Culture                            29.12 EUR
 
+2019-04-10 * "CHQ. N.9440147" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -58.00 EUR
+  Depenses:Divers                                     58.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
