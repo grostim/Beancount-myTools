@@ -559,6 +559,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -26.55 EUR
   Depenses:Alimentaire:Epicerie                       26.55 EUR
 
+2019-03-11 * "VIR SEPA HARMONIE MUTUELLE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                             9.60 EUR
+  Depenses:Sante                                      -9.60 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
