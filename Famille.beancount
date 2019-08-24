@@ -1107,6 +1107,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           500.00 EUR
   Actif:Boursorama:CCAnna                           -500.00 EUR
 
+2019-07-02 * "CARTE 29/06/19 ITUNES.COM/BILL   CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -2.17 EUR
+  Depenses:Abo:Apple                                   2.17 EUR
+
 2019-07-01 * "RETRAIT DAB 29/06/19 NIORT REPUB CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -60.00 EUR
