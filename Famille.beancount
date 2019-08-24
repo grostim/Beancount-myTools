@@ -161,6 +161,11 @@ option "documents" "./"
   Depenses:Impots:TF                                  96.00 EUR
 
 
+2019-01-02 * "Relev{ diff{r{ Carte 4979********1979" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -274.22 EUR
+  Passif:Boursorama:CBJoint                          274.22 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
