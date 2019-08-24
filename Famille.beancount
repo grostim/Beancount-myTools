@@ -2150,6 +2150,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.00 EUR
   Depenses:Alimentaire:Restaurant                      8.00 EUR
 
+2019-02-25 * "CARTE 23022019 LA CIGALE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -32.00 EUR
+  Depenses:Alimentaire:Restaurant                     32.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
