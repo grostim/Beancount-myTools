@@ -684,6 +684,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                           -1279.99 EUR
   Passif:AirFrance:Amex                             1279.99 EUR
 
+2019-08-16 * "VIR SEPA M.OU MME LEROUX YANNICK" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                              10.40 EUR
+  Depenses:Abo:Serveur                               -10.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
