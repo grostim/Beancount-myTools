@@ -947,6 +947,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -126.00 EUR
   Depenses:Divers                                    126.00 EUR
 
+2019-06-05 * "PRLV SEPA FREE MOBILE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -4.90 EUR
+  Depenses:Abo:Telephone                               4.90 EUR
+
 2019-06-04 * "RETRAIT DAB 02/06/19 NIORT HALLE CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -60.00 EUR
