@@ -393,6 +393,11 @@ option "documents" "./"
   Depenses:Voitures:Assurance                            35 EUR
   Depenses:Immobilier:Assurance
 
+2019-02-04 ! "PRLV SEPA TRES. NIORT-SEVRE MUNICIPALE -" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -117.00 EUR
+  Depenses:A-CLASSER                                 117.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
