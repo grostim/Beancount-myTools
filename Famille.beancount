@@ -2676,3 +2676,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -26.55 EUR
   Actif:NoteDeFrais                                   26.55 EUR
 
+2019-03-15 * "CARTE 12/03/19 84 ASF-NIORT OUEST" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.90 EUR
+  Actif:NoteDeFrais                                   10.90 EUR
+
