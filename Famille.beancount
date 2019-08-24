@@ -755,6 +755,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            14.01 EUR
   Depenses:Sante                                     -14.01 EUR
 
+2019-04-24 * "CARTE 23/04/19 IE ITUNES.COM/BIL CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -0.99 EUR
+  Depenses:Abo:Apple                                   0.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
