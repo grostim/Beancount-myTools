@@ -307,6 +307,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -13.10 EUR
   Depenses:Alimentaire:Epicerie                       13.10 EUR
 
+2019-01-21 ! "RETRAIT DAB 19012019 NIORT       CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -60.00 EUR
+  Actif:Cash                                          60.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
