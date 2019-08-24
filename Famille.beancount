@@ -2731,3 +2731,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.22 EUR
   Depenses:Alimentaire:Epicerie                        3.22 EUR
 
+2019-03-25 * "CARTE 23/03/19 PICARD SA 282   4212109" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.65 EUR
+  Depenses:Alimentaire:Epicerie                        3.65 EUR
+
