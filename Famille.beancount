@@ -463,6 +463,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -150.00 EUR
   Actif:Linxea:AVTim1                                150.00 EUR
 
+2019-05-13 * "PRLV SEPA GENERALI VIE SA" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -150.00 EUR
+  Actif:Boursorama:AVTim2                            150.00 EUR
+
 2019-05-10 * "VIR SEPA GROS Timothee" ""
   source: "qif"
   Actif:Boursorama:CCTim                            -150.00 EUR
