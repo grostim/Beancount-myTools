@@ -2180,6 +2180,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                           -109.00 EUR
   Depenses:Loisirs:Voyages                           109.00 EUR
 
+2019-02-28 * "CARTE 27022019 CARREFOUR MARKET" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -7.21 EUR
+  Depenses:Alimentaire:Epicerie                        7.21 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
