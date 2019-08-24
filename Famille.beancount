@@ -982,6 +982,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -274.00 EUR
   Depenses:Enfants:Scolarite                         274.00 EUR
 
+2019-06-11 * "CARTE 07/06/19 79 PICARD SA  082 CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -73.03 EUR
+  Depenses:Alimentaire:Epicerie                       73.03 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
