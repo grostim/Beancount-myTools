@@ -881,6 +881,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -0.99 EUR
   Depenses:Abo:Apple                                   0.99 EUR
 
+2019-05-27 ! "ECH PRET:80280000606862232605" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                         -1082.26 EUR
+  Passif:Boursorama:EmpruntRP                       1082.26 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
