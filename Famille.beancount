@@ -2666,3 +2666,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -68.33 EUR
   Depenses:Immobilier:Travaux                         68.33 EUR
 
+2019-03-12 * "CARTE 11/03/19 CARREFOUR NIORT" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.45 EUR
+  Depenses:Alimentaire:Epicerie                       10.45 EUR
+
