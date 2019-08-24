@@ -2238,3 +2238,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -5.60 EUR
   Depenses:Alimentaire:Epicerie                        5.60 EUR
 
+2019-01-02 * "CARTE 31122018 PHIE DE L'OLIVIER" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -7.13 EUR
+  Depenses:Sante                                       7.13 EUR
+
