@@ -649,6 +649,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -155.13 EUR
   Actif:Linxea:CapiFelicien                          155.13 EUR
 
+2019-08-12 * "PRLV SEPA GENERALI VIE SA" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -150.00 EUR
+  Actif:Linxea:AVTim1                                150.00 EUR
+
 2019-08-07 * "PRLV SEPA Free Telecom" ""
   source: "qif"
   Actif:Boursorama:CCTim                             -37.97 EUR
