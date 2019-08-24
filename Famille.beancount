@@ -2030,6 +2030,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.45 EUR
   Depenses:Alimentaire:Restaurant                      8.45 EUR
 
+2019-02-11 * "CARTE 08022019 79 PHARMACIE BLANCHART" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -6.48 EUR
+  Depenses:Sante                                       6.48 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
