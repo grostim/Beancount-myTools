@@ -413,6 +413,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           131.16 EUR
   Revenus:CAF                                       -131.16 EUR
 
+2019-02-05 * "CARTE 02022019 79 INTERMARCHE    CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -12.83 EUR
+  Depenses:Alimentaire:Epicerie                       12.83 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
