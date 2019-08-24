@@ -43,7 +43,7 @@ class ImporterQIF(importer.ImporterProtocol):
         with open(file.name, "r", encoding="windows-1250") as fichier:
             chunks = fichier.read().split("\n^\n")
             lines = chunks[-2].split("\n")
-            return datetime.datetime.strptime(lines[-3][1:], "%d/%m/%Y")
+            return datetime.datetime.strptime(lines[-3][1:], "%d/%m/%Y").date()
 
     def check_before_add(self, transac):
         try:
