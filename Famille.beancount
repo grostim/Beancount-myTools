@@ -232,6 +232,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -67.36 EUR
   Depenses:Habillement                                67.36 EUR
 
+2019-01-07 ! "CARTE 04012019 79 PHARM DE PARIS CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -77.66 EUR
+  Depenses:Sante                                      77.66 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
