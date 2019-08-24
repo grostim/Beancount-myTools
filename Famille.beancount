@@ -47,6 +47,11 @@ option "documents" "./"
 2013-08-27 pad  Actif:Boursorama:CCTim  Equity:Opening-Balances
 2019-08-19 balance  Actif:Boursorama:CCTim          -635.52 EUR
 
+2019-01-02 ! "VIR Versement Mensuel TG" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          1500.00 EUR
+  Actif:Boursorama:CCTim                           -1500.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
