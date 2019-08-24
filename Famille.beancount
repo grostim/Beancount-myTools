@@ -438,6 +438,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -835.73 EUR
   Passif:Boursorama:CBTim                            835.73 EUR
 
+2019-05-06 * "VIR Virement interne depuis COMPTE PERS" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                           -1500.00 EUR
+  Actif:Boursorama:CELTim                           1500.00 EUR
+
 2019-05-06 ! "PRLV SEPA SURAVENIR" ""
   source: "qif"
   Actif:Boursorama:CCTim                            -150.00 EUR
