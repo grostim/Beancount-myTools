@@ -1402,6 +1402,11 @@ option "documents" "./"
   Passif:Boursorama:CBJoint                          -32.90 EUR
   Depenses:Alimentaire:Epicerie                       32.90 EUR
 
+2019-07-29 * "CARTE 26/07/19 79 CARREFOUR DAC" ""
+  source: "qif"
+  Passif:Boursorama:CBJoint                          -52.00 EUR
+  Depenses:Voitures:Carburant                         52.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBJoint"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
