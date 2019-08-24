@@ -438,6 +438,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            14.01 EUR
   Depenses:Sante                                     -14.01 EUR
 
+2019-02-11 * "PRLV SEPA OGEC SAINT HILAIRE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -269.00 EUR
+  Depenses:Enfants:Scolarite                         269.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
