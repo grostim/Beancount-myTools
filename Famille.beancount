@@ -2656,3 +2656,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -14.00 EUR
   Depenses:Alimentaire:Restaurant                     14.00 EUR
 
+2019-03-12 * "CARTE 07/03/19 LE GEETHANJALI" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.50 EUR
+  Depenses:Alimentaire:Restaurant                     10.50 EUR
+
