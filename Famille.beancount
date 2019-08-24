@@ -165,10 +165,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             -20.00 EUR
   Actif:Cash                                          20.00 EUR
 
-2019-01-31 * "VIR SEPA TECNAL S.A.S" ""
+2019-01-31 ! "VIR SEPA TECNAL S.A.S" ""
   source: "qif"
   Actif:Boursorama:CCTim                            3160.45 EUR
-  Depenses:Revenus:Salaires:Tecnal                 -3160.45 EUR
+  Revenus:Salaires:Tecnal                          -3160.45 EUR
+;Reste à ventiler les impots à la source
 
 2019-02-01 balance  Actif:Boursorama:CCTim          3799.74 EUR
 
