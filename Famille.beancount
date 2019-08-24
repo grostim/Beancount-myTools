@@ -252,6 +252,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            22.40 EUR
   Depenses:Sante                                     -22.40 EUR
 
+2019-01-10 ! "PRLV SEPA MAAF ASSURANCES SA" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -438.75 EUR
+  Depenses:Voitures:Assurance                        438.75 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
