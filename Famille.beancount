@@ -2661,3 +2661,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -10.50 EUR
   Depenses:Alimentaire:Restaurant                     10.50 EUR
 
+2019-03-12 * "CARTE 09/03/19 CASTORAMA       2902628" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -68.33 EUR
+  Depenses:Immobilier:Travaux                         68.33 EUR
+
