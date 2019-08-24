@@ -831,6 +831,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -50.00 EUR
   Actif:Cash                                          50.00 EUR
 
+2019-05-13 * "CARTE 11/05/19 79 PHARM DE PARIS CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -32.98 EUR
+  Depenses:Sante                                      32.98 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
