@@ -2706,3 +2706,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -31.76 EUR
   Depenses:Alimentaire:Epicerie                       31.76 EUR
 
+2019-03-21 * "CARTE 20/03/19 79 L'ADRESSE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -66.90 EUR
+  Actif:NoteDeFrais                                   66.90 EUR
+
