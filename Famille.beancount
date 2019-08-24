@@ -1835,6 +1835,159 @@ option "documents" "./"
 2013-08-27 pad    Passif:Boursorama:CBTim  Equity:Opening-Balances
 2019-08-19 balance  Passif:Boursorama:CBTim         -513.45 EUR
 
+2019-04-15 * "RETRAIT DAB 13/04/19 NIORT       CB*1974" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -100.00 EUR
+  Actif:Cash                                         100.00 EUR
+
+2019-01-02 * "CARTE 31122018 LE FOURNIL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -5.60 EUR
+  Depenses:Alimentaire:Epicerie                        5.60 EUR
+
+2019-01-02 * "CARTE 31122018 PHIE DE L'OLIVIER" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -7.13 EUR
+  Depenses:Sante                                       7.13 EUR
+
+2019-01-03 * "CARTE 02012019 79 PHIE BONNET ABELIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.65 EUR
+  Depenses:Sante                                       3.65 EUR
+
+2019-01-04 * "CARTE 02012019 PICARD SA 282   4212109" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.30 EUR
+  Depenses:Alimentaire:Epicerie                        9.30 EUR
+
+2019-01-07 * "CARTE 04012019 TISSUS DU RENARD" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -13.10 EUR
+  Depenses:Loisirs:Couture                            13.10 EUR
+
+2019-01-07 * "CARTE 04012019 LA TRATTORIA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -16.80 EUR
+  Depenses:Alimentaire:Restaurant                     16.80 EUR
+
+2019-01-08 * "CARTE 05012019 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -6.97 EUR
+  Depenses:Alimentaire:Epicerie                        6.97 EUR
+
+2019-01-08 * "CARTE 07012019 E.L.G" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -17.00 EUR
+  Depenses:Alimentaire:Restaurant                     17.00 EUR
+
+2019-01-14 ! "CARTE 09012019 29 MAX PAYPAL" "Spotify"
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.38 EUR
+  Depenses:A-CLASSER                                   3.38 EUR
+
+2019-01-14 * "CARTE 11012019 79 E LECLERC DAC VL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -55.01 EUR
+  Depenses:Voitures:Carburant                         55.01 EUR
+
+2019-01-14 * "CARTE 10012019 COMPTOIR DU PELICAN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -19.90 EUR
+  Depenses:Alimentaire:Restaurant                     19.90 EUR
+
+2019-01-14 * "CARTE 11012019 DOUC'HEUR DU MA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -21.70 EUR
+  Depenses:Alimentaire:Restaurant                     21.70 EUR
+
+2019-01-14 * "CARTE 12012019 PHARM DE PARIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.67 EUR
+  Depenses:Sante                                       8.67 EUR
+
+2019-01-14 * "CARTE 12012019 LE GRAND BLEU" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -11.40 EUR
+  Depenses:Alimentaire:Epicerie                       11.40 EUR
+
+2019-01-15 * "CARTE 12012019 AMIS DU MARAIS NIOR" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -12.44 EUR
+  Depenses:Alimentaire:Epicerie                       12.44 EUR
+
+2019-01-17 * "CARTE 16012019 PIZZA FEU BOIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -40.50 EUR
+  Depenses:Alimentaire:Restaurant                     40.50 EUR
+
+2019-01-21 * "CARTE 20012019 79 SEV" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -282.64 EUR
+  Depenses:Abo:Eau                                   282.64 EUR
+
+2019-01-21 * "CARTE 19012019 79 E LECLERC DAC VL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -13.37 EUR
+  Depenses:Voitures:Carburant                         13.37 EUR
+
+2019-01-21 * "CARTE 17012019 MAISON CREPIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.00 EUR
+  Depenses:Alimentaire:Restaurant                      8.00 EUR
+
+2019-01-24 * "CARTE 22012019 LE FOURNIL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.40 EUR
+  Depenses:Alimentaire:Restaurant                      8.40 EUR
+
+2019-01-28 * "CARTE 26012019 17 PAILLE M" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -14.75 EUR
+  Depenses:Alimentaire:Restaurant                     14.75 EUR
+
+2019-01-28 * "CARTE 26012019 79 LE GRAND BLEU" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -5.66 EUR
+  Depenses:Alimentaire:Epicerie                        5.66 EUR
+
+2019-01-28 * "CARTE 26012019 79 PHARM DE PARIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.98 EUR
+  Depenses:Sante                                       8.98 EUR
+
+2019-01-28 * "CARTE 25012019 29 MAX GOLDEN FROG" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.50 EUR
+  Depenses:Abo:Serveur                                10.50 EUR
+
+2019-01-28 * "CARTE 26012019 79 FROMAGES DE SYL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.90 EUR
+  Depenses:Alimentaire:Epicerie                        8.90 EUR
+
+2019-01-28 * "CARTE 26012019 79 AMIS DU MARAIS NIOR" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -19.05 EUR
+  Depenses:Alimentaire:Epicerie                       19.05 EUR
+
+2019-01-30 * "CARTE 29012019 79 MAISON CREPIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.25 EUR
+  Depenses:Alimentaire:Restaurant                      8.25 EUR
+
+2019-01-30 * "CARTE 28012019 MAISON CREPIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.55 EUR
+  Depenses:Alimentaire:Restaurant                      8.55 EUR
+
+2019-01-31 ! "CARTE 30012019 79 ESA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -327.74 EUR
+  Depenses:A-CLASSER                                 327.74 EUR
+
+1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
+
+
 *** Visa Compte Joint
 
 2010-03-03 open   Passif:Boursorama:CBJoint                 EUR
@@ -2228,153 +2381,3 @@ option "documents" "./"
 1981-07-02 open Actif:Cash                                  EUR
 1981-07-03 pad  Actif:Cash  Equity:Opening-Balances
 2019-08-23 balance  Actif:Cash                         7000 EUR
-2019-04-15 * "RETRAIT DAB 13/04/19 NIORT       CB*1974" ""
-  source: "qif"
-  Actif:Boursorama:CCTim                            -100.00 EUR
-  Actif:Cash                                         100.00 EUR
-
-2019-01-02 * "CARTE 31122018 LE FOURNIL" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -5.60 EUR
-  Depenses:Alimentaire:Epicerie                        5.60 EUR
-
-2019-01-02 * "CARTE 31122018 PHIE DE L'OLIVIER" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -7.13 EUR
-  Depenses:Sante                                       7.13 EUR
-
-2019-01-03 * "CARTE 02012019 79 PHIE BONNET ABELIN" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -3.65 EUR
-  Depenses:Sante                                       3.65 EUR
-
-2019-01-04 * "CARTE 02012019 PICARD SA 282   4212109" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -9.30 EUR
-  Depenses:Alimentaire:Epicerie                        9.30 EUR
-
-2019-01-07 * "CARTE 04012019 TISSUS DU RENARD" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -13.10 EUR
-  Depenses:Loisirs:Couture                            13.10 EUR
-
-2019-01-07 * "CARTE 04012019 LA TRATTORIA" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -16.80 EUR
-  Depenses:Alimentaire:Restaurant                     16.80 EUR
-
-2019-01-08 * "CARTE 05012019 INTERMARCHE" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -6.97 EUR
-  Depenses:Alimentaire:Epicerie                        6.97 EUR
-
-2019-01-08 * "CARTE 07012019 E.L.G" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -17.00 EUR
-  Depenses:Alimentaire:Restaurant                     17.00 EUR
-
-2019-01-14 ! "CARTE 09012019 29 MAX PAYPAL" "Spotify"
-  source: "qif"
-  Passif:Boursorama:CBTim                             -3.38 EUR
-  Depenses:A-CLASSER                                   3.38 EUR
-
-2019-01-14 * "CARTE 11012019 79 E LECLERC DAC VL" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -55.01 EUR
-  Depenses:Voitures:Carburant                         55.01 EUR
-
-2019-01-14 * "CARTE 10012019 COMPTOIR DU PELICAN" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -19.90 EUR
-  Depenses:Alimentaire:Restaurant                     19.90 EUR
-
-2019-01-14 * "CARTE 11012019 DOUC'HEUR DU MA" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -21.70 EUR
-  Depenses:Alimentaire:Restaurant                     21.70 EUR
-
-2019-01-14 * "CARTE 12012019 PHARM DE PARIS" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -8.67 EUR
-  Depenses:Sante                                       8.67 EUR
-
-2019-01-14 * "CARTE 12012019 LE GRAND BLEU" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -11.40 EUR
-  Depenses:Alimentaire:Epicerie                       11.40 EUR
-
-2019-01-15 * "CARTE 12012019 AMIS DU MARAIS NIOR" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -12.44 EUR
-  Depenses:Alimentaire:Epicerie                       12.44 EUR
-
-2019-01-17 * "CARTE 16012019 PIZZA FEU BOIS" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -40.50 EUR
-  Depenses:Alimentaire:Restaurant                     40.50 EUR
-
-2019-01-21 * "CARTE 20012019 79 SEV" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                           -282.64 EUR
-  Depenses:Abo:Eau                                   282.64 EUR
-
-2019-01-21 * "CARTE 19012019 79 E LECLERC DAC VL" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -13.37 EUR
-  Depenses:Voitures:Carburant                         13.37 EUR
-
-2019-01-21 * "CARTE 17012019 MAISON CREPIN" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -8.00 EUR
-  Depenses:Alimentaire:Restaurant                      8.00 EUR
-
-2019-01-24 * "CARTE 22012019 LE FOURNIL" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -8.40 EUR
-  Depenses:Alimentaire:Restaurant                      8.40 EUR
-
-2019-01-28 * "CARTE 26012019 17 PAILLE M" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -14.75 EUR
-  Depenses:Alimentaire:Restaurant                     14.75 EUR
-
-2019-01-28 * "CARTE 26012019 79 LE GRAND BLEU" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -5.66 EUR
-  Depenses:Alimentaire:Epicerie                        5.66 EUR
-
-2019-01-28 * "CARTE 26012019 79 PHARM DE PARIS" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -8.98 EUR
-  Depenses:Sante                                       8.98 EUR
-
-2019-01-28 * "CARTE 25012019 29 MAX GOLDEN FROG" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -10.50 EUR
-  Depenses:Abo:Serveur                                10.50 EUR
-
-2019-01-28 * "CARTE 26012019 79 FROMAGES DE SYL" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -8.90 EUR
-  Depenses:Alimentaire:Epicerie                        8.90 EUR
-
-2019-01-28 * "CARTE 26012019 79 AMIS DU MARAIS NIOR" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -19.05 EUR
-  Depenses:Alimentaire:Epicerie                       19.05 EUR
-
-2019-01-30 * "CARTE 29012019 79 MAISON CREPIN" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -8.25 EUR
-  Depenses:Alimentaire:Restaurant                      8.25 EUR
-
-2019-01-30 * "CARTE 28012019 MAISON CREPIN" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -8.55 EUR
-  Depenses:Alimentaire:Restaurant                      8.55 EUR
-
-2019-01-31 ! "CARTE 30012019 79 ESA" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                           -327.74 EUR
-  Depenses:A-CLASSER                                 327.74 EUR
-
