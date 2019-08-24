@@ -2726,3 +2726,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.81 EUR
   Depenses:Loisirs:Culture                             3.81 EUR
 
+2019-03-25 * "CARTE 23/03/19 SUPER U         9232300" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.22 EUR
+  Depenses:Alimentaire:Epicerie                        3.22 EUR
+
