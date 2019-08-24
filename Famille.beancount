@@ -2243,3 +2243,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -7.13 EUR
   Depenses:Sante                                       7.13 EUR
 
+2019-01-03 * "CARTE 02012019 79 PHIE BONNET ABELIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.65 EUR
+  Depenses:Sante                                       3.65 EUR
+
