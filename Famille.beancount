@@ -773,7 +773,7 @@ option "documents" "./"
 2019-04-26 * "VIR SEPA GROS Adelaide" ""
   source: "qif"
   Actif:Boursorama:CCJoint                         -1200.00 EUR
-  Depenses:Loisirs:Billeterie                       1200.00 EUR
+  Depenses:Loisirs:Voyages                          1200.00 EUR
 
 2019-04-29 * "PRLV SEPA EDF clients particuliers" ""
   source: "qif"
@@ -1014,6 +1014,7 @@ option "documents" "./"
 1981-07-02 open Depenses:Loisirs:Culture                    EUR
 1981-07-02 open Depenses:Loisirs:Couture                    EUR
 1981-07-02 open Depenses:Loisirs:Gadgets                    EUR
+1981-07-02 open Depenses:Loisirs:Voyages                    EUR
 1981-07-02 open Depenses:Sante                              EUR
 1981-07-02 open Depenses:Voitures:Achats                    EUR
 1981-07-02 open Depenses:Voitures:Carburant                 EUR
