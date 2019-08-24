@@ -8,6 +8,7 @@ from os import path
 sys.path.insert(0, path.join(path.dirname(__file__)))
 
 from importers.ImporterQIF import ImporterQIF
+from importers.pdfbourso.pdfbourso import pdfbourso
 from beancount.ingest import extract
 from smart_importer import apply_hooks, PredictPayees, PredictPostings
 from beancount.ingest.importers import ofx
@@ -29,6 +30,7 @@ smart_ImporterQIF =  ImporterQIF(ACCOUNTLIST)
 
 CONFIG = [
      apply_hooks(ImporterQIF(ACCOUNTLIST), [PredictPostings(), ]),
+     pdfbourso(ACCOUNTLIST),
 #     smart_ImporterQIF(),
 #     ofx.Importer("4979********1979",
 #                 "Passif:Boursorama:CBJoint",

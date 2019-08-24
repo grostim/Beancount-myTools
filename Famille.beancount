@@ -1249,7 +1249,7 @@ option "documents" "./"
 2010-03-03 open   Passif:Boursorama:CBJoint                 EUR
 2010-03-04 pad    Passif:Boursorama:CBJoint  Equity:Opening-Balances
 
-2018-12-31 balance  Passif:Boursorama:CBJoint        -63.28 EUR
+;2018-12-31 balance  Passif:Boursorama:CBJoint         63.28 EUR
 
 2019-01-02 * "CARTE 31122018 75 LA POSTE BOUTIQU" ""
   source: "qif"
