@@ -197,6 +197,11 @@ option "documents" "./"
   Depenses:Voitures:Assurance                            32 EUR
   Depenses:Immobilier:Assurance
 
+2019-01-03 ! "REM CHQ N. 0688461" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           292.44 EUR
+  Revenus:VentesAnna                                -292.44 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
