@@ -2308,3 +2308,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -12.44 EUR
   Depenses:Alimentaire:Epicerie                       12.44 EUR
 
+2019-01-17 * "CARTE 16012019 PIZZA FEU BOIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -40.50 EUR
+  Depenses:Alimentaire:Restaurant                     40.50 EUR
+
