@@ -577,6 +577,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                              -4.96 EUR
   Depenses:Banque:Frais                                4.96 EUR
 
+2019-07-10 * "PRLV SEPA GENERALI VIE SA" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -150.00 EUR
+  Actif:Linxea:AVTim1                                150.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
