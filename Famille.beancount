@@ -1082,6 +1082,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -21.97 EUR
   Depenses:Habillement                                21.97 EUR
 
+2019-06-28 * "PRLV SEPA URSSAF RHONE ALPES - CNCESU CE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -63.13 EUR
+  Depenses:Immobilier:Menage:Charges                  63.13 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
