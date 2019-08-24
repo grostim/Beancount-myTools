@@ -2651,3 +2651,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.47 EUR
   Depenses:A-CLASSER                                   3.47 EUR
 
+2019-03-12 * "CARTE 11/03/19 79 E.L.G" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -14.00 EUR
+  Depenses:Alimentaire:Restaurant                     14.00 EUR
+
