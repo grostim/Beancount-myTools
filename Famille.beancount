@@ -367,6 +367,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -16.63 EUR
   Depenses:Sante                                      16.63 EUR
 
+2019-01-29 ! "CARTE 26012019 79 HETM238        CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -18.96 EUR
+  Depenses:Habillement                                18.96 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
