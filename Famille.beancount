@@ -2263,3 +2263,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -16.80 EUR
   Depenses:Alimentaire:Restaurant                     16.80 EUR
 
+2019-01-08 * "CARTE 05012019 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -6.97 EUR
+  Depenses:Alimentaire:Epicerie                        6.97 EUR
+
