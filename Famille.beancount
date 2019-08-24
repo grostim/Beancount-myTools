@@ -2343,3 +2343,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -5.66 EUR
   Depenses:Alimentaire:Epicerie                        5.66 EUR
 
+2019-01-28 * "CARTE 26012019 79 PHARM DE PARIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.98 EUR
+  Depenses:Sante                                       8.98 EUR
+
