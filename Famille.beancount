@@ -2323,3 +2323,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -13.37 EUR
   Depenses:Voitures:Carburant                         13.37 EUR
 
+2019-01-21 * "CARTE 17012019 MAISON CREPIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.00 EUR
+  Depenses:Alimentaire:Restaurant                      8.00 EUR
+
