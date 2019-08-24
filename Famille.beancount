@@ -1022,6 +1022,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -50.00 EUR
   Actif:Cash                                          50.00 EUR
 
+2019-06-17 * "PRLV SEPA DIRECTION GENERALE DES FINANCE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -106.00 EUR
+  Depenses:Impots:TF                                 106.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
