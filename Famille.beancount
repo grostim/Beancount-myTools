@@ -695,6 +695,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -27.30 EUR
   Depenses:Alimentaire:Epicerie                       27.30 EUR
 
+2019-04-09 * "CARTE 06/04/19 79 H&M238         CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -54.94 EUR
+  Depenses:Habillement                                54.94 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
