@@ -540,6 +540,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                              10.40 EUR
   Depenses:Abo:Serveur                               -10.40 EUR
 
+2019-06-18 ! "CHQ. N.1738272" "Achat Vin Bergerac"
+  source: "qif"
+  Actif:Boursorama:CCTim                             -97.77 EUR
+  Depenses:Alimentaire:Epicerie                       97.77 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
