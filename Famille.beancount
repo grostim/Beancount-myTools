@@ -2721,3 +2721,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -78.30 EUR
   Actif:NoteDeFrais                                   78.30 EUR
 
+2019-03-25 * "CARTE 22/03/19 33 CULTURA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.81 EUR
+  Depenses:Loisirs:Culture                             3.81 EUR
+
