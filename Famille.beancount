@@ -362,6 +362,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -160.89 EUR
   Depenses:Abo:Elec                                  160.89 EUR
 
+2019-01-28 * "CARTE 25012019 79 PHARM DE PARIS CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -16.63 EUR
+  Depenses:Sante                                      16.63 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
