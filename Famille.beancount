@@ -1985,6 +1985,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                           -327.74 EUR
   Depenses:A-CLASSER                                 327.74 EUR
 
+2019-02-01 * "CARTE 31012019 MC DONALD       4317004" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -17.50 EUR
+  Depenses:Alimentaire:Restaurant                     17.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
