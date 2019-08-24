@@ -624,6 +624,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             -30.00 EUR
   Depenses:Immobilier:Menage:Salaire                  30.00 EUR
 
+2019-08-05 * "VIR SEPA SAS TECNAL" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                             601.38 EUR
+  Actif:NoteDeFrais                                 -601.38 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
