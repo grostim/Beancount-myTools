@@ -670,6 +670,11 @@ option "documents" "./"
   Depenses:Voitures:Assurance                            35 EUR
   Depenses:Immobilier:Assurance
 
+2019-04-03 * "PRLV SEPA FREE MOBILE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -4.65 EUR
+  Depenses:Abo:Telephone                               4.65 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
