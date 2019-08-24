@@ -2268,3 +2268,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -6.97 EUR
   Depenses:Alimentaire:Epicerie                        6.97 EUR
 
+2019-01-08 * "CARTE 07012019 E.L.G" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -17.00 EUR
+  Depenses:Alimentaire:Restaurant                     17.00 EUR
+
