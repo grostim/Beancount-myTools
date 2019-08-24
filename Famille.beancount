@@ -2080,6 +2080,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.45 EUR
   Depenses:Alimentaire:Restaurant                      8.45 EUR
 
+2019-02-19 * "CARTE 18022019 79 READY MADE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -54.00 EUR
+  Depenses:Alimentaire:Restaurant                     54.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
