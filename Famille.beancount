@@ -2671,3 +2671,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -10.45 EUR
   Depenses:Alimentaire:Epicerie                       10.45 EUR
 
+2019-03-13 * "CARTE 12/03/19 44 REL. BOUGUENAIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -26.55 EUR
+  Actif:NoteDeFrais                                   26.55 EUR
+
