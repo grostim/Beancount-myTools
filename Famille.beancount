@@ -987,6 +987,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -73.03 EUR
   Depenses:Alimentaire:Epicerie                       73.03 EUR
 
+2019-06-11 * "CARTE 08/06/19 79 AMIS DU MARAIS CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -23.26 EUR
+  Depenses:Alimentaire:Epicerie                       23.26 EUR
+
 2019-06-11 * "CARTE 08/06/19 79 L'INSTANT FROM CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            -9.40 EUR
