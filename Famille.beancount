@@ -1188,6 +1188,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -106.00 EUR
   Depenses:Impots:TF                                 106.00 EUR
 
+2019-07-15 * "CARTE 13/07/19 85 AUX VERGERS    CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -30.35 EUR
+  Depenses:Alimentaire:Epicerie                       30.35 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
