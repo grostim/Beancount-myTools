@@ -644,6 +644,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                           -5000.00 EUR
   Actif:Bink:CTO:Cash                               5000.00 EUR
 
+2019-08-12 * "PRLV SEPA SURAVENIR" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -155.13 EUR
+  Actif:Linxea:CapiFelicien                          155.13 EUR
+
 2019-08-07 * "PRLV SEPA Free Telecom" ""
   source: "qif"
   Actif:Boursorama:CCTim                             -37.97 EUR
