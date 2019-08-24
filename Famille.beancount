@@ -1297,6 +1297,11 @@ option "documents" "./"
   Passif:Boursorama:CBJoint                          -87.25 EUR
   Depenses:Alimentaire:Epicerie                       87.25 EUR
 
+2019-03-13 ! "CARTE 12/03/19 44 REL. BOUGUENAIS" ""
+  source: "qif"
+  Passif:Boursorama:CBJoint                          -37.66 EUR
+  Actif:NoteDeFrais                                   37.66 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBJoint"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
