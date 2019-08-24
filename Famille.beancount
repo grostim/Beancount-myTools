@@ -629,6 +629,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             601.38 EUR
   Actif:NoteDeFrais                                 -601.38 EUR
 
+2019-08-05 * "PRLV SEPA SURAVENIR" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -150.00 EUR
+  Actif:Linxea:CapiElise                             150.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
