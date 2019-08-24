@@ -27,7 +27,7 @@ smart_ImporterQIF =  ImporterQIF(ACCOUNTLIST)
 #apply_hooks(smart_ImporterQIF, [PredictPostings(), PredictPayees()])
 
 CONFIG = [
-     apply_hooks(ImporterQIF(ACCOUNTLIST), [PredictPostings(), PredictPayees()]),
+     apply_hooks(ImporterQIF(ACCOUNTLIST), [PredictPostings(), ]),
 #     smart_ImporterQIF(),
 #     ofx.Importer("4979********1979",
 #                 "Passif:Boursorama:CBJoint",
