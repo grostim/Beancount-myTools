@@ -1193,6 +1193,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -30.35 EUR
   Depenses:Alimentaire:Epicerie                       30.35 EUR
 
+2019-07-23 * "CHQ. N.8128293" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -58.00 EUR
+  Depenses:Sante                                      58.00 EUR
+
 2019-07-15 * "RETRAIT DAB 13/07/19 NIORT       CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                          -100.00 EUR
