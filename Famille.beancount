@@ -292,6 +292,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -96.00 EUR
   Depenses:Impots:TH                                  96.00 EUR
 
+2019-01-17 ! "CHQ. N.9440143" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -52.71 EUR
+  Depenses:Divers                                     52.71 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
