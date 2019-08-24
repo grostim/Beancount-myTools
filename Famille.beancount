@@ -421,6 +421,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                              -0.97 EUR
   Depenses:Banque:Frais                                0.97 EUR
 
+2019-04-23 * "RETRAIT DAB 21/04/19 BNI GAB 65  CB*1974" "Madagascar"
+  source: "qif"
+  Actif:Boursorama:CCTim                             -50.21 EUR
+  Depenses:Loisirs:Voyages                            50.21 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
