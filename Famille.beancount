@@ -2293,3 +2293,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -21.70 EUR
   Depenses:Alimentaire:Restaurant                     21.70 EUR
 
+2019-01-14 * "CARTE 12012019 PHARM DE PARIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.67 EUR
+  Depenses:Sante                                       8.67 EUR
+
