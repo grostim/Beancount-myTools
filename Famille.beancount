@@ -2015,6 +2015,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -16.45 EUR
   Depenses:Immobilier:Travaux                         16.45 EUR
 
+2019-02-08 * "CARTE 07022019 79 CAMINO" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -15.20 EUR
+  Depenses:Alimentaire:Restaurant                     15.20 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
