@@ -866,6 +866,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -3.50 EUR
   Depenses:Assurance:CB                                3.50 EUR
 
+2019-05-17 * "CARTE 16/05/19 79 AMIS DU MARAIS CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -23.94 EUR
+  Depenses:Alimentaire:Epicerie                       23.94 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
