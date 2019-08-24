@@ -806,6 +806,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           131.55 EUR
   Revenus:CAF                                       -131.55 EUR
 
+2019-05-10 * "PRLV SEPA OGEC SAINT HILAIRE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -271.00 EUR
+  Depenses:Enfants:Scolarite                         271.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
