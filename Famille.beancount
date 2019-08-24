@@ -1317,6 +1317,11 @@ option "documents" "./"
   Passif:Boursorama:CBJoint                          -66.07 EUR
   Depenses:Alimentaire:Epicerie                       66.07 EUR
 
+2019-04-29 * "CARTE 26/04/19 E.LECLERC WEB" ""
+  source: "qif"
+  Passif:Boursorama:CBJoint                          -98.57 EUR
+  Depenses:Alimentaire:Epicerie                       98.57 EUR
+
 2019-03-27 * "CARTE 26/03/19 E.LECLERC WEB" ""
   source: "qif"
   Passif:Boursorama:CBJoint                          -93.15 EUR
