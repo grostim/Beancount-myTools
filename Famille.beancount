@@ -453,6 +453,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            22.40 EUR
   Depenses:Sante                                     -22.40 EUR
 
+2019-02-15 * "PRLV SEPA DIRECTION GENERALE DES FINANCE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -106.00 EUR
+  Depenses:Impots:TF                                 106.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
