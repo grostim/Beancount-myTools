@@ -2175,6 +2175,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -10.50 EUR
   Depenses:Abo:Serveur                                10.50 EUR
 
+2019-02-28 * "CARTE 26022019 17 FLOWER EXP CAMPI" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -109.00 EUR
+  Depenses:Loisirs:Voyages                           109.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
