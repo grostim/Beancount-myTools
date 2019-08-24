@@ -510,6 +510,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -150.00 EUR
   Actif:Bink:CTO:Cash                                150.00 EUR
 
+2019-06-11 * "VIR SEPA BOULON GILLES JE" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                               8.00 EUR
+  Depenses:Abo:Serveur                                -8.00 EUR
+
 2019-06-11 * "PRLV SEPA GENERALI VIE SA" ""
   source: "qif"
   Actif:Boursorama:CCTim                            -150.00 EUR
