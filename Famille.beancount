@@ -357,6 +357,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -70.66 EUR
   Depenses:Abo:Gaz                                    70.66 EUR
 
+2019-01-28 * "PRLV SEPA EDF clients particuliers" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -160.89 EUR
+  Depenses:Abo:Elec                                  160.89 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
