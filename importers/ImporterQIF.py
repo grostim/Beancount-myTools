@@ -34,7 +34,7 @@ class ImporterQIF(importer.ImporterProtocol):
         return re.match(r".*.qif", path.basename(file.name))
 
     def file_account(self, file):
-        return self.accountList[path.basename(file.name).replace(".qif",'')]
+        return self.accountList[re.sub("\s?(\(\d*\))?.qif","",path.basename(file.name))] #regexr.com/4jp6b
 
     def file_name(self, file):
         return format(path.basename(file.name))
