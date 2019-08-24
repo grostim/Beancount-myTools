@@ -2358,3 +2358,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.90 EUR
   Depenses:Alimentaire:Epicerie                        8.90 EUR
 
+2019-01-28 * "CARTE 26012019 79 AMIS DU MARAIS NIOR" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -19.05 EUR
+  Depenses:Alimentaire:Epicerie                       19.05 EUR
+
