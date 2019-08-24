@@ -1092,6 +1092,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -205.67 EUR
   Depenses:Abo:Eau                                   205.67 EUR
 
+2019-07-01 * "Relev{ diff{r{ Carte 4979********1979" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -352.89 EUR
+  Passif:Boursorama:CBJoint                          352.89 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
