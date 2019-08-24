@@ -997,6 +997,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -9.40 EUR
   Depenses:Alimentaire:Epicerie                        9.40 EUR
 
+2019-06-11 * "CARTE 08/06/19 79 INTERMARCHE    CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -19.84 EUR
+  Depenses:Alimentaire:Epicerie                       19.84 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
