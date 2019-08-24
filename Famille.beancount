@@ -2691,3 +2691,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -9.00 EUR
   Depenses:Divers                                      9.00 EUR
 
+2019-03-19 * "CARTE 16/03/19 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -14.30 EUR
+  Depenses:Alimentaire:Epicerie                       14.30 EUR
+
