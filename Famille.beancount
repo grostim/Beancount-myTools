@@ -2170,6 +2170,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.20 EUR
   Equity:Opening-Balances                              8.20 EUR
 
+2019-02-27 * "CARTE 25022019 29 MAX GOLDEN FROG" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.50 EUR
+  Depenses:Abo:Serveur                                10.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
