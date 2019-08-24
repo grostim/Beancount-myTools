@@ -78,7 +78,7 @@ class ImporterQIF(importer.ImporterProtocol):
                         ope["montant"] = amount.Amount(Decimal(line[1:].replace(",", '')), "EUR")
                     if line[0] == "P":
                         ope["tiers"] = line[1:]
-                        ope["cat"] = "Depenses:AClasser"
+                        ope["cat"] = "Depenses:A-CLASSER"
 #                    if line[0] == "L":
 #                        if line[1] == "[":
 #                            ope["tiers"] = "Virement"

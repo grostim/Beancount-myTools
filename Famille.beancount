@@ -114,8 +114,8 @@ option "documents" "./"
   dateImport: "2019-08-19 20:54:29.367089"
   source: "qif"
   Actif:Boursorama:CCJoint                           -86.18 EUR
-  ! Depenses:Assurance:Auto                              45 EUR
-  ! Depenses:Assurance:Habitation 
+  ! Depenses:Voitures:Assurance                           45 EUR
+  ! Depenses:Immobilier:Assurance 
 ;TODO: A vérifier
 
 2019-08-05 * "VIR SEPA CAF DES DEUX SEVRES" ""
@@ -215,7 +215,7 @@ option "documents" "./"
 
 1980-06-21 open Actif:BanquePostale:LAAnna                  EUR
   account: "00040239557"
-1980-06-22 pad  Actif:BanquePostale:LAAnna  Equity:Opening-Balances
+2000-01-01 pad  Actif:BanquePostale:LAAnna  Equity:Opening-Balances
 
 2018-12-31 * "Versement interets"
   Actif:BanquePostale:LAAnna                           60.5 EUR
@@ -331,6 +331,8 @@ option "documents" "./"
   Actif:Immobilier:JardinsEurope                          1 JARDINSEUROPE {100000*0.6 EUR}
   Revenus:Cerises
 
+** Frais en attente de remboursement
+1981-02-07 open Actif:NoteDeFrais 
 
 
 * Comptes Revenus et Depenses
@@ -339,17 +341,28 @@ option "documents" "./"
 1981-07-02 open Depenses:Abo:Elec                           EUR
 1981-07-02 open Depenses:Abo:Gaz                            EUR
 1981-07-02 open Depenses:Abo:Telephone                      EUR
-1981-07-02 open Depenses:Assurance:Auto                     EUR
-1981-07-02 open Depenses:Assurance:Habitation               EUR
+1981-07-02 open Depenses:Alimentaire:Epicerie               EUR
+1981-07-02 open Depenses:Alimentaire:Restaurant             EUR
 1981-07-02 open Depenses:Assurance:CB                       EUR
 1981-07-02 open Depenses:Banque:Frais                       EUR
 1981-07-02 open Depenses:Divers                             EUR
+1981-07-02 open Depenses:Habillement                        EUR
 1981-07-02 open Depenses:Immobilier:FraisNotaire            EUR
+1981-07-02 open Depenses:Immobilier:Travaux                 EUR
+1981-07-02 open Depenses:Immobilier:Bricolage               EUR
+1981-07-02 open Depenses:Immobilier:Assurance               EUR
 1981-07-02 open Depenses:Impots                             EUR
 1981-07-02 open Depenses:Impots:IR                          EUR
 1981-07-02 open Depenses:Impots:TH                          EUR
 1981-07-02 open Depenses:Impots:TF                          EUR
 1981-07-02 open Depenses:Loisirs:Billeterie                 EUR
+1981-07-02 open Depenses:Loisirs:Couture                    EUR
+1981-07-02 open Depenses:Loisirs:Gadgets                    EUR
+1981-07-02 open Depenses:Voitures:Achats                    EUR
+1981-07-02 open Depenses:Voitures:Carburant                 EUR
+1981-07-02 open Depenses:Voitures:Assurance                 EUR
+1981-07-02 open Depenses:Velos                              EUR
+1981-07-02 open Depenses:A-CLASSER                          EUR
 
 1981-07-02 open Revenus:CAF                                 EUR
 1981-07-02 open Revenus:Cerises                             EUR
