@@ -1072,6 +1072,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -112.62 EUR
   Depenses:Abo:Elec                                  112.62 EUR
 
+2019-06-28 * "VIR SEPA HARMONIE MUTUELLE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            14.01 EUR
+  Depenses:Sante                                     -14.01 EUR
+
 2019-06-27 * "CARTE 26/06/19 79 H&M238         CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -21.97 EUR
