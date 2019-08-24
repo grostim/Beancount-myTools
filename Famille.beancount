@@ -172,6 +172,11 @@ option "documents" "./"
 
 2019-02-01 balance  Actif:Boursorama:CCTim          3799.74 EUR
 
+2019-02-01 * "Relev{ diff{r{ Carte 4979********1974" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -728.64 EUR
+  Passif:Boursorama:CBTim                            728.64 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
