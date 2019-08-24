@@ -252,6 +252,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -160.00 EUR
   Depenses:A-CLASSER                                 160.00 EUR
 
+2019-02-28 * "VIR SEPA TECNAL S.A.S" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            3140.89 EUR
+  Revenus:Salaires:Tecnal                          -3140.89 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
