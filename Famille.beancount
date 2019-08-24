@@ -92,10 +92,7 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          1500.00 EUR
   Actif:Boursorama:CCTim                           -1500.00 EUR
 
-2019-06-03 * "VIR Contribution compte commun" ""
-  source: "qif"
-  Actif:Boursorama:CCJoint                           500.00 EUR
-  Actif:Boursorama:CCAnna                           -500.00 EUR
+
 
 2019-07-02 * "VIR Versement Mensuel TG" ""
   source: "qif"
@@ -112,42 +109,42 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -110.00 EUR
   Depenses:Immobilier:Menage:Salaire                 110.00 EUR
 
-2019-01-08 ! "PRLV SEPA Free Telecom" ""
+2019-01-08 * "PRLV SEPA Free Telecom" ""
   source: "qif"
   Actif:Boursorama:CCTim                              -9.99 EUR
-  Depenses:A-CLASSER                                   9.99 EUR
+  Depenses:Abo:Internet                                9.99 EUR
 
 2019-01-08 * "*INTERETS DEBITEURS AU 31/12/18" ""
   source: "qif"
   Actif:Boursorama:CCTim                              -2.34 EUR
   Depenses:Banque:Frais                                2.34 EUR
 
-2019-01-09 ! "VIR SEPA SAS TECNAL" ""
+2019-01-09 * "VIR SEPA SAS TECNAL" ""
   source: "qif"
   Actif:Boursorama:CCTim                             530.31 EUR
   Actif:NoteDeFrais                                 -530.31 EUR
 
-2019-01-10 ! "PRLV SEPA GENERALI VIE SA" ""
+2019-01-10 * "PRLV SEPA GENERALI VIE SA" ""
   source: "qif"
   Actif:Boursorama:CCTim                            -150.00 EUR
   Actif:Linxea:AVTim1                                150.00 EUR
 
-2019-01-10 ! "VIR SEPA GROS Timothee" ""
+2019-01-10 * "VIR SEPA GROS Timothee" ""
   source: "qif"
   Actif:Boursorama:CCTim                            -150.00 EUR
   Depenses:A-CLASSER                                 150.00 EUR
 
-2019-01-11 ! "VIR SEPA BOULON GILLES JE" ""
+2019-01-11 * "VIR SEPA BOULON GILLES JE" ""
   source: "qif"
   Actif:Boursorama:CCTim                               8.00 EUR
-  Depenses:A-CLASSER                                  -8.00 EUR
+  Depenses:Abo:Serveur                                -8.00 EUR
 
-2019-01-15 ! "PRLV SEPA GENERALI VIE SA" ""
+2019-01-15 * "PRLV SEPA GENERALI VIE SA" ""
   source: "qif"
   Actif:Boursorama:CCTim                            -150.00 EUR
   Actif:Boursorama:AVTim2                            150.00 EUR
 
-2019-01-16 ! "PRLV SEPA American Express Carte-France" ""
+2019-01-16 * "PRLV SEPA American Express Carte-France" ""
   source: "qif"
   Actif:Boursorama:CCTim                           -1433.39 EUR
   Passif:AirFrance:Amex                             1433.39 EUR
@@ -162,15 +159,15 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             -55.00 EUR
   Depenses:A-CLASSER                                  55.00 EUR
 
-2019-01-29 ! "RETRAIT DAB 26012019 NIORT       CB*1974" ""
+2019-01-29 * "RETRAIT DAB 26012019 NIORT       CB*1974" ""
   source: "qif"
   Actif:Boursorama:CCTim                             -20.00 EUR
   Actif:Cash                                          20.00 EUR
 
-2019-01-31 ! "VIR SEPA TECNAL S.A.S" ""
+2019-01-31 * "VIR SEPA TECNAL S.A.S" ""
   source: "qif"
   Actif:Boursorama:CCTim                            3160.45 EUR
-  Depenses:A-CLASSER                               -3160.45 EUR
+  Depenses:Revenus:Salaires:Tecnal                 -3160.45 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
@@ -901,6 +898,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -441.96 EUR
   Passif:Boursorama:CBJoint                          441.96 EUR
 
+2019-06-03 * "VIR Contribution compte commun" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           500.00 EUR
+  Actif:Boursorama:CCAnna                           -500.00 EUR
+
 2019-06-03 * "VIR SEPA HARMONIE MUTUELLE" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            14.01 EUR
@@ -1488,7 +1490,7 @@ option "documents" "./"
 *** Amex Compte Tim
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
-;2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
+2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
 2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
 
 
@@ -1648,6 +1650,8 @@ option "documents" "./"
 1981-07-02 open Depenses:Abo:Eau                            EUR
 1981-07-02 open Depenses:Abo:Gaz                            EUR
 1981-07-02 open Depenses:Abo:Telephone                      EUR
+1981-07-02 open Depenses:Abo:Internet                       EUR
+1981-07-02 open Depenses:Abo:Serveur                        EUR
 1981-07-02 open Depenses:Alimentaire:Epicerie               EUR
 1981-07-02 open Depenses:Alimentaire:Restaurant             EUR
 1981-07-02 open Depenses:Assurance:CB                       EUR
@@ -1684,7 +1688,8 @@ option "documents" "./"
 1981-07-02 open Revenus:Cerises                             EUR
 1981-07-02 open Revenus:VentesAnna                          EUR
 1981-07-02 open Revenus:Interets                            EUR
-
+1981-07-02 open Revenus:Salaires:Tecnal                     EUR
+1981-07-02 open Revenus:Salaires:CHNiort                    EUR
 
 * Cash Daybook
 ;; This is a section you can use to enter transactions by hand,
