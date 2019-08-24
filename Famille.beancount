@@ -634,6 +634,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -150.00 EUR
   Actif:Linxea:CapiElise                             150.00 EUR
 
+2019-08-05 * "VIR Deblocage Pret 00060818936" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                           10000.00 EUR
+  Passif:Boursorama:PretConso                     -10000.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
