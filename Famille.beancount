@@ -269,6 +269,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                              -9.99 EUR
   Depenses:Abo:Internet                                9.99 EUR
 
+2019-03-07 * "CHQ. N.1738273" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                             -96.00 EUR
+  Depenses:Immobilier:Menage:Salaire                  96.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
