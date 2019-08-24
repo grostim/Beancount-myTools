@@ -1239,14 +1239,18 @@ option "documents" "./"
 
 ** Cartes de crédit
 
+*** Visa Compte Tim
 2013-08-26 open   Passif:Boursorama:CBTim                   EUR
 2013-08-27 pad    Passif:Boursorama:CBTim  Equity:Opening-Balances
 2019-08-19 balance  Passif:Boursorama:CBTim         -513.45 EUR
 
+*** Visa Compte Joint
+
 2010-03-03 open   Passif:Boursorama:CBJoint                 EUR
 2010-03-04 pad    Passif:Boursorama:CBJoint  Equity:Opening-Balances
 
-2019-08-19 balance  Passif:Boursorama:CBJoint        -63.28 EUR
+2018-12-31 balance  Passif:Boursorama:CBJoint        -63.28 EUR
+
 2019-01-02 * "CARTE 31122018 75 LA POSTE BOUTIQU" ""
   source: "qif"
   Passif:Boursorama:CBJoint                           -7.00 EUR
@@ -1410,6 +1414,8 @@ option "documents" "./"
 2019-08-19 balance  Passif:Boursorama:CBJoint             0 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBJoint"
+
+*** Amex Compte Tim
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
 ;2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
