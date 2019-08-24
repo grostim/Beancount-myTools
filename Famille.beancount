@@ -331,6 +331,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             -50.00 EUR
   Actif:Cash                                          50.00 EUR
 
+2019-04-05 * "PRLV SEPA Free Telecom" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                              -9.99 EUR
+  Depenses:Abo:Internet                                9.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
