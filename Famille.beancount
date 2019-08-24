@@ -886,6 +886,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                         -1082.26 EUR
   Passif:Boursorama:EmpruntRP                       1082.26 EUR
 
+2019-05-27 * "PRLV SEPA Engie" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -115.69 EUR
+  Depenses:Abo:Gaz                                   115.69 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
