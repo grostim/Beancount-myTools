@@ -2363,3 +2363,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -19.05 EUR
   Depenses:Alimentaire:Epicerie                       19.05 EUR
 
+2019-01-30 * "CARTE 29012019 79 MAISON CREPIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.25 EUR
+  Depenses:Alimentaire:Restaurant                      8.25 EUR
+
