@@ -453,6 +453,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                              -9.99 EUR
   Depenses:Abo:Internet                                9.99 EUR
 
+2019-05-10 * "PRLV SEPA SURAVENIR" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -155.13 EUR
+  Actif:Linxea:CapiFelicien                          155.13 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
