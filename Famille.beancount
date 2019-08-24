@@ -272,6 +272,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -50.00 EUR
   Actif:Cash                                          50.00 EUR
 
+2019-01-11 ! "VIR SEPA HARMONIE MUTUELLE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                             9.60 EUR
+  Depenses:Sante                                      -9.60 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
