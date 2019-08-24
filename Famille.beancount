@@ -317,6 +317,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            96.75 EUR
   Depenses:Sante                                     -96.75 EUR
 
+2019-01-22 ! "CARTE 21012019 79 LA LIBRAIRIE H CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -34.80 EUR
+  Depenses:A-CLASSER                                  34.80 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
