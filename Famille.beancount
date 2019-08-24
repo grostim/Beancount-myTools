@@ -1057,6 +1057,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            31.69 EUR
   Depenses:Sante                                     -31.69 EUR
 
+2019-06-26 * "PRLV SEPA Engie" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -87.06 EUR
+  Depenses:Abo:Gaz                                    87.06 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
