@@ -901,6 +901,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -80.00 EUR
   Actif:Cash                                          80.00 EUR
 
+2019-05-27 * "CARTE 24/05/19 79 OXYGEN         CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -12.00 EUR
+  Depenses:Enfants:Coiffeur                           12.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
