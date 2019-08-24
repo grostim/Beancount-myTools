@@ -2115,6 +2115,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -15.30 EUR
   Depenses:Loisirs:Voyages                            15.30 EUR
 
+2019-02-25 * "CARTE 22022019 44 LA REINE BLANCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -27.60 EUR
+  Depenses:Alimentaire:Restaurant                     27.60 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
