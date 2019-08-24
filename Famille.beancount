@@ -906,12 +906,12 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -12.00 EUR
   Depenses:Enfants:Coiffeur                           12.00 EUR
 
-2019-05-29 ! "VIR SEPA C.P.A.M. DE NIORT" ""
+2019-05-29 * "VIR SEPA C.P.A.M. DE NIORT" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            31.69 EUR
   Depenses:Sante                                     -31.69 EUR
 
-2019-05-31 ! "PRLV SEPA URSSAF RHONE ALPES - CNCESU CE" ""
+2019-05-31 * "PRLV SEPA URSSAF RHONE ALPES - CNCESU CE" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -63.13 EUR
   Depenses:Immobilier:Menage:Charges                  63.13 EUR
