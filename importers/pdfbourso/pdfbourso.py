@@ -62,12 +62,7 @@ class pdfbourso(importer.ImporterProtocol):
         # from ACME. The filename they provide (Statement.pdf) isn't useful.On considéère que c'est un relevé Boursorama si on trouve le mot "BOURSORAMA" dedans.
         text = file.convert(pdf_to_text)
         if text:
-            if re.search('BOURSORAMA BANQUE', text) is not None:
-                self.type="Compte"
-                return 1
-            if re.search('Relevé de Carte', text) is not None:
-                self.type="CB"
-                return 1
+            return re.search('BOURSORAMA BANQUE', text) is not None
 
     def file_name(self, file):
         # Normalize the name to something meaningful.
@@ -76,11 +71,7 @@ class pdfbourso(importer.ImporterProtocol):
     def file_account(self, file):
         #Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
-        if self.type == "Compte":
-            control='80261\s*\d{11}'
-        elif self.type == "CB":
-            control='\s*4979\*{8}\d{4}'
-        match = re.search(control, text)
+        match = re.search('80261\s*\d{11}', text)
         if match:
             compte = match.group(0).split(' ')[-1]
             return self.accountList[compte]
