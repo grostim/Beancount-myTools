@@ -1153,6 +1153,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -15.00 EUR
   Depenses:Divers                                     15.00 EUR
 
+2019-07-08 * "CARTE 05/07/19 33 MAILLE SOUPLE  CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -39.78 EUR
+  Depenses:Loisirs:Couture                            39.78 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
