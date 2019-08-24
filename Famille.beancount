@@ -508,10 +508,10 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -160.89 EUR
   Depenses:Abo:Elec                                  160.89 EUR
 
-2019-02-28 ! "PRLV SEPA URSSAF RHONE ALPES - CNCESU CE" ""
+2019-02-28 * "PRLV SEPA URSSAF RHONE ALPES - CNCESU CE" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -70.29 EUR
-  Depenses:A-CLASSER                                  70.29 EUR
+  Depenses:Immobilier:Menage:Charges                  70.29 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
@@ -715,6 +715,8 @@ option "documents" "./"
 1981-07-02 open Depenses:Immobilier:Bricolage               EUR
 1981-07-02 open Depenses:Immobilier:Assurance               EUR
 1981-07-02 open Depenses:Immobilier:Menage                  EUR
+1981-07-02 open Depenses:Immobilier:Menage:Salaire          EUR
+1981-07-02 open Depenses:Immobilier:Menage:Charges          EUR
 1981-07-02 open Depenses:Impots                             EUR
 1981-07-02 open Depenses:Impots:IR                          EUR
 1981-07-02 open Depenses:Impots:TH                          EUR
