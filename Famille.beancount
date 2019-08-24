@@ -426,6 +426,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             -50.21 EUR
   Depenses:Loisirs:Voyages                            50.21 EUR
 
+2019-04-30 * "VIR SEPA TECNAL S.A.S" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            4893.55 EUR
+  Revenus:Salaires:Tecnal                          -4893.55 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
