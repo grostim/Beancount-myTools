@@ -669,6 +669,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -150.00 EUR
   Actif:Bink:CTO:Cash                                150.00 EUR
 
+2019-08-12 * "VIR Virement interne depuis COMPTE PERS" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                           -5000.00 EUR
+  Actif:Boursorama:CELTim                           5000.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
