@@ -45,7 +45,6 @@ option "documents" "./"
 2013-08-26 open Actif:Boursorama:CCTim
   account: "00040132901"
 2013-08-27 pad  Actif:Boursorama:CCTim  Equity:Opening-Balances
-;2019-08-19 balance  Actif:Boursorama:CCTim          -635.52 EUR
 
 2019-01-01 balance  Actif:Boursorama:CCTim          6534.49 EUR
 2019-01-02 ! "VIR Versement Mensuel TG" ""
@@ -92,8 +91,6 @@ option "documents" "./"
   source: "qif"
   Actif:Boursorama:CCJoint                          1500.00 EUR
   Actif:Boursorama:CCTim                           -1500.00 EUR
-
-
 
 2019-07-02 * "VIR Versement Mensuel TG" ""
   source: "qif"
@@ -688,6 +685,8 @@ option "documents" "./"
   source: "qif"
   Actif:Boursorama:CCTim                              10.40 EUR
   Depenses:Abo:Serveur                               -10.40 EUR
+
+2019-08-19 balance  Actif:Boursorama:CCTim          -635.52 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
@@ -2065,7 +2064,6 @@ option "documents" "./"
 
 2019-08-05 open   Passif:Boursorama:PretConso               EUR
   account: "00060818936"
-2019-08-06 pad    Passif:Boursorama:PretConso  Equity:Opening-Balances
 2019-08-19 balance  Passif:Boursorama:PretConso      -10000 EUR
 
 2018-08-01 open   Passif:Linxea:Avance                      EUR
