@@ -2190,6 +2190,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -12.00 EUR
   Depenses:Alimentaire:Restaurant                     12.00 EUR
 
+2019-03-01 * "CARTE 28022019 79 MC DONALD" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -15.40 EUR
+  Depenses:Alimentaire:Restaurant                     15.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
