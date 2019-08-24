@@ -916,6 +916,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -63.13 EUR
   Depenses:Immobilier:Menage:Charges                  63.13 EUR
 
+2019-06-03 * "Relev{ diff{r{ Carte 4979********1979" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -441.96 EUR
+  Passif:Boursorama:CBJoint                          441.96 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
