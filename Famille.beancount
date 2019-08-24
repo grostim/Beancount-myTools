@@ -207,6 +207,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -60.00 EUR
   Actif:Cash                                          60.00 EUR
 
+2019-01-04 ! "VIR SEPA CAF DES DEUX SEVRES" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           131.16 EUR
+  Revenus:CAF                                       -131.16 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
