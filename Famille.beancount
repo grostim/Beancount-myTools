@@ -2288,3 +2288,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -19.90 EUR
   Depenses:Alimentaire:Restaurant                     19.90 EUR
 
+2019-01-14 * "CARTE 11012019 DOUC'HEUR DU MA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -21.70 EUR
+  Depenses:Alimentaire:Restaurant                     21.70 EUR
+
