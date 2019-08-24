@@ -289,6 +289,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                               8.00 EUR
   Depenses:Abo:Serveur                                -8.00 EUR
 
+2019-03-13 * "PRLV SEPA GENERALI VIE SA" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -150.00 EUR
+  Actif:Boursorama:AVTim2                            150.00 EUR
+
 2019-03-12 * "CHQ. N.1738270" "Psy Anna"
   source: "qif"
   Actif:Boursorama:CCTim                             -55.00 EUR
