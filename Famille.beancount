@@ -2233,3 +2233,8 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -100.00 EUR
   Actif:Cash                                         100.00 EUR
 
+2019-01-02 * "CARTE 31122018 LE FOURNIL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -5.60 EUR
+  Depenses:Alimentaire:Epicerie                        5.60 EUR
+
