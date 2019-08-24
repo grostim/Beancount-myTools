@@ -674,6 +674,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                           -5000.00 EUR
   Actif:Boursorama:CELTim                           5000.00 EUR
 
+2019-08-12 * "VIR SEPA BOULON GILLES JE" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                               8.00 EUR
+  Depenses:Abo:Serveur                                -8.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
