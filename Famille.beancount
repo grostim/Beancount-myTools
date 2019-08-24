@@ -967,6 +967,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           131.55 EUR
   Revenus:CAF                                       -131.55 EUR
 
+2019-06-07 * "*FRAIS BOURSORAMA PROTEC. DUO +" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -3.50 EUR
+  Depenses:Assurance:CB                                3.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
