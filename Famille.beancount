@@ -2105,6 +2105,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -64.50 EUR
   Depenses:Alimentaire:Restaurant                     64.50 EUR
 
+2019-02-22 * "CARTE 20022019 LE P'TIT ROUQUIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -53.25 EUR
+  Depenses:Alimentaire:Restaurant                     53.25 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
