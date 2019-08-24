@@ -187,6 +187,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             -20.00 EUR
   Depenses:A-CLASSER                                  20.00 EUR
 
+2019-02-04 * "RETRAIT DAB 02022019 NIORT       CB*1974" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                             -20.00 EUR
+  Actif:Cash                                          20.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
