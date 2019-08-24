@@ -1067,6 +1067,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -8.09 EUR
   Depenses:Alimentaire:Epicerie                        8.09 EUR
 
+2019-06-27 * "PRLV SEPA ELECTRICITE DE FRANCE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -112.62 EUR
+  Depenses:Abo:Elec                                  112.62 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
