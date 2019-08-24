@@ -2050,6 +2050,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -35.33 EUR
   Depenses:Abo:Serveur                                35.33 EUR
 
+2019-02-12 * "CION OP.ETR IS NEWSGROUP.NINJA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -0.68 EUR
+  Passif:AirFrance:Amex                                0.68 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
