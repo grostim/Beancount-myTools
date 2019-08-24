@@ -2258,3 +2258,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -13.10 EUR
   Depenses:Loisirs:Couture                            13.10 EUR
 
+2019-01-07 * "CARTE 04012019 LA TRATTORIA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -16.80 EUR
+  Depenses:Alimentaire:Restaurant                     16.80 EUR
+
