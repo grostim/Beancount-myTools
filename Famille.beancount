@@ -2686,3 +2686,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -9.50 EUR
   Depenses:Alimentaire:Restaurant                      9.50 EUR
 
+2019-03-19 * "CARTE 18/03/19 35 FAMILEO" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.00 EUR
+  Depenses:Divers                                      9.00 EUR
+
