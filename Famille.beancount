@@ -336,6 +336,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                              -9.99 EUR
   Depenses:Abo:Internet                                9.99 EUR
 
+2019-04-05 * "*INTERETS DEBITEURS AU 31/03/19" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                              -0.24 EUR
+  Depenses:Banque:Frais                                0.24 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
