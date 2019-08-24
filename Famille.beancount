@@ -152,6 +152,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                           -1433.39 EUR
   Passif:AirFrance:Amex                             1433.39 EUR
 
+2019-01-17 ! "CHQ. N.0255105" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                             -57.00 EUR
+  Depenses:A-CLASSER                                  57.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
