@@ -2373,3 +2373,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.55 EUR
   Depenses:Alimentaire:Restaurant                      8.55 EUR
 
+2019-01-31 ! "CARTE 30012019 79 ESA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -327.74 EUR
+  Depenses:A-CLASSER                                 327.74 EUR
+
