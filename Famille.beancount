@@ -2090,6 +2090,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -13.11 EUR
   Depenses:Alimentaire:Epicerie                       13.11 EUR
 
+2019-02-20 * "CARTE 19022019 LES PLANCHES" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -42.12 EUR
+  Depenses:Alimentaire:Restaurant                     42.12 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
