@@ -639,6 +639,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                           10000.00 EUR
   Passif:Boursorama:PretConso                     -10000.00 EUR
 
+2019-08-05 * "VIR SEPA GROS Timothee" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                           -5000.00 EUR
+  Actif:Bink:CTO:Cash                               5000.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
