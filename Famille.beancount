@@ -775,6 +775,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                         -1200.00 EUR
   Depenses:Loisirs:Billeterie                       1200.00 EUR
 
+2019-04-29 * "PRLV SEPA EDF clients particuliers" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -160.89 EUR
+  Depenses:Abo:Elec                                  160.89 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
