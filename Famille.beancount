@@ -2165,6 +2165,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -38.00 EUR
   Depenses:Alimentaire:Restaurant                     38.00 EUR
 
+2019-02-26 * "CARTE 25022019 CARREFOUR MARKET" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.20 EUR
+  Equity:Opening-Balances                              8.20 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
