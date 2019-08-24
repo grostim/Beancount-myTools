@@ -1203,6 +1203,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -100.00 EUR
   Actif:Cash                                         100.00 EUR
 
+2019-07-23 * "CARTE 22/07/19 21 BILLET WEEZEVE CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -37.98 EUR
+  Depenses:Loisirs:Culture                            37.98 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
