@@ -2716,3 +2716,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.00 EUR
   Depenses:Alimentaire:Restaurant                      8.00 EUR
 
+2019-03-22 * "CARTE 21/03/19 79 AUBERGE DE CRESPE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -78.30 EUR
+  Actif:NoteDeFrais                                   78.30 EUR
+
