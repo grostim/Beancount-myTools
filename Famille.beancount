@@ -2746,3 +2746,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -16.60 EUR
   Depenses:Alimentaire:Epicerie                       16.60 EU
 
+2019-03-27 * "CARTE 25/03/19 29 MAX GOLDEN FROG" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.50 EUR
+  Depenses:Abo:Serveur                                10.50 EUR
+
