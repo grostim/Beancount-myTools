@@ -664,6 +664,12 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -12.32 EUR
   Depenses:Alimentaire:Epicerie                       12.32 EUR
 
+2019-04-03 * "PRLV SEPA GMF ASSURANCES" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -86.19 EUR
+  Depenses:Voitures:Assurance                            35 EUR
+  Depenses:Immobilier:Assurance
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
