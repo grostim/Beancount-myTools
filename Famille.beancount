@@ -2135,6 +2135,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -63.70 EUR
   Depenses:Alimentaire:Restaurant                     63.70 EUR
 
+2019-02-25 * "CARTE 24022019 79 INTERMARCHE DAC VL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -51.16 EUR
+  Depenses:Alimentaire:Epicerie                       51.16 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
