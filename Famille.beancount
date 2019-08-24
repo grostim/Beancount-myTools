@@ -2348,3 +2348,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.98 EUR
   Depenses:Sante                                       8.98 EUR
 
+2019-01-28 * "CARTE 25012019 29 MAX GOLDEN FROG" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.50 EUR
+  Depenses:Abo:Serveur                                10.50 EUR
+
