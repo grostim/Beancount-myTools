@@ -181,103 +181,103 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -274.22 EUR
   Passif:Boursorama:CBJoint                          274.22 EUR
 
-2019-01-02 ! "CARTE 31122018 79 EURODIF        CB*5969" ""
+2019-01-02 * "CARTE 31122018 79 EURODIF        CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -33.04 EUR
   Depenses:Habillement                                33.04 EUR
 
-2019-01-02 ! "CARTE 31122018 79 INTERMARCHE    CB*5969" ""
+2019-01-02 * "CARTE 31122018 79 INTERMARCHE    CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -16.11 EUR
   Depenses:Alimentaire:Epicerie                       16.11 EUR
 
-2019-01-03 ! "PRLV SEPA FREE MOBILE" ""
+2019-01-03 * "PRLV SEPA FREE MOBILE" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            -4.55 EUR
   Depenses:Abo:Telephone                               4.55 EUR
 
-2019-01-03 ! "PRLV SEPA GMF ASSURANCES" ""
+2019-01-03 * "PRLV SEPA GMF ASSURANCES" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -83.74 EUR
   Depenses:Voitures:Assurance                            32 EUR
   Depenses:Immobilier:Assurance
 
-2019-01-03 ! "REM CHQ N. 0688461" ""
+2019-01-03 * "REM CHQ N. 0688461" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           292.44 EUR
   Revenus:VentesAnna                                -292.44 EUR
 
-2019-01-04 ! "RETRAIT DAB 03012019 NIORT       CB*5969" ""
+2019-01-04 * "RETRAIT DAB 03012019 NIORT       CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -60.00 EUR
   Actif:Cash                                          60.00 EUR
 
-2019-01-04 ! "VIR SEPA CAF DES DEUX SEVRES" ""
+2019-01-04 * "VIR SEPA CAF DES DEUX SEVRES" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           131.16 EUR
   Revenus:CAF                                       -131.16 EUR
 
-2019-01-07 ! "VIR SEPA C.P.A.M. DE NIORT" ""
+2019-01-07 * "VIR SEPA C.P.A.M. DE NIORT" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            22.40 EUR
   Depenses:Sante                                     -22.40 EUR
 
-2019-01-07 ! "*FRAIS BOURSORAMA PROTEC. DUO +" ""
+2019-01-07 * "*FRAIS BOURSORAMA PROTEC. DUO +" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            -3.50 EUR
   Depenses:Assurance:CB                                3.50 EUR
 
-2019-01-07 ! "CARTE 04012019 79 TAO NIORT      CB*5969" ""
+2019-01-07 * "CARTE 04012019 79 TAO NIORT      CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -67.36 EUR
   Depenses:Habillement                                67.36 EUR
 
-2019-01-07 ! "CARTE 04012019 79 PHARM DE PARIS CB*5969" ""
+2019-01-07 * "CARTE 04012019 79 PHARM DE PARIS CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -77.66 EUR
   Depenses:Sante                                      77.66 EUR
 
-2019-01-08 ! "*INTERETS DEBITEURS AU 31/12/18" ""
+2019-01-08 * "*INTERETS DEBITEURS AU 31/12/18" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            -2.76 EUR
   Depenses:Banque:Frais                                2.76 EUR
 
-2019-01-09 ! "VIR SEPA HARMONIE MUTUELLE" ""
+2019-01-09 * "VIR SEPA HARMONIE MUTUELLE" ""
   source: "qif"
   Actif:Boursorama:CCJoint                             9.60 EUR
   Depenses:Sante                                      -9.60 EUR
 
-2019-01-09 ! "VIR SEPA C.P.A.M. DE NIORT" ""
+2019-01-09 * "VIR SEPA C.P.A.M. DE NIORT" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            22.40 EUR
   Depenses:Sante                                     -22.40 EUR
 
-2019-01-10 ! "PRLV SEPA MAAF ASSURANCES SA" ""
+2019-01-10 * "PRLV SEPA MAAF ASSURANCES SA" ""
   source: "qif"
   Actif:Boursorama:CCJoint                          -438.75 EUR
   Depenses:Voitures:Assurance                        438.75 EUR
 
-2019-01-10 ! "PRLV SEPA OGEC SAINT HILAIRE" ""
+2019-01-10 * "PRLV SEPA OGEC SAINT HILAIRE" ""
   source: "qif"
   Actif:Boursorama:CCJoint                          -269.00 EUR
   Depenses:Enfants:Scolarite                         269.00 EUR
 
-2019-01-10 ! "RETRAIT DAB 09012019 NIORT BRECH CB*1979" ""
+2019-01-10 * "RETRAIT DAB 09012019 NIORT BRECH CB*1979" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -20.00 EUR
   Actif:Cash                                          20.00 EUR
 
-2019-01-10 ! "RETRAIT DAB 09012019 NIORT       CB*5969" ""
+2019-01-10 * "RETRAIT DAB 09012019 NIORT       CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -50.00 EUR
   Actif:Cash                                          50.00 EUR
 
-2019-01-11 ! "VIR SEPA HARMONIE MUTUELLE" ""
+2019-01-11 * "VIR SEPA HARMONIE MUTUELLE" ""
   source: "qif"
   Actif:Boursorama:CCJoint                             9.60 EUR
   Depenses:Sante                                      -9.60 EUR
 
-2019-01-15 ! "VIR SEPA DDFIP DE LA HAUTE VIENNE" ""
+2019-01-15 * "VIR SEPA DDFIP DE LA HAUTE VIENNE" ""
   source: "qif"
   Actif:Boursorama:CCJoint                          1090.00 EUR
   Depenses:Impots:IR                               -1090.00 EUR
@@ -297,47 +297,47 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -52.71 EUR
   Depenses:Divers                                     52.71 EUR
 
-2019-01-21 ! "CARTE 18012019 79 INTERMARCHE    CB*5969" ""
+2019-01-21 * "CARTE 18012019 79 INTERMARCHE    CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -22.15 EUR
   Depenses:Alimentaire:Epicerie                       22.15 EUR
 
-2019-01-21 ! "CARTE 18012019 79 AMIS DU MARAIS CB*5969" ""
+2019-01-21 * "CARTE 18012019 79 AMIS DU MARAIS CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -13.10 EUR
   Depenses:Alimentaire:Epicerie                       13.10 EUR
 
-2019-01-21 ! "RETRAIT DAB 19012019 NIORT       CB*5969" ""
+2019-01-21 * "RETRAIT DAB 19012019 NIORT       CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -60.00 EUR
   Actif:Cash                                          60.00 EUR
 
-2019-01-22 ! "VIR SEPA C.P.A.M. DE NIORT" ""
+2019-01-22 * "VIR SEPA C.P.A.M. DE NIORT" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            96.75 EUR
   Depenses:Sante                                     -96.75 EUR
 
-2019-01-22 ! "CARTE 21012019 79 LA LIBRAIRIE H CB*5969" ""
+2019-01-22 * "CARTE 21012019 79 LA LIBRAIRIE H CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -34.80 EUR
-  Depenses:A-CLASSER                                  34.80 EUR
+  Depenses:Loisirs:Culture                            34.80 EUR
 
-2019-01-22 ! "CARTE 19012019 79 LA LIBRAIRIE   CB*5969" ""
+2019-01-22 * "CARTE 19012019 79 LA LIBRAIRIE   CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -43.55 EUR
-  Depenses:A-CLASSER                                  43.55 EUR
+  Depenses:Loisirs:Culture                            43.55 EUR
 
 2019-01-23 ! "CHQ. N.9440144" ""
   source: "qif"
   Actif:Boursorama:CCJoint                          -342.00 EUR
   Depenses:A-CLASSER                                 342.00 EUR
 
-2019-01-24 ! "VIR SEPA HARMONIE MUTUELLE" ""
+2019-01-24 * "VIR SEPA HARMONIE MUTUELLE" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           193.50 EUR
   Depenses:Sante                                    -193.50 EUR
 
-2019-01-24 ! "CARTE 23012019 IE ITUNES.COM/BIL CB*5969" ""
+2019-01-24 * "CARTE 23012019 IE ITUNES.COM/BIL CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            -0.99 EUR
   Depenses:Abo:Apple                                   0.99 EUR
@@ -584,6 +584,7 @@ option "documents" "./"
 1981-07-02 open Depenses:Impots:TH                          EUR
 1981-07-02 open Depenses:Impots:TF                          EUR
 1981-07-02 open Depenses:Loisirs:Billeterie                 EUR
+1981-07-02 open Depenses:Loisirs:Culture                    EUR
 1981-07-02 open Depenses:Loisirs:Couture                    EUR
 1981-07-02 open Depenses:Loisirs:Gadgets                    EUR
 1981-07-02 open Depenses:Sante                              EUR
