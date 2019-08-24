@@ -2225,6 +2225,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -27.06 EUR
   Depenses:Immobilier:Travaux                         27.06 EUR
 
+2019-03-05 * "CARTE 04032019 PICARD SA  0824" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -44.42 EUR
+  Depenses:Alimentaire:Epicerie                       44.42 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
