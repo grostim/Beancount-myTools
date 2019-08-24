@@ -1128,6 +1128,11 @@ option "documents" "./"
   Depenses:Voitures:Assurance                            35 EUR
   Depenses:Immobilier:Assurance
 
+2019-07-05 * "VIR SEPA CAF DES DEUX SEVRES" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           131.55 EUR
+  Revenus:CAF                                       -131.55 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
