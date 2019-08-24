@@ -2210,6 +2210,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -1.00 EUR
   Depenses:Loisirs:Voyages                             1.00 EUR
 
+2019-03-05 * "CARTE 02032019 QUICK" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -16.00 EUR
+  Depenses:Alimentaire:Restaurant                     16.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
