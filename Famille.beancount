@@ -197,6 +197,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             -10.00 EUR
   Depenses:A-CLASSER                                  10.00 EUR
 
+2019-02-05 * "PRLV SEPA SURAVENIR" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            -150.00 EUR
+  Actif:Linxea:CapiElise                             150.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
