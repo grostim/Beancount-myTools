@@ -2185,6 +2185,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -7.21 EUR
   Depenses:Alimentaire:Epicerie                        7.21 EUR
 
+2019-03-01 * "CARTE 28022019 79 LEMMY" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -12.00 EUR
+  Depenses:Alimentaire:Restaurant                     12.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
