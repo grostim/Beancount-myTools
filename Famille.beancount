@@ -2045,6 +2045,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -11.16 EUR
   Depenses:Alimentaire:Epicerie                       11.16 EUR
 
+2019-02-12 * "CARTE 10022019 IS NEWSGROUP.NINJA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -35.33 EUR
+  Depenses:Abo:Serveur                                35.33 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
