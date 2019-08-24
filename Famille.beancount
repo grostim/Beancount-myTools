@@ -942,6 +942,11 @@ option "documents" "./"
   Depenses:Voitures:Assurance                            35 EUR
   Depenses:Immobilier:Assurance
 
+2019-06-03 * "CARTE 01/06/19 17 FLOWER EXP CAM CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -126.00 EUR
+  Depenses:Divers                                    126.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
