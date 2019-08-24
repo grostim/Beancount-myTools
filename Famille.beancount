@@ -1138,6 +1138,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -0.38 EUR
   Depenses:Banque:Frais                                0.38 EUR
 
+2019-07-05 * "*FRAIS BOURSORAMA PROTEC. DUO +" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -3.50 EUR
+  Depenses:Assurance:CB                                3.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
