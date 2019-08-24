@@ -745,6 +745,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            26.69 EUR
   Depenses:Sante                                     -26.69 EUR
 
+2019-04-18 * "PRLV SEPA TRES. NIORT-SEVRE MUNICIPALE -" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -117.00 EUR
+  Depenses:Enfants:Loisirs                           117.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
