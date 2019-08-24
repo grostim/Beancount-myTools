@@ -1027,6 +1027,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -106.00 EUR
   Depenses:Impots:TF                                 106.00 EUR
 
+2019-06-20 * "CARTE 19/06/19 79 H&M238         CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -15.46 EUR
+  Depenses:Habillement                                15.46 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
