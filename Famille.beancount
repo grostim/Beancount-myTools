@@ -346,11 +346,13 @@ option "documents" "./"
 1981-07-02 open Depenses:Assurance:CB                       EUR
 1981-07-02 open Depenses:Banque:Frais                       EUR
 1981-07-02 open Depenses:Divers                             EUR
+1981-07-02 open Depenses:Enfants:Scolarite                  EUR
 1981-07-02 open Depenses:Habillement                        EUR
 1981-07-02 open Depenses:Immobilier:FraisNotaire            EUR
 1981-07-02 open Depenses:Immobilier:Travaux                 EUR
 1981-07-02 open Depenses:Immobilier:Bricolage               EUR
 1981-07-02 open Depenses:Immobilier:Assurance               EUR
+1981-07-02 open Depenses:Immobilier:Menage                  EUR
 1981-07-02 open Depenses:Impots                             EUR
 1981-07-02 open Depenses:Impots:IR                          EUR
 1981-07-02 open Depenses:Impots:TH                          EUR
@@ -358,6 +360,7 @@ option "documents" "./"
 1981-07-02 open Depenses:Loisirs:Billeterie                 EUR
 1981-07-02 open Depenses:Loisirs:Couture                    EUR
 1981-07-02 open Depenses:Loisirs:Gadgets                    EUR
+1981-07-02 open Depenses:Sante                              EUR
 1981-07-02 open Depenses:Voitures:Achats                    EUR
 1981-07-02 open Depenses:Voitures:Carburant                 EUR
 1981-07-02 open Depenses:Voitures:Assurance                 EUR
