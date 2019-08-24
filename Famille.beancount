@@ -391,6 +391,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -200.22 EUR
   Depenses:Loisirs:Voyages                           200.22 EUR
 
+2019-04-17 * "*CION CB OP. ETR 04/19 BOAMGXB-GAB-1-" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                              -3.88 EUR
+  Depenses:Banque:Frais                                3.88 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
