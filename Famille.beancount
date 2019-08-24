@@ -1052,6 +1052,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                         -1082.26 EUR
   Passif:Boursorama:EmpruntRP                       1082.26 EUR
 
+2019-06-26 * "VIR SEPA C.P.A.M. DE NIORT" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            31.69 EUR
+  Depenses:Sante                                     -31.69 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
