@@ -401,6 +401,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -200.22 EUR
   Depenses:Loisirs:Voyages                           200.22 EUR
 
+2019-04-17 * "RETRAIT DAB 16/04/19 BOAMGXB-GAB CB*1974" "Madagascar"
+  source: "qif"
+  Actif:Boursorama:CCTim                            -200.22 EUR
+  Depenses:Loisirs:Voyages                           200.22 EUR
+
 2019-04-17 * "*CION CB OP. ETR 04/19 BOAMGXB-GAB-1-" ""
   source: "qif"
   Actif:Boursorama:CCTim                              -3.88 EUR
