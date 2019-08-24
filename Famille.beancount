@@ -528,12 +528,13 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -192.14 EUR
   Passif:Boursorama:CBJoint                          192.14 EUR
 
-2019-03-04 * "PRLV SEPA GMF ASSURANCES" ""
+
 2019-03-05 * "VIR SEPA CAF DES DEUX SEVRES" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           131.16 EUR
   Revenus:CAF                                       -131.16 EUR
 
+2019-03-04 * "PRLV SEPA GMF ASSURANCES" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -86.19 EUR
   Depenses:Voitures:Assurance                            35 EUR
