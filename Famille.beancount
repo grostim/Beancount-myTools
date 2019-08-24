@@ -2130,6 +2130,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -2.00 EUR
   Depenses:Loisirs:Voyages                             2.00 EUR
 
+2019-02-25 * "CARTE 23022019 44 RVE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -63.70 EUR
+  Depenses:Alimentaire:Restaurant                     63.70 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
