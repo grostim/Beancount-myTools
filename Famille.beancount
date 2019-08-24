@@ -1143,6 +1143,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -3.50 EUR
   Depenses:Assurance:CB                                3.50 EUR
 
+2019-07-08 * "CARTE 07/07/19 79 INTERMARCHE    CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -9.08 EUR
+  Depenses:Alimentaire:Epicerie                        9.08 EUR
+
 2019-07-08 * "CHQ. N.8128292" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -15.00 EUR
