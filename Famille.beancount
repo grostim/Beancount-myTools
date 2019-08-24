@@ -327,6 +327,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -43.55 EUR
   Depenses:A-CLASSER                                  43.55 EUR
 
+2019-01-23 ! "CHQ. N.9440144" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -342.00 EUR
+  Depenses:A-CLASSER                                 342.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
