@@ -322,6 +322,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -34.80 EUR
   Depenses:A-CLASSER                                  34.80 EUR
 
+2019-01-22 ! "CARTE 19012019 79 LA LIBRAIRIE   CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -43.55 EUR
+  Depenses:A-CLASSER                                  43.55 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
