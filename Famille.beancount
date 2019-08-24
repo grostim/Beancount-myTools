@@ -157,6 +157,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             -57.00 EUR
   Depenses:A-CLASSER                                  57.00 EUR
 
+2019-01-22 ! "CHQ. N.0255106" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                             -55.00 EUR
+  Depenses:A-CLASSER                                  55.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
