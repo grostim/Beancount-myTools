@@ -944,6 +944,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           500.00 EUR
   Actif:Boursorama:CCAnna                           -500.00 EUR
 
+2019-05-28 ! "VIR Vir. de Compte bancaire vers Com" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           400.00 EUR
+  Actif:Boursorama:CCAnna                           -400.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
