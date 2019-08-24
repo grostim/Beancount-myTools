@@ -212,6 +212,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           131.16 EUR
   Revenus:CAF                                       -131.16 EUR
 
+2019-01-07 ! "VIR SEPA C.P.A.M. DE NIORT" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            22.40 EUR
+  Depenses:Sante                                     -22.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
