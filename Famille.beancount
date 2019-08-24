@@ -2313,3 +2313,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -40.50 EUR
   Depenses:Alimentaire:Restaurant                     40.50 EUR
 
+2019-01-21 * "CARTE 20012019 79 SEV" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -282.64 EUR
+  Depenses:Abo:Eau                                   282.64 EUR
+
