@@ -1208,6 +1208,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -37.98 EUR
   Depenses:Loisirs:Culture                            37.98 EUR
 
+2019-07-26 ! "ECH PRET:80280000606862232607" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                         -1082.26 EUR
+  Passif:Boursorama:EmpruntRP                       1082.26 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
