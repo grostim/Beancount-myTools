@@ -680,6 +680,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           131.16 EUR
   Revenus:CAF                                       -131.16 EUR
 
+2019-04-05 * "*FRAIS BOURSORAMA PROTEC. DUO +" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -3.50 EUR
+  Depenses:Assurance:CB                                3.50 EUR
+
 2019-04-05 * "*INTERETS DEBITEURS AU 31/03/19" ""
   source: "qif"
   Actif:Boursorama:CCJoint                            -0.01 EUR
