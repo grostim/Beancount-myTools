@@ -528,17 +528,16 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -192.14 EUR
   Passif:Boursorama:CBJoint                          192.14 EUR
 
-
-2019-03-05 * "VIR SEPA CAF DES DEUX SEVRES" ""
-  source: "qif"
-  Actif:Boursorama:CCJoint                           131.16 EUR
-  Revenus:CAF                                       -131.16 EUR
-
 2019-03-04 * "PRLV SEPA GMF ASSURANCES" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -86.19 EUR
   Depenses:Voitures:Assurance                            35 EUR
   Depenses:Immobilier:Assurance
+
+2019-03-05 * "VIR SEPA CAF DES DEUX SEVRES" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           131.16 EUR
+  Revenus:CAF                                       -131.16 EUR
 
 2019-03-06 * "CARTE 04032019 79 BIOMARCHE      CB*5969" ""
   source: "qif"
@@ -575,10 +574,10 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -50.00 EUR
   Actif:Cash                                          50.00 EUR
 
-2019-03-12 ! "CARTE 09/03/19 79 OXYGEN         CB*5969" ""
+2019-03-12 * "CARTE 09/03/19 79 OXYGEN         CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -28.00 EUR
-  Depenses:A-CLASSER                                  28.00 EUR
+  Depenses:Enfants:Coiffeur                           28.00 EUR
 
 2019-03-14 * "CHQ. N.9440146" ""
   source: "qif"
@@ -850,6 +849,7 @@ option "documents" "./"
 1981-07-02 open Depenses:Assurance:CB                       EUR
 1981-07-02 open Depenses:Banque:Frais                       EUR
 1981-07-02 open Depenses:Divers                             EUR
+1981-07-02 open Depenses:Enfants:Coiffeur                   EUR
 1981-07-02 open Depenses:Enfants:Scolarite                  EUR
 1981-07-02 open Depenses:Enfants:Loisirs                    EUR
 1981-07-02 open Depenses:Habillement                        EUR
