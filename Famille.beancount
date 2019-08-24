@@ -2060,6 +2060,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.44 EUR
   Depenses:A-CLASSER                                   3.44 EUR
 
+2019-02-13 * "CARTE 11022019 29 MAX SQ *GREEN GOAT GAM" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -5.30 EUR
+  Depenses:Abo:Serveur                                 5.30 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
