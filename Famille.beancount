@@ -2338,3 +2338,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -14.75 EUR
   Depenses:Alimentaire:Restaurant                     14.75 EUR
 
+2019-01-28 * "CARTE 26012019 79 LE GRAND BLEU" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -5.66 EUR
+  Depenses:Alimentaire:Epicerie                        5.66 EUR
+
