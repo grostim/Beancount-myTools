@@ -801,6 +801,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -4.25 EUR
   Depenses:Abo:Telephone                               4.25 EUR
 
+2019-05-06 * "VIR SEPA CAF DES DEUX SEVRES" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           131.55 EUR
+  Revenus:CAF                                       -131.55 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
