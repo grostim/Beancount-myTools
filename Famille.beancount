@@ -2283,3 +2283,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -55.01 EUR
   Depenses:Voitures:Carburant                         55.01 EUR
 
+2019-01-14 * "CARTE 10012019 COMPTOIR DU PELICAN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -19.90 EUR
+  Depenses:Alimentaire:Restaurant                     19.90 EUR
+
