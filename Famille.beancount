@@ -1995,6 +1995,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -5.95 EUR
   Depenses:Sante                                       5.95 EUR
 
+2019-02-04 * "CARTE 01022019 79 REG.STATIONMT" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -0.70 EUR
+  Actif:NoteDeFrais                                    0.70 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
