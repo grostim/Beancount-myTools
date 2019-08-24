@@ -1037,6 +1037,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -0.99 EUR
   Depenses:Abo:Apple                                   0.99 EUR
 
+2019-06-24 * "CARTE 22/06/19 79 BIOMARCHE      CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -73.48 EUR
+  Depenses:Alimentaire:Epicerie                       73.48 EUR
+
 2019-06-24 * "CARTE 22/06/19 79 PICARD SA 282  CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -54.28 EUR
