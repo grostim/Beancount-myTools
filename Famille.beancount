@@ -109,6 +109,8 @@ option "documents" "./"
   account: "00040754305"
 2013-03-04 pad  Actif:Boursorama:CCJoint  Equity:Opening-Balances
 
+2018-12-31 balance  Actif:Boursorama:CCJoint          67.43 EUR
+
 2019-01-02 * "Relev{ diff{r{ Carte 4979********1979" ""
   source: "qif"
   Actif:Boursorama:CCJoint                          -274.22 EUR
