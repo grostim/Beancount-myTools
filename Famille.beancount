@@ -398,10 +398,10 @@ option "documents" "./"
   Depenses:Voitures:Assurance                            35 EUR
   Depenses:Immobilier:Assurance
 
-2019-02-04 ! "PRLV SEPA TRES. NIORT-SEVRE MUNICIPALE -" ""
+2019-02-04 * "PRLV SEPA TRES. NIORT-SEVRE MUNICIPALE -" ""
   source: "qif"
   Actif:Boursorama:CCJoint                          -117.00 EUR
-  Depenses:A-CLASSER                                 117.00 EUR
+  Depenses:Enfants:Loisirs                           117.00 EUR
 
 2019-02-05 * "PRLV SEPA FREE MOBILE" ""
   source: "qif"
@@ -709,6 +709,7 @@ option "documents" "./"
 1981-07-02 open Depenses:Banque:Frais                       EUR
 1981-07-02 open Depenses:Divers                             EUR
 1981-07-02 open Depenses:Enfants:Scolarite                  EUR
+1981-07-02 open Depenses:Enfants:Loisirs                    EUR
 1981-07-02 open Depenses:Habillement                        EUR
 1981-07-02 open Depenses:Immobilier:FraisNotaire            EUR
 1981-07-02 open Depenses:Immobilier:Travaux                 EUR
