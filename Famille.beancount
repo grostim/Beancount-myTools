@@ -2120,6 +2120,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -27.60 EUR
   Depenses:Alimentaire:Restaurant                     27.60 EUR
 
+2019-02-25 * "CARTE 24022019 44 BICLOO NM" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -2.00 EUR
+  Depenses:Loisirs:Voyages                             2.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
