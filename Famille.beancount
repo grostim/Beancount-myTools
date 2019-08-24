@@ -314,6 +314,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                             -20.00 EUR
   Depenses:Enfants:Scolarite                          20.00 EUR
 
+2019-03-29 * "VIR SEPA TECNAL S.A.S" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                            3124.92 EUR
+  Revenus:Salaires:Tecnal                          -3124.92 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
