@@ -1312,6 +1312,11 @@ option "documents" "./"
   Passif:Boursorama:CBJoint                          -10.90 EUR
   Actif:NoteDeFrais                                   10.90 EUR
 
+2019-03-20 * "CARTE 19/03/19 E.LECLERC WEB" ""
+  source: "qif"
+  Passif:Boursorama:CBJoint                          -66.07 EUR
+  Depenses:Alimentaire:Epicerie                       66.07 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBJoint"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
