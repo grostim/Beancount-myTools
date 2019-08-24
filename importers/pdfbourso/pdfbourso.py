@@ -77,7 +77,7 @@ class pdfbourso(importer.ImporterProtocol):
         #Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
         if self.type == "Compte":
-            control='80261\s*\d{11}'
+            control='8026\d\s*\d{11}'
         elif self.type == "CB":
             control='\s*4979\*{8}\d{4}'
         match = re.search(control, text)
