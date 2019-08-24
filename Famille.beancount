@@ -679,6 +679,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                               8.00 EUR
   Depenses:Abo:Serveur                                -8.00 EUR
 
+2019-08-16 * "PRLV SEPA American Express Carte-France" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                           -1279.99 EUR
+  Passif:AirFrance:Amex                             1279.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
