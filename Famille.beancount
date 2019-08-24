@@ -342,6 +342,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -0.99 EUR
   Depenses:Abo:Apple                                   0.99 EUR
 
+2019-01-25 * "CARTE 24012019 79 INTERMARCHE    CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -15.84 EUR
+  Depenses:Alimentaire:Epicerie                       15.84 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
