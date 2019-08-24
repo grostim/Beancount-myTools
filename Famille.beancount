@@ -52,6 +52,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          1500.00 EUR
   Actif:Boursorama:CCTim                           -1500.00 EUR
 
+2019-01-02 ! "REM CHQ N. 0688464" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            50.00 EUR
+  Revenus:VentesAnna                                 -50.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
