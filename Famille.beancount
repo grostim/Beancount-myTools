@@ -811,6 +811,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -271.00 EUR
   Depenses:Enfants:Scolarite                         271.00 EUR
 
+2019-05-10 * "CARTE 09/05/19 79 TAO NIORT      CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -24.99 EUR
+  Depenses:Habillement                                24.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
