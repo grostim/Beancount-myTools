@@ -2278,3 +2278,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.38 EUR
   Depenses:A-CLASSER                                   3.38 EUR
 
+2019-01-14 * "CARTE 11012019 79 E LECLERC DAC VL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -55.01 EUR
+  Depenses:Voitures:Carburant                         55.01 EUR
+
