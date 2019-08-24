@@ -700,6 +700,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -54.94 EUR
   Depenses:Habillement                                54.94 EUR
 
+2019-04-09 * "CARTE 06/04/19 79 LA LIBRAIRIE   CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -29.12 EUR
+  Depenses:Loisirs:Culture                            29.12 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
