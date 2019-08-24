@@ -312,6 +312,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -60.00 EUR
   Actif:Cash                                          60.00 EUR
 
+2019-01-22 ! "VIR SEPA C.P.A.M. DE NIORT" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            96.75 EUR
+  Depenses:Sante                                     -96.75 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
