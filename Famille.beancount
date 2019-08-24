@@ -319,7 +319,7 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            3124.92 EUR
   Revenus:Salaires:Tecnal                          -3124.92 EUR
   
-2019-02-01 balance  Actif:Boursorama:CCTim          3024.45 EUR
+2019-04-01 balance  Actif:Boursorama:CCTim          3024.45 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
