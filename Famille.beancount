@@ -2040,6 +2040,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -22.57 EUR
   Depenses:Alimentaire:Epicerie                       22.57 EUR
 
+2019-02-11 * "CARTE 09022019 FROMAGES DE SYL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -11.16 EUR
+  Depenses:Alimentaire:Epicerie                       11.16 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
