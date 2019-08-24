@@ -2035,6 +2035,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -6.48 EUR
   Depenses:Sante                                       6.48 EUR
 
+2019-02-11 * "CARTE 09022019 79 LE GRAND BLEU" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -22.57 EUR
+  Depenses:Alimentaire:Epicerie                       22.57 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
