@@ -2273,3 +2273,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -17.00 EUR
   Depenses:Alimentaire:Restaurant                     17.00 EUR
 
+2019-01-14 ! "CARTE 09012019 29 MAX PAYPAL" "Spotify"
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.38 EUR
+  Depenses:A-CLASSER                                   3.38 EUR
+
