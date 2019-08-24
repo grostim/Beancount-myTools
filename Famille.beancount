@@ -1267,6 +1267,11 @@ option "documents" "./"
   Passif:Boursorama:CBJoint                          -76.72 EUR
   Depenses:Alimentaire:Epicerie                       76.72 EUR
 
+2019-01-24 * "CARTE 22012019 E.LECLERC WEB" ""
+  source: "qif"
+  Passif:Boursorama:CBJoint                          -59.53 EUR
+  Depenses:Alimentaire:Epicerie                       59.53 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBJoint"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
