@@ -267,6 +267,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -20.00 EUR
   Actif:Cash                                          20.00 EUR
 
+2019-01-10 ! "RETRAIT DAB 09012019 NIORT       CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -50.00 EUR
+  Actif:Cash                                          50.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
