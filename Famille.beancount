@@ -567,6 +567,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                            -108.00 EUR
   Depenses:Immobilier:Menage:Salaire                 108.00 EUR
 
+2019-07-05 * "PRLV SEPA Free Telecom" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                             -37.97 EUR
+  Depenses:Abo:Internet                               37.97 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
