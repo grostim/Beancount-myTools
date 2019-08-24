@@ -569,6 +569,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -271.00 EUR
   Depenses:Enfants:Scolarite                         271.00 EUR
 
+2019-03-11 * "RETRAIT DAB 08032019 NIORT       CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -50.00 EUR
+  Actif:Cash                                          50.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
