@@ -1223,6 +1223,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -112.62 EUR
   Depenses:Abo:Elec                                  112.62 EUR
 
+2019-07-29 * "CARTE 28/07/19 ITUNES.COM/BILL   CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -2.99 EUR
+  Depenses:Abo:Apple                                   2.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
