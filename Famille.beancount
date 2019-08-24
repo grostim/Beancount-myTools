@@ -237,6 +237,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -77.66 EUR
   Depenses:Sante                                      77.66 EUR
 
+2019-01-08 ! "*INTERETS DEBITEURS AU 31/12/18" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -2.76 EUR
+  Depenses:Banque:Frais                                2.76 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
