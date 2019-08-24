@@ -770,6 +770,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -70.66 EUR
   Depenses:Abo:Gaz                                    70.66 EUR
 
+2019-04-26 * "VIR SEPA GROS Adelaide" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                         -1200.00 EUR
+  Depenses:Loisirs:Billeterie                       1200.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
