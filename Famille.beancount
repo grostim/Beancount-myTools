@@ -176,6 +176,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -274.22 EUR
   Passif:Boursorama:CBJoint                          274.22 EUR
 
+2019-01-02 ! "CARTE 31122018 79 EURODIF        CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           -33.04 EUR
+  Depenses:Habillement                                33.04 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
