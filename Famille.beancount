@@ -2641,3 +2641,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -41.59 EUR
   Depenses:Alimentaire:Epicerie                       41.59 EUR
 
+2019-03-08 * "CARTE 07032019 79 LA BESSINOISE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.20 EUR
+  Depenses:Alimentaire:Restaurant                      9.20 EUR
+
