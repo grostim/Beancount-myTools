@@ -2318,3 +2318,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                           -282.64 EUR
   Depenses:Abo:Eau                                   282.64 EUR
 
+2019-01-21 * "CARTE 19012019 79 E LECLERC DAC VL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -13.37 EUR
+  Depenses:Voitures:Carburant                         13.37 EUR
+
