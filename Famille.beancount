@@ -2160,6 +2160,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -12.30 EUR
   Depenses:Alimentaire:Restaurant                     12.30 EUR
 
+2019-02-25 * "CARTE 24022019 SARL LE BISTRO" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -38.00 EUR
+  Depenses:Alimentaire:Restaurant                     38.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
