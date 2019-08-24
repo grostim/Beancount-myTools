@@ -372,6 +372,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -18.96 EUR
   Depenses:Habillement                                18.96 EUR
 
+2019-01-29 * "CARTE 26012019 FR219 TIGER NIOR  CB*5969" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -4.00 EUR
+  Depenses:Habillement                                 4.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
