@@ -2701,3 +2701,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -9.00 EUR
   Depenses:Alimentaire:Epicerie                        9.00 EUR
 
+2019-03-21 * "CARTE 16/03/19 29 MAX PICARD SA 282" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -31.76 EUR
+  Depenses:Alimentaire:Epicerie                       31.76 EUR
+
