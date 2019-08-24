@@ -277,6 +277,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                             9.60 EUR
   Depenses:Sante                                      -9.60 EUR
 
+2019-01-15 ! "VIR SEPA DDFIP DE LA HAUTE VIENNE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          1090.00 EUR
+  Depenses:Impots:IR                               -1090.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
