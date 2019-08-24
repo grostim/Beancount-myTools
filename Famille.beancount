@@ -750,6 +750,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -117.00 EUR
   Depenses:Enfants:Loisirs                           117.00 EUR
 
+2019-04-23 * "VIR SEPA HARMONIE MUTUELLE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            14.01 EUR
+  Depenses:Sante                                     -14.01 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
