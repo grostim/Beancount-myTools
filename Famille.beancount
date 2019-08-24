@@ -1087,6 +1087,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -63.13 EUR
   Depenses:Immobilier:Menage:Charges                  63.13 EUR
 
+2019-06-28 ! "PRLV SEPA TRES. NIORT-SEVRE MUNICIPALE -" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -205.67 EUR
+  Depenses:A-CLASSER                                 205.67 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
