@@ -503,6 +503,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            -0.99 EUR
   Depenses:Abo:Apple                                   0.99 EUR
 
+2019-02-27 * "PRLV SEPA EDF clients particuliers" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                          -160.89 EUR
+  Depenses:Abo:Elec                                  160.89 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
