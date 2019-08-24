@@ -544,6 +544,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -135.93 EUR
   Depenses:Alimentaire:Epicerie                      135.93 EUR
 
+2019-03-07 * "VIR SEPA C.P.A.M. DE NIORT" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            22.40 EUR
+  Depenses:Sante                                     -22.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
