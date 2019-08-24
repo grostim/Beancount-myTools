@@ -411,6 +411,11 @@ option "documents" "./"
   Actif:Boursorama:CCTim                              -3.88 EUR
   Depenses:Banque:Frais                                3.88 EUR
 
+2019-04-23 * "VIR SEPA SAS TECNAL" ""
+  source: "qif"
+  Actif:Boursorama:CCTim                             455.60 EUR
+  Actif:NoteDeFrais                                 -455.60 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
