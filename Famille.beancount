@@ -798,6 +798,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           500.00 EUR
   Actif:Boursorama:CCAnna                           -500.00 EUR
 
+2019-04-26 * "VIR Virement interne depuis COMPTE P" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                           500.00 EUR
+  Actif:Boursorama:CCAnna                           -500.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
