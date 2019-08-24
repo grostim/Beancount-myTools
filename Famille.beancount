@@ -2055,6 +2055,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -0.68 EUR
   Passif:AirFrance:Amex                                0.68 EUR
 
+2019-02-13 ! "CARTE 09022019 29 MAX PAYPAL *SPOTIFY" "Spotify"
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.44 EUR
+  Depenses:A-CLASSER                                   3.44 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
