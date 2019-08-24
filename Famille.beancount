@@ -2005,6 +2005,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.45 EUR
   Depenses:Alimentaire:Restaurant                      8.45 EUR
 
+2019-02-04 * "CARTE 02022019 79 GALERIES LAFAYET" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -192.61 EUR
+  Depenses:Habillement                               192.61 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
