@@ -1382,6 +1382,11 @@ option "documents" "./"
   Passif:Boursorama:CBJoint                          -70.85 EUR
   Depenses:Alimentaire:Epicerie                       70.85 EUR
 
+2019-07-17 * "CARTE 17/07/19 79 LES PLANCHES" ""
+  source: "qif"
+  Passif:Boursorama:CBJoint                          -64.55 EUR
+  Depenses:Alimentaire:Restaurant                     64.55 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBJoint"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
