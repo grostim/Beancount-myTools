@@ -186,6 +186,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -16.11 EUR
   Depenses:Alimentaire:Epicerie                       16.11 EUR
 
+2019-01-03 ! "PRLV SEPA FREE MOBILE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            -4.55 EUR
+  Depenses:Abo:Telephone                               4.55 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
