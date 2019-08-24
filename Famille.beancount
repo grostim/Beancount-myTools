@@ -2681,3 +2681,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -10.90 EUR
   Actif:NoteDeFrais                                   10.90 EUR
 
+2019-03-15 * "CARTE 13/03/19 LA BESSINOISE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.50 EUR
+  Depenses:Alimentaire:Restaurant                      9.50 EUR
+
