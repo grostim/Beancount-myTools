@@ -715,6 +715,11 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                          -271.00 EUR
   Depenses:Enfants:Scolarite                         271.00 EUR
 
+2019-04-15 * "VIR SEPA HARMONIE MUTUELLE" ""
+  source: "qif"
+  Actif:Boursorama:CCJoint                            35.00 EUR
+  Depenses:Sante                                     -35.00 EUR
+
 2019-04-11 * "CARTE 10/04/19 79 PHARM DE PARIS CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -77.12 EUR
