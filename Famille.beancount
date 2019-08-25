@@ -2864,6 +2864,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -17.00 EUR
   Depenses:A-CLASSER                                  17.00 EUR
 
+2019-07-17 * "CARTE 16/07/19 AU BON CRU" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -6.00 EUR
+  Depenses:Alimentaire:VinsEtAlcool                    6.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
