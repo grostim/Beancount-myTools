@@ -2459,6 +2459,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.00 EUR
   Depenses:Sante                                       3.00 EUR
 
+2019-04-15 * "CARTE 12/04/19 SB" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.90 EUR
+  Depenses:Alimentaire:Restaurant                      9.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
