@@ -27,7 +27,7 @@ option "documents" "./"
 ;; Declare some sort of account to use as the source for padding
 ;; entries (see below). Use your birth date... that's when you began
 ;; accumulating equity!
-1981-02-07 open Equity:Opening-Balances
+1981-02-07 open Equity:Opening-Balances                     EUR
 
 ** Events
 ;; This is a section where I declare some general properties.
@@ -37,6 +37,12 @@ option "documents" "./"
 
 ;; Same thing with your employer.
 1981-07-02 event "Ma Vie" "Naissance !"
+
+** Commodities
+
+1999-01-01 commodity EUR
+  asset-class: "cash"
+  asset-subclass: "cash"
 
 
 * Comptes
