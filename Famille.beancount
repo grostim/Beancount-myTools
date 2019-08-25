@@ -2894,6 +2894,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -14.99 EUR
   Depenses:Immobilier:Travaux                         14.99 EUR
 
+2019-07-23 * "CARTE 21/07/19 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -15.44 EUR
+  Depenses:Alimentaire:Epicerie                       15.44 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
