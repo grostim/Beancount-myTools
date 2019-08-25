@@ -2794,6 +2794,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.55 EUR
   Depenses:Alimentaire:Restaurant                      8.55 EUR
 
+2019-07-08 * "CARTE 07/07/19 SELECTA AIRPORTC" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -2.00 EUR
+  Depenses:Alimentaire:Restaurant                      2.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
