@@ -2824,6 +2824,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                           -433.00 EUR
   Depenses:Loisirs:Gadgets                           433.00 EUR
 
+2019-07-12 * "CARTE 10/07/19 84 ASF-NIORT OUEST" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.90 EUR
+  Actif:NoteDeFrais                                   10.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
