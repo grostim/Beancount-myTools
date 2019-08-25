@@ -2719,6 +2719,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -53.25 EUR
   Depenses:Voitures:Carburant                         53.25 EUR
 
+2019-06-27 * "CARTE 25/06/19 BOULANGERIE CREPIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.65 EUR
+  Depenses:Alimentaire:Restaurant                      8.65 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
