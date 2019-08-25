@@ -2444,6 +2444,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -24.00 EUR
   Depenses:Alimentaire:VinsEtAlcool                   24.00 EUR
 
+2019-04-15 * "CARTE 13/04/19 75 MGP*LEETCHI.COM" "Cadeau Matthieu Mattera"
+  source: "qif"
+  Passif:Boursorama:CBTim                            -50.00 EUR
+  Depenses:A-CLASSER                                  50.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
