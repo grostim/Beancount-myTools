@@ -39,6 +39,7 @@ option "documents" "./"
 1981-07-02 event "Ma Vie" "Naissance !"
 
 ** Commodities
+;; https://github.com/ghislainbourgeois/beancount_portfolio_allocation
 
 1999-01-01 commodity EUR
   asset-class: "cash"
