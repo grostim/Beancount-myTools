@@ -2849,6 +2849,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -4.17 EUR
   Depenses:Alimentaire:Epicerie                        4.17 EUR
 
+2019-07-16 * "CARTE 13/07/19 E LECLERC" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -20.08 EUR
+  Depenses:Alimentaire:Epicerie                       20.08 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
