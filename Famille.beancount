@@ -2240,6 +2240,121 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.90 EUR
   Depenses:Alimentaire:Restaurant                      8.90 EUR
 
+2019-02-11 * "CARTE 09022019 PICARD SA 282   4212109" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -41.59 EUR
+  Depenses:Alimentaire:Epicerie                       41.59 EUR
+
+2019-03-08 * "CARTE 07032019 79 LA BESSINOISE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.20 EUR
+  Depenses:Alimentaire:Restaurant                      9.20 EUR
+
+2019-03-12 ! "CARTE 09/03/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.47 EUR
+  Depenses:A-CLASSER                                   3.47 EUR
+
+2019-03-12 * "CARTE 11/03/19 79 E.L.G" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -14.00 EUR
+  Depenses:Alimentaire:Restaurant                     14.00 EUR
+
+2019-03-12 * "CARTE 07/03/19 LE GEETHANJALI" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.50 EUR
+  Depenses:Alimentaire:Restaurant                     10.50 EUR
+
+2019-03-12 * "CARTE 09/03/19 CASTORAMA       2902628" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -68.33 EUR
+  Depenses:Immobilier:Travaux                         68.33 EUR
+
+2019-03-12 * "CARTE 11/03/19 CARREFOUR NIORT" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.45 EUR
+  Depenses:Alimentaire:Epicerie                       10.45 EUR
+
+2019-03-13 * "CARTE 12/03/19 44 REL. BOUGUENAIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -26.55 EUR
+  Actif:NoteDeFrais                                   26.55 EUR
+
+2019-03-15 * "CARTE 12/03/19 84 ASF-NIORT OUEST" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.90 EUR
+  Actif:NoteDeFrais                                   10.90 EUR
+
+2019-03-15 * "CARTE 13/03/19 LA BESSINOISE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.50 EUR
+  Depenses:Alimentaire:Restaurant                      9.50 EUR
+
+2019-03-19 * "CARTE 18/03/19 35 FAMILEO" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.00 EUR
+  Depenses:Divers                                      9.00 EUR
+
+2019-03-19 * "CARTE 16/03/19 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -14.30 EUR
+  Depenses:Alimentaire:Epicerie                       14.30 EUR
+
+2019-03-19 * "CARTE 16/03/19 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.00 EUR
+  Depenses:Alimentaire:Epicerie                        9.00 EUR
+
+2019-03-21 * "CARTE 16/03/19 29 MAX PICARD SA 282" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -31.76 EUR
+  Depenses:Alimentaire:Epicerie                       31.76 EUR
+
+2019-03-21 * "CARTE 20/03/19 79 L'ADRESSE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -66.90 EUR
+  Actif:NoteDeFrais                                   66.90 EUR
+
+2019-03-21 * "CARTE 19/03/19 MAISON CREPIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.00 EUR
+  Depenses:Alimentaire:Restaurant                      8.00 EUR
+
+2019-03-22 * "CARTE 21/03/19 79 AUBERGE DE CRESPE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -78.30 EUR
+  Actif:NoteDeFrais                                   78.30 EUR
+
+2019-03-25 * "CARTE 22/03/19 33 CULTURA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.81 EUR
+  Depenses:Loisirs:Culture                             3.81 EUR
+
+2019-03-25 * "CARTE 23/03/19 SUPER U         9232300" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.22 EUR
+  Depenses:Alimentaire:Epicerie                        3.22 EUR
+
+2019-03-25 * "CARTE 23/03/19 PICARD SA 282   4212109" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.65 EUR
+  Depenses:Alimentaire:Epicerie                        3.65 EUR
+
+2019-03-26 * "CARTE 23/03/19 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -21.04 EUR
+  Depenses:Alimentaire:Epicerie                       21.04 EUR
+
+2019-03-26 * "CARTE 23/03/19 AMIS DU MARAIS NIOR" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -16.60 EUR
+  Depenses:Alimentaire:Epicerie                       16.60 EUR
+
+2019-03-27 * "CARTE 25/03/19 29 MAX GOLDEN FROG" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.50 EUR
+  Depenses:Abo:Serveur                                10.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
@@ -2636,118 +2751,5 @@ option "documents" "./"
 1981-07-02 open Actif:Cash                                  EUR
 1981-07-03 pad  Actif:Cash  Equity:Opening-Balances
 2019-08-23 balance  Actif:Cash                         7000 EUR
-2019-02-11 * "CARTE 09022019 PICARD SA 282   4212109" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -41.59 EUR
-  Depenses:Alimentaire:Epicerie                       41.59 EUR
 
-2019-03-08 * "CARTE 07032019 79 LA BESSINOISE" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -9.20 EUR
-  Depenses:Alimentaire:Restaurant                      9.20 EUR
-
-2019-03-12 ! "CARTE 09/03/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
-  source: "qif"
-  Passif:Boursorama:CBTim                             -3.47 EUR
-  Depenses:A-CLASSER                                   3.47 EUR
-
-2019-03-12 * "CARTE 11/03/19 79 E.L.G" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -14.00 EUR
-  Depenses:Alimentaire:Restaurant                     14.00 EUR
-
-2019-03-12 * "CARTE 07/03/19 LE GEETHANJALI" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -10.50 EUR
-  Depenses:Alimentaire:Restaurant                     10.50 EUR
-
-2019-03-12 * "CARTE 09/03/19 CASTORAMA       2902628" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -68.33 EUR
-  Depenses:Immobilier:Travaux                         68.33 EUR
-
-2019-03-12 * "CARTE 11/03/19 CARREFOUR NIORT" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -10.45 EUR
-  Depenses:Alimentaire:Epicerie                       10.45 EUR
-
-2019-03-13 * "CARTE 12/03/19 44 REL. BOUGUENAIS" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -26.55 EUR
-  Actif:NoteDeFrais                                   26.55 EUR
-
-2019-03-15 * "CARTE 12/03/19 84 ASF-NIORT OUEST" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -10.90 EUR
-  Actif:NoteDeFrais                                   10.90 EUR
-
-2019-03-15 * "CARTE 13/03/19 LA BESSINOISE" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -9.50 EUR
-  Depenses:Alimentaire:Restaurant                      9.50 EUR
-
-2019-03-19 * "CARTE 18/03/19 35 FAMILEO" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -9.00 EUR
-  Depenses:Divers                                      9.00 EUR
-
-2019-03-19 * "CARTE 16/03/19 INTERMARCHE" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -14.30 EUR
-  Depenses:Alimentaire:Epicerie                       14.30 EUR
-
-2019-03-19 * "CARTE 16/03/19 INTERMARCHE" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -9.00 EUR
-  Depenses:Alimentaire:Epicerie                        9.00 EUR
-
-2019-03-21 * "CARTE 16/03/19 29 MAX PICARD SA 282" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -31.76 EUR
-  Depenses:Alimentaire:Epicerie                       31.76 EUR
-
-2019-03-21 * "CARTE 20/03/19 79 L'ADRESSE" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -66.90 EUR
-  Actif:NoteDeFrais                                   66.90 EUR
-
-2019-03-21 * "CARTE 19/03/19 MAISON CREPIN" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -8.00 EUR
-  Depenses:Alimentaire:Restaurant                      8.00 EUR
-
-2019-03-22 * "CARTE 21/03/19 79 AUBERGE DE CRESPE" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -78.30 EUR
-  Actif:NoteDeFrais                                   78.30 EUR
-
-2019-03-25 * "CARTE 22/03/19 33 CULTURA" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -3.81 EUR
-  Depenses:Loisirs:Culture                             3.81 EUR
-
-2019-03-25 * "CARTE 23/03/19 SUPER U         9232300" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -3.22 EUR
-  Depenses:Alimentaire:Epicerie                        3.22 EUR
-
-2019-03-25 * "CARTE 23/03/19 PICARD SA 282   4212109" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                             -3.65 EUR
-  Depenses:Alimentaire:Epicerie                        3.65 EUR
-
-2019-03-26 * "CARTE 23/03/19 INTERMARCHE" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -21.04 EUR
-  Depenses:Alimentaire:Epicerie                       21.04 EUR
-
-2019-03-26 * "CARTE 23/03/19 AMIS DU MARAIS NIOR" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -16.60 EUR
-  Depenses:Alimentaire:Epicerie                       16.60 EU
-
-2019-03-27 * "CARTE 25/03/19 29 MAX GOLDEN FROG" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -10.50 EUR
-  Depenses:Abo:Serveur                                10.50 EUR
 
