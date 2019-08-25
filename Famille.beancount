@@ -2784,6 +2784,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -54.02 EUR
   Depenses:Voitures:Carburant                         54.02 EUR
 
+2019-07-08 * "CARTE 07/07/19 84 ASF-BIGNON" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.90 EUR
+  Actif:NoteDeFrais                                   10.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
