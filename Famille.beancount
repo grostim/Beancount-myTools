@@ -2474,6 +2474,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -10.00 EUR
   Depenses:Loisirs:Culture                            10.00 EUR
 
+2019-04-16 * "CARTE 14/04/19 BUY PARIS DUTY  4701427" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -20.20 EUR
+  Depenses:Alimentaire:VinsEtAlcool                   20.20 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
