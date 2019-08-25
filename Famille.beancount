@@ -2839,6 +2839,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -17.90 EUR
   Depenses:Alimentaire:Epicerie                       17.90 EUR
 
+2019-07-15 * "CARTE 11/07/19 OX LOISIRS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.55 EUR
+  Depenses:Alimentaire:VinsEtAlcool                   10.55 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
