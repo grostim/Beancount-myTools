@@ -2434,6 +2434,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.47 EUR
   Depenses:A-CLASSER                                   3.47 EUR
 
+2019-04-12 * "CARTE 11/04/19 PHARM DE PARIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.30 EUR
+  Depenses:Sante                                       3.30 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
