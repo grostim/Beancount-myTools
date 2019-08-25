@@ -2414,6 +2414,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -52.75 EUR
   Depenses:Immobilier:Travaux                         52.75 EUR
 
+2019-04-09 * "CARTE 06/04/19 E LECLERC" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -22.17 EUR
+  Depenses:Alimentaire:Epicerie                       22.17 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
