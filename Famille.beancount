@@ -2564,6 +2564,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -20.70 EUR
   Depenses:Immobilier:Travaux                         20.70 EUR
 
+2019-05-15 * "CARTE 14/05/19 79 E.L.G" "Coiffeur"
+  source: "qif"
+  Passif:Boursorama:CBTim                            -17.00 EUR
+  Depenses:A-CLASSER                                  17.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
