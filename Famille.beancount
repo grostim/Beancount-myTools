@@ -44,7 +44,26 @@ option "documents" "./"
   asset-class: "cash"
   asset-subclass: "cash"
 
+2018-10-01 commodity CTS1
+  asset-class: "actions"
+  asset-subclass: "PME"
+  
+2018-10-01 commodity CTS2
+  asset-class: "actions"
+  asset-subclass: "PME"
 
+2016-02-26 commodity RESIDENCE_PRINCIPALE
+  asset-class: "Immo"
+  asset-subclass: "Residentiel"
+
+1998-01-01 commodity RP_PARENTS
+  asset-class: "Immo"
+  asset-subclass: "Residentiel"
+
+2018-01-01 commodity JARDINSEUROPE
+  asset-class: "Immo"
+  asset-subclass: "Locatif"
+  
 * Comptes
 ** Comptes Courants
 *** CCTim
@@ -3144,7 +3163,6 @@ option "documents" "./"
   account: "00060686223"
 2016-02-27 pad    Passif:Boursorama:EmpruntRP  Equity:Opening-Balances
 2019-08-19 balance  Passif:Boursorama:EmpruntRP  -119731.74 EUR
-
 
 2019-08-05 open   Passif:Boursorama:PretConso               EUR
   account: "00060818936"
