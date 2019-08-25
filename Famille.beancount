@@ -2579,6 +2579,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -16.50 EUR
   Depenses:Alimentaire:Restaurant                     16.50 EUR
 
+2019-05-20 * "CARTE 18/05/19 79 INTERMARCHE DAC VL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -57.01 EUR
+  Depenses:Voitures:Carburant                         57.01 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
