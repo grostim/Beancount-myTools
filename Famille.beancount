@@ -2354,6 +2354,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -10.50 EUR
   Depenses:Abo:Serveur                                10.50 EUR
 
+2019-04-01 * "CARTE 30/03/19 79 DECATHLON 0092" "Préparation Madagascar"
+  source: "qif"
+  Passif:Boursorama:CBTim                           -101.70 EUR
+  Depenses:Loisirs:Voyages                           101.70 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
