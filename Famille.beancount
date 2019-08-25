@@ -2464,6 +2464,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -9.90 EUR
   Depenses:Alimentaire:Restaurant                      9.90 EUR
 
+2019-04-15 * "CARTE 11/04/19 MAISON CREPIN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.70 EUR
+  Depenses:Alimentaire:Restaurant                      9.70 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
