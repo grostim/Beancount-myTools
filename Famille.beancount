@@ -2694,6 +2694,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -12.79 EUR
   Depenses:Alimentaire:Epicerie                       12.79 EUR
 
+2019-06-24 * "CARTE 21/06/19 79 EFFIA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -38.40 EUR
+  Actif:NoteDeFrais                                   38.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
