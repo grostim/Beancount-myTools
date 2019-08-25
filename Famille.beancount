@@ -2644,6 +2644,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -59.90 EUR
   Actif:NoteDeFrais                                   59.90 EUR
 
+2019-05-31 * "CARTE 29/05/19 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -71.93 EUR
+  Depenses:Alimentaire:Epicerie                       71.93 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
