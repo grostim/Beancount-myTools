@@ -2394,6 +2394,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -10.60 EUR
   Depenses:Alimentaire:VinsEtAlcool                   10.60 EUR
 
+2019-04-08 * "CARTE 06/04/19 79 PHARM DE PARIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -6.20 EUR
+  Depenses:Sante                                       6.20 EUR
+
 2019-04-05 * "CARTE 04/04/19 39 BADOZ VINS FROMA" ""
   source: "qif"
   Passif:Boursorama:CBTim                            -29.36 EUR
