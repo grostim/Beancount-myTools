@@ -2539,6 +2539,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -18.00 EUR
   Depenses:Alimentaire:Restaurant                     18.00 EUR
 
+2019-05-13 * "CARTE 10/05/19 79 ANGE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -4.95 EUR
+  Depenses:Alimentaire:Epicerie                        4.95 EUR
+
 2019-05-13 ! "CARTE 09/05/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.48 EUR
