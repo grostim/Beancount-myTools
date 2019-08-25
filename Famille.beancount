@@ -3265,6 +3265,7 @@ option "documents" "./"
 1981-07-02 open Depenses:Assurance:CB                       EUR
 1981-07-02 open Depenses:Banque:Frais                       EUR
 1981-07-02 open Depenses:Cadeaux                            EUR
+1981-07-02 open Depenses:Coiffeur                           EUR
 1981-07-02 open Depenses:Divers                             EUR
 1981-07-02 open Depenses:Enfants:Coiffeur                   EUR
 1981-07-02 open Depenses:Enfants:Scolarite                  EUR
