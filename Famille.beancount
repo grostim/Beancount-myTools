@@ -2439,6 +2439,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.30 EUR
   Depenses:Sante                                       3.30 EUR
 
+2019-04-15 * "CARTE 12/04/19 79 V AND B" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -24.00 EUR
+  Depenses:Alimentaire:VinsEtAlcool                   24.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
