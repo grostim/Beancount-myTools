@@ -1879,10 +1879,10 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -17.00 EUR
   Depenses:Coiffeur                                   17.00 EUR
 
-2019-01-14 ! "CARTE 09012019 29 MAX PAYPAL" "Spotify"
+2019-01-14 * "CARTE 09012019 29 MAX PAYPAL" "Spotify"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.38 EUR
-  Depenses:A-CLASSER                                   3.38 EUR
+  Depenses:Abo:Musique                                 3.38 EUR
 
 2019-01-14 * "CARTE 11012019 79 E LECLERC DAC VL" ""
   source: "qif"
@@ -2059,10 +2059,10 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -0.68 EUR
   Passif:AirFrance:Amex                                0.68 EUR
 
-2019-02-13 ! "CARTE 09022019 29 MAX PAYPAL *SPOTIFY" "Spotify"
+2019-02-13 * "CARTE 09022019 29 MAX PAYPAL *SPOTIFY" "Spotify"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.44 EUR
-  Depenses:A-CLASSER                                   3.44 EUR
+  Depenses:Abo:Musique                                 3.44 EUR
 
 2019-02-13 * "CARTE 11022019 29 MAX SQ *GREEN GOAT GAM" ""
   source: "qif"
@@ -2249,10 +2249,10 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -9.20 EUR
   Depenses:Alimentaire:Restaurant                      9.20 EUR
 
-2019-03-12 ! "CARTE 09/03/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
+2019-03-12 * "CARTE 09/03/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.47 EUR
-  Depenses:A-CLASSER                                   3.47 EUR
+  Depenses:Abo:Musique                                 3.47 EUR
 
 2019-03-12 * "CARTE 11/03/19 79 E.L.G" ""
   source: "qif"
@@ -2429,10 +2429,10 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -9.08 EUR
   Depenses:Sante                                       9.08 EUR
 
-2019-04-12 ! "CARTE 09/04/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
+2019-04-12 * "CARTE 09/04/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.47 EUR
-  Depenses:A-CLASSER                                   3.47 EUR
+  Depenses:Abo:Musique                                 3.47 EUR
 
 2019-04-12 * "CARTE 11/04/19 PHARM DE PARIS" ""
   source: "qif"
@@ -2544,10 +2544,10 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -4.95 EUR
   Depenses:Alimentaire:Epicerie                        4.95 EUR
 
-2019-05-13 ! "CARTE 09/05/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
+2019-05-13 * "CARTE 09/05/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.48 EUR
-  Depenses:A-CLASSER                                   3.48 EUR
+  Depenses:Abo:Musique                                 3.48 EUR
 
 2019-05-13 * "CARTE 11/05/19 LEROY MERLIN SC" ""
   source: "qif"
@@ -2669,10 +2669,10 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.00 EUR
   Depenses:Alimentaire:Restaurant                      8.00 EUR
 
-2019-06-11 ! "CARTE 09/06/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
+2019-06-11 * "CARTE 09/06/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.48 EUR
-  Depenses:A-CLASSER                                   3.48 EUR
+  Depenses:Abo:Musique                                 3.48 EUR
 
 2019-06-11 * "CARTE 10/06/19 LEROY MERLIN SC" ""
   source: "qif"
@@ -2814,10 +2814,10 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -1.99 EUR
   Depenses:Alimentaire:Epicerie                        1.99 EUR
 
-2019-07-11 ! "CARTE 09/07/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
+2019-07-11 * "CARTE 09/07/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.52 EUR
-  Depenses:A-CLASSER                                   3.52 EUR
+  Depenses:Abo:Musique                                3.52 EUR
 
 2019-07-12 * "CARTE 11/07/19 44 VORWERK FRANCE" ""
   source: "qif"
