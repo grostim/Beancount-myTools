@@ -2369,6 +2369,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -35.14 EUR
   Depenses:Alimentaire:Epicerie                       35.14 EUR
 
+2019-04-01 * "CARTE 30/03/19 79 PHARM DE PARIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -30.65 EUR
+  Depenses:Sante                                      30.65 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
