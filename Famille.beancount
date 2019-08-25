@@ -2684,6 +2684,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -39.90 EUR
   Depenses:Alimentaire:Restaurant                     39.90 EUR
 
+2019-06-17 * "CARTE 12/06/19 GB GATE GROUP INFLIGHT" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.00 EUR
+  Actif:NoteDeFrais                                    3.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
