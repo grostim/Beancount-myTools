@@ -2519,6 +2519,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -52.89 EUR
   Depenses:Alimentaire:Epicerie                       52.89 EUR
 
+2019-05-07 * "CARTE 25/04/19 MG SOFITRANS" "Mada"
+  source: "qif"
+  Passif:Boursorama:CBTim                             -4.46 EUR
+  Depenses:Loisirs:Voyages                             4.46 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
