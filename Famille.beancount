@@ -2469,6 +2469,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -9.70 EUR
   Depenses:Alimentaire:Restaurant                      9.70 EUR
 
+2019-04-15 * "CARTE 14/04/19 RELAY 352534SC  4230604" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.00 EUR
+  Depenses:Loisirs:Culture                            10.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
