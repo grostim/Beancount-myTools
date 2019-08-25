@@ -2374,6 +2374,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.30 EUR
   Depenses:Alimentaire:Restaurant                      8.30 EUR
 
+2019-04-03 * "CARTE 22/03/19 79 LA BESSINOISE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.10 EUR
+  Depenses:Alimentaire:Restaurant                      8.10 EUR
+
 2019-04-01 * "CARTE 30/03/19 79 PHARM DE PARIS" ""
   source: "qif"
   Passif:Boursorama:CBTim                            -30.65 EUR
