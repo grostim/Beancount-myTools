@@ -2724,6 +2724,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.65 EUR
   Depenses:Alimentaire:Restaurant                      8.65 EUR
 
+2019-06-28 * "CARTE 26/06/19 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.78 EUR
+  Depenses:Alimentaire:Epicerie                        8.78 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
