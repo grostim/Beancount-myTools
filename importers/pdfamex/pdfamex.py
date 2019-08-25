@@ -5,10 +5,11 @@ __license__ = "GNU GPLv2"
 
 import re
 import subprocess
-
+import logging
 from dateutil.parser import parse as parse_datetime
-
+from beancount.core import amount, data, flags
 from beancount.ingest import importer
+from beancount.core.number import Decimal
 
 def is_pdfminer_installed():
     """Return true if the external Pdftotxt tool installed."""
@@ -20,6 +21,17 @@ def is_pdfminer_installed():
         return False
     else:
         return returncode == 0
+
+def traduire_mois(str):
+    str = str.replace('fév', 'fev')
+    str = str.replace('mars', 'mar')
+    str = str.replace('avr', 'apr')
+    str = str.replace('mai', 'may')
+    str = str.replace('juin', 'jun')
+    str = str.replace('juil', 'jul')
+    str = str.replace('août', 'aug')
+    str = str.replace('déc', 'dec')
+    return str
 
 
 def pdf_to_text(filename):
@@ -76,3 +88,77 @@ class pdfamex(importer.ImporterProtocol):
         if match:
             return parse_datetime(match.group(1),dayfirst="True").date()
 
+    def check_before_add(self, transac):
+        try:
+            data.sanity_check_types(transac)
+        except AssertionError:
+            self.logger.exception("Transaction %s not valid", transac)
+
+    def extract(self, file, existing_entries=None):
+        # Open the pdf file and create directives.
+        entries = []
+        text = file.convert(pdf_to_text)
+        print(text)
+        # On relève d'abord la date du rapport
+        control = 'xxxx-xxxxxx-\d{5}\s*\d*/(\d*)/(\d*)'
+        match = re.search(control, text)
+        statementmonth = match.group(1)
+        statementyear = match.group(2)
+
+        # Et le numéro de compte
+        control='xxxx-xxxxxx-\d{5}'
+        match = re.search(control, text)
+        if match:
+            compte = match.group(0).split(' ')[-1]
+
+        control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}' #regexr.com/4jpsf
+        chunks = re.findall(control, text)
+#        print(chunks)
+        index = 0
+        for chunk in chunks:
+            index += 1
+            meta = data.new_metadata(file.name, index)
+            meta["source"] = "pdfamex"
+            meta["statementExtract"] = chunk
+            ope = dict()
+            ope={}
+#            print(chunk)
+            # A la recherche de la date.
+            match = re.search('\d{1,2}(\s[a-zéèûôùê]{3,4})',chunk)
+            rawdate = match.group(0) #On extrait la première date de la ligne.
+            if match.group(1) == "déc" and statementmonth == "01": 
+                ope["date"] = parse_datetime(traduire_mois(rawdate + " 20" + str(int(statementyear)-1)))
+            else:
+                ope["date"] = parse_datetime(traduire_mois(rawdate + " 20" + statementyear))
+
+            # A la recherche du montant.
+            # TODO : Identifier les transactions de crédit !
+            control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})'
+            match = re.search(control, chunk) 
+            print(match.group(2))
+            ope["montant"] = amount.Amount(Decimal(match.group(2).replace(",", '.').replace(" ", '')), "EUR")
+            print(match.group(1))
+            # Le Payee
+            ope["tiers"] = match.group(1)
+            # Et on rajoute la transaction
+            posting_1 = data.Posting(
+                account=self.accountList[compte],
+                units=ope["montant"],
+                cost=None,
+                flag=None,
+                meta=None,
+                price=None,
+            )
+            flag = flags.FLAG_WARNING
+            transac = data.Transaction(
+                meta=meta,
+                date=ope["date"].date(),
+                flag=flag,
+                payee=ope["tiers"] or "inconnu",
+                narration="",
+                tags=data.EMPTY_SET,
+                links=data.EMPTY_SET,
+                postings=[posting_1],
+                )
+            entries.append(transac)
+        return entries 
