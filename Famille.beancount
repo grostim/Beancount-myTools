@@ -2819,6 +2819,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.52 EUR
   Depenses:A-CLASSER                                   3.52 EUR
 
+2019-07-12 * "CARTE 11/07/19 44 VORWERK FRANCE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -433.00 EUR
+  Depenses:Loisirs:Gadgets                           433.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
