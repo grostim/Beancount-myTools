@@ -2649,6 +2649,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -71.93 EUR
   Depenses:Alimentaire:Epicerie                       71.93 EUR
 
+2019-06-03 * "CARTE 31/05/19 17 CORNER DU MOLE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -69.00 EUR
+  Depenses:Alimentaire:Restaurant                     69.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
