@@ -2569,6 +2569,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -17.00 EUR
   Depenses:A-CLASSER                                  17.00 EUR
 
+2019-05-15 * "CARTE 14/05/19 MC DONALD       4317004" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -19.40 EUR
+  Depenses:Alimentaire:Restaurant                     19.40 EUR
+
 2019-05-17 * "CARTE 16/05/19 79 LEMMY" ""
   source: "qif"
   Passif:Boursorama:CBTim                             -8.50 EUR
@@ -2668,6 +2673,11 @@ option "documents" "./"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.48 EUR
   Depenses:A-CLASSER                                   3.48 EUR
+
+2019-06-11 * "CARTE 10/06/19 LEROY MERLIN SC" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -98.56 EUR
+  Depenses:Immobilier:Travaux                         98.56 EUR
 
 2019-06-12 * "CARTE 11/06/19 PHARM DE PARIS" ""
   source: "qif"
@@ -3132,15 +3142,3 @@ option "documents" "./"
 1981-07-02 open Actif:Cash                                  EUR
 1981-07-03 pad  Actif:Cash  Equity:Opening-Balances
 2019-08-23 balance  Actif:Cash                         7000 EUR
-
-
-2019-05-15 * "CARTE 14/05/19 MC DONALD       4317004" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -19.40 EUR
-  Depenses:Alimentaire:Restaurant                     19.40 EUR
-
-2019-06-11 * "CARTE 10/06/19 LEROY MERLIN SC" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -98.56 EUR
-  Depenses:Immobilier:Travaux                         98.56 EUR
-
