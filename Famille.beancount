@@ -2449,6 +2449,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -50.00 EUR
   Depenses:A-CLASSER                                  50.00 EUR
 
+2019-04-15 * "CARTE 13/04/19 79 INTERMARCHE DAC VL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -37.96 EUR
+  Depenses:Voitures:Carburant                         37.96 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
