@@ -2834,6 +2834,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -18.00 EUR
   Depenses:Alimentaire:VinsEtAlcool                   18.00 EUR
 
+2019-07-15 * "CARTE 13/07/19 79 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -17.90 EUR
+  Depenses:Alimentaire:Epicerie                       17.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
