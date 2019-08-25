@@ -2389,6 +2389,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                           -329.24 EUR
   Actif:NoteDeFrais                                  329.24 EUR
 
+2019-04-05 * "CARTE 04/04/19 39 BADOZ VINS FROMA" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -29.36 EUR
+  Depenses:Alimentaire:Epicerie                       29.36 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
