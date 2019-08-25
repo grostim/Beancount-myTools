@@ -2969,3 +2969,8 @@ option "documents" "./"
 2019-08-23 balance  Actif:Cash                         7000 EUR
 
 
+2019-05-15 * "CARTE 14/05/19 MC DONALD       4317004" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -19.40 EUR
+  Depenses:Alimentaire:Restaurant                     19.40 EUR
+
