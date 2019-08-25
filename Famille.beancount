@@ -2484,6 +2484,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                           -282.00 EUR
   Depenses:Loisirs:Voyages                           282.00 EUR
 
+2019-04-29 * "CARTE 26/04/19 LE BUS DIRECT" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -46.00 EUR
+  Depenses:Loisirs:Voyages                            46.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
