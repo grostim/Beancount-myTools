@@ -47,7 +47,7 @@ option "documents" "./"
 2013-08-27 pad  Actif:Boursorama:CCTim  Equity:Opening-Balances
 
 2019-01-01 balance  Actif:Boursorama:CCTim          6534.49 EUR
-2019-01-02 ! "VIR Versement Mensuel TG" ""
+2019-01-02 * "VIR Versement Mensuel TG" ""
   source: "qif"
   Actif:Boursorama:CCJoint                          1500.00 EUR
   Actif:Boursorama:CCTim                           -1500.00 EUR
@@ -57,7 +57,7 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                            50.00 EUR
   Revenus:VentesAnna                                 -50.00 EUR
 
-2019-01-07 ! "VIR interne" ""
+2019-01-07 * "VIR interne" ""
   source: "qif"
   Actif:Boursorama:CCJoint                          1500.00 EUR
   Actif:Boursorama:CCTim                           -1500.00 EUR
@@ -537,7 +537,7 @@ option "documents" "./"
   Actif:Boursorama:CCTim                              10.40 EUR
   Depenses:Abo:Serveur                               -10.40 EUR
 
-2019-06-18 ! "CHQ. N.1738272" "Achat Vin Bergerac"
+2019-06-18 * "CHQ. N.1738272" "Achat Vin Bergerac"
   source: "qif"
   Actif:Boursorama:CCTim                             -97.77 EUR
   Depenses:Alimentaire:VinsEtAlcool                   97.77 EUR
@@ -888,7 +888,7 @@ option "documents" "./"
   Actif:Boursorama:CCJoint                           -16.63 EUR
   Depenses:Sante                                      16.63 EUR
 
-2019-01-29 ! "CARTE 26012019 79 HETM238        CB*5969" ""
+2019-01-29 * "CARTE 26012019 79 HETM238        CB*5969" ""
   source: "qif"
   Actif:Boursorama:CCJoint                           -18.96 EUR
   Depenses:Habillement                                18.96 EUR
@@ -2114,7 +2114,7 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -53.25 EUR
   Depenses:Alimentaire:Restaurant                     53.25 EUR
 
-2019-02-25 ! "CARTE 22022019 44 TAN 700 44 NANTE*" ""
+2019-02-25 * "CARTE 22022019 44 TAN 700 44 NANTE*" ""
   source: "qif"
   Passif:Boursorama:CBTim                            -15.30 EUR
   Depenses:Loisirs:Voyages                            15.30 EUR
@@ -2444,10 +2444,10 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -24.00 EUR
   Depenses:Alimentaire:VinsEtAlcool                   24.00 EUR
 
-2019-04-15 ! "CARTE 13/04/19 75 MGP*LEETCHI.COM" "Cadeau Matthieu Mattera"
+2019-04-15 * "CARTE 13/04/19 75 MGP*LEETCHI.COM" "Cadeau Matthieu Mattera"
   source: "qif"
   Passif:Boursorama:CBTim                            -50.00 EUR
-  Depenses:A-CLASSER                                  50.00 EUR
+  Depenses:Cadeaux                                    50.00 EUR
 
 2019-04-15 * "CARTE 13/04/19 79 INTERMARCHE DAC VL" ""
   source: "qif"
