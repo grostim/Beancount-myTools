@@ -3074,3 +3074,8 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -19.40 EUR
   Depenses:Alimentaire:Restaurant                     19.40 EUR
 
+2019-06-11 * "CARTE 10/06/19 LEROY MERLIN SC" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -98.56 EUR
+  Depenses:Immobilier:Travaux                         98.56 EUR
+
