@@ -2594,6 +2594,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -42.70 EUR
   Depenses:Immobilier:Travaux                         42.70 EUR
 
+2019-05-21 * "CARTE 20/05/19 PHARM DE PARIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -30.70 EUR
+  Depenses:Sante                                      30.70 EUR
+
 2019-05-21 * "CARTE 19/05/19 INTERMARCHE" ""
   source: "qif"
   Passif:Boursorama:CBTim                             -5.57 EUR
