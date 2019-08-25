@@ -2854,6 +2854,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -20.08 EUR
   Depenses:Alimentaire:Epicerie                       20.08 EUR
 
+2019-07-17 * "CARTE 16/07/19 CARREFOUR NIORT" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -5.95 EUR
+  Depenses:Alimentaire:Epicerie                        5.95 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
