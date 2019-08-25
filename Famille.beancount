@@ -2574,6 +2574,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.50 EUR
   Depenses:Alimentaire:Restaurant                      8.50 EUR
 
+2019-05-17 * "CARTE 15/05/19 COMPTOIR DU PELICAN" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -16.50 EUR
+  Depenses:Alimentaire:Restaurant                     16.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
