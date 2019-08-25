@@ -2384,6 +2384,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -30.65 EUR
   Depenses:Sante                                      30.65 EUR
 
+2019-04-05 * "CARTE 04/04/19 39 LA FONTAINE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -329.24 EUR
+  Actif:NoteDeFrais                                  329.24 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
