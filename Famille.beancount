@@ -2817,7 +2817,7 @@ option "documents" "./"
 2019-07-11 * "CARTE 09/07/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
   source: "qif"
   Passif:Boursorama:CBTim                             -3.52 EUR
-  Depenses:Abo:Musique                                3.52 EUR
+  Depenses:Abo:Musique                                 3.52 EUR
 
 2019-07-12 * "CARTE 11/07/19 44 VORWERK FRANCE" ""
   source: "qif"
@@ -2862,7 +2862,7 @@ option "documents" "./"
 2019-07-17 * "CARTE 16/07/19 E.L.G" "Coiffeur"
   source: "qif"
   Passif:Boursorama:CBTim                            -17.00 EUR
-  Depenses:Coiffeur                                  17.00 EUR
+  Depenses:Coiffeur                                   17.00 EUR
 
 2019-07-17 * "CARTE 16/07/19 AU BON CRU" ""
   source: "qif"
