@@ -2884,6 +2884,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -11.95 EUR
   Depenses:Alimentaire:Epicerie                       11.95 EUR
 
+2019-07-22 * "CARTE 20/07/19 LEROY MERLIN SC" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -105.80 EUR
+  Depenses:Immobilier:Travaux                        105.80 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
