@@ -2424,6 +2424,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -9.56 EUR
   Depenses:Alimentaire:Epicerie                        9.56 EUR
 
+2019-04-10 * "CARTE 09/04/19 79 PHIE ST FLORENT" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.08 EUR
+  Depenses:Sante                                       9.08 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
