@@ -2524,6 +2524,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -4.46 EUR
   Depenses:Loisirs:Voyages                             4.46 EUR
 
+2019-05-07 * "CION OP.ETR MG SOFITRANS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -0.08 EUR
+  Depenses:Banque:Frais                                0.08 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
