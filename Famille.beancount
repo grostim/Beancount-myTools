@@ -2869,6 +2869,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -6.00 EUR
   Depenses:Alimentaire:VinsEtAlcool                    6.00 EUR
 
+2019-07-18 * "CARTE 17/07/19 79 LA BESSINOISE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.90 EUR
+  Depenses:Alimentaire:Restaurant                      8.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
