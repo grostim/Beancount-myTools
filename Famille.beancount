@@ -2624,6 +2624,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -10.90 EUR
   Actif:NoteDeFrais                                   10.90 EUR
 
+2019-05-29 * "CARTE 25/05/19 GB GATE GROUP INFLIGHT" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -12.00 EUR
+  Actif:NoteDeFrais                                   12.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
