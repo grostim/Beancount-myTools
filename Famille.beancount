@@ -2429,6 +2429,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -9.08 EUR
   Depenses:Sante                                       9.08 EUR
 
+2019-04-12 ! "CARTE 09/04/19 29 MAX PAYPAL *SPOTIFY" "Spotify"
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.47 EUR
+  Depenses:A-CLASSER                                   3.47 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
