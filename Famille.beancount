@@ -2804,6 +2804,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -2.50 EUR
   Depenses:Alimentaire:Restaurant                      2.50 EUR
 
+2019-07-08 * "CARTE 07/07/19 KIOSQUE         4896665" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -9.10 EUR
+  Depenses:Divers                                      9.10 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
