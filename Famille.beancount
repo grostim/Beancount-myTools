@@ -2454,6 +2454,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -37.96 EUR
   Depenses:Voitures:Carburant                         37.96 EUR
 
+2019-04-15 * "CARTE 12/04/19 PHARM DE PARIS" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.00 EUR
+  Depenses:Sante                                       3.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
