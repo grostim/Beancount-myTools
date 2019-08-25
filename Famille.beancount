@@ -1829,7 +1829,6 @@ option "documents" "./"
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
-
 *** Visa Compte Tim
 2013-08-26 open   Passif:Boursorama:CBTim                   EUR
 2013-08-27 pad    Passif:Boursorama:CBTim  Equity:Opening-Balances
@@ -2045,6 +2044,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -11.16 EUR
   Depenses:Alimentaire:Epicerie                       11.16 EUR
 
+2019-02-11 * "CARTE 09022019 PICARD SA 282   4212109" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -41.59 EUR
+  Depenses:Alimentaire:Epicerie                       41.59 EUR
+
 2019-02-12 * "CARTE 10022019 IS NEWSGROUP.NINJA" ""
   source: "qif"
   Passif:Boursorama:CBTim                            -35.33 EUR
@@ -2239,11 +2243,6 @@ option "documents" "./"
   source: "qif"
   Passif:Boursorama:CBTim                             -8.90 EUR
   Depenses:Alimentaire:Restaurant                      8.90 EUR
-
-2019-02-11 * "CARTE 09022019 PICARD SA 282   4212109" ""
-  source: "qif"
-  Passif:Boursorama:CBTim                            -41.59 EUR
-  Depenses:Alimentaire:Epicerie                       41.59 EUR
 
 2019-03-08 * "CARTE 07032019 79 LA BESSINOISE" ""
   source: "qif"
@@ -2535,6 +2534,7 @@ option "documents" "./"
 2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
 2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
 
+1981-02-07 custom "fava-option" "insert-entry" "PPassif:AirFrance:Amex"
 
 ** Livrets
 
