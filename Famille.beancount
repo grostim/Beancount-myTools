@@ -2699,6 +2699,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -38.40 EUR
   Actif:NoteDeFrais                                   38.40 EUR
 
+2019-06-24 * "CARTE 22/06/19 79 DIEUMEGARD RAPHAEL" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -33.07 EUR
+  Depenses:Alimentaire:Epicerie                       33.07 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
