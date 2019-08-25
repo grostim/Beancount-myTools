@@ -2569,6 +2569,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -17.00 EUR
   Depenses:A-CLASSER                                  17.00 EUR
 
+2019-05-17 * "CARTE 16/05/19 79 LEMMY" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -8.50 EUR
+  Depenses:Alimentaire:Restaurant                      8.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
