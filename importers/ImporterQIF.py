@@ -93,14 +93,6 @@ class ImporterQIF(importer.ImporterProtocol):
                     meta=None,
                     price=None,
                 )
-                posting_2 = data.Posting(
-                    account=ope["cat"],
-                    units=amount.Amount(ope["montant"].number * -1, "EUR"),
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
                 flag = flags.FLAG_WARNING
                 transac = data.Transaction(
                     meta=meta,
@@ -110,7 +102,7 @@ class ImporterQIF(importer.ImporterProtocol):
                     narration="",
                     tags=data.EMPTY_SET,
                     links=data.EMPTY_SET,
-                    postings=[posting_1, posting_2],
+                    postings=[posting_1],
                 )
                 entries.append(transac)
         return entries
