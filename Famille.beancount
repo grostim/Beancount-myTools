@@ -2730,11 +2730,11 @@ option "documents" "./"
 1981-07-02 open Depenses:Loisirs:Couture                    EUR
 1981-07-02 open Depenses:Loisirs:Gadgets                    EUR
 1981-07-02 open Depenses:Loisirs:Voyages                    EUR
+1981-07-02 open Depenses:Loisirs:Velos                      EUR
 1981-07-02 open Depenses:Sante                              EUR
 1981-07-02 open Depenses:Voitures:Achats                    EUR
 1981-07-02 open Depenses:Voitures:Carburant                 EUR
 1981-07-02 open Depenses:Voitures:Assurance                 EUR
-1981-07-02 open Depenses:Velos                              EUR
 1981-07-02 open Depenses:A-CLASSER                          EUR
 
 1981-07-02 open Revenus:CAF                                 EUR
