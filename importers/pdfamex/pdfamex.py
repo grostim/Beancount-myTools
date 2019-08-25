@@ -1,0 +1,78 @@
+"""Importer for PDF statements from AmericanExpress.
+"""
+__copyright__ = "Copyright (C) 2016  Martin Blais / Mofified in 2019 by Grostim"
+__license__ = "GNU GPLv2"
+
+import re
+import subprocess
+
+from dateutil.parser import parse as parse_datetime
+
+from beancount.ingest import importer
+
+def is_pdfminer_installed():
+    """Return true if the external Pdftotxt tool installed."""
+    try:
+        returncode = subprocess.call(['pdftotext', '-v'],
+                                     stdout=subprocess.PIPE,
+                                     stderr=subprocess.PIPE)
+    except (FileNotFoundError, PermissionError):
+        return False
+    else:
+        return returncode == 0
+
+
+def pdf_to_text(filename):
+    """Convert a PDF file to a text equivalent.
+
+    Args:
+      filename: A string path, the filename to convert.
+    Returns:
+      A string, the text contents of the filename.
+    """
+    pipe = subprocess.Popen(['pdftotext', '-layout', filename, '-'],
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE)
+    stdout, stderr = pipe.communicate()
+    if stderr:
+        raise ValueError(stderr.decode())
+    return stdout.decode()
+
+
+class pdfamex(importer.ImporterProtocol):
+    """An importer for Boursorama PDF statements."""
+
+    def __init__(self, accountList):
+        assert isinstance(accountList, dict), "La liste de comptes doit etre un type dict"
+        self.accountList = accountList
+
+    def identify(self, file):
+        if file.mimetype() != 'application/pdf':
+            return False
+
+        # Look for some words in the PDF file to figure out if it's a statement
+        # from ACME. The filename they provide (Statement.pdf) isn't useful.On considéère que c'est un relevé Boursorama si on trouve le mot "BOURSORAMA" dedans.
+        text = file.convert(pdf_to_text)
+        if text:
+            return re.search('Carte Air France KLM', text) is not None
+
+    def file_name(self, file):
+        # Normalize the name to something meaningful.
+        return 'Amex.pdf'
+
+    def file_account(self, file):
+        #Recherche du numéro de compte dans le fichier.
+        text = file.convert(pdf_to_text)
+        control='xxxx-xxxxxx-\d{5}'
+        match = re.search(control, text)
+        if match:
+            compte = match.group(0).split(' ')[-1]
+            return self.accountList[compte]
+
+    def file_date(self, file):
+        # Get the actual statement's date from the contents of the file.
+        text = file.convert(pdf_to_text)
+        match = re.search('xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)', text) #regexr.com/4jprk
+        if match:
+            return parse_datetime(match.group(1),dayfirst="True").date()
+
