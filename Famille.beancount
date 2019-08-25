@@ -2479,6 +2479,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -20.20 EUR
   Depenses:Alimentaire:VinsEtAlcool                   20.20 EUR
 
+2019-04-29 * "CARTE 27/04/19 17 FLOWER EXP CAMPI" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                           -282.00 EUR
+  Depenses:Loisirs:Voyages                           282.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
