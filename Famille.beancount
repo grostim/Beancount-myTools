@@ -2639,6 +2639,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -4.98 EUR
   Actif:NoteDeFrais                                    4.98 EUR
 
+2019-05-31 * "CARTE 28/05/19 AEROPORT GDOUEST" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -59.90 EUR
+  Actif:NoteDeFrais                                   59.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
