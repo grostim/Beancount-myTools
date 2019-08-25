@@ -2754,6 +2754,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -12.20 EUR
   Depenses:Alimentaire:Restaurant                     12.20 EUR
 
+2019-07-02 * "CARTE 29/06/19 E LECLERC" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -35.84 EUR
+  Depenses:Alimentaire:Epicerie                       35.84 EUR
+
 2019-07-01 * "CARTE 29/06/19 CASTORAMA       2902628" ""
   source: "qif"
   Passif:Boursorama:CBTim                            -41.60 EUR
