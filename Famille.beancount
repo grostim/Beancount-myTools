@@ -2629,6 +2629,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -12.00 EUR
   Actif:NoteDeFrais                                   12.00 EUR
 
+2019-05-29 * "CION OP.ETR IL CHNYON HACHOF" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -0.09 EUR
+  Depenses:Banque:Frais                                0.09 EUR
+
 2019-05-29 * "CARTE 26/05/19 IL CHNYON HACHOF" ""
   source: "qif"
   Passif:Boursorama:CBTim                             -4.98 EUR
