@@ -2534,6 +2534,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.70 EUR
   Depenses:Alimentaire:Restaurant                      8.70 EUR
 
+2019-05-10 * "CARTE 07/05/19 BREIZH'NAD" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -18.00 EUR
+  Depenses:Alimentaire:Restaurant                     18.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
