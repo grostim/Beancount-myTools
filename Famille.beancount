@@ -2679,6 +2679,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -27.86 EUR
   Depenses:Immobilier:Travaux                         27.86 EUR
 
+2019-06-17 * "CARTE 14/06/19 BREIZH'NAD" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -39.90 EUR
+  Depenses:Alimentaire:Restaurant                     39.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
