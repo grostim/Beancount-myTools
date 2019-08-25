@@ -2494,6 +2494,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                           -244.49 EUR
   Depenses:Immobilier:Travaux                        244.49 EUR
 
+2019-04-29 * "CARTE 27/04/19 LEROY MERLIN SC" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -23.70 EUR
+  Depenses:Immobilier:Travaux                         23.70 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
