@@ -2709,6 +2709,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                           -279.09 EUR
   Depenses:Immobilier:Travaux                        279.09 EUR
 
+2019-06-24 * "CARTE 21/06/19 SELECTA TGV2 RCG" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                             -3.00 EUR
+  Depenses:Alimentaire:Restaurant                      3.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
