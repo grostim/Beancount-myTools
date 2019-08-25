@@ -2774,6 +2774,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                            -41.60 EUR
   Depenses:Immobilier:Travaux                         41.60 EUR
 
+2019-07-08 * "CARTE 05/07/19 44 AEROPORT GDOUEST" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -66.40 EUR
+  Actif:NoteDeFrais                                   66.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
