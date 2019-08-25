@@ -2879,6 +2879,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -3.00 EUR
   Depenses:Sante                                       3.00 EUR
 
+2019-07-22 * "CARTE 18/07/19 INTERMARCHE" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -11.95 EUR
+  Depenses:Alimentaire:Epicerie                       11.95 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
