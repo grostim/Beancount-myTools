@@ -2614,6 +2614,11 @@ option "documents" "./"
   Passif:Boursorama:CBTim                             -8.00 EUR
   Depenses:Alimentaire:Restaurant                      8.00 EUR
 
+2019-05-27 * "CARTE 25/05/19 84 ASF-BIGNON" ""
+  source: "qif"
+  Passif:Boursorama:CBTim                            -10.90 EUR
+  Actif:NoteDeFrais                                   10.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:CBTim"
 
 
