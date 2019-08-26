@@ -3819,6 +3819,13 @@ option "documents" "./"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                             2317.49 EUR
 
+2019-07-12 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "11 juil         12 juil           GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                              13,99"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                              -13.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
