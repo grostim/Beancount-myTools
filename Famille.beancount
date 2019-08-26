@@ -4134,6 +4134,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                               -7.31 EUR
 
+2019-06-30 * "PAYPAL *BIKEBUDE24 4029357733" ""
+  source: "pdfamex"
+  statementExtract: "30 juin       30 juin       PAYPAL *BIKEBUDE24                  4029357733                                                                      612,99"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                             -612.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
