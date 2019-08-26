@@ -3612,6 +3612,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -257.55 EUR
 
+2019-05-26 * "EASYJET*EASYJET EX7BZ3R LUTON" ""
+  source: "pdfamex"
+  statementExtract: "25 mai        26 mai        EASYJET*EASYJET EX7BZ3R LUTON                                                                                              36,38"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -36.38 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
