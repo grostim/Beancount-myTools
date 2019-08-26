@@ -3895,3 +3895,10 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -61.26 EUR
 
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
+  statementExtract: "10 oct          11 oct            KLM                         PARIS                                                                                                  246,95"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -246.95 EUR
+
