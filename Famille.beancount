@@ -4099,6 +4099,13 @@ option "documents" "./"
   Depenses:Voitures:Peages
   Passif:AirFrance:Amex                               -8.00 EUR
 
+2019-06-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 juin       18 juin       GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                   1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
