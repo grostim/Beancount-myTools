@@ -3380,3 +3380,10 @@ option "documents" "./"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                              -77.97 EUR
 
+2019-12-12 * "LEONARDO ASHKELON 270.00" ""
+  source: "pdfamex"
+  statementExtract: "12 déc         12 déc            LEONARDO                            ASHKELON                                                                270.00                     245,32"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -245.32 EUR
+
