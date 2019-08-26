@@ -3401,6 +3401,13 @@ option "documents" "./"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                              -13.99 EUR
 
+2019-03-12 * "Shell 131955 Shell Shel Chavagnes-en-" ""
+  source: "pdfamex"
+  statementExtract: "12 mars 12 mars Shell 131955 Shell Shel Chavagnes-en-                                                                                                             18,95"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -18.95 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
