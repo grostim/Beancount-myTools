@@ -4036,6 +4036,13 @@ option "documents" "./"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 279,99"
 
 
+2019-06-09 * "AMAZON EU SARL GUYANCOURT" "Piles"
+  source: "pdfamex"
+  statementExtract: "7 juin          9 juin            AMAZON EU SARL                      GUYANCOURT                                                                                           5,48"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -5.48 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
