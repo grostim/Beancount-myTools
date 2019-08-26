@@ -3401,7 +3401,7 @@ option "documents" "./"
 
 2018-12-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI"
   Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                              623,24 EUR
+  Passif:AirFrance:Amex                              623.24 EUR
 
 2018-12-12 * "LEONARDO ASHKELON 270.00" ""
   source: "pdfamex"
@@ -3938,14 +3938,6 @@ option "documents" "./"
   type: "Credit"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -15.91 EUR
-
-;2019-07-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-;  source: "pdfamex"
-;  statementExtract: "12 juil         12 juil           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                      2 317,49
-;                                                                                                                                                                      CR"
-;  type: "Débit"
-;  Actif:Boursorama:CCTim
-;  Passif:AirFrance:Amex                             2317.49 EUR
 
 2019-07-12 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
   source: "pdfamex"
