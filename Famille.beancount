@@ -3422,3 +3422,10 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -19.33 EUR
 
+2019-12-16 * "PAYPAL *NATURABOX 4029357733" ""
+  source: "pdfamex"
+  statementExtract: "15 déc        16 déc        PAYPAL *NATURABOX               4029357733                                                                          142,86"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                             -142.86 EUR
+
