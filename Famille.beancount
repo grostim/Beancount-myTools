@@ -3464,3 +3464,10 @@ option "documents" "./"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                              -29.05 EUR
 
+2019-12-30 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 18.99" ""
+  source: "pdfamex"
+  statementExtract: "29 déc        30 déc        ALI*ALIEXPRESS ALIPAY           SINGAPORE                                                         18.99               17,08"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -17.08 EUR
+
