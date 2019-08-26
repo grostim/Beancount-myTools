@@ -3943,6 +3943,13 @@ option "documents" "./"
   Depenses:Cadeaux
   Passif:AirFrance:Amex                              -31.85 EUR
 
+2018-11-14 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "14 nov          14 nov            BIP & GO SAS                      ISSY                                                                                              30,40"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -30.40 EUR
+
 
 2018-11-11 * "PAYPAL *GEARBEST 18824248090" ""
   source: "pdfamex"
