@@ -3680,6 +3680,13 @@ option "documents" "./"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                             1195.82 EUR
 
+2018-10-13 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "13 oct        13 oct        CASTORAMA NIORT                       NIORT                                                                                87,40"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -87.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
