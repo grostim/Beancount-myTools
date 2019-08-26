@@ -3556,6 +3556,13 @@ option "documents" "./"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
+2019-05-13 * "PAYPAL *AIRBNB HMARTJE 02033181111" ""
+  source: "pdfamex"
+  statementExtract: "13 mai         13 mai            PAYPAL *AIRBNB HMARTJE 02033181111                                                                                               313,52"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -313.52 EUR
+
 2019-05-12 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
   source: "pdfamex"
   statementExtract: "11 mai         12 mai            GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                               13,99"
