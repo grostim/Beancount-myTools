@@ -3778,6 +3778,13 @@ option "documents" "./"
   Depenses:Loisirs:Velos
   Passif:AirFrance:Amex                              -16.91 EUR
 
+2018-11-04 * "AMAZON EU SARL GUYANCOURT" "Casque vélo"
+  source: "pdfamex"
+  statementExtract: "2 nov         4 nov         AMAZON EU SARL                      GUYANCOURT                                                                             90,63"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                              -90.63 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
