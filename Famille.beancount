@@ -3366,3 +3366,10 @@ option "documents" "./"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        1 433,39"
 
+2019-12-10 * "RYANAIR LTD AIRLINE DUBLIN" ""
+  source: "pdfamex"
+  statementExtract: "8 déc          10 déc            RYANAIR LTD AIRLINE                     DUBLIN                                                                                         224,33"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -224.33 EUR
+
