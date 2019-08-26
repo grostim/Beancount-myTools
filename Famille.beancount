@@ -4698,3 +4698,10 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -38.40 EUR
 
+2018-08-16 * "AVIS KARDAN CAR LTD TEL AVIV 39.00" ""
+  source: "pdfamex"
+  statementExtract: "15 août 16 août AVIS KARDAN CAR LTD                                        TEL AVIV                                                           39.00                   35,48"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -35.48 EUR
+
