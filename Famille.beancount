@@ -4383,6 +4383,13 @@ plugin "beancount.plugins.check_commodity"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -47.21 EUR
 
+2018-10-06 * "AEROPORT NANTES ATLANTI BOUGUENAIS" ""
+  source: "pdfamex"
+  statementExtract: "5 oct         6 oct         AEROPORT NANTES ATLANTI BOUGUENAIS                                                                                 45,50"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -45.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
