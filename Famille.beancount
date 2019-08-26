@@ -3840,6 +3840,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2019-07-19 * "ALI*ALIEXPRESS ALIEXPRE SINGAPORE 10.39" ""
+  source: "pdfamex"
+  statementExtract: "18 juil         19 juil           ALI*ALIEXPRESS ALIEXPRE SINGAPORE                                                                         10.39                        9,52"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -9.52 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
