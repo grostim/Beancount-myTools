@@ -3715,6 +3715,13 @@ option "documents" "./"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -31.50 EUR
 
+2018-10-28 * "PAYPAL *DEEZER 0155806900" ""
+  source: "pdfamex"
+  statementExtract: "28 oct        28 oct        PAYPAL *DEEZER                      0155806900                                                                              1,99"
+  type: "Credit"
+  Depenses:Abo:Musique
+  Passif:AirFrance:Amex                               -1.99 EUR
+
 2018-10-22 * "AMAZON EU SARL GUYANCOURT" "Bac Tondeuse"
   source: "pdfamex"
   statementExtract: "22 oct        22 oct        AMAZON EU SARL                      GUYANCOURT                                                                             27,99"
