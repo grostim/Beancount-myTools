@@ -4648,6 +4648,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                               -2.03 EUR
 
+2018-07-30 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Coque Samsung"
+  source: "pdfamex"
+  statementExtract: "30 juil       30 juil       AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   19,98"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -19.98 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
