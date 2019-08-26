@@ -3429,3 +3429,10 @@ option "documents" "./"
   Depenses:Cadeaux
   Passif:AirFrance:Amex                             -142.86 EUR
 
+2019-12-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 déc        18 déc        GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                   1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
