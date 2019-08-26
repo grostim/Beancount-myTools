@@ -3464,6 +3464,13 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -17.99 EUR
 
+2019-04-01 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" "Retroviseur Prius"
+  source: "pdfamex"
+  statementExtract: "1 avr          1 avr             AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 27,73"
+  type: "Credit"
+  Depenses:Voitures:
+  Passif:AirFrance:Amex                              -27.73 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
