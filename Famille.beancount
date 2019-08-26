@@ -4634,6 +4634,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                             -304.00 EUR
 
+2018-07-30 * "PAYPAL *NETZBERATER 4029357733" "Max2play"
+  source: "pdfamex"
+  statementExtract: "29 juil       30 juil       PAYPAL *NETZBERATER               4029357733                                                                       14,99"
+  type: "Credit"
+  Depenses:Abo:Musique
+  Passif:AirFrance:Amex                              -14.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
