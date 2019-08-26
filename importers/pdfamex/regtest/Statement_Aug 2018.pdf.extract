@@ -1,0 +1,149 @@
+
+2018-07-11 ! "LEONARDO ASHKELON 270.00" ""
+  source: "pdfamex"
+  statementExtract: "11 juil        11 juil           LEONARDO                          ASHKELON                                                                270.00                 237,47"
+  type: "Credit"
+  Passif:AirFrance:Amex  -237.47 EUR
+
+2018-07-12 ! "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 juil        12 juil           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         778,07
+                                                                                                                                                                      CR"
+  type: "Débit"
+  Passif:AirFrance:Amex  778.07 EUR
+
+2018-07-12 ! "WEMAKEIT HOD HASHARON 160.00" ""
+  source: "pdfamex"
+  statementExtract: "11 juil        12 juil           WEMAKEIT                      HOD HASHARON                                                                160.00                   38,62"
+  type: "Credit"
+  Passif:AirFrance:Amex  -38.62 EUR
+
+2018-07-14 ! "DELEK MENTA LTD natbag 100.67" ""
+  source: "pdfamex"
+  statementExtract: "12 juil        14 juil           DELEK MENTA LTD                     natbag                                                                100.67                   24,41"
+  type: "Credit"
+  Passif:AirFrance:Amex  -24.41 EUR
+
+2018-07-15 ! "BURGERANCH DUTY FREE lud airport 58.00" ""
+  source: "pdfamex"
+  statementExtract: "12 juil        15 juil           BURGERANCH DUTY FREE                       lud airport                                                     58.00                   14,07"
+  type: "Credit"
+  Passif:AirFrance:Amex  -14.07 EUR
+
+2018-07-15 ! "ALI*ALIEXPRESS ALIPAY SINGAPORE 14.04" ""
+  source: "pdfamex"
+  statementExtract: "15 juil        15 juil           ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         14.04                   12,42"
+  type: "Credit"
+  Passif:AirFrance:Amex  -12.42 EUR
+
+2018-07-16 ! "PAYPAL*RTLSDR BLOG 35314369001 51.90" ""
+  source: "pdfamex"
+  statementExtract: "15 juil        16 juil           PAYPAL*RTLSDR BLOG                       35314369001                                                       51.90                   45,95"
+  type: "Credit"
+  Passif:AirFrance:Amex  -45.95 EUR
+
+2018-07-16 ! "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "16 juil        16 juil           BIP & GO SAS                      ISSY                                                                                             30,40"
+  type: "Credit"
+  Passif:AirFrance:Amex  -30.40 EUR
+
+2018-07-16 ! "AMAZON EU SARL GUYANCOURT" ""
+  source: "pdfamex"
+  statementExtract: "16 juil       16 juil       AMAZON EU SARL                GUYANCOURT                                                                           16,50"
+  type: "Credit"
+  Passif:AirFrance:Amex  -16.50 EUR
+
+2018-07-17 ! "MISS PEPPER LUETZEN LUETZEN" ""
+  source: "pdfamex"
+  statementExtract: "17 juil       17 juil       MISS PEPPER LUETZEN             LUETZEN                                                                            25,60"
+  type: "Credit"
+  Passif:AirFrance:Amex  -25.60 EUR
+
+2018-07-18 ! "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 juil       18 juil       GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                1,99"
+  type: "Credit"
+  Passif:AirFrance:Amex  -1.99 EUR
+
+2018-07-19 ! "PAYPAL*AIRBNB HMQ4FA8K4 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "18 juil       19 juil       PAYPAL*AIRBNB HMQ4FA8K4 35314369001                                                                              232,74"
+  type: "Credit"
+  Passif:AirFrance:Amex  -232.74 EUR
+
+2018-07-23 ! "PAYPAL *ASTEROIDGES 4029357733" ""
+  source: "pdfamex"
+  statementExtract: "23 juil       23 juil       PAYPAL *ASTEROIDGES               4029357733                                                                       52,23"
+  type: "Credit"
+  Passif:AirFrance:Amex  -52.23 EUR
+
+2018-07-23 ! "AUDIBLE GMBH BERLIN" ""
+  source: "pdfamex"
+  statementExtract: "23 juil       23 juil       AUDIBLE GMBH                BERLIN                                                                                  9,95"
+  type: "Credit"
+  Passif:AirFrance:Amex  -9.95 EUR
+
+2018-07-28 ! "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "28 juil       28 juil       CASTORAMA NIORT                NIORT                                                                               63,65"
+  type: "Credit"
+  Passif:AirFrance:Amex  -63.65 EUR
+
+2018-07-28 ! "DARTY NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "28 juil       28 juil       DARTY NIORT                 NIORT                                                                                109,99"
+  type: "Credit"
+  Passif:AirFrance:Amex  -109.99 EUR
+
+2018-07-29 ! "PAYPAL *CDISCOUNTSA 0535385199" ""
+  source: "pdfamex"
+  statementExtract: "29 juil       29 juil       PAYPAL *CDISCOUNTSA               0535385199                                                                     304,00"
+  type: "Credit"
+  Passif:AirFrance:Amex  -304.00 EUR
+
+2018-07-30 ! "PAYPAL *NETZBERATER 4029357733" ""
+  source: "pdfamex"
+  statementExtract: "29 juil       30 juil       PAYPAL *NETZBERATER               4029357733                                                                       14,99"
+  type: "Credit"
+  Passif:AirFrance:Amex  -14.99 EUR
+
+2018-07-30 ! "ALI*ALIEXPRESS ALIPAY SINGAPORE 2.30" ""
+  source: "pdfamex"
+  statementExtract: "30 juil       30 juil       ALI*ALIEXPRESS ALIPAY           SINGAPORE                                                       2.30                2,03"
+  type: "Credit"
+  Passif:AirFrance:Amex  -2.03 EUR
+
+2018-07-30 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "30 juil       30 juil       AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   19,98"
+  type: "Credit"
+  Passif:AirFrance:Amex  -19.98 EUR
+
+2018-08-01 ! "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 août        1 août        GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                               38,40"
+  type: "Credit"
+  Passif:AirFrance:Amex  -38.40 EUR
+
+2018-08-05 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "3 août        5 août        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   20,99"
+  type: "Credit"
+  Passif:AirFrance:Amex  -20.99 EUR
+
+2018-08-07 ! "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "7 août        7 août        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                4,09"
+  type: "Credit"
+  Passif:AirFrance:Amex  -4.09 EUR
+
+2018-08-07 ! "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "7 août        7 août        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                1,09"
+  type: "Credit"
+  Passif:AirFrance:Amex  -1.09 EUR
+
+2018-08-09 balance Passif:AirFrance:Amex                           -1321.56 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 321,56"

@@ -86,7 +86,7 @@ class ImporterQIF(importer.ImporterProtocol):
 #                        else:
 #                            ope["cat"] = "Expenses:%s" % {line[1:]}
                 posting_1 = data.Posting(
-                    account=self.accountList[re.sub("\s?(\(\d*\))?.qif","",path.basename(file.name))],
+                    account=self.accountList[re.sub("(\s\(\d*\))?.qif","",path.basename(file.name))],
                     units=ope["montant"],
                     cost=None,
                     flag=None,
