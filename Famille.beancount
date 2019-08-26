@@ -4109,6 +4109,7 @@ option "documents" "./"
   Passif:AirFrance:Amex                               -1.99 EUR
 
 2019-06-19 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Filtre Frigo"
+  document: "2019-06-19 404-0265082-1426779.pdf"
   source: "pdfamex"
   statementExtract: "19 juin       19 juin       AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                      18,38"
   type: "Credit"
