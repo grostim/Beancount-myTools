@@ -4120,6 +4120,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                               -0.91 EUR
 
+2019-06-29 * "PAYPAL *CESUR BIKES 4029357733" ""
+  source: "pdfamex"
+  statementExtract: "29 juin       29 juin       PAYPAL *CESUR BIKES                 4029357733                                                                        32,08"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                              -32.08 EUR
+
 2019-06-20 * "UBER TRIP HELP.UBER.COM 7.96" ""
   source: "pdfamex"
   statementExtract: "20 juin       20 juin       UBER TRIP                    HELP.UBER.COM                                                         7.96                7,31"
