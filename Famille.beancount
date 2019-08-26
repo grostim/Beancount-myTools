@@ -3994,6 +3994,13 @@ option "documents" "./"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                               -4.00 EUR
 
+2018-11-26 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" "Ubiquiti"
+  source: "pdfamex"
+  statementExtract: "26 nov          26 nov            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                  210,10"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                             -210.10 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
