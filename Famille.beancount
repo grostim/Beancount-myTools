@@ -4528,6 +4528,13 @@ plugin "fava.plugins.link_documents"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        712,65"
 
+2018-07-11 * "LEONARDO ASHKELON 270.00" ""
+  source: "pdfamex"
+  statementExtract: "11 juil        11 juil           LEONARDO                          ASHKELON                                                                270.00                 237,47"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -237.47 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
