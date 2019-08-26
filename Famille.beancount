@@ -3302,6 +3302,13 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -49.00 EUR
 
+2019-02-03 * "GOOGLE*GSUITE FAMILLEGR G.CO HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 fév           3 fév             GOOGLE*GSUITE FAMILLEGR G.CO HELPPAY#                                                                                            38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
