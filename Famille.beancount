@@ -4299,6 +4299,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -14.99 EUR
 
+2018-09-20 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Partition Saxophone"
+  source: "pdfamex"
+  statementExtract: "20 sept 20 sept AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                                   11,98"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                              -11.98 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
