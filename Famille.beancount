@@ -3868,6 +3868,13 @@ option "documents" "./"
   Depenses:Divers
   Passif:AirFrance:Amex                             -162.37 EUR
 
+2019-07-23 * "PAYPAL *AIRBNB HMARTJE 02033181111" ""
+  source: "pdfamex"
+  statementExtract: "22 juil         23 juil           PAYPAL *AIRBNB HMARTJE 02033181111                                                                                              435,62"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -435.62 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
