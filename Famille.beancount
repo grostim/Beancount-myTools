@@ -3113,9 +3113,153 @@ option "documents" "./"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
 2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
-2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
+;2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
 
-1981-02-07 custom "fava-option" "insert-entry" "PPassif:AirFrance:Amex"
+2018-12-10 * "RYANAIR LTD AIRLINE DUBLIN" ""
+  source: "pdfamex"
+  statementExtract: "8 déc          10 déc            RYANAIR LTD AIRLINE                     DUBLIN                                                                                         224,33"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -224.33 EUR
+
+2018-12-10 * "RYANAIR LTD AIRLINE DUBLIN" ""
+  source: "pdfamex"
+  statementExtract: "8 déc          10 déc            RYANAIR LTD AIRLINE                     DUBLIN                                                                                           77,97"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                              -77.97 EUR
+
+2018-12-12 * "LEONARDO ASHKELON 270.00" ""
+  source: "pdfamex"
+  statementExtract: "12 déc         12 déc            LEONARDO                            ASHKELON                                                                270.00                     245,32"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -245.32 EUR
+
+2018-12-13 * "WEMAKEIT HOD HASHARON 80.00" ""
+  source: "pdfamex"
+  statementExtract: "11 déc         13 déc            WEMAKEIT                        HOD HASHARON                                                                 80.00                       19,33"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -19.33 EUR
+
+2018-12-13 * "NORMAN ARZI LTD ASHKELON 520.00" ""
+  source: "pdfamex"
+  statementExtract: "12 déc         13 déc            NORMAN ARZI LTD                        ASHKELON                                                             520.00                     125,70"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -125.70 EUR
+
+2018-12-15 * "DELEK MENTA LTD natbag 111.56" ""
+  source: "pdfamex"
+  statementExtract: "13 déc         15 déc            DELEK MENTA LTD                        natbag                                                               111.56                       26,95"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -26.95 EUR
+
+2018-12-15 * "BURGERANCH DUTY FREE lud airport 64.00" ""
+  source: "pdfamex"
+  statementExtract: "13 déc        15 déc        BURGERANCH DUTY FREE                lud airport                                                   64.00               15,46"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -15.46 EUR
+
+2018-12-16 * "WEMAKEIT HOD HASHARON 80.00" ""
+  source: "pdfamex"
+  statementExtract: "14 déc        16 déc        WEMAKEIT                    HOD HASHARON                                                          80.00               19,33"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -19.33 EUR
+
+2018-12-16 * "PAYPAL *NATURABOX 4029357733" ""
+  source: "pdfamex"
+  statementExtract: "15 déc        16 déc        PAYPAL *NATURABOX               4029357733                                                                          142,86"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                             -142.86 EUR
+
+2018-12-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 déc        18 déc        GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                   1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-12-20 * "OUISNCF LOISIRS S.N.C. PARIS" ""
+  source: "pdfamex"
+  statementExtract: "19 déc        20 déc        OUISNCF LOISIRS S.N.C. PARIS                                                                                        112,00"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -112.00 EUR
+
+2018-12-22 * "DARTY NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "22 déc        22 déc        DARTY NIORT                 NIORT                                                                                     59,99"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                              -59.99 EUR
+
+2018-12-24 * "OUISNCF LOISIRS S.N.C. PARIS" ""
+  source: "pdfamex"
+  statementExtract: "21 déc        24 déc        OUISNCF LOISIRS S.N.C. PARIS                                                                                          40,00"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                              -40.00 EUR
+
+2018-12-24 ! "PAYPAL *BRAINSTORMN 5142860253" ""
+  source: "pdfamex"
+  statementExtract: "24 déc        24 déc        PAYPAL *BRAINSTORMN               5142860253                                                                          29,05"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -29.05 EUR
+
+2018-12-30 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 18.99" ""
+  source: "pdfamex"
+  statementExtract: "29 déc        30 déc        ALI*ALIEXPRESS ALIPAY           SINGAPORE                                                         18.99               17,08"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -17.08 EUR
+
+2018-12-30 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "29 déc        30 déc        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                      58,10"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -58.10 EUR
+
+2019-01-02 * "OUISNCF LOISIRS S.N.C. PARIS" ""
+  source: "pdfamex"
+  statementExtract: "1 jan         2 jan         OUISNCF LOISIRS S.N.C. PARIS                                                                                        122,00"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -122.00 EUR
+
+2019-01-02 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "2 jan         2 jan         GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                                  38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
+2019-01-02 * "PICARD 282NIORT 282 NIORT" ""
+  source: "pdfamex"
+  statementExtract: "2 jan         2 jan         PICARD 282NIORT 282            NIORT                                                                                  47,69"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -47.69 EUR
+
+2019-01-02 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "29 déc        2 jan         ADLPARTNER                   MONTREUIL                                                                                 9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
+2019-01-09 balance Passif:AirFrance:Amex            -1433.39 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        1 433,39"
+
+1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
 
@@ -3334,147 +3478,3 @@ option "documents" "./"
 1981-07-02 open Actif:Cash                                  EUR
 1981-07-03 pad  Actif:Cash  Equity:Opening-Balances
 2019-08-23 balance  Actif:Cash                         7000 EUR
-2019-01-02 * "OUISNCF LOISIRS S.N.C. PARIS" ""
-  source: "pdfamex"
-  statementExtract: "1 jan         2 jan         OUISNCF LOISIRS S.N.C. PARIS                                                                                        122,00"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                             -122.00 EUR
-
-2019-01-02 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "2 jan         2 jan         GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                                  38,40"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -38.40 EUR
-
-2019-01-02 * "PICARD 282NIORT 282 NIORT" ""
-  source: "pdfamex"
-  statementExtract: "2 jan         2 jan         PICARD 282NIORT 282            NIORT                                                                                  47,69"
-  type: "Credit"
-  Depenses:Alimentaire:Epicerie
-  Passif:AirFrance:Amex                              -47.69 EUR
-
-2019-01-02 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "29 déc        2 jan         ADLPARTNER                   MONTREUIL                                                                                 9,84"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -9.84 EUR
-
-2019-01-09 balance Passif:AirFrance:Amex            1433.39 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        1 433,39"
-
-2019-12-10 * "RYANAIR LTD AIRLINE DUBLIN" ""
-  source: "pdfamex"
-  statementExtract: "8 déc          10 déc            RYANAIR LTD AIRLINE                     DUBLIN                                                                                         224,33"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                             -224.33 EUR
-
-2019-12-10 * "RYANAIR LTD AIRLINE DUBLIN" ""
-  source: "pdfamex"
-  statementExtract: "8 déc          10 déc            RYANAIR LTD AIRLINE                     DUBLIN                                                                                           77,97"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                              -77.97 EUR
-
-2019-12-12 * "LEONARDO ASHKELON 270.00" ""
-  source: "pdfamex"
-  statementExtract: "12 déc         12 déc            LEONARDO                            ASHKELON                                                                270.00                     245,32"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -245.32 EUR
-
-2019-12-13 * "WEMAKEIT HOD HASHARON 80.00" ""
-  source: "pdfamex"
-  statementExtract: "11 déc         13 déc            WEMAKEIT                        HOD HASHARON                                                                 80.00                       19,33"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -19.33 EUR
-
-2019-12-13 * "NORMAN ARZI LTD ASHKELON 520.00" ""
-  source: "pdfamex"
-  statementExtract: "12 déc         13 déc            NORMAN ARZI LTD                        ASHKELON                                                             520.00                     125,70"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -125.70 EUR
-
-2019-12-15 * "DELEK MENTA LTD natbag 111.56" ""
-  source: "pdfamex"
-  statementExtract: "13 déc         15 déc            DELEK MENTA LTD                        natbag                                                               111.56                       26,95"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -26.95 EUR
-
-2019-12-15 * "BURGERANCH DUTY FREE lud airport 64.00" ""
-  source: "pdfamex"
-  statementExtract: "13 déc        15 déc        BURGERANCH DUTY FREE                lud airport                                                   64.00               15,46"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -15.46 EUR
-
-2019-12-16 * "WEMAKEIT HOD HASHARON 80.00" ""
-  source: "pdfamex"
-  statementExtract: "14 déc        16 déc        WEMAKEIT                    HOD HASHARON                                                          80.00               19,33"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -19.33 EUR
-
-2019-12-16 * "PAYPAL *NATURABOX 4029357733" ""
-  source: "pdfamex"
-  statementExtract: "15 déc        16 déc        PAYPAL *NATURABOX               4029357733                                                                          142,86"
-  type: "Credit"
-  Depenses:Cadeaux
-  Passif:AirFrance:Amex                             -142.86 EUR
-
-2019-12-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "17 déc        18 déc        GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                   1,99"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2019-12-20 * "OUISNCF LOISIRS S.N.C. PARIS" ""
-  source: "pdfamex"
-  statementExtract: "19 déc        20 déc        OUISNCF LOISIRS S.N.C. PARIS                                                                                        112,00"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                             -112.00 EUR
-
-2019-12-22 * "DARTY NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "22 déc        22 déc        DARTY NIORT                 NIORT                                                                                     59,99"
-  type: "Credit"
-  Depenses:Cadeaux
-  Passif:AirFrance:Amex                              -59.99 EUR
-
-2019-12-24 * "OUISNCF LOISIRS S.N.C. PARIS" ""
-  source: "pdfamex"
-  statementExtract: "21 déc        24 déc        OUISNCF LOISIRS S.N.C. PARIS                                                                                          40,00"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                              -40.00 EUR
-
-2019-12-24 ! "PAYPAL *BRAINSTORMN 5142860253" ""
-  source: "pdfamex"
-  statementExtract: "24 déc        24 déc        PAYPAL *BRAINSTORMN               5142860253                                                                          29,05"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                              -29.05 EUR
-
-2019-12-30 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 18.99" ""
-  source: "pdfamex"
-  statementExtract: "29 déc        30 déc        ALI*ALIEXPRESS ALIPAY           SINGAPORE                                                         18.99               17,08"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -17.08 EUR
-
-2019-12-30 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
-  source: "pdfamex"
-  statementExtract: "29 déc        30 déc        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                      58,10"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                              -58.10 EUR
-
