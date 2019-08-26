@@ -4141,6 +4141,13 @@ option "documents" "./"
   Depenses:Loisirs:Velos
   Passif:AirFrance:Amex                             -612.99 EUR
 
+2019-07-01 * "PAYPAL *XXCYCLE 0687340140" ""
+  source: "pdfamex"
+  statementExtract: "30 juin       1 juil        PAYPAL *XXCYCLE                 0687340140                                                                            88,97"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                              -88.97 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
