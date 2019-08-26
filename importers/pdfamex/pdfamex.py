@@ -158,6 +158,7 @@ class pdfamex(importer.ImporterProtocol):
                 ope["date"] = parse_datetime(traduire_mois(rawdate + " 20" + statementyear))
 
             # A la recherche du montant.
+            # TODO: Ca merde si valeur en devise >999 . Voir Sept 2018.
             control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?'
             match = re.search(control, chunk)
 
@@ -180,7 +181,7 @@ class pdfamex(importer.ImporterProtocol):
                 meta=None,
                 price=None,
             )
-            flag = flags.FLAG_WARNING
+            flag = flags.FLAG_OKAY
             transac = data.Transaction(
                 meta=meta,
                 date=ope["date"].date(),
