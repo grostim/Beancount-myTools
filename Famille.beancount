@@ -3531,6 +3531,13 @@ option "documents" "./"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -81.45 EUR
 
+2019-05-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 mai          1 mai             GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                                              61,91"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -61.91 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
