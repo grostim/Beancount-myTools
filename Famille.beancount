@@ -4390,6 +4390,13 @@ plugin "beancount.plugins.check_commodity"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -45.50 EUR
 
+2018-10-06 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "6 oct         6 oct         CASTORAMA NIORT                 NIORT                                                                              36,90"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -36.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
