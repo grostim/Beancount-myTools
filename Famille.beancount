@@ -4418,6 +4418,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Passif:AirFrance:Amex                              -38.20 EUR
 
+2018-10-08 * "PAYPAL *DEERANDDOE 0177116813" ""
+  source: "pdfamex"
+  statementExtract: "7 oct         8 oct         PAYPAL *DEERANDDOE                0177116813                                                                       25,20"
+  type: "Credit"
+  Depenses:Loisirs:Couture
+  Passif:AirFrance:Amex                              -25.20 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
