@@ -4078,6 +4078,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -40.67 EUR
 
+2019-06-16 * "BURGERANCH DUTY FREE lud airport 26.00" ""
+  source: "pdfamex"
+  statementExtract: "13 juin         16 juin           BURGERANCH DUTY FREE                       lud airport                                                      26.00                        6,59"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                               -6.59 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
