@@ -3281,6 +3281,13 @@ option "documents" "./"
   Depenses:Voitures:Peages
   Passif:AirFrance:Amex                              -30.40 EUR
 
+2019-01-19 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "19 jan          19 jan            CASTORAMA NIORT                      NIORT                                                                                            7,25"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                               -7.25 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
