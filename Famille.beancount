@@ -3464,11 +3464,11 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -17.99 EUR
 
-2019-04-01 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" "Retroviseur Prius"
+2019-04-01 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Retroviseur Prius"
   source: "pdfamex"
   statementExtract: "1 avr          1 avr             AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 27,73"
   type: "Credit"
-  Depenses:Voitures:
+  Depenses:Voitures:Entretien
   Passif:AirFrance:Amex                              -27.73 EUR
 
 2019-04-02 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
@@ -3492,7 +3492,7 @@ option "documents" "./"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
-2019-04-09 balance Passif:AirFrance:Amex             323.94 EUR
+2019-04-09 balance Passif:AirFrance:Amex            -323.94 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        323,94"
 
@@ -3702,6 +3702,7 @@ option "documents" "./"
 1981-07-02 open Depenses:Voitures:Carburant                 EUR
 1981-07-02 open Depenses:Voitures:Assurance                 EUR
 1981-07-02 open Depenses:Voitures:Peages                    EUR
+1981-07-02 open Depenses:Voitures:Entretien                 EUR
 1981-07-02 open Depenses:A-CLASSER                          EUR
 
 1981-07-02 open Revenus:CAF                                 EUR
