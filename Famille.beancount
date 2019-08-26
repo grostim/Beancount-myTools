@@ -3422,6 +3422,13 @@ option "documents" "./"
   Depenses:Voitures:Peages
   Passif:AirFrance:Amex                              -21.80 EUR
 
+2019-03-17 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" "Bouteilles chilly's"
+  source: "pdfamex"
+  statementExtract: "15 mars 17 mars AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                                  11,00"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -11.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
