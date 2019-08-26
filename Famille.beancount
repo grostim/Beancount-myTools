@@ -3951,6 +3951,13 @@ option "documents" "./"
   Passif:AirFrance:Amex                              -30.40 EUR
 
 
+2018-11-14 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "14 nov          14 nov            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                    12,34"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                              -12.34 EUR
+
 2018-11-11 * "PAYPAL *GEARBEST 18824248090" ""
   source: "pdfamex"
   statementExtract: "11 nov          11 nov            PAYPAL *GEARBEST                         18824248090                                                                                44,93"
