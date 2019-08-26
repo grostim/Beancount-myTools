@@ -3605,6 +3605,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -76.83 EUR
 
+2019-05-26 * "LEONARDO ASHKELON 280.00" ""
+  source: "pdfamex"
+  statementExtract: "25 mai         26 mai            LEONARDO                          ASHKELON                                                                280.00                 257,55"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -257.55 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
