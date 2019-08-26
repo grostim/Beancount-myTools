@@ -4404,6 +4404,13 @@ plugin "beancount.plugins.check_commodity"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -22.21 EUR
 
+2018-10-07 * "PAYPAL *JEEDOM 4029357733" ""
+  source: "pdfamex"
+  statementExtract: "6 oct         7 oct         PAYPAL *JEEDOM                 4029357733                                                                           4,00"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                               -4.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
