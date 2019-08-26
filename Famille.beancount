@@ -3854,6 +3854,13 @@ option "documents" "./"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                             -239.40 EUR
 
+2019-07-21 * "ALI*ALIEXPRESS ALIEXPRE SINGAPORE 25.38" ""
+  source: "pdfamex"
+  statementExtract: "21 juil         21 juil           ALI*ALIEXPRESS ALIEXPRE SINGAPORE                                                                         25.38                   23,26"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -23.26 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
