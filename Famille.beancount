@@ -2083,7 +2083,7 @@ option "documents" "./"
 2019-02-12 * "CION OP.ETR IS NEWSGROUP.NINJA" ""
   source: "qif"
   Passif:Boursorama:CBTim                             -0.68 EUR
-  Passif:AirFrance:Amex                                0.68 EUR
+  Depenses:Banque:Frais                                0.68 EUR
 
 2019-02-13 * "CARTE 09022019 29 MAX PAYPAL *SPOTIFY" "Spotify"
   source: "qif"
@@ -3386,6 +3386,13 @@ option "documents" "./"
 2019-03-10 balance Passif:AirFrance:Amex             -157.71 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                                            157,71"
+
+2019-03-12 * "GOOGLE *GOOGLE PHOTOS G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "10 mars 12 mars GOOGLE *GOOGLE PHOTOS G.CO/HELPPAY#                                                                                                               60,72"
+  type: "Credit"
+  Depenses:Divers
+  Passif:AirFrance:Amex                              -60.72 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
