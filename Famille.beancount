@@ -3524,6 +3524,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2019-04-28 * "WWW.LEROYMERLIN.FR SITE LILLE CEDEX 9" ""
+  source: "pdfamex"
+  statementExtract: "28 avr         28 avr            WWW.LEROYMERLIN.FR SITE LILLE CEDEX 9                                                                                             81,45"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -81.45 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
