@@ -4613,6 +4613,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                               -9.95 EUR
 
+2018-07-28 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "28 juil       28 juil       CASTORAMA NIORT                NIORT                                                                               63,65"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -63.65 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
