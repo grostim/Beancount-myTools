@@ -4425,6 +4425,10 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Couture
   Passif:AirFrance:Amex                              -25.20 EUR
 
+2018-10-09 balance Passif:AirFrance:Amex            1195.82 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 195,82"
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
