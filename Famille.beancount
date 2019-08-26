@@ -3496,6 +3496,13 @@ option "documents" "./"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        323,94"
 
+2019-04-08 ! "WWW.VENTE-PRIVEE.COM FR SAINT DENIS" ""
+  source: "pdfamex"
+  statementExtract: "7 avr          8 avr             WWW.VENTE-PRIVEE.COM FR SAINT DENIS                                                                                             193,97"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                             -193.97 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
