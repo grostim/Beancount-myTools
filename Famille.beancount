@@ -4306,6 +4306,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                              -11.98 EUR
 
+2018-09-22 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "22 sept 22 sept CASTORAMA NIORT                                       NIORT                                                                                        25,05"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -25.05 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
