@@ -4264,6 +4264,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                             -119.66 EUR
 
+2018-09-14 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "14 sept 14 sept BIP & GO SAS                                       ISSY                                                                                            20,60"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -20.60 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
