@@ -4397,6 +4397,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -36.90 EUR
 
+2018-10-07 * "CAFFE CAFFE LUDNATBAG 90.00" ""
+  source: "pdfamex"
+  statementExtract: "4 oct         7 oct         CAFFE CAFFE                  LUDNATBAG                                                         90.00               22,21"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -22.21 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
