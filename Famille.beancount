@@ -3672,6 +3672,14 @@ option "documents" "./"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                            -1038.95 EUR
 
+2018-10-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 oct          12 oct            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         1 195,82
+                                                                                                                                                                         CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1195.82 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
