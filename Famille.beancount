@@ -4022,6 +4022,13 @@ option "documents" "./"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                              -87.81 EUR
 
+2018-12-05 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "1 déc         5 déc         ADLPARTNER                  MONTREUIL                                                                               3,99"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -3.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
