@@ -4197,6 +4197,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -0.87 EUR
 
+2019-07-08 * "LEONARDO ASHKELON 280.00" ""
+  source: "pdfamex"
+  statementExtract: "7 juil        8 juil        LEONARDO                     ASHKELON                                                            280.00             256,88"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -256.88 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
