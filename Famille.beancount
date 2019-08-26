@@ -3797,6 +3797,13 @@ option "documents" "./"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                             1 009,57"
 
+2019-07-08 * "SERVAIR SANDYFORD, DUBL" ""
+  source: "pdfamex"
+  statementExtract: "7 juil          8 juil            SERVAIR                        SANDYFORD, DUBL                                                                                    18,50"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -18.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
