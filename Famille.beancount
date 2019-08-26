@@ -3450,6 +3450,13 @@ option "documents" "./"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                              -11.62 EUR
 
+2019-03-31 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Anti-Moustiques pour Madagascar"
+  source: "pdfamex"
+  statementExtract: "31 mars 31 mars AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                                  29,88"
+  type: "Credit"
+  Depenses:Sante
+  Passif:AirFrance:Amex                              -29.88 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
