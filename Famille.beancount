@@ -3619,6 +3619,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -36.38 EUR
 
+2019-05-29 * "LA FARINA AL TAGLIO LOD 67.00" ""
+  source: "pdfamex"
+  statementExtract: "27 mai        29 mai        LA FARINA AL TAGLIO                  LOD                                                               67.00               17,08"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -17.08 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
