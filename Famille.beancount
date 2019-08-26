@@ -3457,6 +3457,13 @@ option "documents" "./"
   Depenses:Sante
   Passif:AirFrance:Amex                              -29.88 EUR
 
+2019-04-01 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Batterie externe Anna"
+  source: "pdfamex"
+  statementExtract: "1 avr          1 avr             AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 17,99"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -17.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
