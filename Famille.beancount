@@ -3436,3 +3436,10 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2019-12-20 * "OUISNCF LOISIRS S.N.C. PARIS" ""
+  source: "pdfamex"
+  statementExtract: "19 déc        20 déc        OUISNCF LOISIRS S.N.C. PARIS                                                                                        112,00"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -112.00 EUR
+
