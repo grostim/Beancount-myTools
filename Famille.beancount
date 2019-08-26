@@ -3295,6 +3295,13 @@ option "documents" "./"
   Depenses:Alimentaire:Epicerie
   Passif:AirFrance:Amex                              -44.86 EUR
 
+2019-02-03 * "AMA EU SARL PRIME_NEW LUXEMBOURG" "Amazon Premium"
+  source: "pdfamex"
+  statementExtract: "1 fév           3 fév             AMA EU SARL PRIME_NEW                    LUXEMBOURG                                                                              49,00"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -49.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
