@@ -4029,6 +4029,13 @@ option "documents" "./"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -3.99 EUR
 
+2018-12-06 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 8.13" ""
+  source: "pdfamex"
+  statementExtract: "5 déc         6 déc         ALI*ALIEXPRESS ALIPAY          SINGAPORE                                                        8.13                7,39"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -7.39 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
