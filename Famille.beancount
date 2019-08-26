@@ -4252,3 +4252,10 @@ option "documents" "./"
   Depenses:Abo:Musique
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2018-12-02 * "GOOGLE*GSUITE FAMILLEGR G.CO HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "2 déc         2 déc         GOOGLE*GSUITE FAMILLEGR G.CO HELPPAY#                                                                              38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
