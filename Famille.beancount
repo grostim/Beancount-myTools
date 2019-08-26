@@ -4564,6 +4564,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -14.07 EUR
 
+2018-07-16 * "PAYPAL*RTLSDR BLOG 35314369001 51.90" ""
+  source: "pdfamex"
+  statementExtract: "15 juil        16 juil           PAYPAL*RTLSDR BLOG                       35314369001                                                       51.90                   45,95"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -45.95 EUR
+
 2018-07-15 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 14.04" ""
   source: "pdfamex"
   statementExtract: "15 juil        15 juil           ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         14.04                   12,42"
