@@ -4162,6 +4162,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -74.40 EUR
 
+2019-07-03 * "ALI*ALIEXPRESS ALIEXPRE SINGAPORE 423.47" "Batterie BBS"
+  source: "pdfamex"
+  statementExtract: "2 juil        3 juil        ALI*ALIEXPRESS ALIEXPRE SINGAPORE                                                                423.47             385,78"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                             -385.78 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
