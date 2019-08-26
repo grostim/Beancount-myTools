@@ -4376,6 +4376,13 @@ plugin "beancount.plugins.check_commodity"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -133.37 EUR
 
+2018-10-06 * "DELEK MENTA LTD natbag 191.25" ""
+  source: "pdfamex"
+  statementExtract: "4 oct         6 oct         DELEK MENTA LTD                natbag                                                         191.25               47,21"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -47.21 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
