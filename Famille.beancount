@@ -3408,6 +3408,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -18.95 EUR
 
+2019-03-17 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" "Bouteilles chilly's"
+  source: "pdfamex"
+  statementExtract: "15 mars 17 mars AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                                  12,50"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -12.50 EUR
+
 2019-03-14 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "14 mars 14 mars BIP & GO SAS                                       ISSY                                                                                           21,80"
