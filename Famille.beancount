@@ -3882,6 +3882,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -62.40 EUR
 
+2019-08-02 * "AMZN MKTP US*MA1CJ2XS1 AMZN.COM/BILL" ""
+  source: "pdfamex"
+  statementExtract: "2 août        2 août        AMZN MKTP US*MA1CJ2XS1 AMZN.COM/BILL                                                                               16,95"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -16.95 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
