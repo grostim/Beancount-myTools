@@ -3373,3 +3373,10 @@ option "documents" "./"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                             -224.33 EUR
 
+2019-12-10 * "RYANAIR LTD AIRLINE DUBLIN" ""
+  source: "pdfamex"
+  statementExtract: "8 déc          10 déc            RYANAIR LTD AIRLINE                     DUBLIN                                                                                           77,97"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                              -77.97 EUR
+
