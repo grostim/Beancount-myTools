@@ -4235,6 +4235,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -59.39 EUR
 
+2018-09-10 * "AMAZON EU SARL GUYANCOURT" ""
+  source: "pdfamex"
+  statementExtract: "10 sept 10 sept AMAZON EU SARL                                       GUYANCOURT                                                                                    60,76"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                              -60.76 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
