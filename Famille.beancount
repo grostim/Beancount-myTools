@@ -4320,6 +4320,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -25.05 EUR
 
+2018-09-23 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Piles"
+  source: "pdfamex"
+  statementExtract: "23 sept 23 sept AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                2,80"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -2.80 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
