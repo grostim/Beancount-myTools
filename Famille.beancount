@@ -4599,6 +4599,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -12.42 EUR
 
+2018-07-23 ! "PAYPAL *ASTEROIDGES 4029357733" "Daubasses"
+  source: "pdfamex"
+  statementExtract: "23 juil       23 juil       PAYPAL *ASTEROIDGES               4029357733                                                                       52,23"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -52.23 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
