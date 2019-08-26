@@ -3922,6 +3922,13 @@ option "documents" "./"
   Depenses:Alimentaire:Epicerie
   Passif:AirFrance:Amex                              -37.41 EUR
 
+2018-11-11 * "PAYPAL *GEARBEST 18824248090" ""
+  source: "pdfamex"
+  statementExtract: "11 nov          11 nov            PAYPAL *GEARBEST                         18824248090                                                                                44,93"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -44.93 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
