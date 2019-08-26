@@ -4242,6 +4242,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Velos
   Passif:AirFrance:Amex                              -60.76 EUR
 
+2018-09-10 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Raccord plomberie"
+  source: "pdfamex"
+  statementExtract: "10 sept 10 sept AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                                   24,80"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -24.80 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
