@@ -4113,6 +4113,13 @@ option "documents" "./"
   Depenses:Equipement
   Passif:AirFrance:Amex                              -18.38 EUR
 
+2019-06-20 * "UBER TRIP HELP.UBER.COM 1.00" ""
+  source: "pdfamex"
+  statementExtract: "20 juin       20 juin       UBER TRIP                    HELP.UBER.COM                                                         1.00                0,91"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                               -0.91 EUR
+
 2019-06-20 * "UBER TRIP HELP.UBER.COM 7.96" ""
   source: "pdfamex"
   statementExtract: "20 juin       20 juin       UBER TRIP                    HELP.UBER.COM                                                         7.96                7,31"
