@@ -3267,6 +3267,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             1433.39 EUR
 
+2019-01-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 jan          18 jan            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                  1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
 2019-01-15 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "15 jan          15 jan            BIP & GO SAS                      ISSY                                                                                           30,40"
