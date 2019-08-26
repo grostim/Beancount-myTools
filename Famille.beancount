@@ -3471,3 +3471,10 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -17.08 EUR
 
+2019-12-30 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "29 déc        30 déc        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                      58,10"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -58.10 EUR
+
