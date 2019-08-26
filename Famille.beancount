@@ -3450,3 +3450,10 @@ option "documents" "./"
   Depenses:Cadeaux
   Passif:AirFrance:Amex                              -59.99 EUR
 
+2019-12-24 * "OUISNCF LOISIRS S.N.C. PARIS" ""
+  source: "pdfamex"
+  statementExtract: "21 déc        24 déc        OUISNCF LOISIRS S.N.C. PARIS                                                                                          40,00"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                              -40.00 EUR
+
