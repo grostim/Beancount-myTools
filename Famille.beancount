@@ -4557,6 +4557,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -24.41 EUR
 
+2018-07-15 * "BURGERANCH DUTY FREE lud airport 58.00" ""
+  source: "pdfamex"
+  statementExtract: "12 juil        15 juil           BURGERANCH DUTY FREE                       lud airport                                                     58.00                   14,07"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -14.07 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
