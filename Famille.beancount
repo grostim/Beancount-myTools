@@ -3462,6 +3462,7 @@ option "documents" "./"
 1981-07-02 open Depenses:Voitures:Achats                    EUR
 1981-07-02 open Depenses:Voitures:Carburant                 EUR
 1981-07-02 open Depenses:Voitures:Assurance                 EUR
+1981-07-02 open Depenses:Voitures:Peages                    EUR
 1981-07-02 open Depenses:A-CLASSER                          EUR
 
 1981-07-02 open Revenus:CAF                                 EUR
