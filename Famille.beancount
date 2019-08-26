@@ -3545,7 +3545,7 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -0.88 EUR
 
-2019-05-09 balance Passif:AirFrance:Amex             377.14 EUR
+2019-05-09 balance Passif:AirFrance:Amex            -377.14 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                                            377,14"
 
@@ -3647,7 +3647,7 @@ option "documents" "./"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -3.99 EUR
 
-2019-06-09 balance Passif:AirFrance:Amex            1009.57 EUR
+2019-06-09 balance Passif:AirFrance:Amex           -1009.57 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                             1 009,57"
 
