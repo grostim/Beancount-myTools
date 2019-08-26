@@ -17,6 +17,8 @@ option "documents" "./"
 
 plugin "beancount.plugins.check_commodity"
 plugin "fava.plugins.tag_discovered_documents"
+plugin "fava.plugins.link_documents"
+
 
 ;; Options propres à FAVA
 1981-02-07 custom "fava-option" "interval" "month"
