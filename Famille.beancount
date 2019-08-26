@@ -4228,6 +4228,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -22.69 EUR
 
+2018-09-09 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Robinet thermostatique"
+  source: "pdfamex"
+  statementExtract: "8 sept         9 sept            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                  59,39"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -59.39 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
