@@ -3591,6 +3591,13 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -35.76 EUR
 
+2019-05-23 * "INTERFLORA LYON" ""
+  source: "pdfamex"
+  statementExtract: "23 mai         23 mai            INTERFLORA                        LYON                                                                                             70,70"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                              -70.70 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
