@@ -3113,7 +3113,7 @@ option "documents" "./"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
 2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
-;2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
+2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
 
 
 2018-10-11 * "KLM PARIS" "Madagascar"
