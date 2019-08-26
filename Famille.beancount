@@ -4050,6 +4050,13 @@ option "documents" "./"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                              -13.99 EUR
 
+2019-06-13 * "LEONARDO ASHKELON 140.00" ""
+  source: "pdfamex"
+  statementExtract: "12 juin         13 juin           LEONARDO                          ASHKELON                                                                 140.00                 127,30"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -127.30 EUR
+
 2019-06-13 * "WEMAKEIT HOD HASHARON 160.00" ""
   source: "pdfamex"
   statementExtract: "12 juin         13 juin           WEMAKEIT                      HOD HASHARON                                                                 160.00                   40,67"
