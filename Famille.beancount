@@ -3399,6 +3399,11 @@ option "documents" "./"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                              -77.97 EUR
 
+2018-12-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              -623,24 EUR
+
+
 2018-12-12 * "LEONARDO ASHKELON 270.00" ""
   source: "pdfamex"
   statementExtract: "12 déc         12 déc            LEONARDO                            ASHKELON                                                                270.00                     245,32"
