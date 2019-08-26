@@ -3341,3 +3341,10 @@ option "documents" "./"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                             -122.00 EUR
 
+2019-01-02 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "2 jan         2 jan         GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                                  38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
