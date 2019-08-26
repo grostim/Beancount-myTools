@@ -4662,6 +4662,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -38.40 EUR
 
+2018-08-05 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Bracelet Montre"
+  source: "pdfamex"
+  statementExtract: "3 août        5 août        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   20,99"
+  type: "Credit"
+  Depenses:Habillement
+  Passif:AirFrance:Amex                              -20.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
