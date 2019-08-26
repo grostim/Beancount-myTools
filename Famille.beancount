@@ -4341,6 +4341,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -35.80 EUR
 
+2018-10-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 oct         1 oct         GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                               38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
