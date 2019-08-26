@@ -3570,6 +3570,13 @@ option "documents" "./"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                              -13.99 EUR
 
+2019-05-16 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "16 mai         16 mai            BIP & GO SAS                      ISSY                                                                                             47,40"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -47.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
