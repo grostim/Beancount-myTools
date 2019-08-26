@@ -3936,6 +3936,13 @@ option "documents" "./"
   type: "Débit"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                             2361.02 EUR
+2018-11-14 * "PAYPAL *PHILIBERT 0388326535" ""
+  source: "pdfamex"
+  statementExtract: "13 nov          14 nov            PAYPAL *PHILIBERT                   0388326535                                                                                      31,85"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                              -31.85 EUR
+
 
 2018-11-11 * "PAYPAL *GEARBEST 18824248090" ""
   source: "pdfamex"
