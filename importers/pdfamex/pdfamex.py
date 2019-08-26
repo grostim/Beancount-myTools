@@ -23,7 +23,7 @@ def is_pdfminer_installed():
         return returncode == 0
 
 def traduire_mois(str):
-    str = str.replace('fév', 'fev')
+    str = str.replace('fév', 'feb')
     str = str.replace('mars', 'mar')
     str = str.replace('avr', 'apr')
     str = str.replace('mai', 'may')
@@ -141,6 +141,17 @@ class pdfamex(importer.ImporterProtocol):
             # A la recherche de la date.
             match = re.search('(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})',chunk)
             rawdate = match.group(2) #On extrait la seconde date de la ligne.
+
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(rawdate)
+            
+            match = re.search('\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s([a-zéèûôùê]{3,4})',chunk)
+
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(match.group(1))
+
             if match.group(1) == "déc" and statementmonth == "01":
                 ope["date"] = parse_datetime(traduire_mois(rawdate + " 20" + str(int(statementyear)-1)))
             else:
