@@ -4472,6 +4472,13 @@ plugin "beancount.plugins.check_commodity"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -58.48 EUR
 
+2018-08-28 * "REGINA GOREN HOTEL ASHQELON" ""
+  source: "pdfamex"
+  statementExtract: "27 août 28 août REGINA GOREN HOTEL                                         ASHQELON                                                        1,083.00                 263,92"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -263.92 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
