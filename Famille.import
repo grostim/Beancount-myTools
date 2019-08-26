@@ -30,13 +30,10 @@ ACCOUNTLIST = {
         'xxxx-xxxxxx-72001' : 'Passif:AirFrance:Amex',
     }
 
-smart_ImporterQIF =  ImporterQIF(ACCOUNTLIST)
-#apply_hooks(smart_ImporterQIF, [PredictPostings(), PredictPayees()])
-
 CONFIG = [
      apply_hooks(ImporterQIF(ACCOUNTLIST), [PredictPostings(), ]),
      pdfbourso(ACCOUNTLIST),
-     pdfamex(ACCOUNTLIST, debug = True),
+     apply_hooks(pdfamex(ACCOUNTLIST, debug = True), [PredictPostings(), ]),
 #     smart_ImporterQIF(),
 #     ofx.Importer("4979********1979",
 #                 "Passif:Boursorama:CBJoint",
