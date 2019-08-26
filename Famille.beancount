@@ -3896,6 +3896,14 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -0.89 EUR
 
+2019-08-06 * "PAYPAL *BIKECOMPONE 2405450045" ""
+  source: "pdfamex"
+  statementExtract: "6 août        6 août        PAYPAL *BIKECOMPONE               2405450045                                                                       17,65
+                                                                                                                                                 CR"
+  type: "Débit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                               17.65 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
