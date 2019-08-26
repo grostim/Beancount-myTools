@@ -4409,10 +4409,8 @@ plugin "beancount.plugins.pedantic"
 1981-07-02 open Depenses:Immobilier:Travaux                 EUR
 1981-07-02 open Depenses:Immobilier:Bricolage               EUR
 1981-07-02 open Depenses:Immobilier:Assurance               EUR
-1981-07-02 open Depenses:Immobilier:Menage                  EUR
 1981-07-02 open Depenses:Immobilier:Menage:Salaire          EUR
 1981-07-02 open Depenses:Immobilier:Menage:Charges          EUR
-1981-07-02 open Depenses:Impots                             EUR
 1981-07-02 open Depenses:Impots:IR                          EUR
 1981-07-02 open Depenses:Impots:TH                          EUR
 1981-07-02 open Depenses:Impots:TF                          EUR
