@@ -70,7 +70,7 @@ option "documents" "./"
 *** CCTim
 2013-08-26 open Actif:Boursorama:CCTim
   account: "00040132901"
-2013-08-27 pad  Actif:Boursorama:CCTim  Equity:Opening-Balances
+;2013-08-27 pad  Actif:Boursorama:CCTim  Equity:Opening-Balances
 
 2019-01-01 balance  Actif:Boursorama:CCTim          6534.49 EUR
 2019-01-02 * "VIR Versement Mensuel TG" ""
