@@ -3324,14 +3324,14 @@ option "documents" "./"
   source: "pdfamex"
   statementExtract: "11 fév         12 fév            GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                              13,99"
   type: "Credit"
-  Depenses:Abo:
+  Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                              -13.99 EUR
 
 2019-02-24 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Bouteille Chilly's"
   source: "pdfamex"
   statementExtract: "23 fév         24 fév            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                  30,00"
   type: "Credit"
-  Depenses:A-CLASSER
+  Depenses:Equipement
   Passif:AirFrance:Amex                              -30.00 EUR
 
 2019-02-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
@@ -3383,7 +3383,7 @@ option "documents" "./"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -3.99 EUR
 
-2019-03-10 balance Passif:AirFrance:Amex             157.71 EUR
+2019-03-10 balance Passif:AirFrance:Amex             -157.71 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                                            157,71"
 
@@ -3550,6 +3550,7 @@ option "documents" "./"
 * Comptes Revenus et Depenses
 
 1981-07-02 open Depenses:Abo:Apple                          EUR
+1981-07-02 open Depenses:Abo:GooglePlay                     EUR
 1981-07-02 open Depenses:Abo:Musique                        EUR
 1981-07-02 open Depenses:Abo:Elec                           EUR
 1981-07-02 open Depenses:Abo:Eau                            EUR
@@ -3565,6 +3566,7 @@ option "documents" "./"
 1981-07-02 open Depenses:Cadeaux                            EUR
 1981-07-02 open Depenses:Coiffeur                           EUR
 1981-07-02 open Depenses:Divers                             EUR
+1981-07-02 open Depenses:Equipement                         EUR
 1981-07-02 open Depenses:Enfants:Coiffeur                   EUR
 1981-07-02 open Depenses:Enfants:Scolarite                  EUR
 1981-07-02 open Depenses:Enfants:Loisirs                    EUR
