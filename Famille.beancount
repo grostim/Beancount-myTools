@@ -4001,6 +4001,13 @@ option "documents" "./"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                             -210.10 EUR
 
+2018-11-26 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Domotique"
+  source: "pdfamex"
+  statementExtract: "26 nov          26 nov            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                    36,99"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -36.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
