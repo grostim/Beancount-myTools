@@ -4355,6 +4355,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
+2018-10-03 * "LEONARDO ASHKELON 270.00" ""
+  source: "pdfamex"
+  statementExtract: "3 oct         3 oct         LEONARDO                     ASHKELON                                                         270.00             241,27"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -241.27 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
