@@ -4257,6 +4257,13 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                              712.65 EUR
 
+2018-09-12 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Circulateur chauffage"
+  source: "pdfamex"
+  statementExtract: "12 sept 12 sept AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                                 119,66"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                             -119.66 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
