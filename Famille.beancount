@@ -4334,6 +4334,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                               -6.95 EUR
 
+2018-09-28 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 40.64" ""
+  source: "pdfamex"
+  statementExtract: "27 sept 28 sept ALI*ALIEXPRESS ALIPAY SINGAPORE                                                                            40.64               35,80"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -35.80 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
