@@ -4578,6 +4578,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Voitures:Peages
   Passif:AirFrance:Amex                              -30.40 EUR
 
+2018-07-16 * "AMAZON EU SARL GUYANCOURT" "Brosse à dent"
+  source: "pdfamex"
+  statementExtract: "16 juil       16 juil       AMAZON EU SARL                GUYANCOURT                                                                           16,50"
+  type: "Credit"
+  Depenses:Sante
+  Passif:AirFrance:Amex                              -16.50 EUR
+
 2018-07-15 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 14.04" ""
   source: "pdfamex"
   statementExtract: "15 juil        15 juil           ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         14.04                   12,42"
