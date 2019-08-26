@@ -3736,6 +3736,13 @@ option "documents" "./"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                              -27.99 EUR
 
+2018-11-01 * "AMAZON EU SARL GUYANCOURT" "Seringue pour radiateurs"
+  source: "pdfamex"
+  statementExtract: "1 nov         1 nov         AMAZON EU SARL                      GUYANCOURT                                                                              8,21"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                               -8.21 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
