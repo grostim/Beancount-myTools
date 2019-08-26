@@ -3626,6 +3626,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -17.08 EUR
 
+2019-06-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 juin        1 juin        GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                                       62,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -62.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
