@@ -3821,3 +3821,10 @@ option "documents" "./"
 1981-07-02 open Actif:Cash                                  EUR
 1981-07-03 pad  Actif:Cash  Equity:Opening-Balances
 2019-08-23 balance  Actif:Cash                         7000 EUR
+2019-05-26 * "WEMAKEIT HOD HASHARON 240.00" ""
+  source: "pdfamex"
+  statementExtract: "25 mai         26 mai            WEMAKEIT                      HOD HASHARON                                                                240.00                   61,26"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -61.26 EUR
+
