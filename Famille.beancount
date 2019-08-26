@@ -19,7 +19,7 @@ option "documents" "./"
 1981-02-07 custom "fava-option" "interval" "month"
 1981-02-07 custom "fava-option" "import-config" "./Famille.import"
 1981-02-07 custom "fava-option" "import-dirs" "./A_Importer"
-1981-02-07 custom "fava-sidebar-link" "Documents" "../journal/?show=documents"
+1981-02-07 custom "fava-sidebar-link" "Documents" "https://fava.famillegros.com/comptes-famille-gros/journal/?show=document"
 1981-02-07 custom "fava-extension" "myAutoCommit"
 
 
