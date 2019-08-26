@@ -4493,6 +4493,13 @@ plugin "beancount.plugins.check_commodity"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -45.12 EUR
 
+2018-09-01 * "WEMAKEIT HOD HASHARON 80.00" ""
+  source: "pdfamex"
+  statementExtract: "30 août 1 sept              WEMAKEIT                    HOD HASHARON                                                      80.00                19,63"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -19.63 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
