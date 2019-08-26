@@ -3929,6 +3929,14 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -44.37 EUR
 
+2018-11-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 nov          12 nov            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                        2 361,02
+                                                                                                                                                                        CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             2361.02 EUR
+
 2018-11-11 * "PAYPAL *GEARBEST 18824248090" ""
   source: "pdfamex"
   statementExtract: "11 nov          11 nov            PAYPAL *GEARBEST                         18824248090                                                                                44,93"
