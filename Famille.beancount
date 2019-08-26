@@ -3112,7 +3112,7 @@ option "documents" "./"
 *** Amex Compte Tim
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
-;2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
+2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
 ;2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
 
 
@@ -3935,13 +3935,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -15.91 EUR
 
-2019-07-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "12 juil         12 juil           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                      2 317,49
-                                                                                                                                                                      CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                             2317.49 EUR
+;2019-07-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+;  source: "pdfamex"
+;  statementExtract: "12 juil         12 juil           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                      2 317,49
+;                                                                                                                                                                      CR"
+;  type: "Débit"
+;  Actif:Boursorama:CCTim
+;  Passif:AirFrance:Amex                             2317.49 EUR
 
 2019-07-12 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
   source: "pdfamex"
