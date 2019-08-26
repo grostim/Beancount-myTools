@@ -3826,6 +3826,13 @@ option "documents" "./"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                              -13.99 EUR
 
+2019-07-15 * "OUISNCF LOISIRS S.N.C. PARIS" ""
+  source: "pdfamex"
+  statementExtract: "13 juil         15 juil           OUISNCF LOISIRS S.N.C. PARIS                                                                                                    287,00"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -287.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
