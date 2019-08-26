@@ -3471,6 +3471,13 @@ option "documents" "./"
   Depenses:Voitures:
   Passif:AirFrance:Amex                              -27.73 EUR
 
+2019-04-02 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "2 avr          2 avr             GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                                             48,00"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -48.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
