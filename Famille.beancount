@@ -3492,7 +3492,7 @@ option "documents" "./"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
-2019-04-09 balance Passif:AirFrance:Amex            -323.94 EUR
+2019-04-08 balance Passif:AirFrance:Amex            -323.94 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        323,94"
 
@@ -3650,6 +3650,13 @@ option "documents" "./"
 2019-06-09 balance Passif:AirFrance:Amex           -1009.57 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                             1 009,57"
+
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
+  statementExtract: "10 oct          11 oct            KLM                         PARIS                                                                                                  246,95"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -246.95 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
