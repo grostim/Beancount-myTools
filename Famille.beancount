@@ -3387,3 +3387,10 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -245.32 EUR
 
+2019-12-13 * "WEMAKEIT HOD HASHARON 80.00" ""
+  source: "pdfamex"
+  statementExtract: "11 déc         13 déc            WEMAKEIT                        HOD HASHARON                                                                 80.00                       19,33"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -19.33 EUR
+
