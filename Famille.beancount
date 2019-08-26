@@ -4293,10 +4293,8 @@ plugin "beancount.plugins.pedantic"
 
 *** Investissement TECNAL
 
-2018-07-04 open   Actif:Boursorama:PEAPME
-  account: "00088206518"
-
 2018-07-04 open   Actif:Boursorama:PEAPME:Cash              EUR
+  account: "00088206518"
 
 2018-07-04 * "Depot Ouverture"
     Actif:Boursorama:PEAPME:Cash                         10 EUR
