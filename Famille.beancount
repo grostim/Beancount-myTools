@@ -3408,6 +3408,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -18.95 EUR
 
+2019-03-14 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "14 mars 14 mars BIP & GO SAS                                       ISSY                                                                                           21,80"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -21.80 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
