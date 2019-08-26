@@ -4148,6 +4148,13 @@ option "documents" "./"
   Depenses:Loisirs:Velos
   Passif:AirFrance:Amex                              -88.97 EUR
 
+2019-07-01 * "PAYPAL *BIKECOMPONE 2405450045" ""
+  source: "pdfamex"
+  statementExtract: "30 juin       1 juil        PAYPAL *BIKECOMPONE                  2405450045                                                                     330,33"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                             -330.33 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
