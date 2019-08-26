@@ -4057,6 +4057,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -127.30 EUR
 
+2019-06-14 * "GATE RETAIL LUTON," ""
+  source: "pdfamex"
+  statementExtract: "12 juin         14 juin           GATE RETAIL                       LUTON,                                                                                            18,00"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -18.00 EUR
+
 2019-06-13 * "WEMAKEIT HOD HASHARON 160.00" ""
   source: "pdfamex"
   statementExtract: "12 juin         13 juin           WEMAKEIT                      HOD HASHARON                                                                 160.00                   40,67"
