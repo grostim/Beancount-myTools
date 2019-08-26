@@ -4429,6 +4429,13 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        2 152,49"
 
+2018-08-09 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "4 août        9 août        ADLPARTNER                   MONTREUIL                                                                              9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
