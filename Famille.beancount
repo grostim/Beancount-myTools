@@ -3436,6 +3436,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2019-03-31 * "PAYPAL *BRAINSTORMN 5142860253" "One Provider - 3 mois"
+  source: "pdfamex"
+  statementExtract: "31 mars 31 mars PAYPAL *BRAINSTORMN                                       5142860253                                                                              37,05"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -37.05 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
