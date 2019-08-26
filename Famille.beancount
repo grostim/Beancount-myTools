@@ -4036,7 +4036,7 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                               -7.39 EUR
 
-2018-12-09 balance Passif:AirFrance:Amex             623.24 EUR
+2018-12-09 balance Passif:AirFrance:Amex             -623.24 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        623,24"
 
