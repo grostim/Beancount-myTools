@@ -3355,6 +3355,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -43.20 EUR
 
+2019-03-02 * "UBER EATS HELP.UBER.COM" ""
+  source: "pdfamex"
+  statementExtract: "1 mars         2 mars            UBER EATS                     HELP.UBER.COM                                                                                       17,85"
+  type: "Credit"
+  Depenses:Alimentaire:Restaurant
+  Passif:AirFrance:Amex                              -17.85 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
