@@ -15,7 +15,7 @@ option "name_income" "Revenus"
 option "name_expenses" "Depenses"
 option "documents" "./"
 
-plugin "check_commodity"
+plugin "beancount.plugins.check_commodity"
 
 ;; Options propres à FAVA
 1981-02-07 custom "fava-option" "interval" "month"
