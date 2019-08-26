@@ -4860,3 +4860,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2018-07-19 * "PAYPAL*AIRBNB HMQ4FA8K4 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "18 juil       19 juil       PAYPAL*AIRBNB HMQ4FA8K4 35314369001                                                                              232,74"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -232.74 EUR
+
