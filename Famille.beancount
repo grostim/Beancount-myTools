@@ -3259,6 +3259,14 @@ option "documents" "./"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        1 433,39"
 
+2019-01-14 ! "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "14 jan          14 jan            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 433,39
+                                                                                                                                                                     CR"
+  type: "Débit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             1433.39 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
