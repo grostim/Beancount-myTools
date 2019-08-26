@@ -4444,6 +4444,13 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                             1321.56 EUR
 
+2018-08-13 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "13 août 13 août BIP & GO SAS                                        ISSY                                                                                              46,40"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -46.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
