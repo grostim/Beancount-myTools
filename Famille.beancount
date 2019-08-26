@@ -3369,6 +3369,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -20.00 EUR
 
+2019-03-03 * "AWS EMEA AWS.AMAZON.CO .78" ""
+  source: "pdfamex"
+  statementExtract: "3 mars         3 mars            AWS EMEA                      AWS.AMAZON.CO                                                                 .78                        0,70"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -0.70 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
