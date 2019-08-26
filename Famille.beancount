@@ -3757,6 +3757,13 @@ option "documents" "./"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -51.99 EUR
 
+2018-11-02 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "2 nov         2 nov         CASTORAMA NIORT                       NIORT                                                                                59,99"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -59.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
