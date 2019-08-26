@@ -3861,6 +3861,13 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -23.26 EUR
 
+2019-07-22 * "GOOGLE *GOOGLE PHOTOS G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "21 juil         22 juil           GOOGLE *GOOGLE PHOTOS G.CO/HELPPAY#                                                                                             162,37"
+  type: "Credit"
+  Depenses:Divers
+  Passif:AirFrance:Amex                             -162.37 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
