@@ -3259,7 +3259,7 @@ option "documents" "./"
 
 2018-11-09 balance Passif:AirFrance:Amex           -2361.02 EUR
   source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS            
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS            "
 
 2018-12-10 * "RYANAIR LTD AIRLINE DUBLIN" ""
   source: "pdfamex"
