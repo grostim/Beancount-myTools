@@ -4292,6 +4292,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Voitures:Peages
   Passif:AirFrance:Amex                              -20.60 EUR
 
+2018-09-20 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Clef U2F"
+  source: "pdfamex"
+  statementExtract: "20 sept 20 sept AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                                   14,99"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -14.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
