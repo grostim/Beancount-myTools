@@ -4106,6 +4106,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2019-06-19 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Filtre Frigo"
+  source: "pdfamex"
+  statementExtract: "19 juin       19 juin       AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                      18,38"
+  type: "Credit"
+  Depenses:Equipement
+  Passif:AirFrance:Amex                              -18.38 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
