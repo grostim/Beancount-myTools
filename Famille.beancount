@@ -3694,6 +3694,13 @@ option "documents" "./"
   Depenses:Alimentaire:Epicerie
   Passif:AirFrance:Amex                              -31.81 EUR
 
+2018-10-15 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "15 oct        15 oct        BIP & GO SAS                     ISSY                                                                                      15,20"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -15.20 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
