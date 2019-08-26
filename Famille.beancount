@@ -4039,10 +4039,11 @@ option "documents" "./"
 
 
 2019-06-09 * "AMAZON EU SARL GUYANCOURT" "Piles"
+  document: "2019-06-09 404-7307852-8924311.pdf"
   source: "pdfamex"
   statementExtract: "7 juin          9 juin            AMAZON EU SARL                      GUYANCOURT                                                                                           5,48"
   type: "Credit"
-  Depenses:Loisirs:Gadgets
+  Depenses:Equipement
   Passif:AirFrance:Amex                               -5.48 EUR
 
 2019-06-12 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
