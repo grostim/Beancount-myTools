@@ -3341,6 +3341,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2019-02-25 * "PAYPAL *OVH 0820320363" ""
+  source: "pdfamex"
+  statementExtract: "25 fév         25 fév            PAYPAL *OVH                       0820320363                                                                                      25,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -25.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
