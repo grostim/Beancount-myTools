@@ -4264,6 +4264,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                             -119.66 EUR
 
+2018-09-17 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 68.83" ""
+  source: "pdfamex"
+  statementExtract: "16 sept 17 sept ALI*ALIEXPRESS ALIPAY SINGAPORE                                                                                            68.83                   60,72"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -60.72 EUR
+
 2018-09-14 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "14 sept 14 sept BIP & GO SAS                                       ISSY                                                                                            20,60"
