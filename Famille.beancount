@@ -4176,6 +4176,13 @@ option "documents" "./"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
+2019-07-04 * "PAYPAL *BRAINSTORMN 5142860253" "OneProvider"
+  source: "pdfamex"
+  statementExtract: "4 juil        4 juil        PAYPAL *BRAINSTORMN                  5142860253                                                                       37,05"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -37.05 EUR
+
 2019-07-04 * "AWS EMEA AWS.AMAZON.CO .96" ""
   source: "pdfamex"
   statementExtract: "3 juil        4 juil        AWS EMEA                     AWS.AMAZON.CO                                                          .96                0,87"
