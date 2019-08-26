@@ -4683,7 +4683,7 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                               -1.09 EUR
 
-2018-08-09 balance Passif:AirFrance:Amex            1321.56 EUR
+2018-08-09 balance Passif:AirFrance:Amex           -1321.56 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 321,56"
 
