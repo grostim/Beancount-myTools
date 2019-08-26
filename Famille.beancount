@@ -3443,6 +3443,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -37.05 EUR
 
+2019-03-31 * "AMAZON EU SARL GUYANCOURT" "Pots de yaourt"
+  source: "pdfamex"
+  statementExtract: "31 mars 31 mars AMAZON EU SARL                                       GUYANCOURT                                                                                   11,62"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -11.62 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
