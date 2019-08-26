@@ -4571,6 +4571,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -45.95 EUR
 
+2018-07-16 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "16 juil        16 juil           BIP & GO SAS                      ISSY                                                                                             30,40"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -30.40 EUR
+
 2018-07-15 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 14.04" ""
   source: "pdfamex"
   statementExtract: "15 juil        15 juil           ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         14.04                   12,42"
