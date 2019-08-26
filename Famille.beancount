@@ -4204,6 +4204,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -256.88 EUR
 
+2019-07-08 * "COTISATION - MERCI POUR VOTRE CONFIANCE." ""
+  source: "pdfamex"
+  statementExtract: "8 juil        8 juil        COTISATION - MERCI POUR VOTRE CONFIANCE.                                                  165,00"
+  type: "Credit"
+  Depenses:Banque:Frais
+  Passif:AirFrance:Amex                             -165.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
