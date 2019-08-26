@@ -4008,6 +4008,13 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -36.99 EUR
 
+2018-12-03 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Coque Telephone"
+  source: "pdfamex"
+  statementExtract: "3 déc         3 déc         AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   21,99"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -21.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
