@@ -3362,6 +3362,13 @@ option "documents" "./"
   Depenses:Alimentaire:Restaurant
   Passif:AirFrance:Amex                              -17.85 EUR
 
+2019-03-03 * "AMAZON EU SARL GUYANCOURT" "Carte cadeau pour NZBgeek"
+  source: "pdfamex"
+  statementExtract: "2 mars         3 mars            AMAZON EU SARL                      GUYANCOURT                                                                                    20,00"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -20.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
