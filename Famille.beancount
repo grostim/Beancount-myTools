@@ -4245,3 +4245,10 @@ option "documents" "./"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                             -246.95 EUR
 
+2018-11-28 * "PAYPAL *DEEZER 0155806900" ""
+  source: "pdfamex"
+  statementExtract: "28 nov        28 nov        PAYPAL *DEEZER               0155806900                                                                             1,99"
+  type: "Credit"
+  Depenses:Abo:Musique
+  Passif:AirFrance:Amex                               -1.99 EUR
+
