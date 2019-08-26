@@ -98,7 +98,7 @@ class pdfamex(importer.ImporterProtocol):
         # Open the pdf file and create directives.
         entries = []
         text = file.convert(pdf_to_text)
-        print(text)
+#        print(text)
         # On relève d'abord la date du rapport
         control = 'xxxx-xxxxxx-\d{5}\s*\d*/(\d*)/(\d*)'
         match = re.search(control, text)
@@ -111,9 +111,9 @@ class pdfamex(importer.ImporterProtocol):
         if match:
             compte = match.group(0).split(' ')[-1]
 
-        control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}' #regexr.com/4jpsf
+        control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?' #regexr.com/4jqdk
         chunks = re.findall(control, text)
-#        print(chunks)
+#       print(chunks)
         index = 0
         for chunk in chunks:
             index += 1
@@ -124,22 +124,27 @@ class pdfamex(importer.ImporterProtocol):
             ope={}
 #            print(chunk)
             # A la recherche de la date.
-            match = re.search('\d{1,2}(\s[a-zéèûôùê]{3,4})',chunk)
-            rawdate = match.group(0) #On extrait la première date de la ligne.
-            if match.group(1) == "déc" and statementmonth == "01": 
+            match = re.search('(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})',chunk)
+            rawdate = match.group(2) #On extrait la seconde date de la ligne.
+            if match.group(1) == "déc" and statementmonth == "01":
                 ope["date"] = parse_datetime(traduire_mois(rawdate + " 20" + str(int(statementyear)-1)))
             else:
                 ope["date"] = parse_datetime(traduire_mois(rawdate + " 20" + statementyear))
 
             # A la recherche du montant.
-            # TODO : Identifier les transactions de crédit !
-            control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})'
-            match = re.search(control, chunk) 
-            print(match.group(2))
-            ope["montant"] = amount.Amount(Decimal(match.group(2).replace(",", '.').replace(" ", '')), "EUR")
-            print(match.group(1))
-            # Le Payee
-            ope["tiers"] = match.group(1)
+            control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?'
+            match = re.search(control, chunk)
+#           print(match.group(2))
+            # Recherche de "CR" si Crédit.
+            if match.group(3) is not None:
+                meta["type"] = "Débit"
+                ope["montant"] = amount.Amount(1 * Decimal(match.group(2).replace(",", '.').replace(" ", '')), "EUR")
+            else:
+                meta["type"] = "Credit"
+                ope["montant"] = amount.Amount(-1 * Decimal(match.group(2).replace(",", '.').replace(" ", '')), "EUR")
+            # Recherche du Payee
+#            print(match.group(1))
+            ope["tiers"] = re.sub("\s+"," ",match.group(1))
             # Et on rajoute la transaction
             posting_1 = data.Posting(
                 account=self.accountList[compte],
