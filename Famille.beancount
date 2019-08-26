@@ -4050,6 +4050,13 @@ option "documents" "./"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                              -13.99 EUR
 
+2019-06-13 * "WEMAKEIT HOD HASHARON 160.00" ""
+  source: "pdfamex"
+  statementExtract: "12 juin         13 juin           WEMAKEIT                      HOD HASHARON                                                                 160.00                   40,67"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -40.67 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
