@@ -4313,6 +4313,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -25.05 EUR
 
+2018-09-23 * "PAYPAL *BRAINSTORMN 5142860253" "OneProvider"
+  source: "pdfamex"
+  statementExtract: "23 sept 23 sept PAYPAL *BRAINSTORMN                           5142860253                                                                       25,05"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -25.05 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
