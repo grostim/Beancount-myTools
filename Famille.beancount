@@ -4620,6 +4620,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -63.65 EUR
 
+2018-07-28 * "DARTY NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "28 juil       28 juil       DARTY NIORT                 NIORT                                                                                109,99"
+  type: "Credit"
+  Depenses:Equipement
+  Passif:AirFrance:Amex                             -109.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
