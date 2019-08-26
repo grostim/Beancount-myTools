@@ -16,6 +16,7 @@ option "name_expenses" "Depenses"
 option "documents" "./"
 
 plugin "beancount.plugins.check_commodity"
+plugin "fava.plugins.tag_discovered_documents"
 
 ;; Options propres à FAVA
 1981-02-07 custom "fava-option" "interval" "month"
@@ -4521,7 +4522,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -3.99 EUR
 
-2018-09-09 balance Passif:AirFrance:Amex             712.65 EUR
+2018-09-08 balance Passif:AirFrance:Amex            -712.65 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        712,65"
 
