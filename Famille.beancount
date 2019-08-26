@@ -3355,3 +3355,10 @@ option "documents" "./"
   Depenses:Alimentaire:Epicerie
   Passif:AirFrance:Amex                              -47.69 EUR
 
+2019-01-02 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "29 déc        2 jan         ADLPARTNER                   MONTREUIL                                                                                 9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
