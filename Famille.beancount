@@ -4606,6 +4606,13 @@ plugin "fava.plugins.link_documents"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                              -52.23 EUR
 
+2018-07-23 * "AUDIBLE GMBH BERLIN" ""
+  source: "pdfamex"
+  statementExtract: "23 juil       23 juil       AUDIBLE GMBH                BERLIN                                                                                  9,95"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -9.95 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
