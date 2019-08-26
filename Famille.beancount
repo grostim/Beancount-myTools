@@ -3443,3 +3443,10 @@ option "documents" "./"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                             -112.00 EUR
 
+2019-12-22 * "DARTY NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "22 déc        22 déc        DARTY NIORT                 NIORT                                                                                     59,99"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                              -59.99 EUR
+
