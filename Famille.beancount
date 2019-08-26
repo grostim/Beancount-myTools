@@ -3965,6 +3965,14 @@ option "documents" "./"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -44.93 EUR
 
+2018-11-15 * "AMAZON EU SARL GUYANCOURT" ""
+  source: "pdfamex"
+  statementExtract: "15 nov          15 nov            AMAZON EU SARL                      GUYANCOURT                                                                                           8,21
+                                                                                                                                                                             CR"
+  type: "Débit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                                8.21 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
