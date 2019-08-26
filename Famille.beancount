@@ -4271,6 +4271,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -60.72 EUR
 
+2018-09-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 sept 18 sept GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                                    1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
 2018-09-14 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "14 sept 14 sept BIP & GO SAS                                       ISSY                                                                                            20,60"
