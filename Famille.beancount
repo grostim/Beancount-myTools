@@ -4669,6 +4669,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Passif:AirFrance:Amex                              -20.99 EUR
 
+2018-08-07 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "7 août        7 août        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                4,09"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                               -4.09 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
