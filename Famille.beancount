@@ -4183,6 +4183,13 @@ option "documents" "./"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -37.05 EUR
 
+2019-07-08 * "KAKAO ASHQELON 221.00" ""
+  source: "pdfamex"
+  statementExtract: "7 juil        8 juil        KAKAO                       ASHQELON                                                             221.00               56,67"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -56.67 EUR
+
 2019-07-04 * "AWS EMEA AWS.AMAZON.CO .96" ""
   source: "pdfamex"
   statementExtract: "3 juil        4 juil        AWS EMEA                     AWS.AMAZON.CO                                                          .96                0,87"
