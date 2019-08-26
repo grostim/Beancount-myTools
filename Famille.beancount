@@ -3549,6 +3549,13 @@ option "documents" "./"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                                            377,14"
 
+2019-05-09 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "4 mai         9 mai         ADLPARTNER                        MONTREUIL                                                                                 9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
