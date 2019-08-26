@@ -36,7 +36,7 @@ smart_ImporterQIF =  ImporterQIF(ACCOUNTLIST)
 CONFIG = [
      apply_hooks(ImporterQIF(ACCOUNTLIST), [PredictPostings(), ]),
      pdfbourso(ACCOUNTLIST),
-     pdfamex(ACCOUNTLIST),
+     pdfamex(ACCOUNTLIST, debug = True),
 #     smart_ImporterQIF(),
 #     ofx.Importer("4979********1979",
 #                 "Passif:Boursorama:CBJoint",

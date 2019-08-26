@@ -5,7 +5,7 @@ __license__ = "GNU GPLv2"
 
 import re
 import subprocess
-import logging
+import datetime
 from dateutil.parser import parse as parse_datetime
 from beancount.core import amount, data, flags
 from beancount.ingest import importer
@@ -54,9 +54,12 @@ def pdf_to_text(filename):
 class pdfamex(importer.ImporterProtocol):
     """An importer for Boursorama PDF statements."""
 
-    def __init__(self, accountList):
+    def __init__(self, accountList,
+                 debug: bool = False,
+               ):
         assert isinstance(accountList, dict), "La liste de comptes doit etre un type dict"
         self.accountList = accountList
+        self.debug = debug
 
     def identify(self, file):
         if file.mimetype() != 'application/pdf':
@@ -98,7 +101,11 @@ class pdfamex(importer.ImporterProtocol):
         # Open the pdf file and create directives.
         entries = []
         text = file.convert(pdf_to_text)
-#        print(text)
+
+        # Si debogage, affichage de l'extraction  
+        if self.debug:
+            print(text)
+
         # On relève d'abord la date du rapport
         control = 'xxxx-xxxxxx-\d{5}\s*\d*/(\d*)/(\d*)'
         match = re.search(control, text)
@@ -113,7 +120,11 @@ class pdfamex(importer.ImporterProtocol):
 
         control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?' #regexr.com/4jqdk
         chunks = re.findall(control, text)
-#       print(chunks)
+
+        # Si debogage, affichage de l'extraction
+        if self.debug:
+            print(chunks)
+
         index = 0
         for chunk in chunks:
             index += 1
@@ -122,7 +133,11 @@ class pdfamex(importer.ImporterProtocol):
             meta["statementExtract"] = chunk
             ope = dict()
             ope={}
-#            print(chunk)
+
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(chunk)
+
             # A la recherche de la date.
             match = re.search('(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})',chunk)
             rawdate = match.group(2) #On extrait la seconde date de la ligne.
@@ -134,7 +149,7 @@ class pdfamex(importer.ImporterProtocol):
             # A la recherche du montant.
             control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?'
             match = re.search(control, chunk)
-#           print(match.group(2))
+
             # Recherche de "CR" si Crédit.
             if match.group(3) is not None:
                 meta["type"] = "Débit"
@@ -143,7 +158,7 @@ class pdfamex(importer.ImporterProtocol):
                 meta["type"] = "Credit"
                 ope["montant"] = amount.Amount(-1 * Decimal(match.group(2).replace(",", '.').replace(" ", '')), "EUR")
             # Recherche du Payee
-#            print(match.group(1))
+
             ope["tiers"] = re.sub("\s+"," ",match.group(1))
             # Et on rajoute la transaction
             posting_1 = data.Posting(
@@ -166,4 +181,29 @@ class pdfamex(importer.ImporterProtocol):
                 postings=[posting_1],
                 )
             entries.append(transac)
+ 
+        #A la recherche de la balance:
+        control='Total des dépenses pour\s+(?:.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})'
+        match = re.search(control, text)
+        montant = -1 * Decimal(match.group(1).replace(",", '.').replace(" ", ''))
+
+        meta = data.new_metadata(file.name, index)
+        meta["source"] = "pdfamex"
+        meta["statementExtract"] = match.group(0)
+
+        # Si debogage, affichage de l'extraction
+        if self.debug:
+            print(montant)
+
+        match = re.search('xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)', text) #regexr.com/4jprk
+        balancedate = parse_datetime(match.group(1),dayfirst="True").date() + datetime.timedelta(1)
+
+        # Si debogage, affichage de l'extraction
+        if self.debug:
+            print(balancedate)
+
+        entries.append(
+            data.Balance(meta, balancedate,
+                         self.accountList[compte], amount.Amount(montant, "EUR"),
+                         None, None))
         return entries 
