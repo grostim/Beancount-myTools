@@ -3115,6 +3115,152 @@ option "documents" "./"
 ;2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
 ;2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
 
+
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
+  statementExtract: "10 oct          11 oct            KLM                         PARIS                                                                                                  246,95"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -246.95 EUR
+
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
+  statementExtract: "10 oct          11 oct            KLM                         PARIS                                                                                                  246,95"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -246.95 EUR
+
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
+  statementExtract: "10 oct        11 oct        KLM                         PARIS                                                                                     1 038,95"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                            -1038.95 EUR
+
+2018-10-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 oct          12 oct            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         1 195,82
+                                                                                                                                                                         CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1195.82 EUR
+
+2018-10-13 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "13 oct        13 oct        CASTORAMA NIORT                       NIORT                                                                                87,40"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -87.40 EUR
+
+2018-10-14 * "PICARD 824NIORT 824 NIORT" ""
+  source: "pdfamex"
+  statementExtract: "14 oct        14 oct        PICARD 824NIORT 824                  NIORT                                                                                 31,81"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -31.81 EUR
+
+2018-10-15 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "15 oct        15 oct        BIP & GO SAS                     ISSY                                                                                      15,20"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -15.20 EUR
+
+2018-10-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 oct        18 oct        GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                        1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-10-22 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Traitement radiateurs"
+  source: "pdfamex"
+  statementExtract: "22 oct        22 oct        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                           31,50"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -31.50 EUR
+
+2018-10-28 * "PAYPAL *DEEZER 0155806900" ""
+  source: "pdfamex"
+  statementExtract: "28 oct        28 oct        PAYPAL *DEEZER                      0155806900                                                                              1,99"
+  type: "Credit"
+  Depenses:Abo:Musique
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-10-30 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Piles detecteurs de fumée"
+  source: "pdfamex"
+  statementExtract: "30 oct        30 oct        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                           17,22"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -17.22 EUR
+
+2018-10-22 * "AMAZON EU SARL GUYANCOURT" "Bac Tondeuse"
+  source: "pdfamex"
+  statementExtract: "22 oct        22 oct        AMAZON EU SARL                      GUYANCOURT                                                                             27,99"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -27.99 EUR
+
+2018-11-01 * "AMAZON EU SARL GUYANCOURT" "Seringue pour radiateurs"
+  source: "pdfamex"
+  statementExtract: "1 nov         1 nov         AMAZON EU SARL                      GUYANCOURT                                                                              8,21"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                               -8.21 EUR
+
+2018-11-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 nov         1 nov         GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                                       38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
+2018-11-01 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "1 nov         1 nov         CASTORAMA NIORT                       NIORT                                                                                51,99"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -51.99 EUR
+
+2018-11-03 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "3 nov         3 nov         CASTORAMA NIORT                       NIORT                                                                                90,15"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -90.15 EUR
+
+2018-11-02 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "2 nov         2 nov         CASTORAMA NIORT                       NIORT                                                                                59,99"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -59.99 EUR
+
+2018-11-04 * "AMAZON EU SARL GUYANCOURT" "Bonnet vélo"
+  source: "pdfamex"
+  statementExtract: "2 nov         4 nov         AMAZON EU SARL                      GUYANCOURT                                                                             16,91"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                              -16.91 EUR
+
+2018-11-04 * "AMAZON EU SARL GUYANCOURT" "Casque vélo"
+  source: "pdfamex"
+  statementExtract: "2 nov         4 nov         AMAZON EU SARL                      GUYANCOURT                                                                             90,63"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                              -90.63 EUR
+
+2018-11-06 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "3 nov         6 nov         ADLPARTNER                        MONTREUIL                                                                                 9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
+2018-11-09 balance Passif:AirFrance:Amex           -2361.02 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS            
+
 2018-12-10 * "RYANAIR LTD AIRLINE DUBLIN" ""
   source: "pdfamex"
   statementExtract: "8 déc          10 déc            RYANAIR LTD AIRLINE                     DUBLIN                                                                                         224,33"
@@ -3650,151 +3796,7 @@ option "documents" "./"
 2019-06-09 balance Passif:AirFrance:Amex           -1009.57 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                             1 009,57"
-
-2018-10-11 * "KLM PARIS" "Madagascar"
-  source: "pdfamex"
-  statementExtract: "10 oct          11 oct            KLM                         PARIS                                                                                                  246,95"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                             -246.95 EUR
-
-2018-10-11 * "KLM PARIS" "Madagascar"
-  source: "pdfamex"
-  statementExtract: "10 oct          11 oct            KLM                         PARIS                                                                                                  246,95"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                             -246.95 EUR
-
-2018-10-11 * "KLM PARIS" "Madagascar"
-  source: "pdfamex"
-  statementExtract: "10 oct        11 oct        KLM                         PARIS                                                                                     1 038,95"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                            -1038.95 EUR
-
-2018-10-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "12 oct          12 oct            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         1 195,82
-                                                                                                                                                                         CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                             1195.82 EUR
-
-2018-10-13 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "13 oct        13 oct        CASTORAMA NIORT                       NIORT                                                                                87,40"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -87.40 EUR
-
-2018-10-14 * "PICARD 824NIORT 824 NIORT" ""
-  source: "pdfamex"
-  statementExtract: "14 oct        14 oct        PICARD 824NIORT 824                  NIORT                                                                                 31,81"
-  type: "Credit"
-  Depenses:Alimentaire:Epicerie
-  Passif:AirFrance:Amex                              -31.81 EUR
-
-2018-10-15 * "BIP & GO SAS ISSY" ""
-  source: "pdfamex"
-  statementExtract: "15 oct        15 oct        BIP & GO SAS                     ISSY                                                                                      15,20"
-  type: "Credit"
-  Depenses:Voitures:Peages
-  Passif:AirFrance:Amex                              -15.20 EUR
-
-2018-10-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "17 oct        18 oct        GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                        1,99"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2018-10-22 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Traitement radiateurs"
-  source: "pdfamex"
-  statementExtract: "22 oct        22 oct        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                           31,50"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -31.50 EUR
-
-2018-10-28 * "PAYPAL *DEEZER 0155806900" ""
-  source: "pdfamex"
-  statementExtract: "28 oct        28 oct        PAYPAL *DEEZER                      0155806900                                                                              1,99"
-  type: "Credit"
-  Depenses:Abo:Musique
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2018-10-30 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Piles detecteurs de fumée"
-  source: "pdfamex"
-  statementExtract: "30 oct        30 oct        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                           17,22"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -17.22 EUR
-
-2018-10-22 * "AMAZON EU SARL GUYANCOURT" "Bac Tondeuse"
-  source: "pdfamex"
-  statementExtract: "22 oct        22 oct        AMAZON EU SARL                      GUYANCOURT                                                                             27,99"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                              -27.99 EUR
-
-2018-11-01 * "AMAZON EU SARL GUYANCOURT" "Seringue pour radiateurs"
-  source: "pdfamex"
-  statementExtract: "1 nov         1 nov         AMAZON EU SARL                      GUYANCOURT                                                                              8,21"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                               -8.21 EUR
-
-2018-11-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "1 nov         1 nov         GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                                       38,40"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -38.40 EUR
-
-2018-11-01 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "1 nov         1 nov         CASTORAMA NIORT                       NIORT                                                                                51,99"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -51.99 EUR
-
-2018-11-03 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "3 nov         3 nov         CASTORAMA NIORT                       NIORT                                                                                90,15"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -90.15 EUR
-
-2018-11-02 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "2 nov         2 nov         CASTORAMA NIORT                       NIORT                                                                                59,99"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -59.99 EUR
-
-2018-11-04 * "AMAZON EU SARL GUYANCOURT" "Bonnet vélo"
-  source: "pdfamex"
-  statementExtract: "2 nov         4 nov         AMAZON EU SARL                      GUYANCOURT                                                                             16,91"
-  type: "Credit"
-  Depenses:Loisirs:Velos
-  Passif:AirFrance:Amex                              -16.91 EUR
-
-2018-11-04 * "AMAZON EU SARL GUYANCOURT" "Casque vélo"
-  source: "pdfamex"
-  statementExtract: "2 nov         4 nov         AMAZON EU SARL                      GUYANCOURT                                                                             90,63"
-  type: "Credit"
-  Depenses:Loisirs:Velos
-  Passif:AirFrance:Amex                              -90.63 EUR
-
-2018-11-06 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "3 nov         6 nov         ADLPARTNER                        MONTREUIL                                                                                 9,84"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -9.84 EUR
-
-2018-11-09 balance Passif:AirFrance:Amex            2361.02 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                             2 361,02"
+                                                                                                 2 361,02"
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
