@@ -4348,6 +4348,13 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -38.40 EUR
 
+2018-10-02 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "29 sept 2 oct               ADLPARTNER                    MONTREUIL                                                                             9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
