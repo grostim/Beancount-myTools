@@ -3904,6 +3904,13 @@ option "documents" "./"
   Depenses:Loisirs:Velos
   Passif:AirFrance:Amex                               17.65 EUR
 
+2019-08-07 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "3 août        7 août        ADLPARTNER                   MONTREUIL                                                                              9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
