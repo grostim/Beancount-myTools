@@ -3503,6 +3503,13 @@ option "documents" "./"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                             -193.97 EUR
 
+2019-04-12 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "11 avr         12 avr            GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                              13,99"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                              -13.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
