@@ -3598,6 +3598,13 @@ option "documents" "./"
   Depenses:Cadeaux
   Passif:AirFrance:Amex                              -70.70 EUR
 
+2019-05-26 * "BRASERI ASHKELON 301.00" ""
+  source: "pdfamex"
+  statementExtract: "25 mai         26 mai            BRASERI                       ASHKELON                                                                    301.00                   76,83"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -76.83 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
