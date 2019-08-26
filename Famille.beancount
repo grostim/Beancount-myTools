@@ -19,7 +19,9 @@ option "documents" "./"
 1981-02-07 custom "fava-option" "interval" "month"
 1981-02-07 custom "fava-option" "import-config" "./Famille.import"
 1981-02-07 custom "fava-option" "import-dirs" "./A_Importer"
+1981-02-07 custom "fava-sidebar-link" "Documents" "../journal/?show=documents"
 1981-02-07 custom "fava-extension" "myAutoCommit"
+
 
 ** General Accounts
 ;; We need to declare a few general accounts that we will use below.
@@ -3925,7 +3927,7 @@ option "documents" "./"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                             1 009,57"
 
-2019-07-08 * "SERVAIR SANDYFORD, DUBL" ""
+2019-07-09 * "SERVAIR SANDYFORD, DUBL" ""
   source: "pdfamex"
   statementExtract: "7 juil          8 juil            SERVAIR                        SANDYFORD, DUBL                                                                                    18,50"
   type: "Credit"
@@ -4204,7 +4206,7 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -256.88 EUR
 
-2019-07-08 * "COTISATION - MERCI POUR VOTRE CONFIANCE." ""
+2019-07-09 * "COTISATION - MERCI POUR VOTRE CONFIANCE." ""
   source: "pdfamex"
   statementExtract: "8 juil        8 juil        COTISATION - MERCI POUR VOTRE CONFIANCE.                                                  165,00"
   type: "Credit"
