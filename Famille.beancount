@@ -4064,6 +4064,13 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -18.00 EUR
 
+2019-06-15 * "LA FARINA AL TAGLIO LOD 19.00" ""
+  source: "pdfamex"
+  statementExtract: "13 juin         15 juin           LA FARINA AL TAGLIO                  LOD                                                                    19.00                        4,82"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                               -4.82 EUR
+
 2019-06-13 * "WEMAKEIT HOD HASHARON 160.00" ""
   source: "pdfamex"
   statementExtract: "12 juin         13 juin           WEMAKEIT                      HOD HASHARON                                                                 160.00                   40,67"
