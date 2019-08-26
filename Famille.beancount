@@ -3811,6 +3811,14 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -15.91 EUR
 
+2019-07-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 juil         12 juil           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                      2 317,49
+                                                                                                                                                                      CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             2317.49 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
