@@ -3394,3 +3394,10 @@ option "documents" "./"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -19.33 EUR
 
+2019-12-13 * "NORMAN ARZI LTD ASHKELON 520.00" ""
+  source: "pdfamex"
+  statementExtract: "12 déc         13 déc            NORMAN ARZI LTD                        ASHKELON                                                             520.00                     125,70"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -125.70 EUR
+
