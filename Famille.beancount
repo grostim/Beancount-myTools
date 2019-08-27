@@ -5115,3 +5115,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                             -156.90 EUR
 
+2018-05-18 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "17 mai         18 mai            BIP & GO SAS                      ISSY                                                                                             36,10"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -36.10 EUR
+
