@@ -5648,7 +5648,6 @@ plugin "beancount.plugins.check_commodity"
 
 2019-08-06 * "PAYPAL *BIKECOMPONE 2405450045" "" #VeloTim
   source: "pdfamex"
-                                                                                                                                                 CR"
   type: "Débit"
   Depenses:Loisirs:Velos
   Passif:AirFrance:Amex                               17.65 EUR
