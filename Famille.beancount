@@ -5381,6 +5381,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -49.00 EUR
 
+2018-02-03 * "DARTY NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "3 fév         3 fév         DARTY NIORT                 NIORT                                                                                  19,99"
+  type: "Credit"
+  Depenses:Equipement
+  Passif:AirFrance:Amex                              -19.99 EUR
+
 2018-02-03 * "CASTORAMA NIORT NIORT" ""
   source: "pdfamex"
   statementExtract: "3 fév         3 fév         CASTORAMA NIORT                NIORT                                                                               52,90"
