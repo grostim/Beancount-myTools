@@ -2315,6 +2315,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna
   Actif:Boursorama:CCAnna                           -100.00 EUR
 
+2018-03-01 * "CARTE 28022018 79 BAR DU PALAIS CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -14.10 EUR
+
 2018-03-01 * "CARTE 28022018 79 TROC BOUT CHOU CB*6471 " ""
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
