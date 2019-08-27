@@ -2299,6 +2299,10 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -46.00 EUR
 
+2018-02-28 balance Actif:Boursorama:CCAnna  5249.8800000000001091393642127513885498046875 EUR
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
