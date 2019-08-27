@@ -2399,6 +2399,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -25.97 EUR
 
+2018-03-22 * "CHQ. N.6378026 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -46.70 EUR
+
 2018-03-16 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
