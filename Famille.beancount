@@ -3123,6 +3123,592 @@ plugin "fava.plugins.link_documents"
 2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
 
 
+2018-04-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 avr         12 avr            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                          714,40
+                                                                                                                                                                       CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              714.40 EUR
+
+2018-04-15 * "PAYPAL *NORDVPN 4029357733 48.00" ""
+  source: "pdfamex"
+  statementExtract: "15 avr         15 avr            PAYPAL *NORDVPN                      4029357733                                                             48.00                   40,10"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -40.10 EUR
+
+2018-04-18 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 avr         18 avr            GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                                     1,99"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-04-21 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "21 avr         21 avr            CASTORAMA NIORT                      NIORT                                                                                        124,10"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                             -124.10 EUR
+
+2018-04-23 * "PAYPAL*GEARBEST 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "22 avr         23 avr            PAYPAL*GEARBEST                          35314369001                                                                                65,86"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -65.86 EUR
+
+2018-04-23 * "RELAIS STE MAURE NEFTIS ST EPAIN" ""
+  source: "pdfamex"
+  statementExtract: "23 avr         23 avr            RELAIS STE MAURE NEFTIS ST EPAIN                                                                                                    12,65"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -12.65 EUR
+
+2018-04-24 * "ENI POITIETS CHINCE NOR JAUNAY CLAN" ""
+  source: "pdfamex"
+  statementExtract: "23 avr         24 avr            ENI POITIETS CHINCE NOR JAUNAY CLAN                                                                                                 17,15"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -17.15 EUR
+
+2018-04-13 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "13 avr         13 avr            BIP & GO SAS                      ISSY                                                                                              10,60"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -10.60 EUR
+
+2018-04-26 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "26 avr         26 avr            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                    22,00"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -22.00 EUR
+
+2018-04-29 * "PICARD 824NIORT 824 NIORT" ""
+  source: "pdfamex"
+  statementExtract: "29 avr         29 avr            PICARD 824NIORT 824                  NIORT                                                                                          58,05"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -58.05 EUR
+
+2018-05-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 mai          1 mai             GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                                                38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
+2018-05-04 * "DENK TURIZM A.S. ISTANBUL 1.125,15" ""
+  source: "pdfamex"
+  statementExtract: "3 mai          4 mai             DENK TURIZM A.S.                    ISTANBUL                                                             1.125,15                 231,15"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -231.15 EUR
+
+2018-05-09 balance Passif:AirFrance:Amex            -640.52 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        640,52"
+
+2018-05-06 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 21.40" ""
+  source: "pdfamex"
+  statementExtract: "6 mai         6 mai         ALI*ALIEXPRESS ALIPAY         SINGAPORE                                                        21.40               18,47"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -18.47 EUR
+
+2018-05-09 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "PdR imprimante 3D"
+  source: "pdfamex"
+  statementExtract: "9 mai          9 mai             AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                   22,98"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -22.98 EUR
+
+2018-05-09 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "9 mai          9 mai             CASTORAMA NIORT                       NIORT                                                                                        59,96"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -59.96 EUR
+
+2018-05-13 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Piles Domotique"
+  source: "pdfamex"
+  statementExtract: "11 mai         13 mai            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                   19,48"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -19.48 EUR
+
+2018-05-14 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "14 mai         14 mai            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         640,52
+                                                                                                                                                                      CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              640.52 EUR
+
+2018-05-09 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "5 mai         9 mai         ADLPARTNER                  MONTREUIL                                                                               9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
+2018-05-20 * "GOOGLE*GOOGLE STORAGE G CC GOOGLE.COM" ""
+  source: "pdfamex"
+  statementExtract: "17 mai         20 mai            GOOGLE*GOOGLE STORAGE G CC GOOGLE.COM                                                                                                   1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-05-23 * "AUDIBLE GMBH BERLIN" ""
+  source: "pdfamex"
+  statementExtract: "23 mai         23 mai            AUDIBLE GMBH                       BERLIN                                                                                               9,95"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -9.95 EUR
+
+2018-05-21 * "STARBUCKS HALL A MERIGNAC" ""
+  source: "pdfamex"
+  statementExtract: "21 mai         21 mai            STARBUCKS HALL A                     MERIGNAC                                                                                           8,70"
+  type: "Credit"
+  Depenses:Alimentaire:Restaurant
+  Passif:AirFrance:Amex                               -8.70 EUR
+
+2018-05-27 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 16.60" ""
+  source: "pdfamex"
+  statementExtract: "26 mai         27 mai            ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         16.60                   14,65"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -14.65 EUR
+
+2018-05-29 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 45.60" ""
+  source: "pdfamex"
+  statementExtract: "28 mai         29 mai            ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         45.60                   40,40"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -40.40 EUR
+
+2018-05-30 * "PAYPAL*TMLEWINSONS 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "28 mai        30 mai        PAYPAL*TMLEWINSONS                35314369001                                                                    118,95"
+  type: "Credit"
+  Depenses:Habillement
+  Passif:AirFrance:Amex                             -118.95 EUR
+
+2018-05-29 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Kapton"
+  source: "pdfamex"
+  statementExtract: "29 mai        29 mai        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                    3,19"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -3.19 EUR
+
+2018-05-31 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" "Apparemment, j'ai acheté Tunein Premium :/"
+  source: "pdfamex"
+  statementExtract: "29 mai        31 mai        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                             104,99"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                             -104.99 EUR
+
+2018-06-02 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 juin        2 juin        GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                               38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
+2018-06-03 * "RELAIS LYON - ST EXUPER COLOMBIER SAUGN" ""
+  source: "pdfamex"
+  statementExtract: "3 juin        3 juin        RELAIS LYON - ST EXUPER COLOMBIER SAUGN                                                                            25,04"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                              -25.04 EUR
+
+2018-06-04 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 70.23" ""
+  source: "pdfamex"
+  statementExtract: "3 juin        4 juin        ALI*ALIEXPRESS ALIPAY          SINGAPORE                                                       70.23               62,15"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -62.15 EUR
+
+2018-06-06 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Casque"
+  source: "pdfamex"
+  statementExtract: "6 juin        6 juin        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   59,99"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -59.99 EUR
+
+2018-06-06 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "2 juin        6 juin        ADLPARTNER                  MONTREUIL                                                                               3,99"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -3.99 EUR
+
+2018-06-09 balance Passif:AirFrance:Amex            -797.65 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        797,65"
+
+2018-06-09 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "9 juin         9 juin            CASTORAMA NIORT                      NIORT                                                                                         24,30"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -24.30 EUR
+
+2018-06-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "13 juin        13 juin           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         797,65
+                                                                                                                                                                      CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              797.65 EUR
+
+2018-06-13 * "PAYPAL*ICONHEALTHF 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "12 juin        13 juin           PAYPAL*ICONHEALTHF                       35314369001                                                                             353,10"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                             -353.10 EUR
+
+2018-06-14 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "14 juin        14 juin           BIP & GO SAS                      ISSY                                                                                             17,39"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -17.39 EUR
+
+2018-06-16 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 15.72" ""
+  source: "pdfamex"
+  statementExtract: "15 juin        16 juin           ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         15.72                   14,00"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -14.00 EUR
+
+2018-06-21 * "AMAZON EU SARL GUYANCOURT" "T-shirt tomato"
+  source: "pdfamex"
+  statementExtract: "21 juin        21 juin           AMAZON EU SARL                      GUYANCOURT                                                                                     32,94"
+  type: "Credit"
+  Depenses:Habillement
+  Passif:AirFrance:Amex                              -32.94 EUR
+
+2018-06-23 * "PICARD 282NIORT 282 NIORT" ""
+  source: "pdfamex"
+  statementExtract: "23 juin        23 juin           PICARD 282NIORT 282                  NIORT                                                                                         32,15"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -32.15 EUR
+
+2018-06-24 ! "AUDIBLE GMBH BERLIN" ""
+  source: "pdfamex"
+  statementExtract: "23 juin        24 juin           AUDIBLE GMBH                       BERLIN                                                                                               9,95"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.95 EUR
+
+2018-06-24 * "PAYPAL*BRAINSTORMN 35314369001" "OneProvider"
+  source: "pdfamex"
+  statementExtract: "23 juin        24 juin           PAYPAL*BRAINSTORMN                       35314369001                                                                               37,05"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -37.05 EUR
+
+2018-07-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 juil         1 juil            GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                                               50,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -50.40 EUR
+
+2018-07-03 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "30 juin       3 juil        ADLPARTNER                  MONTREUIL                                                                               9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
+2018-07-08 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 9.29" ""
+  source: "pdfamex"
+  statementExtract: "7 juil        8 juil        ALI*ALIEXPRESS ALIPAY          SINGAPORE                                                        9.29                8,16"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -8.16 EUR
+
+2018-07-06 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "6 juil         6 juil            CASTORAMA NIORT                      NIORT                                                                                         13,00"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -13.00 EUR
+
+2018-07-09 * "COTISATION - MERCI POUR VOTRE CONFIANCE." ""
+  source: "pdfamex"
+  statementExtract: "8 juil        8 juil        COTISATION - MERCI POUR VOTRE CONFIANCE.                                                                         165,00"
+  type: "Credit"
+  Depenses:Banque:Frais
+  Passif:AirFrance:Amex                             -165.00 EUR
+
+2018-07-09 balance Passif:AirFrance:Amex             -613.07 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        613,07"
+
+
+2018-07-11 * "LEONARDO ASHKELON 270.00" ""
+  source: "pdfamex"
+  statementExtract: "11 juil        11 juil           LEONARDO                          ASHKELON                                                                270.00                 237,47"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -237.47 EUR
+
+2018-07-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 juil        12 juil           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         778,07
+                                                                                                                                                                      CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              778.07 EUR
+
+2018-07-12 * "WEMAKEIT HOD HASHARON 160.00" ""
+  source: "pdfamex"
+  statementExtract: "11 juil        12 juil           WEMAKEIT                      HOD HASHARON                                                                160.00                   38,62"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -38.62 EUR
+
+2018-07-14 * "DELEK MENTA LTD natbag 100.67" ""
+  source: "pdfamex"
+  statementExtract: "12 juil        14 juil           DELEK MENTA LTD                     natbag                                                                100.67                   24,41"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -24.41 EUR
+
+2018-07-15 * "BURGERANCH DUTY FREE lud airport 58.00" ""
+  source: "pdfamex"
+  statementExtract: "12 juil        15 juil           BURGERANCH DUTY FREE                       lud airport                                                     58.00                   14,07"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -14.07 EUR
+
+2018-07-16 * "PAYPAL*RTLSDR BLOG 35314369001 51.90" ""
+  source: "pdfamex"
+  statementExtract: "15 juil        16 juil           PAYPAL*RTLSDR BLOG                       35314369001                                                       51.90                   45,95"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -45.95 EUR
+
+2018-07-16 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "16 juil        16 juil           BIP & GO SAS                      ISSY                                                                                             30,40"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -30.40 EUR
+
+2018-07-16 * "AMAZON EU SARL GUYANCOURT" "Brosse à dent"
+  source: "pdfamex"
+  statementExtract: "16 juil       16 juil       AMAZON EU SARL                GUYANCOURT                                                                           16,50"
+  type: "Credit"
+  Depenses:Sante
+  Passif:AirFrance:Amex                              -16.50 EUR
+
+2018-07-17 * "MISS PEPPER LUETZEN LUETZEN" ""
+  source: "pdfamex"
+  statementExtract: "17 juil       17 juil       MISS PEPPER LUETZEN             LUETZEN                                                                            25,60"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -25.60 EUR
+
+2018-07-15 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 14.04" ""
+  source: "pdfamex"
+  statementExtract: "15 juil        15 juil           ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         14.04                   12,42"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -12.42 EUR
+
+2018-07-23 ! "PAYPAL *ASTEROIDGES 4029357733" "Daubasses"
+  source: "pdfamex"
+  statementExtract: "23 juil       23 juil       PAYPAL *ASTEROIDGES               4029357733                                                                       52,23"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -52.23 EUR
+
+2018-07-23 * "AUDIBLE GMBH BERLIN" ""
+  source: "pdfamex"
+  statementExtract: "23 juil       23 juil       AUDIBLE GMBH                BERLIN                                                                                  9,95"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -9.95 EUR
+
+2018-07-28 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "28 juil       28 juil       CASTORAMA NIORT                NIORT                                                                               63,65"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -63.65 EUR
+
+2018-07-28 * "DARTY NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "28 juil       28 juil       DARTY NIORT                 NIORT                                                                                109,99"
+  type: "Credit"
+  Depenses:Equipement
+  Passif:AirFrance:Amex                             -109.99 EUR
+
+2018-07-29 * "PAYPAL *CDISCOUNTSA 0535385199" "Telephone ?"
+  source: "pdfamex"
+  statementExtract: "29 juil       29 juil       PAYPAL *CDISCOUNTSA               0535385199                                                                     304,00"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                             -304.00 EUR
+
+2018-07-30 * "PAYPAL *NETZBERATER 4029357733" "Max2play"
+  source: "pdfamex"
+  statementExtract: "29 juil       30 juil       PAYPAL *NETZBERATER               4029357733                                                                       14,99"
+  type: "Credit"
+  Depenses:Abo:Musique
+  Passif:AirFrance:Amex                              -14.99 EUR
+
+2018-07-30 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 2.30" ""
+  source: "pdfamex"
+  statementExtract: "30 juil       30 juil       ALI*ALIEXPRESS ALIPAY           SINGAPORE                                                       2.30                2,03"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -2.03 EUR
+
+2018-07-30 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Coque Samsung"
+  source: "pdfamex"
+  statementExtract: "30 juil       30 juil       AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   19,98"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -19.98 EUR
+
+2018-08-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 août        1 août        GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                               38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
+2018-08-05 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Bracelet Montre"
+  source: "pdfamex"
+  statementExtract: "3 août        5 août        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   20,99"
+  type: "Credit"
+  Depenses:Habillement
+  Passif:AirFrance:Amex                              -20.99 EUR
+
+2018-08-07 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "7 août        7 août        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                4,09"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                               -4.09 EUR
+
+2018-08-07 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "7 août        7 août        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                1,09"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                               -1.09 EUR
+
+2018-08-09 balance Passif:AirFrance:Amex           -1321.56 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 321,56"
+
+2018-08-09 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "4 août        9 août        ADLPARTNER                   MONTREUIL                                                                              9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
+2018-08-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "13 août 13 août PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                                          1 321,56
+                                                                                                                                                                        CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1321.56 EUR
+
+2018-08-13 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "13 août 13 août BIP & GO SAS                                        ISSY                                                                                              46,40"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -46.40 EUR
+
+2018-08-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 août 18 août GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                                       1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-08-20 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "20 août 20 août AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                                           2,94"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                               -2.94 EUR
+
+2018-08-28 * "WEMAKEIT HOD HASHARON 240.00" ""
+  source: "pdfamex"
+  statementExtract: "27 août 28 août WEMAKEIT                                        HOD HASHARON                                                                 240.00                   58,48"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -58.48 EUR
+
+2018-08-28 * "REGINA GOREN HOTEL ASHQELON" ""
+  source: "pdfamex"
+  statementExtract: "27 août 28 août REGINA GOREN HOTEL                                         ASHQELON                                                        1,083.00                 263,92"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -263.92 EUR
+
+2018-08-28 * "NORMAN ARZI LTD ASHKELON 689.00" ""
+  source: "pdfamex"
+  statementExtract: "27 août 28 août NORMAN ARZI LTD                                       ASHKELON                                                               689.00                 167,91"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -167.91 EUR
+
+2018-09-01 * "ALON NTBG LOD 183.88" ""
+  source: "pdfamex"
+  statementExtract: "30 août 1 sept                    ALON NTBG                     LOD                                                                          183.88                   45,12"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -45.12 EUR
+
+2018-09-01 * "WEMAKEIT HOD HASHARON 80.00" ""
+  source: "pdfamex"
+  statementExtract: "30 août 1 sept              WEMAKEIT                    HOD HASHARON                                                      80.00                19,63"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -19.63 EUR
+
+2018-09-01 * "LA FARINA AL TAGLIO LOD 75.58" ""
+  source: "pdfamex"
+  statementExtract: "30 août 1 sept              LA FARINA AL TAGLIO            LOD                                                            75.58                18,55"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -18.55 EUR
+
+2018-09-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 sept        1 sept        GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                               38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
+2018-09-04 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "1 sept        4 sept        ADLPARTNER                   MONTREUIL                                                                              3,99"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -3.99 EUR
+
+2018-09-08 balance Passif:AirFrance:Amex            -712.65 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        712,65"
+
 2018-09-08 * "CASTORAMA NIORT NIORT" ""
   source: "pdfamex"
   statementExtract: "8 sept         8 sept            CASTORAMA NIORT                      NIORT                                                                                        22,69"
@@ -4432,590 +5018,6 @@ plugin "fava.plugins.link_documents"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        2 152,49"
 
-2018-08-09 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "4 août        9 août        ADLPARTNER                   MONTREUIL                                                                              9,84"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -9.84 EUR
-
-2018-08-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "13 août 13 août PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                                          1 321,56
-                                                                                                                                                                        CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                             1321.56 EUR
-
-2018-08-13 * "BIP & GO SAS ISSY" ""
-  source: "pdfamex"
-  statementExtract: "13 août 13 août BIP & GO SAS                                        ISSY                                                                                              46,40"
-  type: "Credit"
-  Depenses:Voitures:Peages
-  Passif:AirFrance:Amex                              -46.40 EUR
-
-2018-08-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "17 août 18 août GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                                       1,99"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2018-08-20 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
-  source: "pdfamex"
-  statementExtract: "20 août 20 août AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                                           2,94"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                               -2.94 EUR
-
-2018-08-28 * "WEMAKEIT HOD HASHARON 240.00" ""
-  source: "pdfamex"
-  statementExtract: "27 août 28 août WEMAKEIT                                        HOD HASHARON                                                                 240.00                   58,48"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -58.48 EUR
-
-2018-08-28 * "REGINA GOREN HOTEL ASHQELON" ""
-  source: "pdfamex"
-  statementExtract: "27 août 28 août REGINA GOREN HOTEL                                         ASHQELON                                                        1,083.00                 263,92"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -263.92 EUR
-
-2018-08-28 * "NORMAN ARZI LTD ASHKELON 689.00" ""
-  source: "pdfamex"
-  statementExtract: "27 août 28 août NORMAN ARZI LTD                                       ASHKELON                                                               689.00                 167,91"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -167.91 EUR
-
-2018-09-01 * "ALON NTBG LOD 183.88" ""
-  source: "pdfamex"
-  statementExtract: "30 août 1 sept                    ALON NTBG                     LOD                                                                          183.88                   45,12"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -45.12 EUR
-
-2018-09-01 * "WEMAKEIT HOD HASHARON 80.00" ""
-  source: "pdfamex"
-  statementExtract: "30 août 1 sept              WEMAKEIT                    HOD HASHARON                                                      80.00                19,63"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -19.63 EUR
-
-2018-09-01 * "LA FARINA AL TAGLIO LOD 75.58" ""
-  source: "pdfamex"
-  statementExtract: "30 août 1 sept              LA FARINA AL TAGLIO            LOD                                                            75.58                18,55"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -18.55 EUR
-
-2018-09-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "1 sept        1 sept        GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                               38,40"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -38.40 EUR
-
-2018-09-04 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "1 sept        4 sept        ADLPARTNER                   MONTREUIL                                                                              3,99"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -3.99 EUR
-
-2018-09-08 balance Passif:AirFrance:Amex            -712.65 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        712,65"
-
-2018-07-11 * "LEONARDO ASHKELON 270.00" ""
-  source: "pdfamex"
-  statementExtract: "11 juil        11 juil           LEONARDO                          ASHKELON                                                                270.00                 237,47"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -237.47 EUR
-
-2018-07-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "12 juil        12 juil           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         778,07
-                                                                                                                                                                      CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                              778.07 EUR
-
-2018-07-12 * "WEMAKEIT HOD HASHARON 160.00" ""
-  source: "pdfamex"
-  statementExtract: "11 juil        12 juil           WEMAKEIT                      HOD HASHARON                                                                160.00                   38,62"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -38.62 EUR
-
-2018-07-14 * "DELEK MENTA LTD natbag 100.67" ""
-  source: "pdfamex"
-  statementExtract: "12 juil        14 juil           DELEK MENTA LTD                     natbag                                                                100.67                   24,41"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -24.41 EUR
-
-2018-07-15 * "BURGERANCH DUTY FREE lud airport 58.00" ""
-  source: "pdfamex"
-  statementExtract: "12 juil        15 juil           BURGERANCH DUTY FREE                       lud airport                                                     58.00                   14,07"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -14.07 EUR
-
-2018-07-16 * "PAYPAL*RTLSDR BLOG 35314369001 51.90" ""
-  source: "pdfamex"
-  statementExtract: "15 juil        16 juil           PAYPAL*RTLSDR BLOG                       35314369001                                                       51.90                   45,95"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -45.95 EUR
-
-2018-07-16 * "BIP & GO SAS ISSY" ""
-  source: "pdfamex"
-  statementExtract: "16 juil        16 juil           BIP & GO SAS                      ISSY                                                                                             30,40"
-  type: "Credit"
-  Depenses:Voitures:Peages
-  Passif:AirFrance:Amex                              -30.40 EUR
-
-2018-07-16 * "AMAZON EU SARL GUYANCOURT" "Brosse à dent"
-  source: "pdfamex"
-  statementExtract: "16 juil       16 juil       AMAZON EU SARL                GUYANCOURT                                                                           16,50"
-  type: "Credit"
-  Depenses:Sante
-  Passif:AirFrance:Amex                              -16.50 EUR
-
-2018-07-17 * "MISS PEPPER LUETZEN LUETZEN" ""
-  source: "pdfamex"
-  statementExtract: "17 juil       17 juil       MISS PEPPER LUETZEN             LUETZEN                                                                            25,60"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -25.60 EUR
-
-2018-07-15 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 14.04" ""
-  source: "pdfamex"
-  statementExtract: "15 juil        15 juil           ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         14.04                   12,42"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -12.42 EUR
-
-2018-07-23 ! "PAYPAL *ASTEROIDGES 4029357733" "Daubasses"
-  source: "pdfamex"
-  statementExtract: "23 juil       23 juil       PAYPAL *ASTEROIDGES               4029357733                                                                       52,23"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                              -52.23 EUR
-
-2018-07-23 * "AUDIBLE GMBH BERLIN" ""
-  source: "pdfamex"
-  statementExtract: "23 juil       23 juil       AUDIBLE GMBH                BERLIN                                                                                  9,95"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                               -9.95 EUR
-
-2018-07-28 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "28 juil       28 juil       CASTORAMA NIORT                NIORT                                                                               63,65"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -63.65 EUR
-
-2018-07-28 * "DARTY NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "28 juil       28 juil       DARTY NIORT                 NIORT                                                                                109,99"
-  type: "Credit"
-  Depenses:Equipement
-  Passif:AirFrance:Amex                             -109.99 EUR
-
-2018-07-29 * "PAYPAL *CDISCOUNTSA 0535385199" "Telephone ?"
-  source: "pdfamex"
-  statementExtract: "29 juil       29 juil       PAYPAL *CDISCOUNTSA               0535385199                                                                     304,00"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                             -304.00 EUR
-
-2018-07-30 * "PAYPAL *NETZBERATER 4029357733" "Max2play"
-  source: "pdfamex"
-  statementExtract: "29 juil       30 juil       PAYPAL *NETZBERATER               4029357733                                                                       14,99"
-  type: "Credit"
-  Depenses:Abo:Musique
-  Passif:AirFrance:Amex                              -14.99 EUR
-
-2018-07-30 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 2.30" ""
-  source: "pdfamex"
-  statementExtract: "30 juil       30 juil       ALI*ALIEXPRESS ALIPAY           SINGAPORE                                                       2.30                2,03"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                               -2.03 EUR
-
-2018-07-30 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Coque Samsung"
-  source: "pdfamex"
-  statementExtract: "30 juil       30 juil       AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   19,98"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -19.98 EUR
-
-2018-08-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "1 août        1 août        GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#                                                                               38,40"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -38.40 EUR
-
-2018-08-05 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Bracelet Montre"
-  source: "pdfamex"
-  statementExtract: "3 août        5 août        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   20,99"
-  type: "Credit"
-  Depenses:Habillement
-  Passif:AirFrance:Amex                              -20.99 EUR
-
-2018-08-07 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "7 août        7 août        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                4,09"
-  type: "Credit"
-  Depenses:Abo:GooglePlay
-  Passif:AirFrance:Amex                               -4.09 EUR
-
-2018-08-07 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "7 août        7 août        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                1,09"
-  type: "Credit"
-  Depenses:Abo:GooglePlay
-  Passif:AirFrance:Amex                               -1.09 EUR
-
-2018-08-09 balance Passif:AirFrance:Amex           -1321.56 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 321,56"
-
-2018-06-09 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "9 juin         9 juin            CASTORAMA NIORT                      NIORT                                                                                         24,30"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -24.30 EUR
-
-2018-06-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "13 juin        13 juin           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         797,65
-                                                                                                                                                                      CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                              797.65 EUR
-
-2018-06-13 * "PAYPAL*ICONHEALTHF 35314369001" ""
-  source: "pdfamex"
-  statementExtract: "12 juin        13 juin           PAYPAL*ICONHEALTHF                       35314369001                                                                             353,10"
-  type: "Credit"
-  Depenses:Cadeaux
-  Passif:AirFrance:Amex                             -353.10 EUR
-
-2018-06-14 * "BIP & GO SAS ISSY" ""
-  source: "pdfamex"
-  statementExtract: "14 juin        14 juin           BIP & GO SAS                      ISSY                                                                                             17,39"
-  type: "Credit"
-  Depenses:Voitures:Peages
-  Passif:AirFrance:Amex                              -17.39 EUR
-
-2018-06-16 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 15.72" ""
-  source: "pdfamex"
-  statementExtract: "15 juin        16 juin           ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         15.72                   14,00"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -14.00 EUR
-
-2018-06-21 * "AMAZON EU SARL GUYANCOURT" "T-shirt tomato"
-  source: "pdfamex"
-  statementExtract: "21 juin        21 juin           AMAZON EU SARL                      GUYANCOURT                                                                                     32,94"
-  type: "Credit"
-  Depenses:Habillement
-  Passif:AirFrance:Amex                              -32.94 EUR
-
-2018-06-23 * "PICARD 282NIORT 282 NIORT" ""
-  source: "pdfamex"
-  statementExtract: "23 juin        23 juin           PICARD 282NIORT 282                  NIORT                                                                                         32,15"
-  type: "Credit"
-  Depenses:Alimentaire:Epicerie
-  Passif:AirFrance:Amex                              -32.15 EUR
-
-2018-06-24 ! "AUDIBLE GMBH BERLIN" ""
-  source: "pdfamex"
-  statementExtract: "23 juin        24 juin           AUDIBLE GMBH                       BERLIN                                                                                               9,95"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -9.95 EUR
-
-2018-06-24 * "PAYPAL*BRAINSTORMN 35314369001" "OneProvider"
-  source: "pdfamex"
-  statementExtract: "23 juin        24 juin           PAYPAL*BRAINSTORMN                       35314369001                                                                               37,05"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -37.05 EUR
-
-2018-07-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "1 juil         1 juil            GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                                               50,40"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -50.40 EUR
-
-2018-07-03 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "30 juin       3 juil        ADLPARTNER                  MONTREUIL                                                                               9,84"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -9.84 EUR
-
-2018-07-08 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 9.29" ""
-  source: "pdfamex"
-  statementExtract: "7 juil        8 juil        ALI*ALIEXPRESS ALIPAY          SINGAPORE                                                        9.29                8,16"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                               -8.16 EUR
-
-2018-07-06 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "6 juil         6 juil            CASTORAMA NIORT                      NIORT                                                                                         13,00"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -13.00 EUR
-
-2018-07-09 * "COTISATION - MERCI POUR VOTRE CONFIANCE." ""
-  source: "pdfamex"
-  statementExtract: "8 juil        8 juil        COTISATION - MERCI POUR VOTRE CONFIANCE.                                                                         165,00"
-  type: "Credit"
-  Depenses:Banque:Frais
-  Passif:AirFrance:Amex                             -165.00 EUR
-
-2018-07-09 balance Passif:AirFrance:Amex             -613.07 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        613,07"
-
-2018-05-09 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "PdR imprimante 3D"
-  source: "pdfamex"
-  statementExtract: "9 mai          9 mai             AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                   22,98"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -22.98 EUR
-
-2018-05-09 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "9 mai          9 mai             CASTORAMA NIORT                       NIORT                                                                                        59,96"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -59.96 EUR
-
-2018-05-13 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Piles Domotique"
-  source: "pdfamex"
-  statementExtract: "11 mai         13 mai            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                   19,48"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -19.48 EUR
-
-2018-05-14 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "14 mai         14 mai            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         640,52
-                                                                                                                                                                      CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                              640.52 EUR
-
-2018-05-09 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "5 mai         9 mai         ADLPARTNER                  MONTREUIL                                                                               9,84"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -9.84 EUR
-
-2018-05-20 * "GOOGLE*GOOGLE STORAGE G CC GOOGLE.COM" ""
-  source: "pdfamex"
-  statementExtract: "17 mai         20 mai            GOOGLE*GOOGLE STORAGE G CC GOOGLE.COM                                                                                                   1,99"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2018-05-23 * "AUDIBLE GMBH BERLIN" ""
-  source: "pdfamex"
-  statementExtract: "23 mai         23 mai            AUDIBLE GMBH                       BERLIN                                                                                               9,95"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                               -9.95 EUR
-
-2018-05-21 * "STARBUCKS HALL A MERIGNAC" ""
-  source: "pdfamex"
-  statementExtract: "21 mai         21 mai            STARBUCKS HALL A                     MERIGNAC                                                                                           8,70"
-  type: "Credit"
-  Depenses:Alimentaire:Restaurant
-  Passif:AirFrance:Amex                               -8.70 EUR
-
-2018-05-27 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 16.60" ""
-  source: "pdfamex"
-  statementExtract: "26 mai         27 mai            ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         16.60                   14,65"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -14.65 EUR
-
-2018-05-29 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 45.60" ""
-  source: "pdfamex"
-  statementExtract: "28 mai         29 mai            ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                         45.60                   40,40"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -40.40 EUR
-
-2018-05-30 * "PAYPAL*TMLEWINSONS 35314369001" ""
-  source: "pdfamex"
-  statementExtract: "28 mai        30 mai        PAYPAL*TMLEWINSONS                35314369001                                                                    118,95"
-  type: "Credit"
-  Depenses:Habillement
-  Passif:AirFrance:Amex                             -118.95 EUR
-
-2018-05-29 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Kapton"
-  source: "pdfamex"
-  statementExtract: "29 mai        29 mai        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                    3,19"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                               -3.19 EUR
-
-2018-05-31 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" "Apparemment, j'ai acheté Tunein Premium :/"
-  source: "pdfamex"
-  statementExtract: "29 mai        31 mai        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                             104,99"
-  type: "Credit"
-  Depenses:Abo:GooglePlay
-  Passif:AirFrance:Amex                             -104.99 EUR
-
-2018-06-02 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "1 juin        2 juin        GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                               38,40"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -38.40 EUR
-
-2018-06-03 * "RELAIS LYON - ST EXUPER COLOMBIER SAUGN" ""
-  source: "pdfamex"
-  statementExtract: "3 juin        3 juin        RELAIS LYON - ST EXUPER COLOMBIER SAUGN                                                                            25,04"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                              -25.04 EUR
-
-2018-06-04 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 70.23" ""
-  source: "pdfamex"
-  statementExtract: "3 juin        4 juin        ALI*ALIEXPRESS ALIPAY          SINGAPORE                                                       70.23               62,15"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -62.15 EUR
-
-2018-06-06 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Casque"
-  source: "pdfamex"
-  statementExtract: "6 juin        6 juin        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   59,99"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -59.99 EUR
-
-2018-06-06 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "2 juin        6 juin        ADLPARTNER                  MONTREUIL                                                                               3,99"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -3.99 EUR
-
-2018-06-09 balance Passif:AirFrance:Amex            -797.65 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        797,65"
-
-2018-04-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "12 avr         12 avr            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                          714,40
-                                                                                                                                                                       CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                              714.40 EUR
-
-2018-04-15 * "PAYPAL *NORDVPN 4029357733 48.00" ""
-  source: "pdfamex"
-  statementExtract: "15 avr         15 avr            PAYPAL *NORDVPN                      4029357733                                                             48.00                   40,10"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -40.10 EUR
-
-2018-04-18 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "17 avr         18 avr            GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                                     1,99"
-  type: "Credit"
-  Depenses:Abo:GooglePlay
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2018-04-21 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "21 avr         21 avr            CASTORAMA NIORT                      NIORT                                                                                        124,10"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                             -124.10 EUR
-
-2018-04-23 * "PAYPAL*GEARBEST 35314369001" ""
-  source: "pdfamex"
-  statementExtract: "22 avr         23 avr            PAYPAL*GEARBEST                          35314369001                                                                                65,86"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -65.86 EUR
-
-2018-04-23 * "RELAIS STE MAURE NEFTIS ST EPAIN" ""
-  source: "pdfamex"
-  statementExtract: "23 avr         23 avr            RELAIS STE MAURE NEFTIS ST EPAIN                                                                                                    12,65"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -12.65 EUR
-
-2018-04-24 * "ENI POITIETS CHINCE NOR JAUNAY CLAN" ""
-  source: "pdfamex"
-  statementExtract: "23 avr         24 avr            ENI POITIETS CHINCE NOR JAUNAY CLAN                                                                                                 17,15"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -17.15 EUR
-
-2018-04-13 * "BIP & GO SAS ISSY" ""
-  source: "pdfamex"
-  statementExtract: "13 avr         13 avr            BIP & GO SAS                      ISSY                                                                                              10,60"
-  type: "Credit"
-  Depenses:Voitures:Peages
-  Passif:AirFrance:Amex                              -10.60 EUR
-
-2018-04-26 ! "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
-  source: "pdfamex"
-  statementExtract: "26 avr         26 avr            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                    22,00"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -22.00 EUR
-
-2018-04-29 * "PICARD 824NIORT 824 NIORT" ""
-  source: "pdfamex"
-  statementExtract: "29 avr         29 avr            PICARD 824NIORT 824                  NIORT                                                                                          58,05"
-  type: "Credit"
-  Depenses:Alimentaire:Epicerie
-  Passif:AirFrance:Amex                              -58.05 EUR
-
-2018-05-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "1 mai          1 mai             GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                                                38,40"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -38.40 EUR
-
-2018-05-04 * "DENK TURIZM A.S. ISTANBUL 1.125,15" ""
-  source: "pdfamex"
-  statementExtract: "3 mai          4 mai             DENK TURIZM A.S.                    ISTANBUL                                                             1.125,15                 231,15"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -231.15 EUR
-
-2018-05-09 balance Passif:AirFrance:Amex            -640.52 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        640,52"
-
-2018-05-06 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 21.40" ""
-  source: "pdfamex"
-  statementExtract: "6 mai         6 mai         ALI*ALIEXPRESS ALIPAY         SINGAPORE                                                        21.40               18,47"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -18.47 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
