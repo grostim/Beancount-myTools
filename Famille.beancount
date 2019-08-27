@@ -2643,6 +2643,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Cash
   Actif:Boursorama:CCAnna                            -50.00 EUR
 
+2018-04-25 * " VIR SEPA TRESORERIE HOSP DU SUD DEUX SEV " "PAYE DU MOIS 04/18CH NIORT PA"
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                           1422.73 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
