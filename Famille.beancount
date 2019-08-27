@@ -4882,6 +4882,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                             -104.99 EUR
 
+2018-06-02 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 juin        2 juin        GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                               38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
