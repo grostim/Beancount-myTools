@@ -2363,6 +2363,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Actif:Boursorama:CCAnna                            -15.49 EUR
 
+2018-03-13 * "CARTE 12032018 75 WEARLEMONADE CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                             -7.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
