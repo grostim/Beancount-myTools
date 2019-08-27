@@ -2221,6 +2221,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -28.50 EUR
 
+2018-02-19 * " CARTE 17022018 33 MAILLE SOUPLE CB*6471 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -12.50 EUR
+
 2018-02-14 * " PAIEMENT CARTE 13022018 79 GREEN AVENUE " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
