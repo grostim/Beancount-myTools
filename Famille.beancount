@@ -4903,6 +4903,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -62.15 EUR
 
+2018-06-06 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Casque"
+  source: "pdfamex"
+  statementExtract: "6 juin        6 juin        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   59,99"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -59.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
