@@ -5076,6 +5076,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2018-03-23 * "PAYPAL*AIRBNB HMMAYKWRE 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "22 mars 23 mars PAYPAL*AIRBNB HMMAYKWRE 35314369001                                                                                                             195,70"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -195.70 EUR
+
 2018-03-18 * "PICARD 824NIORT 824 NIORT" ""
   source: "pdfamex"
   statementExtract: "18 mars 18 mars PICARD 824NIORT 824                                   NIORT                                                                                       17,75"
