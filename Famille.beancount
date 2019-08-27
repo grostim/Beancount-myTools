@@ -5006,6 +5006,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -231.15 EUR
 
+2018-05-06 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 21.40" ""
+  source: "pdfamex"
+  statementExtract: "6 mai         6 mai         ALI*ALIEXPRESS ALIPAY         SINGAPORE                                                        21.40               18,47"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -18.47 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
