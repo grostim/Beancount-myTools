@@ -2095,6 +2095,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -26.80 EUR
 
+2018-02-06 * "PAIEMENT CARTE 03022018 79 GL NIORT " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -37.50 EUR
+
 2018-02-06 * "CHQ. N.6378022 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
