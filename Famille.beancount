@@ -2197,6 +2197,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                             -8.36 EUR
 
+2018-02-15 * " CARTE 14022018 79 H&M148 CB*6471 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -15.96 EUR
+
 2018-02-14 * " PAIEMENT CARTE 13022018 79 GREEN AVENUE " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
