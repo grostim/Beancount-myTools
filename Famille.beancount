@@ -1887,6 +1887,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -22.53 EUR
 
+2018-01-03 ! "PAIEMENT CARTE 02012018 79 PISC CHAMPOMM " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Billeterie
+  Actif:Boursorama:CCAnna                             -7.10 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
