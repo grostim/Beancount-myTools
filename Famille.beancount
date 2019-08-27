@@ -5388,6 +5388,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Equipement
   Passif:AirFrance:Amex                              -19.99 EUR
 
+2018-02-07 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "3 fév         7 fév         ADLPARTNER                  MONTREUIL                                                                               9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
 2018-02-03 * "CASTORAMA NIORT NIORT" ""
   source: "pdfamex"
   statementExtract: "3 fév         3 fév         CASTORAMA NIORT                NIORT                                                                               52,90"
