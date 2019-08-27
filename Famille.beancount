@@ -4991,3 +4991,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                             -232.74 EUR
 
+2018-06-18 ! "PAYPAL*DUENGEREXPE 35314369001" "Engrais Oranger"
+  source: "pdfamex"
+  statementExtract: "16 juin        18 juin           PAYPAL*DUENGEREXPE                        35314369001                                                                                   8,80"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                               -8.80 EUR
+
