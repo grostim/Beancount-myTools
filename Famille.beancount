@@ -5083,6 +5083,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Voyages
   Passif:AirFrance:Amex                             -195.70 EUR
 
+2018-03-25 * "GOOGLE*GOOGLE MUSIC GOO CC GOOGLE.COM" ""
+  source: "pdfamex"
+  statementExtract: "22 mars 25 mars GOOGLE*GOOGLE MUSIC GOO CC GOOGLE.COM                                                                                                                  9,99"
+  type: "Credit"
+  Depenses:Abo:Musique
+  Passif:AirFrance:Amex                               -9.99 EUR
+
 2018-03-18 * "PICARD 824NIORT 824 NIORT" ""
   source: "pdfamex"
   statementExtract: "18 mars 18 mars PICARD 824NIORT 824                                   NIORT                                                                                       17,75"
