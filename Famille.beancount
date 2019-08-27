@@ -5264,6 +5264,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -21.80 EUR
 
+2018-02-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 fév          18 fév            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                  1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
   source: "pdfamex"
   statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
                                                                                                                                                                      CR"
