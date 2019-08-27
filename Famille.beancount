@@ -2369,6 +2369,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                             -7.90 EUR
 
+2018-03-15 * "CARTE 14032018 44 HENRY ET HENRI CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -88.70 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
