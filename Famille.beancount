@@ -5469,3 +5469,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -67.98 EUR
 
+2018-02-13 * "IBIS AIRPORT CDG ACCOR ROISSY CH DE GA" ""
+  source: "pdfamex"
+  statementExtract: "12 fév          13 fév            IBIS AIRPORT CDG ACCOR ROISSY CH DE GA                                                                                         129,05"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -129.05 EUR
+
