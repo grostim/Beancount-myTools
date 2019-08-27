@@ -5097,6 +5097,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -38.40 EUR
 
+2018-04-05 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "31 mars 5 avr               ADLPARTNER                  MONTREUIL                                                                          9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
 2018-03-18 * "PICARD 824NIORT 824 NIORT" ""
   source: "pdfamex"
   statementExtract: "18 mars 18 mars PICARD 824NIORT 824                                   NIORT                                                                                       17,75"
