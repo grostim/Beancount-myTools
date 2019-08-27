@@ -1863,6 +1863,12 @@ plugin "fava.plugins.link_documents"
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2018-01-02 * "VIR Contribution compte commun " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint
+  Actif:Boursorama:CCAnna                           -500.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
