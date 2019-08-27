@@ -2631,6 +2631,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Sante
   Actif:Boursorama:CCAnna                            -15.00 EUR
 
+2018-04-24 * " CHQ. N.6378035 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -58.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
