@@ -4889,6 +4889,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -38.40 EUR
 
+2018-06-03 * "RELAIS LYON - ST EXUPER COLOMBIER SAUGN" ""
+  source: "pdfamex"
+  statementExtract: "3 juin        3 juin        RELAIS LYON - ST EXUPER COLOMBIER SAUGN                                                                            25,04"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                              -25.04 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
