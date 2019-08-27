@@ -2227,6 +2227,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -12.50 EUR
 
+2018-02-19 * " CARTE 17022018 91 RELAIS FNAC CB*6471 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Culture
+  Actif:Boursorama:CCAnna                             -5.30 EUR
+
 2018-02-14 * " PAIEMENT CARTE 13022018 79 GREEN AVENUE " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
