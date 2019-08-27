@@ -5477,6 +5477,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -39.92 EUR
 
+2018-01-06 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "6 jan           6 jan             CASTORAMA NIORT                     NIORT                                                                                        39,77"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -39.77 EUR
+
 2018-01-04 * "ADLPARTNER MONTREUIL" ""
   source: "pdfamex"
   statementExtract: "30 déc          4 jan             ADLPARTNER                        MONTREUIL                                                                                           9,25"
