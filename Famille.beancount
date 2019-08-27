@@ -5420,6 +5420,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Cadeaux
   Passif:AirFrance:Amex                             -108.95 EUR
 
+2017-12-12 * "AMAZON EU SARL GUYANCOURT" ""
+  source: "pdfamex"
+  statementExtract: "12 déc          12 déc            AMAZON EU SARL                     GUYANCOURT                                                                                    16,27"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -16.27 EUR
+
 2017-12-12 * "PAYPAL*CDISCOUNTSA 35314369001" ""
   source: "pdfamex"
   statementExtract: "11 déc          12 déc            PAYPAL*CDISCOUNTSA                     35314369001                                                                               48,20"
