@@ -2661,6 +2661,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -21.00 EUR
 
+2018-04-25 * " CARTE 24042018 IE ITUNES.COM/BIL CB*2967 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Apple
+  Actif:Boursorama:CCAnna                             -0.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
