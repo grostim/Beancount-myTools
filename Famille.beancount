@@ -2263,6 +2263,12 @@ plugin "fava.plugins.link_documents"
   Revenus:Salaires:CHNiort
   Actif:Boursorama:CCAnna                           1561.13 EUR
 
+2018-02-26 * "CARTE 24022018 79 INTERMARCHE CB*6471 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Epicerie
+  Actif:Boursorama:CCAnna                            -29.13 EUR
+
 2018-02-20 * "CHQ. N.6378021 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
