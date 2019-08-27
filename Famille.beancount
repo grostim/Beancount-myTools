@@ -5309,14 +5309,14 @@ plugin "fava.plugins.link_documents"
   statementExtract: "18 jan         22 jan            HOTEL U ZLATEHO LVA                      HAVLICKUV BRO                                                  2,962.00                 120,08"
   type: "Credit"
   Actif:NoteDeFrais
-  Passif:AirFrance:Amex                               -2.96 EUR
+  Passif:AirFrance:Amex                             -120.08 EUR
 
 2018-01-22 * "CY PRAGUE AIRPORT PRAGUE" ""
   source: "pdfamex"
   statementExtract: "19 jan         22 jan            CY PRAGUE AIRPORT                        PRAGUE                                                        10,120.00                 410,26"
   type: "Credit"
   Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -10.12 EUR
+  Passif:AirFrance:Amex                             -410.26 EUR
 
 2018-01-22 * "AMAZON EU SARL GUYANCOURT" ""
   source: "pdfamex"
@@ -5402,7 +5402,7 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -46.06 EUR
 
-2018-02-08 balance Passif:AirFrance:Amex  -1459.339999999999918145476840436458587646484375 EUR
+2018-02-08 balance Passif:AirFrance:Amex  -1459.34 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 459,34"
 
