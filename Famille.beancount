@@ -5292,6 +5292,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -38.59 EUR
 
+2018-02-28 * "CAFE NEWS NANTES BOUGUENAIS CEDE" ""
+  source: "pdfamex"
+  statementExtract: "28 fév          28 fév            CAFE NEWS NANTES                     BOUGUENAIS CEDE                                                                             18,50"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -18.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
