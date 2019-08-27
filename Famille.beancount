@@ -2019,6 +2019,12 @@ plugin "fava.plugins.link_documents"
   Revenus:Salaires:CHNiort
   Actif:Boursorama:CCAnna                           2656.79 EUR
 
+2018-01-25 * "PAIEMENT CARTE 24012018 79 EURODIF " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -25.84 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
