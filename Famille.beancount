@@ -5166,6 +5166,13 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                             1459.34 EUR
 
+2018-02-12 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "12 fév          12 fév            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 67,98"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -67.98 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
