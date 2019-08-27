@@ -5692,3 +5692,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                             -225.70 EUR
 
+2018-02-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 fév         1 fév         GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                               42,72"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -42.72 EUR
+
