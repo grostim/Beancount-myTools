@@ -2209,6 +2209,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -45.64 EUR
 
+2018-02-19 * " CARTE 17022018 33 PAULIN, PAULIN CB*6471 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Cadeaux
+  Actif:Boursorama:CCAnna                            -12.45 EUR
+
 2018-02-14 * " PAIEMENT CARTE 13022018 79 GREEN AVENUE " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
