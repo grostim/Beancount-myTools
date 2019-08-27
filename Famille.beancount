@@ -2161,6 +2161,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                             -7.90 EUR
 
+2018-02-14 * " PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -10.96 EUR
+
 2018-02-06 * "CHQ. N.6378022 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
