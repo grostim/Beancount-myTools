@@ -2113,6 +2113,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -34.00 EUR
 
+2018-02-07 * "VIR SEPA SCP GODARD PH ET C\" " "A MME ANNA GROS - SOLDE DE CPTE VS RE"
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Cerises
+  Actif:Boursorama:CCAnna                             13.02 EUR
+
 2018-02-06 * "CHQ. N.6378022 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
