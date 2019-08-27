@@ -2055,6 +2055,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Sante
   Actif:Boursorama:CCAnna                             -6.95 EUR
 
+2018-01-29 * "PAIEMENT CARTE 26012018 79 PHARM DE PARI " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Sante
+  Actif:Boursorama:CCAnna                             -7.95 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
