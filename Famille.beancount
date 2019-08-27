@@ -4929,6 +4929,13 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                              714.40 EUR
 
+2018-04-15 * "PAYPAL *NORDVPN 4029357733 48.00" ""
+  source: "pdfamex"
+  statementExtract: "15 avr         15 avr            PAYPAL *NORDVPN                      4029357733                                                             48.00                   40,10"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -40.10 EUR
+
 2018-04-13 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "13 avr         13 avr            BIP & GO SAS                      ISSY                                                                                              10,60"
