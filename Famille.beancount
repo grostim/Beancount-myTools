@@ -5034,6 +5034,13 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                              861.93 EUR
 
+2018-03-13 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "13 mars 13 mars BIP & GO SAS                                       ISSY                                                                                           60,80"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -60.80 EUR
+
 2018-03-10 * "CASTORAMA NIORT NIORT" ""
   source: "pdfamex"
   statementExtract: "10 mars 10 mars CASTORAMA NIORT                                       NIORT                                                                                     224,55"
