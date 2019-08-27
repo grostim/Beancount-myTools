@@ -2025,6 +2025,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -25.84 EUR
 
+2018-01-25 * "PAIEMENT CARTE 24012018 IE ITUNES.COM/BI " "0,99 EUR"
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Apple
+  Actif:Boursorama:CCAnna                             -0.99 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
