@@ -5456,6 +5456,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2017-12-23 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "23 déc          23 déc            CASTORAMA NIORT                     NIORT                                                                                        75,65"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -75.65 EUR
+
 2017-12-12 * "PAYPAL*CDISCOUNTSA 35314369001" ""
   source: "pdfamex"
   statementExtract: "11 déc          12 déc            PAYPAL*CDISCOUNTSA                     35314369001                                                                               48,20"
