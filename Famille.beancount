@@ -4730,6 +4730,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Passif:AirFrance:Amex                              -32.94 EUR
 
+2018-06-23 * "PICARD 282NIORT 282 NIORT" ""
+  source: "pdfamex"
+  statementExtract: "23 juin        23 juin           PICARD 282NIORT 282                  NIORT                                                                                         32,15"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -32.15 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
