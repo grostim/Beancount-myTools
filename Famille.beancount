@@ -4765,6 +4765,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
+2018-07-08 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 9.29" ""
+  source: "pdfamex"
+  statementExtract: "7 juil        8 juil        ALI*ALIEXPRESS ALIPAY          SINGAPORE                                                        9.29                8,16"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -8.16 EUR
+
 2018-07-06 * "CASTORAMA NIORT NIORT" ""
   source: "pdfamex"
   statementExtract: "6 juil         6 juil            CASTORAMA NIORT                      NIORT                                                                                         13,00"
