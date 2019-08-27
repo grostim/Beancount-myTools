@@ -5285,6 +5285,13 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                             1459.34 EUR
 
+2018-02-26 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Jeu et clef usb"
+  source: "pdfamex"
+  statementExtract: "26 fév          26 fév            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 38,59"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -38.59 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
