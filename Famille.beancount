@@ -2191,6 +2191,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -14.12 EUR
 
+2018-02-14 * " PAIEMENT CARTE 13022018 79 GREEN AVENUE " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -10.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
