@@ -5795,3 +5795,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -42.72 EUR
 
+2017-12-24 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "24 déc          24 déc            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 14,99"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -14.99 EUR
+
