@@ -4804,6 +4804,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -59.96 EUR
 
+2018-05-13 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Piles Domotique"
+  source: "pdfamex"
+  statementExtract: "11 mai         13 mai            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                   19,48"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -19.48 EUR
+
 2018-05-09 * "ADLPARTNER MONTREUIL" ""
   source: "pdfamex"
   statementExtract: "5 mai         9 mai         ADLPARTNER                  MONTREUIL                                                                               9,84"
