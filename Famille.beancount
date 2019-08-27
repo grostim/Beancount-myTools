@@ -2043,6 +2043,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Voitures:Carburant
   Actif:Boursorama:CCAnna                            -47.07 EUR
 
+2018-01-29 * "PAIEMENT CARTE 25012018 79 READY MADE " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -22.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
