@@ -5271,6 +5271,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2018-02-23 * "PICARD 282NIORT 282 NIORT" ""
+  source: "pdfamex"
+  statementExtract: "23 fév          23 fév            PICARD 282NIORT 282                  NIORT                                                                                       31,85"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -31.85 EUR
+
   source: "pdfamex"
   statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
                                                                                                                                                                      CR"
