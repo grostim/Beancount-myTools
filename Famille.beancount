@@ -5290,6 +5290,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -20.20 EUR
 
+2018-01-17 * "KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC" ""
+  source: "pdfamex"
+  statementExtract: "17 jan         17 jan            KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC                                                                                                 7,30"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                               -7.30 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
