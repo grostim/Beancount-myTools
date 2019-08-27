@@ -580,7 +580,7 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCTim                            -100.00 EUR
   Actif:Cash                                         100.00 EUR
 
-2019-06-28 * "VIR SEPA TECNAL S.A.S" ""
+2019-06-28 * "VIR SEPA TECNAL S.A.S" "dont paiement JF + primes de vacances"
   source: "qif"
   Actif:Boursorama:CCTim                            6414.75 EUR
   Revenus:Salaires:Tecnal                          -6414.75 EUR
@@ -4917,9 +4917,17 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -3.99 EUR
 
-2018-06-10 balance Passif:AirFrance:Amex             797.65 EUR
+2018-06-09 balance Passif:AirFrance:Amex            -797.65 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        797,65"
+
+2018-04-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 avr         12 avr            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                          714,40
+                                                                                                                                                                       CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              714.40 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
