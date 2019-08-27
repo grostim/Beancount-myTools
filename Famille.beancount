@@ -1881,6 +1881,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                           -100.00 EUR
 
+2018-01-03 * "PAIEMENT CARTE 31122017 79 E LECLERC " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Epicerie
+  Actif:Boursorama:CCAnna                            -22.53 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
