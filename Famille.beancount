@@ -2107,6 +2107,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -73.59 EUR
 
+2018-02-06 * "PAIEMENT CARTE 03022018 79 GLAMOUR " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -34.00 EUR
+
 2018-02-06 * "CHQ. N.6378022 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
