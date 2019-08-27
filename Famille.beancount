@@ -2457,6 +2457,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
 
+2018-04-03 ! "VIR SEPA TRESORERIE SAINT MAIXENT L'ECOL " "FACTURE DU 07/03/18Devis et contratSA"
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            102.58 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
