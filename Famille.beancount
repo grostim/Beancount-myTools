@@ -1917,6 +1917,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -12.97 EUR
 
+2018-01-09 * "PAIEMENT CARTE 06012018 79 CALZEDONIA " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -10.60 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
