@@ -2589,6 +2589,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:AVAnna2
   Actif:Boursorama:CCAnna                            -50.00 EUR
 
+2018-04-17 * "CARTE 16042018 86 MONOPRIX CB*2967 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Epicerie
+  Actif:Boursorama:CCAnna                            -14.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
