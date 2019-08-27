@@ -2327,6 +2327,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCJoint
   Actif:Boursorama:CCAnna                          -2400.00 EUR
 
+2018-03-05 * "CARTE 03032018 79 TISSUS DU RENA CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -27.75 EUR
+
 2018-03-01 * "CARTE 28022018 79 TROC BOUT CHOU CB*6471 " ""
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
