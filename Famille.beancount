@@ -5546,3 +5546,10 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -129.05 EUR
 
+2018-03-05 * "PAYPAL *LONDONTRUST 4029357733 39.95" "VPN PIA"
+  source: "pdfamex"
+  statementExtract: "4 mars        5 mars        PAYPAL *LONDONTRUST               4029357733                                                   39.95               33,51"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -33.51 EUR
+
