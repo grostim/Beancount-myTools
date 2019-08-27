@@ -5214,6 +5214,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -56.38 EUR
 
+2018-03-03 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "3 mars        3 mars        CASTORAMA NIORT                NIORT                                                                               45,80"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -45.80 EUR
+
 2018-02-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
   source: "pdfamex"
   statementExtract: "17 fév          18 fév            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                  1,99"
