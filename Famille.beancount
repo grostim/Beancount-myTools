@@ -2131,6 +2131,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -73.99 EUR
 
+2018-02-08 * "PAIEMENT CARTE 07022018 79 LA LIBRAIRIE " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Culture
+  Actif:Boursorama:CCAnna                             -7.40 EUR
+
 2018-02-06 * "CHQ. N.6378022 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
