@@ -5055,6 +5055,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -12.00 EUR
 
+2018-03-17 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "17 mars 17 mars CASTORAMA NIORT                                       NIORT                                                                                       23,04"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -23.04 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
