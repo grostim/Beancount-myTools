@@ -2083,6 +2083,12 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CELAnna
   Actif:Boursorama:CCAnna                           -100.00 EUR
 
+2018-02-05 * "PAIEMENT CARTE 03022018 79 TAO NIORT " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -13.15 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
