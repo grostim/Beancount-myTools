@@ -1822,7 +1822,7 @@ plugin "fava.plugins.link_documents"
 2013-09-13 open Actif:Boursorama:CCAnna                     EUR
   account: "00040239557"
 2013-09-14 pad  Actif:Boursorama:CCAnna  Equity:Opening-Balances
-2019-08-19 balance  Actif:Boursorama:CCAnna          882.74 EUR
+;2019-08-19 balance  Actif:Boursorama:CCAnna          882.74 EUR
 
 2019-01-02 * "VIR Contribution compte commun" ""
   source: "qif"
@@ -1859,7 +1859,7 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCJoint                           400.00 EUR
   Actif:Boursorama:CCAnna                           -400.00 EUR
 
-2017-12-29 balance Actif:Boursorama:CCAnna  2490.7100000000000363797880709171295166015625 EUR
+2017-12-29 balance Actif:Boursorama:CCAnna  2490.71 EUR
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -2066,6 +2066,10 @@ plugin "fava.plugins.link_documents"
   source: "pdfbourso"
   Depenses:Sante
   Actif:Boursorama:CCAnna                            -18.86 EUR
+
+2018-01-31 balance Actif:Boursorama:CCAnna  3463.94000000000005456968210637569427490234375 EUR
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
