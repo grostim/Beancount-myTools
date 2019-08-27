@@ -1989,6 +1989,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Telephone
   Actif:Boursorama:CCAnna                            -19.99 EUR
 
+2018-01-22 * "PAIEMENT CARTE 19012018 79 TAO NIORT " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -93.27 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
