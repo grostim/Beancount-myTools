@@ -6411,3 +6411,9 @@ plugin "beancount.plugins.check_commodity"
 
 
 
+2018-03-26 * "CARTE 24032018 93 VENTE-PRIVEE CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -76.40 EUR
+
