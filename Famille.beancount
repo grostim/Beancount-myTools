@@ -5353,6 +5353,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -15.66 EUR
 
+2018-01-23 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "MAC - Dock disque pour backup"
+  source: "pdfamex"
+  statementExtract: "23 jan        23 jan        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   36,94"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -36.94 EUR
+
 2018-01-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
   source: "pdfamex"
   statementExtract: "17 jan         18 jan            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
