@@ -2001,6 +2001,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -74.45 EUR
 
+2018-01-22 * "PAIEMENT CARTE 20012018 79 SA SONIAL " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Voitures:Carburant
+  Actif:Boursorama:CCAnna                            -54.40 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
