@@ -5108,3 +5108,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2018-05-14 * "AVIS CENTRAL LYON STEX 74169" "Location - 90 ans Bon Papa"
+  source: "pdfamex"
+  statementExtract: "13 mai         14 mai            AVIS CENTRAL LYON STEX 74169                                                                                                     156,90"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -156.90 EUR
+
