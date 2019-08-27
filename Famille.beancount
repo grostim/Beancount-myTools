@@ -2595,6 +2595,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -14.99 EUR
 
+2018-04-18 * "RETRAIT DAB 17042018 NIORT HALLE CB*2967 " "79"
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -40.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
