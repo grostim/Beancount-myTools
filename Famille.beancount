@@ -6284,3 +6284,9 @@ plugin "beancount.plugins.check_commodity"
 
 
 
+2018-04-30 * " CHQ. N.6378025 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -10.00 EUR
+
