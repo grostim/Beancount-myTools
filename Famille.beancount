@@ -4936,6 +4936,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -40.10 EUR
 
+2018-04-18 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 avr         18 avr            GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                                                     1,99"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                               -1.99 EUR
+
 2018-04-13 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "13 avr         13 avr            BIP & GO SAS                      ISSY                                                                                              10,60"
