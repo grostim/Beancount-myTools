@@ -5434,6 +5434,14 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -154.00 EUR
 
+2017-12-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "13 déc          13 déc            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 488,77
+                                                                                                                                                                     CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1488.77 EUR
+
 2017-12-12 * "PAYPAL*CDISCOUNTSA 35314369001" ""
   source: "pdfamex"
   statementExtract: "11 déc          12 déc            PAYPAL*CDISCOUNTSA                     35314369001                                                                               48,20"
