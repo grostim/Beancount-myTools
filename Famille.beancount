@@ -1959,6 +1959,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                             -7.90 EUR
 
+2018-01-15 * "PAIEMENT CARTE 13012018 79 MAX MUSIQUE " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Enfants:Loisirs
+  Actif:Boursorama:CCAnna                            -35.00 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
