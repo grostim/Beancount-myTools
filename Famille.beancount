@@ -4861,6 +4861,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -40.40 EUR
 
+2018-05-30 * "PAYPAL*TMLEWINSONS 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "28 mai        30 mai        PAYPAL*TMLEWINSONS                35314369001                                                                    118,95"
+  type: "Credit"
+  Depenses:Habillement
+  Passif:AirFrance:Amex                             -118.95 EUR
+
 2018-05-29 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Kapton"
   source: "pdfamex"
   statementExtract: "29 mai        29 mai        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                    3,19"
