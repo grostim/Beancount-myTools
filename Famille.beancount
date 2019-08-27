@@ -2375,6 +2375,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -88.70 EUR
 
+2018-03-16 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                             -4.52 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
