@@ -5395,6 +5395,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
+2018-02-08 * "BAR 120 4232 - T1 MISSISSAUGA 69.14" ""
+  source: "pdfamex"
+  statementExtract: "7 fév         8 fév         BAR 120 4232 - T1           MISSISSAUGA                                                       69.14                46,06"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -46.06 EUR
+
 2018-02-03 * "CASTORAMA NIORT NIORT" ""
   source: "pdfamex"
   statementExtract: "3 fév         3 fév         CASTORAMA NIORT                NIORT                                                                               52,90"
