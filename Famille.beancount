@@ -4833,6 +4833,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2018-05-23 * "AUDIBLE GMBH BERLIN" ""
+  source: "pdfamex"
+  statementExtract: "23 mai         23 mai            AUDIBLE GMBH                       BERLIN                                                                                               9,95"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -9.95 EUR
+
 2018-05-21 * "STARBUCKS HALL A MERIGNAC" ""
   source: "pdfamex"
   statementExtract: "21 mai         21 mai            STARBUCKS HALL A                     MERIGNAC                                                                                           8,70"
