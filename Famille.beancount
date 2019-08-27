@@ -5560,3 +5560,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -3.99 EUR
 
+2018-02-08 * "DAYS INN AND SUITES LINDSAY 169.44" ""
+  source: "pdfamex"
+  statementExtract: "6 fév           8 fév             DAYS INN AND SUITES                  LINDSAY                                                            169.44                 112,90"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -112.90 EUR
+
