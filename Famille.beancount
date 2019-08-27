@@ -4964,6 +4964,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -12.65 EUR
 
+2018-04-24 * "ENI POITIETS CHINCE NOR JAUNAY CLAN" ""
+  source: "pdfamex"
+  statementExtract: "23 avr         24 avr            ENI POITIETS CHINCE NOR JAUNAY CLAN                                                                                                 17,15"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -17.15 EUR
+
 2018-04-13 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "13 avr         13 avr            BIP & GO SAS                      ISSY                                                                                              10,60"
