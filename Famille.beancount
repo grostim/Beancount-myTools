@@ -2511,6 +2511,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -70.30 EUR
 
+2018-04-09 * "CARTE 07042018 85 BUTTERFLY CB*6471 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -79.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
