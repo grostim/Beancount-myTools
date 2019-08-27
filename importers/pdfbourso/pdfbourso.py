@@ -116,7 +116,7 @@ class pdfbourso(importer.ImporterProtocol):
                              self.accountList[compte], amount.Amount(Decimal(balance), "EUR"),
                              None, None))
 
-            control='\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{3,20})(.+?))?\n' #regexr.com/4ju06
+            control='\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{8,20})(.+?))?\n' #regexr.com/4ju06
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
