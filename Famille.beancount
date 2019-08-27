@@ -5257,6 +5257,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -129.05 EUR
 
+2018-02-15 * "MEUNG 9672 MEUNG SUR LOIRE" ""
+  source: "pdfamex"
+  statementExtract: "15 fév          15 fév            MEUNG 9672                        MEUNG SUR LOIRE                                                                                21,80"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -21.80 EUR
+
   source: "pdfamex"
   statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
                                                                                                                                                                      CR"
