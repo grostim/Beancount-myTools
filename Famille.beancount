@@ -5360,6 +5360,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -36.94 EUR
 
+2018-01-27 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "27 jan        27 jan        CASTORAMA NIORT                NIORT                                                                               58,45"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -58.45 EUR
+
 2018-01-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
   source: "pdfamex"
   statementExtract: "17 jan         18 jan            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
