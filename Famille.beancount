@@ -2619,6 +2619,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                             -8.03 EUR
 
+2018-04-23 * " CARTE 19042018 17 AUDALISQUE CB*2967 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -20.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
