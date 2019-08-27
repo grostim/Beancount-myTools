@@ -4875,6 +4875,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                               -3.19 EUR
 
+2018-05-31 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" "Apparemment, j'ai acheté Tunein Premium :/"
+  source: "pdfamex"
+  statementExtract: "29 mai        31 mai        GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#                                                                             104,99"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                             -104.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
