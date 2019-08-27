@@ -2565,6 +2565,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                             -7.90 EUR
 
+2018-04-16 * "CARTE 14042018 79 LA BELLE ETOIL CB*6471 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -99.00 EUR
+
 2018-04-10 * "PRLV SEPA GENERALI VIE SA " ".126084159/9921/51519425"
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
