@@ -2089,6 +2089,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -13.15 EUR
 
+2018-02-06 * "CHQ. N.6378022 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -46.70 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
