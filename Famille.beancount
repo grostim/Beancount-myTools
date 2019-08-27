@@ -1899,6 +1899,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                             -9.14 EUR
 
+2018-01-09 * "RETRAIT DAB 05012018 CHABRIERES CB*6471 " "79"
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -40.00 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
