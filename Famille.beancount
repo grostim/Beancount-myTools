@@ -1929,6 +1929,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Sante
   Actif:Boursorama:CCAnna                            -18.45 EUR
 
+2018-01-10 * "PRLV SEPA GENERALI VIE SA " ".123149483/9921/51519425"
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:AVAnna2
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
