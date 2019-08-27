@@ -4056,7 +4056,6 @@ plugin "beancount.plugins.check_commodity"
 
 2018-03-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
   source: "pdfamex"
-                                                                                                                                                                    CR"
   type: "Débit"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                              861.93 EUR
