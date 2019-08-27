@@ -4687,6 +4687,13 @@ plugin "fava.plugins.link_documents"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 321,56"
 
+2018-06-09 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "9 juin         9 juin            CASTORAMA NIORT                      NIORT                                                                                         24,30"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -24.30 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
