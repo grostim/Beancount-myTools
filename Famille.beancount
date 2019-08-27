@@ -2281,6 +2281,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                           -122.00 EUR
 
+2018-02-28 * "VIR SEPA E-CIE VIE " "Rachat partiel 72h"
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:AVAnna1
+  Actif:Boursorama:CCAnna                           2000.00 EUR
+
 2018-02-20 * "CHQ. N.6378021 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
