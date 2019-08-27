@@ -4826,6 +4826,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
+2018-05-20 * "GOOGLE*GOOGLE STORAGE G CC GOOGLE.COM" ""
+  source: "pdfamex"
+  statementExtract: "17 mai         20 mai            GOOGLE*GOOGLE STORAGE G CC GOOGLE.COM                                                                                                   1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
