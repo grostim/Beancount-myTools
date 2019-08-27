@@ -4702,6 +4702,13 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                              797.65 EUR
 
+2018-06-13 * "PAYPAL*ICONHEALTHF 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "12 juin        13 juin           PAYPAL*ICONHEALTHF                       35314369001                                                                             353,10"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                             -353.10 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
