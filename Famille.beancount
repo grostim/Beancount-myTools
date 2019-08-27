@@ -2435,6 +2435,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Apple
   Actif:Boursorama:CCAnna                             -0.99 EUR
 
+2018-03-28 * "CARTE 27032018 79 HANGAR 21 CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -29.80 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
