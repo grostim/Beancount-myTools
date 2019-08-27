@@ -2239,6 +2239,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -10.90 EUR
 
+2018-02-19 * " CARTE 17022018 33 LOLITA N?5 CB*6471 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -42.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
