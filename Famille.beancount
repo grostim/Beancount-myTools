@@ -4786,6 +4786,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Banque:Frais
   Passif:AirFrance:Amex                             -165.00 EUR
 
+2018-07-09 balance Passif:AirFrance:Amex             613.07 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        613,07"
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
