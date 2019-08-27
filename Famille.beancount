@@ -5250,6 +5250,13 @@ plugin "fava.plugins.link_documents"
   Passif:AirFrance:Amex                              -67.98 EUR
 
 2018-02-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
+                                                                                                                                                                     CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1459.34 EUR
+
 2018-02-13 * "IBIS AIRPORT CDG ACCOR ROISSY CH DE GA" ""
   source: "pdfamex"
   statementExtract: "12 fév          13 fév            IBIS AIRPORT CDG ACCOR ROISSY CH DE GA                                                                                         129,05"
@@ -5277,13 +5284,6 @@ plugin "fava.plugins.link_documents"
   type: "Credit"
   Depenses:Alimentaire:Epicerie
   Passif:AirFrance:Amex                              -31.85 EUR
-
-  source: "pdfamex"
-  statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
-                                                                                                                                                                     CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                             1459.34 EUR
 
 2018-02-26 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Jeu et clef usb"
   source: "pdfamex"
