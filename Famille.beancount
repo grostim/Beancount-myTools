@@ -2393,6 +2393,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Cash
   Actif:Boursorama:CCAnna                            -30.00 EUR
 
+2018-03-21 * "CARTE 20032018 79 PROMOD CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -25.97 EUR
+
 2018-03-16 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
