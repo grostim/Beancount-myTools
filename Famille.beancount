@@ -5006,6 +5006,10 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -231.15 EUR
 
+2018-05-09 balance Passif:AirFrance:Amex             640.52 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        640,52"
+
 2018-05-06 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 21.40" ""
   source: "pdfamex"
   statementExtract: "6 mai         6 mai         ALI*ALIEXPRESS ALIPAY         SINGAPORE                                                        21.40               18,47"
