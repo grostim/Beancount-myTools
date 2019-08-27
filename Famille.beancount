@@ -2679,6 +2679,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -23.00 EUR
 
+2018-04-30 * " CARTE 27042018 79 OXYGEN CB*2967 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Enfants:Coiffeur
+  Actif:Boursorama:CCAnna                            -10.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
