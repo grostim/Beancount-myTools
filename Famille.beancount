@@ -2553,6 +2553,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Coiffeur
   Actif:Boursorama:CCAnna                            -33.00 EUR
 
+2018-04-12 * "CARTE 11042018 79 BESSON CHAUSSU CB*6471 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -36.00 EUR
+
 2018-04-10 * "PRLV SEPA GENERALI VIE SA " ".126084159/9921/51519425"
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
