@@ -2257,6 +2257,12 @@ plugin "fava.plugins.link_documents"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -46.70 EUR
 
+2018-02-26 * "VIR SEPA TRESORERIE HOSP DU SUD DEUX SEV " "PAYE DU MOIS 02/18CH NIORT PA"
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                           1561.13 EUR
+
 2018-02-20 * "CHQ. N.6378021 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
