@@ -1893,6 +1893,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Billeterie
   Actif:Boursorama:CCAnna                             -7.10 EUR
 
+2018-01-09 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                             -9.14 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
