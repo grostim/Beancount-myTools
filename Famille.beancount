@@ -5484,6 +5484,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -39.77 EUR
 
+2018-01-09 balance Passif:AirFrance:Amex  -695.6299999999999954525264911353588104248046875 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                                            695,63"
+
 2018-01-04 * "ADLPARTNER MONTREUIL" ""
   source: "pdfamex"
   statementExtract: "30 déc          4 jan             ADLPARTNER                        MONTREUIL                                                                                           9,25"
