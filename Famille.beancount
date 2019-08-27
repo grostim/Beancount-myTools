@@ -2691,6 +2691,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -23.05 EUR
 
+2018-04-30 * " CARTE 27042018 79 LA LIBRAIRIE H CB*2967 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Culture
+  Actif:Boursorama:CCAnna                             -7.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
