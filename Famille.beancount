@@ -5304,6 +5304,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -32.34 EUR
 
+2018-01-22 * "HOTEL U ZLATEHO LVA HAVLICKUV BRO" ""
+  source: "pdfamex"
+  statementExtract: "18 jan         22 jan            HOTEL U ZLATEHO LVA                      HAVLICKUV BRO                                                  2,962.00                 120,08"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                               -2.96 EUR
+
 2018-01-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
   source: "pdfamex"
   statementExtract: "17 jan         18 jan            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
