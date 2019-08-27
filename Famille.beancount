@@ -5090,6 +5090,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Musique
   Passif:AirFrance:Amex                               -9.99 EUR
 
+2018-04-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 avr          1 avr             GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                                             38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
 2018-03-18 * "PICARD 824NIORT 824 NIORT" ""
   source: "pdfamex"
   statementExtract: "18 mars 18 mars PICARD 824NIORT 824                                   NIORT                                                                                       17,75"
