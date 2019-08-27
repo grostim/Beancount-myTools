@@ -5019,6 +5019,13 @@ plugin "fava.plugins.link_documents"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        2 152,49"
 
 
+2018-03-10 * "PICARD 282NIORT 282 NIORT" ""
+  source: "pdfamex"
+  statementExtract: "10 mars 10 mars PICARD 282NIORT 282                                   NIORT                                                                                       31,90"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -31.90 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
