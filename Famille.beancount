@@ -2179,6 +2179,12 @@ plugin "fava.plugins.link_documents"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -13.21 EUR
 
+2018-02-14 * " PAIEMENT CARTE 13022018 79 DECATHLON 009 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -21.96 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
