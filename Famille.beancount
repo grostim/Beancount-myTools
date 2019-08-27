@@ -3120,8 +3120,413 @@ plugin "fava.plugins.link_documents"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
 2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
-2019-08-19 balance  Passif:AirFrance:Amex              0.00 EUR
 
+2017-12-11 * "PAYPAL*DICTUM GMBH 35314369001" "Couteau Felix"
+  source: "pdfamex"
+  statementExtract: "10 déc          11 déc            PAYPAL*DICTUM GMBH                     35314369001                                                                             108,95"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                             -108.95 EUR
+
+2017-12-12 * "AMAZON EU SARL GUYANCOURT" ""
+  source: "pdfamex"
+  statementExtract: "12 déc          12 déc            AMAZON EU SARL                     GUYANCOURT                                                                                    16,27"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -16.27 EUR
+
+2017-12-12 * "L ADRESS BESSINES" ""
+  source: "pdfamex"
+  statementExtract: "12 déc          12 déc            L ADRESS                      BESSINES                                                                                         154,00"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -154.00 EUR
+
+2017-12-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "13 déc          13 déc            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 488,77
+                                                                                                                                                                     CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1488.77 EUR
+
+2017-12-16 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "16 déc          16 déc            CASTORAMA NIORT                     NIORT                                                                                        78,99"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -78.99 EUR
+
+2017-12-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 déc          18 déc            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                  1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2017-12-23 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "23 déc          23 déc            CASTORAMA NIORT                     NIORT                                                                                        75,65"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -75.65 EUR
+
+2017-12-12 * "PAYPAL*CDISCOUNTSA 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "11 déc          12 déc            PAYPAL*CDISCOUNTSA                     35314369001                                                                               48,20"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -48.20 EUR
+
+2017-12-24 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "24 déc          24 déc            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 14,99"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -14.99 EUR
+
+2017-12-28 * "GEANT CASINO NIORT" ""
+  source: "pdfamex"
+  statementExtract: "28 déc          28 déc            GEANT CASINO                      NIORT                                                                                        107,65"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                             -107.65 EUR
+
+2018-01-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 jan           1 jan             GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                                             39,92"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -39.92 EUR
+
+2018-01-06 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "6 jan           6 jan             CASTORAMA NIORT                     NIORT                                                                                        39,77"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -39.77 EUR
+
+2018-01-09 balance Passif:AirFrance:Amex  -695.6299999999999954525264911353588104248046875 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                                            695,63"
+
+2018-01-04 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "30 déc          4 jan             ADLPARTNER                        MONTREUIL                                                                                           9,25"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.25 EUR
+
+2018-01-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 jan         12 jan            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         695,63
+                                                                                                                                                                      CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              695.63 EUR
+
+2018-01-13 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "12 jan         13 jan            BIP & GO SAS                      ISSY                                                                                             29,80"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -29.80 EUR
+
+2018-01-14 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 5.17" ""
+  source: "pdfamex"
+  statementExtract: "13 jan         14 jan            ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                          5.17                        4,41"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -4.41 EUR
+
+2018-01-14 * "PICARD 824NIORT 824 NIORT" ""
+  source: "pdfamex"
+  statementExtract: "14 jan         14 jan            PICARD 824NIORT 824                  NIORT                                                                                         19,55"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -19.55 EUR
+
+2018-01-17 * "KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC" ""
+  source: "pdfamex"
+  statementExtract: "17 jan         17 jan            KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC                                                                                            20,20"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -20.20 EUR
+
+2018-01-17 * "KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC" ""
+  source: "pdfamex"
+  statementExtract: "17 jan         17 jan            KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC                                                                                                 7,30"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                               -7.30 EUR
+
+2018-01-18 * "Shell 328140 SHELL Avia Praha 798.50" ""
+  source: "pdfamex"
+  statementExtract: "18 jan         18 jan            Shell 328140 SHELL Avia Praha                                                                             798.50                   32,34"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -32.34 EUR
+
+2018-01-22 * "HOTEL U ZLATEHO LVA HAVLICKUV BRO" ""
+  source: "pdfamex"
+  statementExtract: "18 jan         22 jan            HOTEL U ZLATEHO LVA                      HAVLICKUV BRO                                                  2,962.00                 120,08"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -120.08 EUR
+
+2018-01-22 * "CY PRAGUE AIRPORT PRAGUE" ""
+  source: "pdfamex"
+  statementExtract: "19 jan         22 jan            CY PRAGUE AIRPORT                        PRAGUE                                                        10,120.00                 410,26"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -410.26 EUR
+
+2018-01-22 * "AMAZON EU SARL GUYANCOURT" ""
+  source: "pdfamex"
+  statementExtract: "20 jan        22 jan        AMAZON EU SARL                GUYANCOURT                                                                            9,04"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                               -9.04 EUR
+
+2018-01-22 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "MAC - Adaptateur NVME"
+  source: "pdfamex"
+  statementExtract: "20 jan        22 jan        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                    8,62"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                               -8.62 EUR
+
+2018-01-22 * "AMAZON EU SARL GUYANCOURT" "MAC - SSDNVME"
+  source: "pdfamex"
+  statementExtract: "22 jan        22 jan        AMAZON EU SARL                GUYANCOURT                                                                         227,95"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                             -227.95 EUR
+
+2018-01-22 * "AMAZON EU SARL GUYANCOURT" ""
+  source: "pdfamex"
+  statementExtract: "22 jan        22 jan        AMAZON EU SARL                GUYANCOURT                                                                           10,54"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                              -10.54 EUR
+
+2018-01-22 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Batterie Raspberry"
+  source: "pdfamex"
+  statementExtract: "22 jan        22 jan        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   15,66"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -15.66 EUR
+
+2018-01-23 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "MAC - Dock disque pour backup"
+  source: "pdfamex"
+  statementExtract: "23 jan        23 jan        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   36,94"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -36.94 EUR
+
+2018-01-27 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "27 jan        27 jan        CASTORAMA NIORT                NIORT                                                                               58,45"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -58.45 EUR
+
+2018-01-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 jan         18 jan            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-01-27 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "27 jan        27 jan        CASTORAMA NIORT                NIORT                                                                             225,70"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                             -225.70 EUR
+
+2018-02-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 fév         1 fév         GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                               42,72"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -42.72 EUR
+
+2018-02-01 * "AMA EU SARL PRIME_NEW LUXEMBOURG" "Amazon Prime"
+  source: "pdfamex"
+  statementExtract: "1 fév         1 fév         AMA EU SARL PRIME_NEW               LUXEMBOURG                                                                     49,00"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -49.00 EUR
+
+2018-02-03 * "DARTY NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "3 fév         3 fév         DARTY NIORT                 NIORT                                                                                  19,99"
+  type: "Credit"
+  Depenses:Equipement
+  Passif:AirFrance:Amex                              -19.99 EUR
+
+2018-02-03 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "3 fév         3 fév         CASTORAMA NIORT                NIORT                                                                               52,90"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -52.90 EUR
+
+2018-02-07 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "3 fév         7 fév         ADLPARTNER                  MONTREUIL                                                                               9,84"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
+2018-02-07 * "BAR 120 4232 - T1 MISSISSAUGA 69.14" ""
+  source: "pdfamex"
+  statementExtract: "7 fév         8 fév         BAR 120 4232 - T1           MISSISSAUGA                                                       69.14                46,06"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -46.06 EUR
+
+2018-02-08 balance Passif:AirFrance:Amex  -1459.34 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 459,34"
+
+2018-02-08 * "DAYS INN AND SUITES LINDSAY 169.44" ""
+  source: "pdfamex"
+  statementExtract: "6 fév           8 fév             DAYS INN AND SUITES                  LINDSAY                                                            169.44                 112,90"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -112.90 EUR
+
+2018-02-09 * "TIM HORTONS #3502# QP ST HYACINTHE 14.29" ""
+  source: "pdfamex"
+  statementExtract: "8 fév           9 fév             TIM HORTONS #3502# QP ST HYACINTHE                                                                       14.29                        9,53"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                               -9.53 EUR
+
+2018-02-09 * "HOTEL ZERO 1 MONTREAL 187.19" ""
+  source: "pdfamex"
+  statementExtract: "8 fév           9 fév             HOTEL ZERO 1                      MONTREAL                                                              187.19                 124,96"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -124.96 EUR
+
+2018-02-09 * "UBER *ISQTY HELP.UBER.COM 40.12" ""
+  source: "pdfamex"
+  statementExtract: "8 fév         9 fév         UBER *ISQTY                 HELP.UBER.COM                                                      40.12               26,77"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -26.77 EUR
+
+2018-02-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
+                                                                                                                                                                     CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1459.34 EUR
+
+2018-02-12 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "12 fév          12 fév            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 67,98"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -67.98 EUR
+
+2018-02-13 * "IBIS AIRPORT CDG ACCOR ROISSY CH DE GA" ""
+  source: "pdfamex"
+  statementExtract: "12 fév          13 fév            IBIS AIRPORT CDG ACCOR ROISSY CH DE GA                                                                                         129,05"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -129.05 EUR
+
+2018-02-15 * "MEUNG 9672 MEUNG SUR LOIRE" ""
+  source: "pdfamex"
+  statementExtract: "15 fév          15 fév            MEUNG 9672                        MEUNG SUR LOIRE                                                                                21,80"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -21.80 EUR
+
+2018-02-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 fév          18 fév            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                  1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-02-23 * "PICARD 282NIORT 282 NIORT" ""
+  source: "pdfamex"
+  statementExtract: "23 fév          23 fév            PICARD 282NIORT 282                  NIORT                                                                                       31,85"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -31.85 EUR
+
+2018-02-26 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  statementExtract: "26 fév          26 fév            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 38,59"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -38.59 EUR
+
+2018-02-28 * "CAFE NEWS NANTES BOUGUENAIS CEDE" ""
+  source: "pdfamex"
+  statementExtract: "28 fév          28 fév            CAFE NEWS NANTES                     BOUGUENAIS CEDE                                                                             18,50"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -18.50 EUR
+
+2018-03-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 mars        1 mars        GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                               38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
+2018-03-02 * "AEROPORT NANTES ATLANTI BOUGUENAIS" ""
+  source: "pdfamex"
+  statementExtract: "2 mars        2 mars        AEROPORT NANTES ATLANTI BOUGUENAIS                                                                                 44,40"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -44.40 EUR
+
+2018-03-02 * "RELAIS VERTOU GRASSINIE VERTOU" ""
+  source: "pdfamex"
+  statementExtract: "2 mars        2 mars        RELAIS VERTOU GRASSINIE VERTOU                                                                                     56,38"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -56.38 EUR
+
+2018-03-03 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "3 mars        3 mars        CASTORAMA NIORT                NIORT                                                                               45,80"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -45.80 EUR
+
+2018-03-03 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "3 mars        3 mars        CASTORAMA NIORT                NIORT                                                                               55,53"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -55.53 EUR
+
+2018-03-05 * "PAYPAL *LONDONTRUST 4029357733 39.95" "PIA VPN"
+  source: "pdfamex"
+  statementExtract: "4 mars        5 mars        PAYPAL *LONDONTRUST               4029357733                                                   39.95               33,51"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -33.51 EUR
+
+2018-03-07 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "3 mars        7 mars        ADLPARTNER                  MONTREUIL                                                                               3,99"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -3.99 EUR
+
+2018-03-09 balance Passif:AirFrance:Amex  -861.93 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        861,93"
 
 2018-03-10 * "PICARD 282NIORT 282 NIORT" ""
   source: "pdfamex"
@@ -3358,6 +3763,20 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                              640.52 EUR
 
+2018-05-14 * "AVIS CENTRAL LYON STEX 74169" "Location - 90 ans Bon Papa"
+  source: "pdfamex"
+  statementExtract: "13 mai         14 mai            AVIS CENTRAL LYON STEX 74169                                                                                                     156,90"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -156.90 EUR
+
+2018-05-18 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "17 mai         18 mai            BIP & GO SAS                      ISSY                                                                                             36,10"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -36.10 EUR
+
 2018-05-09 * "ADLPARTNER MONTREUIL" ""
   source: "pdfamex"
   statementExtract: "5 mai         9 mai         ADLPARTNER                  MONTREUIL                                                                               9,84"
@@ -3495,6 +3914,20 @@ plugin "fava.plugins.link_documents"
   type: "Credit"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -14.00 EUR
+
+2018-06-18 ! "PAYPAL*DUENGEREXPE 35314369001" "Engrais Oranger"
+  source: "pdfamex"
+  statementExtract: "16 juin        18 juin           PAYPAL*DUENGEREXPE                        35314369001                                                                                   8,80"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                               -8.80 EUR
+
+2018-06-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 juin        18 juin           GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
 
 2018-06-21 * "AMAZON EU SARL GUYANCOURT" "T-shirt tomato"
   source: "pdfamex"
@@ -3635,6 +4068,20 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -12.42 EUR
 
+2018-07-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "17 juil       18 juil       GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                1,99"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-07-19 * "PAYPAL*AIRBNB HMQ4FA8K4 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "18 juil       19 juil       PAYPAL*AIRBNB HMQ4FA8K4 35314369001                                                                              232,74"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -232.74 EUR
+
 2018-07-23 ! "PAYPAL *ASTEROIDGES 4029357733" "Daubasses"
   source: "pdfamex"
   statementExtract: "23 juil       23 juil       PAYPAL *ASTEROIDGES               4029357733                                                                       52,23"
@@ -3744,6 +4191,13 @@ plugin "fava.plugins.link_documents"
   type: "Credit"
   Depenses:Voitures:Peages
   Passif:AirFrance:Amex                              -46.40 EUR
+
+2018-08-16 * "AVIS KARDAN CAR LTD TEL AVIV 39.00" ""
+  source: "pdfamex"
+  statementExtract: "15 août 16 août AVIS KARDAN CAR LTD                                        TEL AVIV                                                           39.00                   35,48"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -35.48 EUR
 
 2018-08-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
   source: "pdfamex"
@@ -4043,6 +4497,13 @@ plugin "fava.plugins.link_documents"
 
 2018-10-11 * "KLM PARIS" "Madagascar"
   source: "pdfamex"
+  statementExtract: "10 oct          11 oct            KLM                         PARIS                                                                                                  246,95"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -246.95 EUR
+
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
   statementExtract: "10 oct        11 oct        KLM                         PARIS                                                                                     1 038,95"
   type: "Credit"
   Depenses:Loisirs:Voyages
@@ -4263,6 +4724,21 @@ plugin "fava.plugins.link_documents"
   type: "Credit"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -36.99 EUR
+
+2018-11-28 * "PAYPAL *DEEZER 0155806900" ""
+  source: "pdfamex"
+  statementExtract: "28 nov        28 nov        PAYPAL *DEEZER               0155806900                                                                             1,99"
+  type: "Credit"
+  Depenses:Abo:Musique
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-12-02 * "GOOGLE*GSUITE FAMILLEGR G.CO HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "2 déc         2 déc         GOOGLE*GSUITE FAMILLEGR G.CO HELPPAY#                                                                              38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
 
 2018-12-03 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Coque Telephone"
   source: "pdfamex"
@@ -4797,6 +5273,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -257.55 EUR
 
+2019-05-26 * "WEMAKEIT HOD HASHARON 240.00" ""
+  source: "pdfamex"
+  statementExtract: "25 mai         26 mai            WEMAKEIT                      HOD HASHARON                                                                240.00                   61,26"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -61.26 EUR
+
 2019-05-26 * "EASYJET*EASYJET EX7BZ3R LUTON" ""
   source: "pdfamex"
   statementExtract: "25 mai        26 mai        EASYJET*EASYJET EX7BZ3R LUTON                                                                                              36,38"
@@ -4927,7 +5410,7 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -0.89 EUR
 
-2019-08-06 * "PAYPAL *BIKECOMPONE 2405450045" ""
+2019-08-06 * "PAYPAL *BIKECOMPONE 2405450045" "" #VeloTim
   source: "pdfamex"
   statementExtract: "6 août        6 août        PAYPAL *BIKECOMPONE               2405450045                                                                       17,65
                                                                                                                                                  CR"
@@ -5033,7 +5516,7 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                               -0.91 EUR
 
-2019-06-29 * "PAYPAL *CESUR BIKES 4029357733" ""
+2019-06-29 * "PAYPAL *CESUR BIKES 4029357733" "" #VeloTim
   source: "pdfamex"
   statementExtract: "29 juin       29 juin       PAYPAL *CESUR BIKES                 4029357733                                                                        32,08"
   type: "Credit"
@@ -5047,21 +5530,21 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                               -7.31 EUR
 
-2019-06-30 * "PAYPAL *BIKEBUDE24 4029357733" ""
+2019-06-30 * "PAYPAL *BIKEBUDE24 4029357733" "" #VeloTim
   source: "pdfamex"
   statementExtract: "30 juin       30 juin       PAYPAL *BIKEBUDE24                  4029357733                                                                      612,99"
   type: "Credit"
   Depenses:Loisirs:Velos
   Passif:AirFrance:Amex                             -612.99 EUR
 
-2019-07-01 * "PAYPAL *XXCYCLE 0687340140" ""
+2019-07-01 * "PAYPAL *XXCYCLE 0687340140" "" #VeloTim
   source: "pdfamex"
   statementExtract: "30 juin       1 juil        PAYPAL *XXCYCLE                 0687340140                                                                            88,97"
   type: "Credit"
   Depenses:Loisirs:Velos
   Passif:AirFrance:Amex                              -88.97 EUR
 
-2019-07-01 * "PAYPAL *BIKECOMPONE 2405450045" ""
+2019-07-01 * "PAYPAL *BIKECOMPONE 2405450045" "" #VeloTim
   source: "pdfamex"
   statementExtract: "30 juin       1 juil        PAYPAL *BIKECOMPONE                  2405450045                                                                     330,33"
   type: "Credit"
@@ -5075,7 +5558,7 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -74.40 EUR
 
-2019-07-03 * "ALI*ALIEXPRESS ALIEXPRE SINGAPORE 423.47" "Batterie BBS"
+2019-07-03 * "ALI*ALIEXPRESS ALIEXPRE SINGAPORE 423.47" "Batterie BBS" #VeloTim
   source: "pdfamex"
   statementExtract: "2 juil        3 juil        ALI*ALIEXPRESS ALIEXPRE SINGAPORE                                                                423.47             385,78"
   type: "Credit"
@@ -5128,372 +5611,7 @@ plugin "fava.plugins.link_documents"
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        2 152,49"
 
-
-
-2018-02-08 * "DAYS INN AND SUITES LINDSAY 169.44" ""
-  source: "pdfamex"
-  statementExtract: "6 fév           8 fév             DAYS INN AND SUITES                  LINDSAY                                                            169.44                 112,90"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -112.90 EUR
-
-2018-02-09 * "TIM HORTONS #3502# QP ST HYACINTHE 14.29" ""
-  source: "pdfamex"
-  statementExtract: "8 fév           9 fév             TIM HORTONS #3502# QP ST HYACINTHE                                                                       14.29                        9,53"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                               -9.53 EUR
-
-2018-02-09 * "HOTEL ZERO 1 MONTREAL 187.19" ""
-  source: "pdfamex"
-  statementExtract: "8 fév           9 fév             HOTEL ZERO 1                      MONTREAL                                                              187.19                 124,96"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -124.96 EUR
-
-2018-02-09 * "UBER *ISQTY HELP.UBER.COM 40.12" ""
-  source: "pdfamex"
-  statementExtract: "8 fév         9 fév         UBER *ISQTY                 HELP.UBER.COM                                                      40.12               26,77"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -26.77 EUR
-
-2018-02-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
-                                                                                                                                                                     CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                             1459.34 EUR
-
-2018-02-12 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
-  source: "pdfamex"
-  statementExtract: "12 fév          12 fév            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 67,98"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -67.98 EUR
-
-2018-02-13 * "IBIS AIRPORT CDG ACCOR ROISSY CH DE GA" ""
-  source: "pdfamex"
-  statementExtract: "12 fév          13 fév            IBIS AIRPORT CDG ACCOR ROISSY CH DE GA                                                                                         129,05"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -129.05 EUR
-
-2018-02-15 * "MEUNG 9672 MEUNG SUR LOIRE" ""
-  source: "pdfamex"
-  statementExtract: "15 fév          15 fév            MEUNG 9672                        MEUNG SUR LOIRE                                                                                21,80"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -21.80 EUR
-
-2018-02-23 * "PICARD 282NIORT 282 NIORT" ""
-  source: "pdfamex"
-  statementExtract: "23 fév          23 fév            PICARD 282NIORT 282                  NIORT                                                                                       31,85"
-  type: "Credit"
-  Depenses:Alimentaire:Epicerie
-  Passif:AirFrance:Amex                              -31.85 EUR
-
-2018-02-26 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
-  source: "pdfamex"
-  statementExtract: "26 fév          26 fév            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 38,59"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -38.59 EUR
-
-2018-02-28 * "CAFE NEWS NANTES BOUGUENAIS CEDE" ""
-  source: "pdfamex"
-  statementExtract: "28 fév          28 fév            CAFE NEWS NANTES                     BOUGUENAIS CEDE                                                                             18,50"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -18.50 EUR
-
-2018-03-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "1 mars        1 mars        GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                               38,40"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -38.40 EUR
-
-2018-03-02 * "AEROPORT NANTES ATLANTI BOUGUENAIS" ""
-  source: "pdfamex"
-  statementExtract: "2 mars        2 mars        AEROPORT NANTES ATLANTI BOUGUENAIS                                                                                 44,40"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -44.40 EUR
-
-2018-03-02 * "RELAIS VERTOU GRASSINIE VERTOU" ""
-  source: "pdfamex"
-  statementExtract: "2 mars        2 mars        RELAIS VERTOU GRASSINIE VERTOU                                                                                     56,38"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -56.38 EUR
-
-2018-03-03 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "3 mars        3 mars        CASTORAMA NIORT                NIORT                                                                               45,80"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -45.80 EUR
-
-2018-03-03 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "3 mars        3 mars        CASTORAMA NIORT                NIORT                                                                               55,53"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -55.53 EUR
-
-2018-02-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "17 fév          18 fév            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                  1,99"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2018-03-09 balance Passif:AirFrance:Amex  -861.93 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        861,93"
-
-2018-01-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "12 jan         12 jan            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         695,63
-                                                                                                                                                                      CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                              695.63 EUR
-
-2018-01-13 * "BIP & GO SAS ISSY" ""
-  source: "pdfamex"
-  statementExtract: "12 jan         13 jan            BIP & GO SAS                      ISSY                                                                                             29,80"
-  type: "Credit"
-  Depenses:Voitures:Peages
-  Passif:AirFrance:Amex                              -29.80 EUR
-
-2018-01-14 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 5.17" ""
-  source: "pdfamex"
-  statementExtract: "13 jan         14 jan            ALI*ALIEXPRESS ALIPAY                    SINGAPORE                                                          5.17                        4,41"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                               -4.41 EUR
-
-2018-01-14 * "PICARD 824NIORT 824 NIORT" ""
-  source: "pdfamex"
-  statementExtract: "14 jan         14 jan            PICARD 824NIORT 824                  NIORT                                                                                         19,55"
-  type: "Credit"
-  Depenses:Alimentaire:Epicerie
-  Passif:AirFrance:Amex                              -19.55 EUR
-
-2018-01-17 * "KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC" ""
-  source: "pdfamex"
-  statementExtract: "17 jan         17 jan            KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC                                                                                            20,20"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -20.20 EUR
-
-2018-01-17 * "KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC" ""
-  source: "pdfamex"
-  statementExtract: "17 jan         17 jan            KIOSQUE BRIOCHE DOREE 2 ROISSY EN FRANC                                                                                                 7,30"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                               -7.30 EUR
-
-2018-01-18 * "Shell 328140 SHELL Avia Praha 798.50" ""
-  source: "pdfamex"
-  statementExtract: "18 jan         18 jan            Shell 328140 SHELL Avia Praha                                                                             798.50                   32,34"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -32.34 EUR
-
-2018-01-22 * "HOTEL U ZLATEHO LVA HAVLICKUV BRO" ""
-  source: "pdfamex"
-  statementExtract: "18 jan         22 jan            HOTEL U ZLATEHO LVA                      HAVLICKUV BRO                                                  2,962.00                 120,08"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -120.08 EUR
-
-2018-01-22 * "CY PRAGUE AIRPORT PRAGUE" ""
-  source: "pdfamex"
-  statementExtract: "19 jan         22 jan            CY PRAGUE AIRPORT                        PRAGUE                                                        10,120.00                 410,26"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -410.26 EUR
-
-2018-01-22 * "AMAZON EU SARL GUYANCOURT" ""
-  source: "pdfamex"
-  statementExtract: "20 jan        22 jan        AMAZON EU SARL                GUYANCOURT                                                                            9,04"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                               -9.04 EUR
-
-2018-01-22 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "MAC - Adaptateur NVME"
-  source: "pdfamex"
-  statementExtract: "20 jan        22 jan        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                    8,62"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                               -8.62 EUR
-
-2018-01-22 * "AMAZON EU SARL GUYANCOURT" "MAC - SSDNVME"
-  source: "pdfamex"
-  statementExtract: "22 jan        22 jan        AMAZON EU SARL                GUYANCOURT                                                                         227,95"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                             -227.95 EUR
-
-2018-01-22 * "AMAZON EU SARL GUYANCOURT" ""
-  source: "pdfamex"
-  statementExtract: "22 jan        22 jan        AMAZON EU SARL                GUYANCOURT                                                                           10,54"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                              -10.54 EUR
-
-2018-01-22 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Batterie Raspberry"
-  source: "pdfamex"
-  statementExtract: "22 jan        22 jan        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   15,66"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -15.66 EUR
-
-2018-01-23 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "MAC - Dock disque pour backup"
-  source: "pdfamex"
-  statementExtract: "23 jan        23 jan        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   36,94"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -36.94 EUR
-
-2018-01-27 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "27 jan        27 jan        CASTORAMA NIORT                NIORT                                                                               58,45"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -58.45 EUR
-
-2018-01-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "17 jan         18 jan            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2018-02-01 * "AMA EU SARL PRIME_NEW LUXEMBOURG" "Amazon Prime"
-  source: "pdfamex"
-  statementExtract: "1 fév         1 fév         AMA EU SARL PRIME_NEW               LUXEMBOURG                                                                     49,00"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -49.00 EUR
-
-2018-02-03 * "DARTY NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "3 fév         3 fév         DARTY NIORT                 NIORT                                                                                  19,99"
-  type: "Credit"
-  Depenses:Equipement
-  Passif:AirFrance:Amex                              -19.99 EUR
-
-2018-02-07 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "3 fév         7 fév         ADLPARTNER                  MONTREUIL                                                                               9,84"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -9.84 EUR
-
-2018-02-07 * "BAR 120 4232 - T1 MISSISSAUGA 69.14" ""
-  source: "pdfamex"
-  statementExtract: "7 fév         8 fév         BAR 120 4232 - T1           MISSISSAUGA                                                       69.14                46,06"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -46.06 EUR
-
-2018-02-08 balance Passif:AirFrance:Amex  -1459.34 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 459,34"
-
-2018-02-03 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "3 fév         3 fév         CASTORAMA NIORT                NIORT                                                                               52,90"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -52.90 EUR
-
-2017-12-11 * "PAYPAL*DICTUM GMBH 35314369001" "Couteau Felix"
-  source: "pdfamex"
-  statementExtract: "10 déc          11 déc            PAYPAL*DICTUM GMBH                     35314369001                                                                             108,95"
-  type: "Credit"
-  Depenses:Cadeaux
-  Passif:AirFrance:Amex                             -108.95 EUR
-
-2017-12-12 * "AMAZON EU SARL GUYANCOURT" ""
-  source: "pdfamex"
-  statementExtract: "12 déc          12 déc            AMAZON EU SARL                     GUYANCOURT                                                                                    16,27"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                              -16.27 EUR
-
-2017-12-12 * "L ADRESS BESSINES" ""
-  source: "pdfamex"
-  statementExtract: "12 déc          12 déc            L ADRESS                      BESSINES                                                                                         154,00"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                             -154.00 EUR
-
-2017-12-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
-  source: "pdfamex"
-  statementExtract: "13 déc          13 déc            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 488,77
-                                                                                                                                                                     CR"
-  type: "Débit"
-  Actif:Boursorama:CCTim
-  Passif:AirFrance:Amex                             1488.77 EUR
-
-2017-12-16 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "16 déc          16 déc            CASTORAMA NIORT                     NIORT                                                                                        78,99"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -78.99 EUR
-
-2017-12-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "17 déc          18 déc            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                  1,99"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2017-12-23 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "23 déc          23 déc            CASTORAMA NIORT                     NIORT                                                                                        75,65"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -75.65 EUR
-
-2017-12-12 * "PAYPAL*CDISCOUNTSA 35314369001" ""
-  source: "pdfamex"
-  statementExtract: "11 déc          12 déc            PAYPAL*CDISCOUNTSA                     35314369001                                                                               48,20"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -48.20 EUR
-
-2018-01-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "1 jan           1 jan             GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                                             39,92"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -39.92 EUR
-
-2018-01-06 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "6 jan           6 jan             CASTORAMA NIORT                     NIORT                                                                                        39,77"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                              -39.77 EUR
-
-2018-01-09 balance Passif:AirFrance:Amex  -695.6299999999999954525264911353588104248046875 EUR
-  source: "pdfamex"
-  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                                            695,63"
-
-2018-01-04 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "30 déc          4 jan             ADLPARTNER                        MONTREUIL                                                                                           9,25"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -9.25 EUR
+2019-08-19 balance  Passif:AirFrance:Amex              0.00 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
@@ -5715,122 +5833,11 @@ plugin "fava.plugins.link_documents"
 1981-07-03 pad  Actif:Cash  Equity:Opening-Balances
 2019-08-23 balance  Actif:Cash                         7000 EUR
 
-2019-05-26 * "WEMAKEIT HOD HASHARON 240.00" ""
-  source: "pdfamex"
-  statementExtract: "25 mai         26 mai            WEMAKEIT                      HOD HASHARON                                                                240.00                   61,26"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -61.26 EUR
 
-2018-10-11 * "KLM PARIS" "Madagascar"
-  source: "pdfamex"
-  statementExtract: "10 oct          11 oct            KLM                         PARIS                                                                                                  246,95"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                             -246.95 EUR
 
-2018-11-28 * "PAYPAL *DEEZER 0155806900" ""
-  source: "pdfamex"
-  statementExtract: "28 nov        28 nov        PAYPAL *DEEZER               0155806900                                                                             1,99"
-  type: "Credit"
-  Depenses:Abo:Musique
-  Passif:AirFrance:Amex                               -1.99 EUR
 
-2018-12-02 * "GOOGLE*GSUITE FAMILLEGR G.CO HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "2 déc         2 déc         GOOGLE*GSUITE FAMILLEGR G.CO HELPPAY#                                                                              38,40"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -38.40 EUR
 
-2018-08-16 * "AVIS KARDAN CAR LTD TEL AVIV 39.00" ""
-  source: "pdfamex"
-  statementExtract: "15 août 16 août AVIS KARDAN CAR LTD                                        TEL AVIV                                                           39.00                   35,48"
-  type: "Credit"
-  Actif:NoteDeFrais
-  Passif:AirFrance:Amex                              -35.48 EUR
 
-2018-07-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "17 juil       18 juil       GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                1,99"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                               -1.99 EUR
 
-2018-07-19 * "PAYPAL*AIRBNB HMQ4FA8K4 35314369001" ""
-  source: "pdfamex"
-  statementExtract: "18 juil       19 juil       PAYPAL*AIRBNB HMQ4FA8K4 35314369001                                                                              232,74"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                             -232.74 EUR
 
-2018-06-18 ! "PAYPAL*DUENGEREXPE 35314369001" "Engrais Oranger"
-  source: "pdfamex"
-  statementExtract: "16 juin        18 juin           PAYPAL*DUENGEREXPE                        35314369001                                                                                   8,80"
-  type: "Credit"
-  Depenses:A-CLASSER
-  Passif:AirFrance:Amex                               -8.80 EUR
-
-2018-06-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "17 juin        18 juin           GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                               -1.99 EUR
-
-2018-05-14 * "AVIS CENTRAL LYON STEX 74169" "Location - 90 ans Bon Papa"
-  source: "pdfamex"
-  statementExtract: "13 mai         14 mai            AVIS CENTRAL LYON STEX 74169                                                                                                     156,90"
-  type: "Credit"
-  Depenses:Loisirs:Voyages
-  Passif:AirFrance:Amex                             -156.90 EUR
-
-2018-05-18 * "BIP & GO SAS ISSY" ""
-  source: "pdfamex"
-  statementExtract: "17 mai         18 mai            BIP & GO SAS                      ISSY                                                                                             36,10"
-  type: "Credit"
-  Depenses:Voitures:Peages
-  Passif:AirFrance:Amex                              -36.10 EUR
-
-2018-03-05 * "PAYPAL *LONDONTRUST 4029357733 39.95" "PIA VPN"
-  source: "pdfamex"
-  statementExtract: "4 mars        5 mars        PAYPAL *LONDONTRUST               4029357733                                                   39.95               33,51"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -33.51 EUR
-
-2018-03-07 * "ADLPARTNER MONTREUIL" ""
-  source: "pdfamex"
-  statementExtract: "3 mars        7 mars        ADLPARTNER                  MONTREUIL                                                                               3,99"
-  type: "Credit"
-  Depenses:Loisirs:Culture
-  Passif:AirFrance:Amex                               -3.99 EUR
-
-2018-01-27 * "CASTORAMA NIORT NIORT" ""
-  source: "pdfamex"
-  statementExtract: "27 jan        27 jan        CASTORAMA NIORT                NIORT                                                                             225,70"
-  type: "Credit"
-  Depenses:Immobilier:Travaux
-  Passif:AirFrance:Amex                             -225.70 EUR
-
-2018-02-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
-  source: "pdfamex"
-  statementExtract: "1 fév         1 fév         GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                               42,72"
-  type: "Credit"
-  Depenses:Abo:Serveur
-  Passif:AirFrance:Amex                              -42.72 EUR
-
-2017-12-24 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
-  source: "pdfamex"
-  statementExtract: "24 déc          24 déc            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 14,99"
-  type: "Credit"
-  Depenses:Loisirs:Gadgets
-  Passif:AirFrance:Amex                              -14.99 EUR
-
-2017-12-28 * "GEANT CASINO NIORT" ""
-  source: "pdfamex"
-  statementExtract: "28 déc          28 déc            GEANT CASINO                      NIORT                                                                                        107,65"
-  type: "Credit"
-  Depenses:Alimentaire:Epicerie
-  Passif:AirFrance:Amex                             -107.65 EUR
 
