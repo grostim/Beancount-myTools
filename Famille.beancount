@@ -5325,6 +5325,13 @@ plugin "fava.plugins.link_documents"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                               -9.04 EUR
 
+2018-01-22 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "MAC - Adaptateur NVME"
+  source: "pdfamex"
+  statementExtract: "20 jan        22 jan        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                    8,62"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                               -8.62 EUR
+
 2018-01-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
   source: "pdfamex"
   statementExtract: "17 jan         18 jan            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
