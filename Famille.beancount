@@ -4950,6 +4950,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                             -124.10 EUR
 
+2018-04-23 * "PAYPAL*GEARBEST 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "22 avr         23 avr            PAYPAL*GEARBEST                          35314369001                                                                                65,86"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -65.86 EUR
+
 2018-04-13 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "13 avr         13 avr            BIP & GO SAS                      ISSY                                                                                              10,60"
