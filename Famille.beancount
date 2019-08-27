@@ -4943,6 +4943,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2018-04-21 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "21 avr         21 avr            CASTORAMA NIORT                      NIORT                                                                                        124,10"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                             -124.10 EUR
+
 2018-04-13 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "13 avr         13 avr            BIP & GO SAS                      ISSY                                                                                              10,60"
