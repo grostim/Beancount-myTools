@@ -5242,6 +5242,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -26.77 EUR
 
+2018-02-12 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Casque audio"
+  source: "pdfamex"
+  statementExtract: "12 fév          12 fév            AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                 67,98"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -67.98 EUR
+
 2018-02-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
   source: "pdfamex"
   statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
