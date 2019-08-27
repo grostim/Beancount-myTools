@@ -5136,6 +5136,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -112.90 EUR
 
+2018-02-09 * "TIM HORTONS #3502# QP ST HYACINTHE 14.29" ""
+  source: "pdfamex"
+  statementExtract: "8 fév           9 fév             TIM HORTONS #3502# QP ST HYACINTHE                                                                       14.29                        9,53"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                               -9.53 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
