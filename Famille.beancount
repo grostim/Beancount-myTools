@@ -4896,6 +4896,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                              -25.04 EUR
 
+2018-06-04 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 70.23" ""
+  source: "pdfamex"
+  statementExtract: "3 juin        4 juin        ALI*ALIEXPRESS ALIPAY          SINGAPORE                                                       70.23               62,15"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -62.15 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
