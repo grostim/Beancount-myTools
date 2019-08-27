@@ -4694,6 +4694,14 @@ plugin "fava.plugins.link_documents"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -24.30 EUR
 
+2018-06-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "13 juin        13 juin           PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         797,65
+                                                                                                                                                                      CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              797.65 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
