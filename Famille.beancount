@@ -2251,6 +2251,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Telephone
   Actif:Boursorama:CCAnna                            -19.99 EUR
 
+2018-02-20 * "CHQ. N.6378021 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -46.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
