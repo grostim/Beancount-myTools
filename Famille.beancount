@@ -5235,6 +5235,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                               -1.99 EUR
 
+2018-02-09 * "UBER *ISQTY HELP.UBER.COM 40.12" ""
+  source: "pdfamex"
+  statementExtract: "8 fév         9 fév         UBER *ISQTY                 HELP.UBER.COM                                                      40.12               26,77"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -26.77 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
