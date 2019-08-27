@@ -4779,16 +4779,23 @@ plugin "fava.plugins.link_documents"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -13.00 EUR
 
-2018-07-08 * "COTISATION - MERCI POUR VOTRE CONFIANCE." ""
+2018-07-09 * "COTISATION - MERCI POUR VOTRE CONFIANCE." ""
   source: "pdfamex"
   statementExtract: "8 juil        8 juil        COTISATION - MERCI POUR VOTRE CONFIANCE.                                                                         165,00"
   type: "Credit"
   Depenses:Banque:Frais
   Passif:AirFrance:Amex                             -165.00 EUR
 
-2018-07-09 balance Passif:AirFrance:Amex             613.07 EUR
+2018-07-09 balance Passif:AirFrance:Amex             -613.07 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                        613,07"
+
+2018-05-09 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "PdR imprimante 3D"
+  source: "pdfamex"
+  statementExtract: "9 mai          9 mai             AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                                   22,98"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -22.98 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
