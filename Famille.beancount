@@ -5427,6 +5427,13 @@ plugin "fava.plugins.link_documents"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                              -16.27 EUR
 
+2017-12-12 * "L ADRESS BESSINES" ""
+  source: "pdfamex"
+  statementExtract: "12 déc          12 déc            L ADRESS                      BESSINES                                                                                         154,00"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -154.00 EUR
+
 2017-12-12 * "PAYPAL*CDISCOUNTSA 35314369001" ""
   source: "pdfamex"
   statementExtract: "11 déc          12 déc            PAYPAL*CDISCOUNTSA                     35314369001                                                                               48,20"
