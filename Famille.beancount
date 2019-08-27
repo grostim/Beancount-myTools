@@ -2031,6 +2031,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Apple
   Actif:Boursorama:CCAnna                             -0.99 EUR
 
+2018-01-29 * "RETRAIT DAB 26012018 NIORT CB*6471 " "79"
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
