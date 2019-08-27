@@ -2375,6 +2375,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -88.70 EUR
 
+2018-03-16 * "CARTE 15032018 79 LA VILLA CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -27.50 EUR
+
 2018-03-16 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
