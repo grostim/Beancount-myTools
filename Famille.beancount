@@ -2571,6 +2571,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -99.00 EUR
 
+2018-04-17 * "CHQ. N.6378034 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -46.70 EUR
+
 2018-04-10 * "PRLV SEPA GENERALI VIE SA " ".126084159/9921/51519425"
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
