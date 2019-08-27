@@ -1947,6 +1947,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -17.98 EUR
 
+2018-01-12 * "PAIEMENT CARTE 10012018 79 H&M238 " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -41.92 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
