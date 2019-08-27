@@ -2185,6 +2185,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -21.96 EUR
 
+2018-02-14 * " PAIEMENT CARTE 13022018 79 SUPER U " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Epicerie
+  Actif:Boursorama:CCAnna                            -14.12 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
