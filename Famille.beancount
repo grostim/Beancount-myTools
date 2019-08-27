@@ -6417,3 +6417,9 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -76.40 EUR
 
+2018-03-26 * "CARTE 24032018 79 MANOUE LILIE CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
