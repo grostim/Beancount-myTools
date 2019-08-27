@@ -5442,6 +5442,13 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                             1488.77 EUR
 
+2017-12-16 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  statementExtract: "16 déc          16 déc            CASTORAMA NIORT                     NIORT                                                                                        78,99"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -78.99 EUR
+
 2017-12-12 * "PAYPAL*CDISCOUNTSA 35314369001" ""
   source: "pdfamex"
   statementExtract: "11 déc          12 déc            PAYPAL*CDISCOUNTSA                     35314369001                                                                               48,20"
