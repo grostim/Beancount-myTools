@@ -5143,6 +5143,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                               -9.53 EUR
 
+2018-02-09 * "UBER *ISQTY HELP.UBER.COM 40.12" ""
+  source: "pdfamex"
+  statementExtract: "8 fév         9 fév         UBER *ISQTY                 HELP.UBER.COM                                                      40.12               26,77"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -26.77 EUR
+
 2018-02-09 * "HOTEL ZERO 1 MONTREAL 187.19" ""
   source: "pdfamex"
   statementExtract: "8 fév           9 fév             HOTEL ZERO 1                      MONTREAL                                                              187.19                 124,96"
