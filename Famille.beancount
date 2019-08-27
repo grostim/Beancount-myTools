@@ -2417,6 +2417,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -12.00 EUR
 
+2018-03-26 * "CARTE 24032018 93 VENTE-PRIVEE CB*6471 " ""
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                           -113.40 EUR
+
 2018-03-16 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
