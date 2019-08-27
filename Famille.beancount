@@ -4992,6 +4992,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Epicerie
   Passif:AirFrance:Amex                              -58.05 EUR
 
+2018-05-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 mai          1 mai             GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                                                38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
