@@ -2287,6 +2287,12 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:AVAnna1
   Actif:Boursorama:CCAnna                           2000.00 EUR
 
+2018-02-28 * "CARTE 27022018 79 PHARM DE PARIS CB*6471 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Sante
+  Actif:Boursorama:CCAnna                            -11.59 EUR
+
 2018-02-20 * "CHQ. N.6378021 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
