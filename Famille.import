@@ -29,7 +29,7 @@ ACCOUNTLIST = {
 
 CONFIG = [
      apply_hooks(ImporterQIF(ACCOUNTLIST), [PredictPostings(), ]),
-     pdfbourso(ACCOUNTLIST, debug = True),
+     apply_hooks(pdfbourso(ACCOUNTLIST, debug = True),[PredictPostings(), ]),
      apply_hooks(pdfamex(ACCOUNTLIST, debug = True), [PredictPostings(), ]),
 ]
 

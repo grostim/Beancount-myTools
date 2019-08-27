@@ -1859,6 +1859,10 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCJoint                           400.00 EUR
   Actif:Boursorama:CCAnna                           -400.00 EUR
 
+2017-12-29 balance Actif:Boursorama:CCAnna  2490.7100000000000363797880709171295166015625 EUR
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
