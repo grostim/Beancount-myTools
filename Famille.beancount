@@ -4999,6 +4999,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -38.40 EUR
 
+2018-05-04 * "DENK TURIZM A.S. ISTANBUL 1.125,15" ""
+  source: "pdfamex"
+  statementExtract: "3 mai          4 mai             DENK TURIZM A.S.                    ISTANBUL                                                             1.125,15                 231,15"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -231.15 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
