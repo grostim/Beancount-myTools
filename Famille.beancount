@@ -5144,6 +5144,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                               -9.53 EUR
 
+2018-02-09 * "HOTEL ZERO 1 MONTREAL 187.19" ""
+  source: "pdfamex"
+  statementExtract: "8 fév           9 fév             HOTEL ZERO 1                      MONTREAL                                                              187.19                 124,96"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -124.96 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
