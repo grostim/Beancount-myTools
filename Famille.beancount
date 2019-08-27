@@ -5262,6 +5262,13 @@ plugin "fava.plugins.link_documents"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                              695.63 EUR
 
+2018-01-13 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "12 jan         13 jan            BIP & GO SAS                      ISSY                                                                                             29,80"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -29.80 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
