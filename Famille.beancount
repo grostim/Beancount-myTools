@@ -4709,6 +4709,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Cadeaux
   Passif:AirFrance:Amex                             -353.10 EUR
 
+2018-06-14 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  statementExtract: "14 juin        14 juin           BIP & GO SAS                      ISSY                                                                                             17,39"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -17.39 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
