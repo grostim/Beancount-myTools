@@ -5477,6 +5477,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -39.92 EUR
 
+2018-01-04 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  statementExtract: "30 déc          4 jan             ADLPARTNER                        MONTREUIL                                                                                           9,25"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.25 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
