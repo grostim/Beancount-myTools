@@ -2269,6 +2269,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -29.13 EUR
 
+2018-02-26 * "CARTE 23022018 IE ITUNES.COM/BIL CB*6471 " ""
+  document: "2018-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Apple
+  Actif:Boursorama:CCAnna                             -0.99 EUR
+
 2018-02-20 * "CHQ. N.6378021 " ""
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
