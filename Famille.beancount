@@ -2007,6 +2007,12 @@ plugin "fava.plugins.link_documents"
   Depenses:Voitures:Carburant
   Actif:Boursorama:CCAnna                            -54.40 EUR
 
+2018-01-24 ! "CHQ. N.6378020 " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -46.70 EUR
+
 2018-01-03 * "PAIEMENT CARTE 02012018 79 SA SONIAL " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
