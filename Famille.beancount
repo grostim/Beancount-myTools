@@ -2637,6 +2637,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -58.00 EUR
 
+2018-04-24 * " RETRAIT DAB 22042018 NIORT HALLE CB*2967 " "79"
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
