@@ -5420,6 +5420,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Cadeaux
   Passif:AirFrance:Amex                             -108.95 EUR
 
+2017-12-12 * "PAYPAL*CDISCOUNTSA 35314369001" ""
+  source: "pdfamex"
+  statementExtract: "11 déc          12 déc            PAYPAL*CDISCOUNTSA                     35314369001                                                                               48,20"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -48.20 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
