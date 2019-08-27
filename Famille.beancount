@@ -5318,6 +5318,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -10.12 EUR
 
+2018-01-22 * "AMAZON EU SARL GUYANCOURT" ""
+  source: "pdfamex"
+  statementExtract: "20 jan        22 jan        AMAZON EU SARL                GUYANCOURT                                                                            9,04"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                               -9.04 EUR
+
 2018-01-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
   source: "pdfamex"
   statementExtract: "17 jan         18 jan            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
