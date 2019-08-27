@@ -2607,6 +2607,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -92.91 EUR
 
+2018-04-20 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Telephone
+  Actif:Boursorama:CCAnna                            -19.99 EUR
+
 2018-04-18 * "CARTE 17042018 Action 4343 CB*2967 " ""
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
