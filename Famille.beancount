@@ -5250,6 +5250,13 @@ plugin "fava.plugins.link_documents"
   Passif:AirFrance:Amex                              -67.98 EUR
 
 2018-02-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+2018-02-13 * "IBIS AIRPORT CDG ACCOR ROISSY CH DE GA" ""
+  source: "pdfamex"
+  statementExtract: "12 fév          13 fév            IBIS AIRPORT CDG ACCOR ROISSY CH DE GA                                                                                         129,05"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -129.05 EUR
+
   source: "pdfamex"
   statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
                                                                                                                                                                      CR"
