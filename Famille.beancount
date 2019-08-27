@@ -5402,6 +5402,10 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -46.06 EUR
 
+2018-02-09 balance Passif:AirFrance:Amex  -1459.339999999999918145476840436458587646484375 EUR
+  source: "pdfamex"
+  statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 459,34"
+
 2018-02-03 * "CASTORAMA NIORT NIORT" ""
   source: "pdfamex"
   statementExtract: "3 fév         3 fév         CASTORAMA NIORT                NIORT                                                                               52,90"
