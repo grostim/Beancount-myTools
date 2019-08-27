@@ -5802,3 +5802,10 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -14.99 EUR
 
+2017-12-28 * "GEANT CASINO NIORT" ""
+  source: "pdfamex"
+  statementExtract: "28 déc          28 déc            GEANT CASINO                      NIORT                                                                                        107,65"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                             -107.65 EUR
+
