@@ -4811,6 +4811,14 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -19.48 EUR
 
+2018-05-14 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "14 mai         14 mai            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                         640,52
+                                                                                                                                                                      CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              640.52 EUR
+
 2018-05-09 * "ADLPARTNER MONTREUIL" ""
   source: "pdfamex"
   statementExtract: "5 mai         9 mai         ADLPARTNER                  MONTREUIL                                                                               9,84"
