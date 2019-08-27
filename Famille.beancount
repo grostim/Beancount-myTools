@@ -5299,6 +5299,13 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -18.50 EUR
 
+2018-03-02 * "RELAIS VERTOU GRASSINIE VERTOU" ""
+  source: "pdfamex"
+  statementExtract: "2 mars        2 mars        RELAIS VERTOU GRASSINIE VERTOU                                                                                     56,38"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -56.38 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
