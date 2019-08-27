@@ -130,7 +130,7 @@ class pdfamex(importer.ImporterProtocol):
             index += 1
             meta = data.new_metadata(file.name, index)
             meta["source"] = "pdfamex"
-            meta["statementExtract"] = chunk
+#            meta["statementExtract"] = re.sub("\s+"," ",chunk)
             ope = dict()
             ope={}
 
@@ -158,9 +158,11 @@ class pdfamex(importer.ImporterProtocol):
                 ope["date"] = parse_datetime(traduire_mois(rawdate + " 20" + statementyear))
 
             # A la recherche du montant.
-            # TODO: Ca merde si valeur en devise >999 . Voir Sept 2018.
-            control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?'
+            control='\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?$'
             match = re.search(control, chunk)
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(match)
 
             # Recherche de "CR" si Crédit.
             if match.group(3) is not None:
@@ -201,7 +203,7 @@ class pdfamex(importer.ImporterProtocol):
 
         meta = data.new_metadata(file.name, index)
         meta["source"] = "pdfamex"
-        meta["statementExtract"] = match.group(0)
+#        meta["statementExtract"] = match.group(0)
 
         # Si debogage, affichage de l'extraction
         if self.debug:

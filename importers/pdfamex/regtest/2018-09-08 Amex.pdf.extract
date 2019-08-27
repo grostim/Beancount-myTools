@@ -1,0 +1,73 @@
+
+2018-08-09 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -9.84 EUR
+
+2018-08-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  type: "Débit"
+  Passif:AirFrance:Amex  1321.56 EUR
+
+2018-08-13 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -46.40 EUR
+
+2018-08-16 * "AVIS KARDAN CAR LTD TEL AVIV 39.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -35.48 EUR
+
+2018-08-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -1.99 EUR
+
+2018-08-20 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -2.94 EUR
+
+2018-08-28 * "WEMAKEIT HOD HASHARON 240.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -58.48 EUR
+
+2018-08-28 * "REGINA GOREN HOTEL ASHQELON 1,083.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -263.92 EUR
+
+2018-08-28 * "NORMAN ARZI LTD ASHKELON 689.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -167.91 EUR
+
+2018-09-01 * "ALON NTBG LOD 183.88" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -45.12 EUR
+
+2018-09-01 * "WEMAKEIT HOD HASHARON 80.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -19.63 EUR
+
+2018-09-01 * "LA FARINA AL TAGLIO LOD 75.58" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -18.55 EUR
+
+2018-09-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -38.40 EUR
+
+2018-09-04 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  type: "Credit"
+  Passif:AirFrance:Amex  -3.99 EUR
+
+2018-09-09 balance Passif:AirFrance:Amex                           -712.65 EUR
+  source: "pdfamex"

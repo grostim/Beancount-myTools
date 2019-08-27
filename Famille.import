@@ -7,15 +7,12 @@ import sys
 from os import path
 sys.path.insert(0, path.join(path.dirname(__file__)))
 
-from importers.ImporterQIF import ImporterQIF
+from importers.QIF.ImporterQIF import ImporterQIF
 from importers.pdfbourso.pdfbourso import pdfbourso
 from importers.pdfamex.pdfamex import pdfamex
 from beancount.ingest import extract
 from smart_importer import apply_hooks, PredictPayees, PredictPostings
 from beancount.ingest.importers import ofx
-
-import logging
-logging.getLogger('smart_importer').setLevel(logging.DEBUG)
 
 # Setting this variable provides a list of importer instances.
 
@@ -32,14 +29,10 @@ ACCOUNTLIST = {
 
 CONFIG = [
      apply_hooks(ImporterQIF(ACCOUNTLIST), [PredictPostings(), ]),
-     pdfbourso(ACCOUNTLIST),
+     pdfbourso(ACCOUNTLIST, debug = True),
      apply_hooks(pdfamex(ACCOUNTLIST, debug = True), [PredictPostings(), ]),
-#     smart_ImporterQIF(),
-#     ofx.Importer("4979********1979",
-#                 "Passif:Boursorama:CBJoint",
-#                 "test"),
 ]
 
 # Override the header on extracted text (if desired).
-extract.HEADER = ';; -*- mode: org; mode: beancount; coding: utf-8; -*-\n'
+#extract.HEADER = ';; -*- mode: org; mode: beancount; coding: utf-8; -*-\n'
 
