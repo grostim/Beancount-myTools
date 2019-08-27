@@ -2387,6 +2387,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Telephone
   Actif:Boursorama:CCAnna                            -20.63 EUR
 
+2018-03-21 * "RETRAIT DAB 20032018 NIORT CB*6471 " "79"
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -30.00 EUR
+
 2018-03-16 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
