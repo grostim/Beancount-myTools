@@ -3120,7 +3120,7 @@ plugin "fava.plugins.link_documents"
 
 2010-03-03 open   Passif:AirFrance:Amex                     EUR
 2010-03-04 pad    Passif:AirFrance:Amex  Equity:Opening-Balances
-2019-08-19 balance  Passif:AirFrance:Amex                 0 EUR
+2019-08-19 balance  Passif:AirFrance:Amex              0.00 EUR
 
 
 2018-03-10 * "PICARD 282NIORT 282 NIORT" ""
@@ -5395,14 +5395,14 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
-2018-02-08 * "BAR 120 4232 - T1 MISSISSAUGA 69.14" ""
+2018-02-07 * "BAR 120 4232 - T1 MISSISSAUGA 69.14" ""
   source: "pdfamex"
   statementExtract: "7 fév         8 fév         BAR 120 4232 - T1           MISSISSAUGA                                                       69.14                46,06"
   type: "Credit"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -46.06 EUR
 
-2018-02-09 balance Passif:AirFrance:Amex  -1459.339999999999918145476840436458587646484375 EUR
+2018-02-08 balance Passif:AirFrance:Amex  -1459.339999999999918145476840436458587646484375 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                     1 459,34"
 
@@ -5412,6 +5412,13 @@ plugin "fava.plugins.link_documents"
   type: "Credit"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                              -52.90 EUR
+
+2017-12-11 * "PAYPAL*DICTUM GMBH 35314369001" "Couteau Felix"
+  source: "pdfamex"
+  statementExtract: "10 déc          11 déc            PAYPAL*DICTUM GMBH                     35314369001                                                                             108,95"
+  type: "Credit"
+  Depenses:Cadeaux
+  Passif:AirFrance:Amex                             -108.95 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
