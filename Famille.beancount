@@ -5346,6 +5346,13 @@ plugin "fava.plugins.link_documents"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                              -10.54 EUR
 
+2018-01-22 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Batterie Raspberry"
+  source: "pdfamex"
+  statementExtract: "22 jan        22 jan        AMAZON PAYMENT EUROPE LUXEMBOURG                                                                                   15,66"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -15.66 EUR
+
 2018-01-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
   source: "pdfamex"
   statementExtract: "17 jan         18 jan            GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#                                                                                                    1,99"
