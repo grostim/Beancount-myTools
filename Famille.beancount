@@ -4723,6 +4723,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -14.00 EUR
 
+2018-06-21 * "AMAZON EU SARL GUYANCOURT" "T-shirt tomato"
+  source: "pdfamex"
+  statementExtract: "21 juin        21 juin           AMAZON EU SARL                      GUYANCOURT                                                                                     32,94"
+  type: "Credit"
+  Depenses:Habillement
+  Passif:AirFrance:Amex                              -32.94 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
