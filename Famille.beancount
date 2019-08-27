@@ -5048,6 +5048,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Immobilier:Travaux
   Passif:AirFrance:Amex                             -224.55 EUR
 
+2018-03-13 * "RELAIS VERTOU GRASSINIE VERTOU" ""
+  source: "pdfamex"
+  statementExtract: "13 mars 13 mars RELAIS VERTOU GRASSINIE VERTOU                                                                                                                    12,00"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -12.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
