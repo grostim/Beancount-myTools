@@ -2499,6 +2499,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -14.00 EUR
 
+2018-04-09 * "CARTE 07042018 85 3 SOEURS SABLE CB*6471 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -39.99 EUR
+
 2018-04-05 * "CHQ. N.6378031 " ""
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
