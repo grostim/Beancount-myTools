@@ -5649,3 +5649,10 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                             -124.96 EUR
 
+2018-03-01 * "GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  statementExtract: "1 mars        1 mars        GOOGLE *SVCSAPPS_FAMIL G.CO/HELPPAY#                                                                               38,40"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
