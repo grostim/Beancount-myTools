@@ -2493,6 +2493,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -16.40 EUR
 
+2018-04-06 * "CHQ. N.6378033 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -14.00 EUR
+
 2018-04-05 * "CHQ. N.6378031 " ""
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
