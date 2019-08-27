@@ -2577,6 +2577,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -46.70 EUR
 
+2018-04-17 * "CARTE 16042018 86 SGPC CB*2967 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -12.15 EUR
+
 2018-04-10 * "PRLV SEPA GENERALI VIE SA " ".126084159/9921/51519425"
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
