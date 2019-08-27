@@ -16,8 +16,8 @@ option "name_expenses" "Depenses"
 option "documents" "./"
 
 plugin "beancount.plugins.check_commodity"
-plugin "fava.plugins.tag_discovered_documents"
-plugin "fava.plugins.link_documents"
+;plugin "fava.plugins.tag_discovered_documents"
+;plugin "fava.plugins.link_documents"
 
 
 ;; Options propres à FAVA
@@ -2067,7 +2067,7 @@ plugin "fava.plugins.link_documents"
   Depenses:Sante
   Actif:Boursorama:CCAnna                            -18.86 EUR
 
-2018-01-31 balance Actif:Boursorama:CCAnna  3463.94000000000005456968210637569427490234375 EUR
+2018-01-31 balance Actif:Boursorama:CCAnna  3463.94 EUR
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
