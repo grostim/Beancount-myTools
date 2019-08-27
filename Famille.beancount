@@ -2381,6 +2381,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -27.50 EUR
 
+2018-03-20 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Telephone
+  Actif:Boursorama:CCAnna                            -20.63 EUR
+
 2018-03-16 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
