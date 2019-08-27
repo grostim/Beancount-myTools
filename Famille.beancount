@@ -4957,6 +4957,13 @@ plugin "fava.plugins.link_documents"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                              -65.86 EUR
 
+2018-04-23 * "RELAIS STE MAURE NEFTIS ST EPAIN" ""
+  source: "pdfamex"
+  statementExtract: "23 avr         23 avr            RELAIS STE MAURE NEFTIS ST EPAIN                                                                                                    12,65"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -12.65 EUR
+
 2018-04-13 * "BIP & GO SAS ISSY" ""
   source: "pdfamex"
   statementExtract: "13 avr         13 avr            BIP & GO SAS                      ISSY                                                                                              10,60"
