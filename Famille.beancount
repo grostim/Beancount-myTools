@@ -2321,6 +2321,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -14.10 EUR
 
+2018-03-02 * "VIR travaux " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2018-03-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint
+  Actif:Boursorama:CCAnna                          -2400.00 EUR
+
 2018-03-01 * "CARTE 28022018 79 TROC BOUT CHOU CB*6471 " ""
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
