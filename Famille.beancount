@@ -2463,6 +2463,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            102.58 EUR
 
+2018-04-03 * "VIR complement decouvert " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint
+  Actif:Boursorama:CCAnna                           -500.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
