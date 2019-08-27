@@ -2667,6 +2667,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Apple
   Actif:Boursorama:CCAnna                             -0.99 EUR
 
+2018-04-26 * " CARTE 25042018 79 MERCERIE D ANT CB*2967 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -72.55 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
