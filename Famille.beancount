@@ -5150,6 +5150,14 @@ plugin "fava.plugins.link_documents"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -26.77 EUR
 
+2018-02-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  statementExtract: "12 fév          12 fév            PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI                                                                                     1 459,34
+                                                                                                                                                                     CR"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1459.34 EUR
+
 2018-02-09 * "HOTEL ZERO 1 MONTREAL 187.19" ""
   source: "pdfamex"
   statementExtract: "8 fév           9 fév             HOTEL ZERO 1                      MONTREAL                                                              187.19                 124,96"
