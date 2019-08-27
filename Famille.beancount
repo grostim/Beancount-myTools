@@ -5125,9 +5125,16 @@ plugin "fava.plugins.link_documents"
   Depenses:Alimentaire:Epicerie
   Passif:AirFrance:Amex                              -33.89 EUR
 
-2018-04-09 balance Passif:AirFrance:Amex              714.4 EUR
+2018-04-09 balance Passif:AirFrance:Amex             -714.4 EUR
   source: "pdfamex"
   statementExtract: "Total des dépenses pour TIMOTHEE GROS                                                                                                   714,40"
+
+2018-02-08 * "DAYS INN AND SUITES LINDSAY 169.44" ""
+  source: "pdfamex"
+  statementExtract: "6 fév           8 fév             DAYS INN AND SUITES                  LINDSAY                                                            169.44                 112,90"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -112.90 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
