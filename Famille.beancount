@@ -2523,6 +2523,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Voitures:Peages
   Actif:Boursorama:CCAnna                            -11.20 EUR
 
+2018-04-09 * "CARTE 07042018 85 CESAR ET ROSAL CB*6471 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -29.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
