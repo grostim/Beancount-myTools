@@ -7065,3 +7065,9 @@ plugin "beancount.plugins.check_commodity"
 
 
 
+2018-09-24 * "CARTE 23092018 IE ITUNES.COM/BIL CB*2967 " ""
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Apple
+  Actif:Boursorama:CCAnna                             -0.99 EUR
+
