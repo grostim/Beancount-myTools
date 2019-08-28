@@ -3729,6 +3729,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -50.00 EUR
 
+2018-11-19 * "VIR compense perte carte perso " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint
+  Actif:Boursorama:CCAnna                           -300.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
