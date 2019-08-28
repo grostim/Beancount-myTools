@@ -3575,6 +3575,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                           -150.00 EUR
 
+2018-10-19 * "CARTE 18102018 59 HTM PRO CB*2967 " ""
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                           -144.60 EUR
+
 2018-10-05 * "CARTE 03102018 93 VENTE PRIVEE C CB*2967 " ""
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
