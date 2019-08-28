@@ -3338,6 +3338,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Telephone
   Actif:Boursorama:CCAnna                            -22.99 EUR
 
+2018-08-22 * " CARTE 20082018 93 VENTE-PRIVEE.C CB*2967 " ""
+  document: "2018-08-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -49.00 EUR
+
 2018-08-07 * "CARTE 04082018 17 SARL DELNOT BI CB*2967 " ""
   document: "2018-08-31 Boursorama.pdf"
   source: "pdfbourso"
