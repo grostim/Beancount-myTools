@@ -2940,6 +2940,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -39.50 EUR
 
+2018-06-22 * "CARTE 21062018 17 LA CANTINE DU CB*2967 " ""
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -11.20 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
