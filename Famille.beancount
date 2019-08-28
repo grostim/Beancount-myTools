@@ -3493,7 +3493,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCAnna                            -70.00 EUR
 
 
-2018-09-29 balance Actif:Boursorama:CCAnna  2043.529999999999972715158946812152862548828125 EUR
+2018-09-29 balance Actif:Boursorama:CCAnna  2043.53 EUR
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -3502,6 +3502,24 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfbourso"
   Actif:Boursorama:CCJoint
   Actif:Boursorama:CCAnna                           -500.00 EUR
+
+2018-10-01 * "VIR Epargne CEL " "GROS ANNA"
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna
+  Actif:Boursorama:CCAnna                           -100.00 EUR
+
+2018-10-02 * "RETRAIT DAB 28092018 NIORT CB*2967 " "79"
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -80.00 EUR
+
+2018-10-02 * "CARTE 29092018 OPHELIEMERCERIE CB*2967 " ""
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -83.60 EUR
 
 2018-10-04 * "RETRAIT DAB 03102018 NIORT CB*2967 " "79"
   document: "2018-10-31 Boursorama.pdf"
@@ -7242,23 +7260,4 @@ plugin "beancount.plugins.check_commodity"
 
 
 
-
-
-2018-10-01 * "VIR Epargne CEL " "GROS ANNA"
-  document: "2018-10-31 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Boursorama:CELAnna
-  Actif:Boursorama:CCAnna                           -100.00 EUR
-
-2018-10-02 * "RETRAIT DAB 28092018 NIORT CB*2967 " "79"
-  document: "2018-10-31 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Cash
-  Actif:Boursorama:CCAnna                            -80.00 EUR
-
-2018-10-02 * "CARTE 29092018 OPHELIEMERCERIE CB*2967 " ""
-  document: "2018-10-31 Boursorama.pdf"
-  source: "pdfbourso"
-  Depenses:Loisirs:Couture
-  Actif:Boursorama:CCAnna                            -83.60 EUR
 
