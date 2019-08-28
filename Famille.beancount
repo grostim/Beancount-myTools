@@ -3659,13 +3659,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Voitures:Peages
   Actif:Boursorama:CCAnna                             -1.50 EUR
 
-
-
-
-
-
-
-2018-10-31 balance Actif:Boursorama:CCAnna  1636.73000000000001818989403545856475830078125 EUR
+2018-10-31 balance Actif:Boursorama:CCAnna  1636.74 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
