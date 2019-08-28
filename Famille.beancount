@@ -2762,6 +2762,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Sante
   Actif:Boursorama:CCAnna                             -2.98 EUR
 
+2018-05-11 * "CARTE 09052018 79 ERAM 2269 CB*2967 " ""
+  document: "2018-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -40.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
