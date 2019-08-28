@@ -3539,6 +3539,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                           -120.00 EUR
 
+2018-10-12 ! "CARTE 11102018 79 COURIR EN DEUX CB*2967 " ""
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                             -8.00 EUR
+
 2018-10-05 * "CARTE 03102018 93 VENTE PRIVEE C CB*2967 " ""
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
