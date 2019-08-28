@@ -3082,6 +3082,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Voitures:Peages
   Actif:Boursorama:CCAnna                             -1.50 EUR
 
+2018-07-06 * "CARTE 05072018 79 EURODIF CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -34.93 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
