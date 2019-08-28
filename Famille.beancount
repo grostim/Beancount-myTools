@@ -3745,6 +3745,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
   Depenses:Alimentaire:Restaurant
+2018-11-12 * "PRLV SEPA GENERALI VIE SA " ".131087706/9921/51519425"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:AVAnna2
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
   Actif:Boursorama:CCAnna                             -6.72 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
