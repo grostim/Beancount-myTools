@@ -3833,6 +3833,12 @@ plugin "beancount.plugins.check_commodity"
   Revenus:Salaires:CHNiort
   Actif:Boursorama:CCAnna                             24.00 EUR
 
+2018-12-11 * "REM CHQ N. 0640397 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:VentesAnna
+  Actif:Boursorama:CCAnna                            349.00 EUR
+
 2018-12-03 * "VIR Epargne CEL " "GROS ANNA"
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
