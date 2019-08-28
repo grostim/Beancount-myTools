@@ -5926,3 +5926,288 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfamex"
   type: "Credit"
   Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
+2018-08-13 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1321.56 EUR
+
+2018-08-13 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -46.40 EUR
+
+2018-08-16 * "AVIS KARDAN CAR LTD TEL AVIV 39.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -35.48 EUR
+
+2018-08-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-08-20 * "AMAZON PAYMENT EUROPE LUXEMBOURG" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                               -2.94 EUR
+
+2018-08-28 * "WEMAKEIT HOD HASHARON 240.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -58.48 EUR
+
+2018-08-28 * "REGINA GOREN HOTEL ASHQELON" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -263.92 EUR
+
+2018-08-28 * "NORMAN ARZI LTD ASHKELON 689.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -167.91 EUR
+
+2018-09-01 * "ALON NTBG LOD 183.88" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -45.12 EUR
+
+2018-09-01 * "WEMAKEIT HOD HASHARON 80.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -19.63 EUR
+
+2018-09-01 * "LA FARINA AL TAGLIO LOD 75.58" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -18.55 EUR
+
+2018-09-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
+2018-09-04 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -3.99 EUR
+
+2018-09-08 balance Passif:AirFrance:Amex            -712.65 EUR
+  source: "pdfamex"
+
+2018-09-08 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -22.69 EUR
+
+2018-09-09 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Robinet thermostatique"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -59.39 EUR
+
+2018-09-10 * "AMAZON EU SARL GUYANCOURT" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                              -60.76 EUR
+
+2018-09-10 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Raccord plomberie"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -24.80 EUR
+
+2018-09-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                              712.65 EUR
+
+2018-09-12 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Circulateur chauffage"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                             -119.66 EUR
+
+2018-09-17 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 68.83" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -60.72 EUR
+
+2018-09-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
+2018-09-18 * "ALI*ALIEXPRESS ALIPAY SINGAPORE" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -21.12 EUR
+
+2018-09-14 * "BIP & GO SAS ISSY" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Voitures:Peages
+  Passif:AirFrance:Amex                              -20.60 EUR
+
+2018-09-20 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Clef U2F"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -14.99 EUR
+
+2018-09-20 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Partition Saxophone"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                              -11.98 EUR
+
+2018-09-22 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -25.05 EUR
+
+2018-09-23 * "PAYPAL *BRAINSTORMN 5142860253" "OneProvider"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -25.05 EUR
+
+2018-09-23 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "Piles"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                               -2.80 EUR
+
+2018-09-24 * "AMAZON PAYMENT EUROPE LUXEMBOURG" "clefs de purges"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                               -6.95 EUR
+
+2018-09-28 * "ALI*ALIEXPRESS ALIPAY SINGAPORE 40.64" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Gadgets
+  Passif:AirFrance:Amex                              -35.80 EUR
+
+2018-10-01 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -38.40 EUR
+
+2018-10-02 * "ADLPARTNER MONTREUIL" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Culture
+  Passif:AirFrance:Amex                               -9.84 EUR
+
+2018-10-03 * "LEONARDO ASHKELON 270.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -241.27 EUR
+
+2018-10-04 * "WEMAKEIT HOD HASHARON 160.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -39.37 EUR
+
+2018-10-04 * "BRASERI ASHKELON 542.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                             -133.37 EUR
+
+2018-10-06 * "DELEK MENTA LTD natbag 191.25" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -47.21 EUR
+
+2018-10-06 * "AEROPORT NANTES ATLANTI BOUGUENAIS" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -45.50 EUR
+
+2018-10-06 * "CASTORAMA NIORT NIORT" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                              -36.90 EUR
+
+2018-10-07 * "CAFFE CAFFE LUDNATBAG 90.00" ""
+  source: "pdfamex"
+  type: "Credit"
+  Actif:NoteDeFrais
+  Passif:AirFrance:Amex                              -22.21 EUR
+
+2018-10-07 * "PAYPAL *JEEDOM 4029357733" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Immobilier:Travaux
+  Passif:AirFrance:Amex                               -4.00 EUR
+
+2018-10-07 * "PICARD 824NIORT 824 NIORT" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Alimentaire:Epicerie
+  Passif:AirFrance:Amex                              -38.20 EUR
+
+2018-10-08 * "PAYPAL *DEERANDDOE 0177116813" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Couture
+  Passif:AirFrance:Amex                              -25.20 EUR
+
+2018-10-09 balance Passif:AirFrance:Amex           -1195.82 EUR
+  source: "pdfamex"
+
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -246.95 EUR
+
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -246.95 EUR
+
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                             -246.95 EUR
+
+2018-10-11 * "KLM PARIS" "Madagascar"
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Voyages
+  Passif:AirFrance:Amex                            -1038.95 EUR
+
+2018-10-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
