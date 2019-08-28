@@ -2810,6 +2810,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -24.68 EUR
 
+2018-05-30 * "CARTE 29052018 79 MAX MUSIQUE CB*2967 " ""
+  document: "2018-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Enfants:Loisirs
+  Actif:Boursorama:CCAnna                            -14.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
