@@ -3308,6 +3308,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Actif:Boursorama:CCAnna                            -23.60 EUR
 
+2018-08-09 * "CARTE 07082018 93 LULU LA LUCIOL CB*2967 " ""
+  document: "2018-08-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                           -138.46 EUR
+
 2018-08-07 * "CARTE 04082018 17 SARL DELNOT BI CB*2967 " ""
   document: "2018-08-31 Boursorama.pdf"
   source: "pdfbourso"
