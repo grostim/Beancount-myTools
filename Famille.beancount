@@ -3028,6 +3028,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2018-07-02 ! "VIR SEPA CERF FORMATION SAS " "VIRT-SALAIRE-JUIN-01111"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                            489.43 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
