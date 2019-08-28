@@ -2810,6 +2810,18 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -24.68 EUR
 
+2018-05-29 * "CARTE 28052018 79 TISSUS DU RENA CB*2967 " ""
+  document: "2018-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -20.00 EUR
+
+2018-05-29 * "CARTE 28052018 79 LES PLANCHES CB*2967 " ""
+  document: "2018-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -23.87 EUR
+
 2018-05-31 * "RETRAIT DAB 30052018 NIORT HALLE CB*2967 " "79"
   document: "2018-05-31 Boursorama.pdf"
   source: "pdfbourso"
@@ -6430,17 +6442,4 @@ plugin "beancount.plugins.check_commodity"
 
 
 
-
-
-2018-05-29 * "CARTE 28052018 79 TISSUS DU RENA CB*2967 " ""
-  document: "2018-05-31 Boursorama.pdf"
-  source: "pdfbourso"
-  Depenses:Loisirs:Couture
-  Actif:Boursorama:CCAnna                            -20.00 EUR
-
-2018-05-29 * "CARTE 28052018 79 LES PLANCHES CB*2967 " ""
-  document: "2018-05-31 Boursorama.pdf"
-  source: "pdfbourso"
-  Depenses:Alimentaire:Restaurant
-  Actif:Boursorama:CCAnna                            -23.87 EUR
 
