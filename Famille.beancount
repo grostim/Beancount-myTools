@@ -2768,6 +2768,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -40.00 EUR
 
+2018-05-22 * "CARTE 19052018 17 BESSON BOUCHER CB*2967 " ""
+  document: "2018-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -95.57 EUR
+
 2018-05-21 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
   document: "2018-05-31 Boursorama.pdf"
   source: "pdfbourso"
