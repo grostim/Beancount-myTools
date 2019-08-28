@@ -6414,3 +6414,9 @@ plugin "beancount.plugins.check_commodity"
 
 
 
+2018-05-29 * "CARTE 28052018 79 TISSUS DU RENA CB*2967 " ""
+  document: "2018-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -20.00 EUR
+
