@@ -7546,3 +7546,9 @@ source: "pdfbourso"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -25.00 EUR
 
+2018-12-24 * "VIR SEPA TRESORERIE HOSP DU SUD DEUX SEV " "PAYE DU MOIS 12/18CH NIORT PA"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                           1515.15 EUR
+
