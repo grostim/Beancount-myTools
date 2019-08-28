@@ -3064,6 +3064,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Sante
   Actif:Boursorama:CCAnna                             -8.60 EUR
 
+2018-07-05 * "RETRAIT DAB 05072018 NIORT CB*2967 " "79"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -30.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
