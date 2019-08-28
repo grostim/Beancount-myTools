@@ -3663,6 +3663,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
+2018-11-01 * "VIR Contribution compte commun " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint
+  Actif:Boursorama:CCAnna                           -500.00 EUR
+
 2018-10-31 balance Actif:Boursorama:CCAnna  1636.73000000000001818989403545856475830078125 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
