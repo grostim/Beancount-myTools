@@ -3551,6 +3551,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -16.08 EUR
 
+2018-10-16 * "CHQ. N.6378047 " ""
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -46.70 EUR
+
 2018-10-05 * "CARTE 03102018 93 VENTE PRIVEE C CB*2967 " ""
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
