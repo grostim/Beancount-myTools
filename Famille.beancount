@@ -7112,3 +7112,9 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna
   Actif:Boursorama:CCAnna                           -100.00 EUR
 
+2018-10-02 * "RETRAIT DAB 28092018 NIORT CB*2967 " "79"
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -80.00 EUR
+
