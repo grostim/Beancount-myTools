@@ -3699,6 +3699,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Sante
   Actif:Boursorama:CCAnna                            -12.95 EUR
 
+2018-11-06 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                             -6.72 EUR
+
 2018-11-02 * "CARTE 31102018 79 TAO NIORT CB*2967 " ""
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
