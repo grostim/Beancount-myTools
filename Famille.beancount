@@ -2804,6 +2804,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -46.70 EUR
 
+2018-05-29 * "CARTE 28052018 79 BIOMARCHE CB*2967 " ""
+  document: "2018-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Epicerie
+  Actif:Boursorama:CCAnna                            -24.68 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
