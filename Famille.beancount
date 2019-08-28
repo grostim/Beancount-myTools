@@ -3747,6 +3747,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCJoint
   Actif:Boursorama:CCAnna                           -300.00 EUR
 
+2018-11-29 * "VIR placement prime " "GROS/ANNA"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna
+  Actif:Boursorama:CCAnna                           -200.00 EUR
+
 2018-11-20 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
