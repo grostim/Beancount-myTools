@@ -2856,6 +2856,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna
   Actif:Boursorama:CCAnna                           -100.00 EUR
 
+2018-06-06 * "CARTE 05062018 79 H&M238 CB*2967 " ""
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -65.42 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
