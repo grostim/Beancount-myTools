@@ -3024,7 +3024,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                             -7.50 EUR
 
-2018-06-30 balance Actif:Boursorama:CCAnna  1665.430000000000063664629124104976654052734375 EUR
+2018-06-30 balance Actif:Boursorama:CCAnna  1665.43 EUR
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
