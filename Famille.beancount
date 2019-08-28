@@ -3845,6 +3845,12 @@ plugin "beancount.plugins.check_commodity"
   Revenus:VentesAnna
   Actif:Boursorama:CCAnna                            195.00 EUR
 
+2018-12-12 * "REM CHQ N. 0640379 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:VentesAnna
+  Actif:Boursorama:CCAnna                            389.00 EUR
+
 2018-12-11 * "REM CHQ N. 0640397 " ""
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
