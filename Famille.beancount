@@ -3809,6 +3809,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna
   Actif:Boursorama:CCAnna                           -100.00 EUR
 
+2018-12-10 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                             -6.94 EUR
+
 2018-12-03 * "VIR Epargne CEL " "GROS ANNA"
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
