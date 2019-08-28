@@ -3148,6 +3148,12 @@ plugin "beancount.plugins.check_commodity"
   Revenus:Salaires:CHNiort
   Actif:Boursorama:CCAnna                             37.30 EUR
 
+2018-07-23 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Telephone
+  Actif:Boursorama:CCAnna                            -19.99 EUR
+
 2018-07-06 * "CARTE 05072018 79 O RESTAURATION CB*2967 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
