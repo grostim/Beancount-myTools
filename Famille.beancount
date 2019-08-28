@@ -3034,6 +3034,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCJoint
   Actif:Boursorama:CCAnna                           -500.00 EUR
 
+2018-07-02 * "VIR Epargne CEL " "GROS ANNA"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna
+  Actif:Boursorama:CCAnna                           -100.00 EUR
+
 2018-07-02 ! "VIR SEPA CERF FORMATION SAS " "VIRT-SALAIRE-JUIN-01111"
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
