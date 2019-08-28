@@ -3462,6 +3462,18 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -15.30 EUR
 
+2018-09-24 * "CARTE 23092018 IE ITUNES.COM/BIL CB*2967 " ""
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Apple
+  Actif:Boursorama:CCAnna                             -0.99 EUR
+
+2018-09-25 * "VIR SEPA TRESORERIE HOSP DU SUD DEUX SEV " "PAYE DU MOIS 09/18CH NIORT PA"
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                           1422.73 EUR
+
 2018-09-26 * "CARTE 25092018 91 SOGEC CGOS BIL CB*2967 " ""
   document: "2018-09-28 Boursorama.pdf"
   source: "pdfbourso"
@@ -3479,6 +3491,7 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfbourso"
   Depenses:Loisirs:Velos
   Actif:Boursorama:CCAnna                            -70.00 EUR
+
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
@@ -7082,16 +7095,4 @@ plugin "beancount.plugins.check_commodity"
 
 
 
-
-2018-09-24 * "CARTE 23092018 IE ITUNES.COM/BIL CB*2967 " ""
-  document: "2018-09-28 Boursorama.pdf"
-  source: "pdfbourso"
-  Depenses:Abo:Apple
-  Actif:Boursorama:CCAnna                             -0.99 EUR
-
-2018-09-25 * "VIR SEPA TRESORERIE HOSP DU SUD DEUX SEV " "PAYE DU MOIS 09/18CH NIORT PA"
-  document: "2018-09-28 Boursorama.pdf"
-  source: "pdfbourso"
-  Revenus:Salaires:CHNiort
-  Actif:Boursorama:CCAnna                           1422.73 EUR
 
