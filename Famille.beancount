@@ -3308,6 +3308,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Actif:Boursorama:CCAnna                            -23.60 EUR
 
+2018-08-07 * "CARTE 04082018 17 SARL DELNOT BI CB*2967 " ""
+  document: "2018-08-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -26.42 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
