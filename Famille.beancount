@@ -3705,6 +3705,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                             -6.72 EUR
 
+2018-11-07 * "RETRAIT DAB 06112018 NIORT CB*2967 " "79"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -60.00 EUR
+
 2018-11-02 * "CARTE 31102018 79 TAO NIORT CB*2967 " ""
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
