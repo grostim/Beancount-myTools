@@ -3320,6 +3320,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:AVAnna2
   Actif:Boursorama:CCAnna                            -50.00 EUR
 
+2018-08-13 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
+  document: "2018-08-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                             -7.93 EUR
+
 2018-08-07 * "CARTE 04082018 17 SARL DELNOT BI CB*2967 " ""
   document: "2018-08-31 Boursorama.pdf"
   source: "pdfbourso"
