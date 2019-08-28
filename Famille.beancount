@@ -3154,6 +3154,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Telephone
   Actif:Boursorama:CCAnna                            -19.99 EUR
 
+2018-07-24 * "CARTE 20072018 79 PHARM DE PARIS CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Sante
+  Actif:Boursorama:CCAnna                            -17.56 EUR
+
 2018-07-06 * "CARTE 05072018 79 O RESTAURATION CB*2967 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
