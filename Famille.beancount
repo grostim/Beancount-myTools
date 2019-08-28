@@ -3296,6 +3296,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -30.53 EUR
 
+2018-08-07 * "RETRAIT DAB 04082018 LE CHATEAU CB*2967 " "17"
+  document: "2018-08-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -60.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
