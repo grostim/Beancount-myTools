@@ -2874,6 +2874,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Sante
   Actif:Boursorama:CCAnna                            -18.61 EUR
 
+2018-06-11 * "CARTE 10062018 79 PICARD SA 082 CB*2967 " ""
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Epicerie
+  Actif:Boursorama:CCAnna                            -50.27 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
