@@ -2916,6 +2916,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Telephone
   Actif:Boursorama:CCAnna                            -19.99 EUR
 
+2018-06-21 * "CHQ. N.6378039 " ""
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -20.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
