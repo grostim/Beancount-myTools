@@ -3444,6 +3444,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Actif:Boursorama:CCAnna                            -14.19 EUR
 
+2018-09-20 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Telephone
+  Actif:Boursorama:CCAnna                            -22.99 EUR
+
 2018-09-10 * "CARTE 08092018 79 BIO C'BON NIOR CB*2967 " ""
   document: "2018-09-28 Boursorama.pdf"
   source: "pdfbourso"
