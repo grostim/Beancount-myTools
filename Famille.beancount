@@ -6420,3 +6420,9 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -20.00 EUR
 
+2018-05-29 * "CARTE 28052018 79 LES PLANCHES CB*2967 " ""
+  document: "2018-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -23.87 EUR
+
