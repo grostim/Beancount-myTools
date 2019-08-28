@@ -3723,6 +3723,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -10.79 EUR
 
+2018-11-13 ! "CARTE 12112018 93 HELLOASSO LW CB*2967 " "Lindy Hop"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
