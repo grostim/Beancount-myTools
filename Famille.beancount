@@ -3112,6 +3112,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -19.83 EUR
 
+2018-07-12 * "CARTE 11072018 79 LA MALLE AUX I CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Cadeaux
+  Actif:Boursorama:CCAnna                            -11.90 EUR
+
 2018-07-06 * "CARTE 05072018 79 O RESTAURATION CB*2967 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
