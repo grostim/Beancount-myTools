@@ -3779,6 +3779,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2018-12-03 * "VIR SEPA MENARDI PAULINE " "ARDOISEPOPO"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:VentesAnna
+  Actif:Boursorama:CCAnna                             20.00 EUR
+
 2018-12-03 * "VIR Epargne CEL " "GROS ANNA"
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
