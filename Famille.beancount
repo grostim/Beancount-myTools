@@ -3238,6 +3238,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -58.00 EUR
 
+2018-07-30 * "RETRAIT DAB 28072018 NIORT REPUB CB*2967 " "79"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                           -150.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
