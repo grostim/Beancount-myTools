@@ -3420,6 +3420,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                             -4.35 EUR
 
+2018-09-10 * "CARTE 08092018 79 GL NIORT CB*2967 " ""
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -27.00 EUR
+
 2018-09-10 * "CARTE 08092018 79 BIO C'BON NIOR CB*2967 " ""
   document: "2018-09-28 Boursorama.pdf"
   source: "pdfbourso"
