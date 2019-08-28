@@ -3623,6 +3623,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Sante
   Actif:Boursorama:CCAnna                            -39.03 EUR
 
+2018-10-31 * "RETRAIT DAB 30102018 LA ROCHELLE CB*2967 " "17"
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
