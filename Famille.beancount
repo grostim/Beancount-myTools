@@ -3797,6 +3797,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCJoint
   Actif:Boursorama:CCAnna                           -500.00 EUR
 
+2018-12-05 ! "VIR SEPA COMITE GESTION OEUVRES SOC ETS " "05/PREST ENFAN105181255"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                             24.00 EUR
+
 2018-12-03 * "VIR Epargne CEL " "GROS ANNA"
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
