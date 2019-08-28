@@ -3214,6 +3214,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Apple
   Actif:Boursorama:CCAnna                             -0.99 EUR
 
+2018-07-26 * "CHQ. N.6378042 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -24.00 EUR
+
 2018-07-25 * "CHQ. N.6378044 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
