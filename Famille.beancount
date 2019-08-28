@@ -3332,6 +3332,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -46.00 EUR
 
+2018-08-20 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
+  document: "2018-08-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Telephone
+  Actif:Boursorama:CCAnna                            -22.99 EUR
+
 2018-08-07 * "CARTE 04082018 17 SARL DELNOT BI CB*2967 " ""
   document: "2018-08-31 Boursorama.pdf"
   source: "pdfbourso"
