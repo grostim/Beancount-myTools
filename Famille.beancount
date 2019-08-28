@@ -2697,6 +2697,19 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Actif:Boursorama:CCAnna                             -7.40 EUR
 
+2018-04-30 * " CHQ. N.6378025 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -10.00 EUR
+
+2018-04-30 * " CHQ. N.6378036 " ""
+  document: "2018-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                             -8.40 EUR
+
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
@@ -6300,17 +6313,4 @@ plugin "beancount.plugins.check_commodity"
 
 
 
-
-
-2018-04-30 * " CHQ. N.6378025 " ""
-  document: "2018-04-30 Boursorama.pdf"
-  source: "pdfbourso"
-  Depenses:A-CLASSER
-  Actif:Boursorama:CCAnna                            -10.00 EUR
-
-2018-04-30 * " CHQ. N.6378036 " ""
-  document: "2018-04-30 Boursorama.pdf"
-  source: "pdfbourso"
-  Depenses:A-CLASSER
-  Actif:Boursorama:CCAnna                             -8.40 EUR
 
