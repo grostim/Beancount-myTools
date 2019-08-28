@@ -3426,6 +3426,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -27.00 EUR
 
+2018-09-11 * "PRLV SEPA GENERALI VIE SA " ".129492678/9921/51519425"
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:AVAnna2
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
 2018-09-10 * "CARTE 08092018 79 BIO C'BON NIOR CB*2967 " ""
   document: "2018-09-28 Boursorama.pdf"
   source: "pdfbourso"
