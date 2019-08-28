@@ -2928,6 +2928,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -18.10 EUR
 
+2018-06-21 * "CARTE 20062018 17 LE LONGCHAMP CB*2967 " ""
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -20.60 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
