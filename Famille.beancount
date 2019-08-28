@@ -2904,6 +2904,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -85.29 EUR
 
+2018-06-21 * "REM CHQ N. 1715475 " ""
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                             35.00 EUR
+
 2018-06-20 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
   document: "2018-06-29 Boursorama.pdf"
   source: "pdfbourso"
