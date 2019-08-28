@@ -3368,6 +3368,10 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -26.42 EUR
 
+2018-09-01 balance Actif:Boursorama:CCAnna  1901.509999999999990905052982270717620849609375 EUR
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
