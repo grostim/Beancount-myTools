@@ -3663,6 +3663,10 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
+2018-10-31 balance Actif:Boursorama:CCAnna  1636.73000000000001818989403545856475830078125 EUR
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
