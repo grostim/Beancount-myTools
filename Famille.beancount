@@ -3587,6 +3587,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Telephone
   Actif:Boursorama:CCAnna                            -22.99 EUR
 
+2018-10-24 * "CARTE 23102018 IE ITUNES.COM/BIL CB*2967 " ""
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Apple
+  Actif:Boursorama:CCAnna                             -0.99 EUR
+
 2018-10-05 * "CARTE 03102018 93 VENTE PRIVEE C CB*2967 " ""
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
