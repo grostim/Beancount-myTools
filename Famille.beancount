@@ -3052,6 +3052,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Immobilier:Menage:Salaire
   Actif:Boursorama:CCAnna                            -88.00 EUR
 
+2018-07-03 * "RETRAIT DAB 30062018 NIORT CB*2967 " "79"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -80.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
