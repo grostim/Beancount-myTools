@@ -3765,6 +3765,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCJoint
   Actif:Boursorama:CCAnna                           -300.00 EUR
 
+2018-11-13 ! "CARTE 12112018 93 HELLOASSO LW CB*2967 " "Lindy Hop"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
   source: "pdfbourso"
   Actif:Boursorama:AVAnna2
   Actif:Boursorama:CCAnna                            -50.00 EUR
