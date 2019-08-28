@@ -3100,6 +3100,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -46.70 EUR
 
+2018-07-11 * "PRLV SEPA GENERALI VIE SA " ".128356923/9921/51519425"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:AVAnna2
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
 2018-07-06 * "CARTE 05072018 79 O RESTAURATION CB*2967 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
