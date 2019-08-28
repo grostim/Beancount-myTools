@@ -3256,6 +3256,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Enfants:Coiffeur
   Actif:Boursorama:CCAnna                            -10.00 EUR
 
+2018-07-30 * "CARTE 27072018 79 MANOUE LILIE CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -64.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
