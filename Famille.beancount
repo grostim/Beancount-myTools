@@ -3350,12 +3350,13 @@ source: "pdfbourso"
   source: "pdfbourso"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -61.99 EUR
-
-2018-08-24 * " CARTE 23082018 IE ITUNES.COM/BIL CB*2967 " ""
-  document: "2018-08-31 Boursorama.pdf"
+2018-12-13 * "REM CHQ N. 0640379 " ""
+  document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
-  Depenses:Abo:Apple
-  Actif:Boursorama:CCAnna                             -0.99 EUR
+  Revenus:VentesAnna
+  Actif:Boursorama:CCAnna                             15.00 EUR
+
+             -0.99 EUR
 
 2018-08-27 * " VIR SEPA TRESORERIE HOSP DU SUD DEUX SEV " "PAYE DU MOIS 08/18CH NIORT PA"
   document: "2018-08-31 Boursorama.pdf"
@@ -3899,6 +3900,12 @@ source: "pdfbourso"
   source: "pdfbourso"
   Actif:Boursorama:AVAnna2
   Actif:Boursorama:CCAnna                            -50.00 EUR
+
+2018-12-17 * "CARTE 15122018 93 Vente Privee CB*3946 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -25.00 EUR
 
 2018-12-12 * "REM CHQ N. 0640379 " ""
   document: "2018-12-31 Boursorama.pdf"
