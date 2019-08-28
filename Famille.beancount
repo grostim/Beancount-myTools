@@ -1716,6 +1716,12 @@ plugin "beancount.plugins.check_commodity"
   source: "qif"
   Actif:Boursorama:CCJoint                           -58.00 EUR
   Depenses:Sante                                      58.00 EUR
+2018-12-17 * "CARTE 15122018 93 Vente Privee CB*3946 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -60.97 EUR
+
 
 2019-07-15 * "RETRAIT DAB 13/07/19 NIORT       CB*5969" ""
   source: "qif"
@@ -1931,12 +1937,7 @@ plugin "beancount.plugins.check_commodity"
 
 2018-01-10 * "PRLV SEPA GENERALI VIE SA " ".123149483/9921/51519425"
   document: "2018-01-31 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Boursorama:AVAnna2
-  Actif:Boursorama:CCAnna                            -50.00 EUR
 
-2018-01-11 * "PAIEMENT CARTE 10012018 79 PETIT CA " ""
-  document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -28.50 EUR
@@ -7551,4 +7552,10 @@ source: "pdfbourso"
   source: "pdfbourso"
   Revenus:Salaires:CHNiort
   Actif:Boursorama:CCAnna                           1515.15 EUR
+
+2018-12-27 * "VIR SEPA MENARDI PAULINE " "RubanCheveux"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:VentesAnna
+  Actif:Boursorama:CCAnna                              8.00 EUR
 
