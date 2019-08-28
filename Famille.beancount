@@ -3821,6 +3821,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Voitures:Carburant
   Actif:Boursorama:CCAnna                            -40.15 EUR
 
+2018-12-10 * "CARTE 08122018 79 OXYGEN CB*3946 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Coiffeur
+  Actif:Boursorama:CCAnna                           -108.00 EUR
+
 2018-12-03 * "VIR Epargne CEL " "GROS ANNA"
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
