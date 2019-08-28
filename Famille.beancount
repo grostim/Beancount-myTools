@@ -7118,3 +7118,9 @@ plugin "beancount.plugins.check_commodity"
   Actif:Cash
   Actif:Boursorama:CCAnna                            -80.00 EUR
 
+2018-10-02 * "CARTE 29092018 OPHELIEMERCERIE CB*2967 " ""
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -83.60 EUR
+
