@@ -3894,6 +3894,12 @@ source: "pdfbourso"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -93.40 EUR
 
+2018-12-13 * "PRLV SEPA GENERALI VIE SA " ".131567757/9921/51519425"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:AVAnna2
+  Actif:Boursorama:CCAnna                            -50.00 EUR
+
 2018-12-12 * "REM CHQ N. 0640379 " ""
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
