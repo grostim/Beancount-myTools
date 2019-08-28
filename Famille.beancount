@@ -3088,6 +3088,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -34.93 EUR
 
+2018-07-09 * "RETRAIT DAB 07072018 NIORT REPUB CB*2967 " "79"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Cash
+  Actif:Boursorama:CCAnna                            -40.00 EUR
+
 2018-07-06 * "CARTE 05072018 79 O RESTAURATION CB*2967 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
