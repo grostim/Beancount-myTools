@@ -3178,6 +3178,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -17.26 EUR
 
+2018-07-24 * "CARTE 21072018 17 SENSEI CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -19.50 EUR
+
 2018-07-06 * "CARTE 05072018 79 O RESTAURATION CB*2967 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
