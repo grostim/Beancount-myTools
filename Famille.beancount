@@ -3076,6 +3076,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -26.96 EUR
 
+2018-07-05 * "CARTE 04072018 79 REG.STATIONMT CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Voitures:Peages
+  Actif:Boursorama:CCAnna                             -1.50 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
