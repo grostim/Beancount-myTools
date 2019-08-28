@@ -2840,6 +2840,10 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Enfants:Loisirs
   Actif:Boursorama:CCAnna                            -14.50 EUR
 
+2018-06-01 balance Actif:Boursorama:CCAnna  1835.930000000000063664629124104976654052734375 EUR
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
