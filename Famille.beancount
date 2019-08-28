@@ -3462,6 +3462,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -15.30 EUR
 
+2018-09-26 * "CARTE 25092018 91 SOGEC CGOS BIL CB*2967 " ""
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Billeterie
+  Actif:Boursorama:CCAnna                           -128.20 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
