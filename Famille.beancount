@@ -3569,6 +3569,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Cash
   Actif:Boursorama:CCAnna                            -50.00 EUR
 
+2018-10-17 * "CARTE 15102018 93 HELLOASSO LW CB*2967 " "Lindy-Hop"
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                           -150.00 EUR
+
 2018-10-05 * "CARTE 03102018 93 VENTE PRIVEE C CB*2967 " ""
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
