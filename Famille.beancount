@@ -3925,6 +3925,12 @@ source: "pdfbourso"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -93.40 EUR
 
+2018-12-20 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Telephone
+  Actif:Boursorama:CCAnna                            -22.99 EUR
+
 2018-12-12 * "REM CHQ N. 0640379 " ""
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
