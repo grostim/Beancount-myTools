@@ -3196,6 +3196,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -61.48 EUR
 
+2018-07-24 * "CARTE 23072018 79 H&M148 CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -37.95 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
