@@ -3244,6 +3244,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Cash
   Actif:Boursorama:CCAnna                           -150.00 EUR
 
+2018-07-30 * "CARTE 27072018 79 EURODIF CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -24.06 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
