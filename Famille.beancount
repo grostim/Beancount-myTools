@@ -3759,6 +3759,12 @@ plugin "beancount.plugins.check_commodity"
 
 2018-11-12 * "PRLV SEPA GENERALI VIE SA " ".131087706/9921/51519425"
   document: "2018-11-30 Boursorama.pdf"
+2018-11-19 * "VIR compense perte carte perso " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint
+  Actif:Boursorama:CCAnna                           -300.00 EUR
+
   source: "pdfbourso"
   Actif:Boursorama:AVAnna2
   Actif:Boursorama:CCAnna                            -50.00 EUR
