@@ -3557,6 +3557,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -46.70 EUR
 
+2018-10-17 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                             -3.91 EUR
+
 2018-10-05 * "CARTE 03102018 93 VENTE PRIVEE C CB*2967 " ""
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
