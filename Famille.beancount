@@ -2868,6 +2868,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -65.42 EUR
 
+2018-06-11 * "CARTE 09062018 79 PHARM DE PARIS CB*2967 " ""
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Sante
+  Actif:Boursorama:CCAnna                            -18.61 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
