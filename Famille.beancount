@@ -2976,6 +2976,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -11.20 EUR
 
+2018-06-25 * "CARTE 23062018 IE ITUNES.COM/BIL CB*2967 " ""
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Apple
+  Actif:Boursorama:CCAnna                             -0.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
