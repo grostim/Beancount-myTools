@@ -3815,12 +3815,13 @@ source: "pdfbourso"
   source: "pdfbourso"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                             -6.94 EUR
-
-2018-12-04 * "CARTE 03122018 79 INTERMARCHE DA CB*3946 " ""
+2018-12-13 * "REM CHQ N. 3463294 " ""
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
-  Depenses:Voitures:Carburant
-  Actif:Boursorama:CCAnna                            -40.15 EUR
+  Revenus:VentesAnna
+  Actif:Boursorama:CCAnna                             39.00 EUR
+
+                    -40.15 EUR
 
 2018-12-10 * "CARTE 08122018 79 OXYGEN CB*3946 " ""
   document: "2018-12-31 Boursorama.pdf"
@@ -3886,6 +3887,12 @@ source: "pdfbourso"
   source: "pdfbourso"
   Revenus:VentesAnna
   Actif:Boursorama:CCAnna                            195.00 EUR
+
+2018-12-12 * "REM CHQ N. 0640379 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:VentesAnna
+  Actif:Boursorama:CCAnna                            389.00 EUR
 
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
