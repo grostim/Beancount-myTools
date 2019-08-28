@@ -3950,6 +3950,12 @@ source: "pdfbourso"
   Depenses:Abo:Telephone
   Actif:Boursorama:CCAnna                            -22.99 EUR
 
+2018-12-31 * "VIR interne " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint
+  Actif:Boursorama:CCAnna                          -1500.00 EUR
+
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
