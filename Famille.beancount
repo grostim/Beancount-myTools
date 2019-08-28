@@ -3735,6 +3735,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCJoint
   Actif:Boursorama:CCAnna                           -300.00 EUR
 
+2018-11-26 * "VIR SEPA TRESORERIE HOSP DU SUD DEUX SEV " "PAYE DU MOIS 11/18CH NIORT PA"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                           2109.10 EUR
+
 2018-11-20 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
