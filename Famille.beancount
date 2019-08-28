@@ -3769,6 +3769,12 @@ plugin "beancount.plugins.check_commodity"
   Revenus:VentesAnna
   Actif:Boursorama:CCAnna                             20.00 EUR
 
+2018-12-03 * "VIR Contribution compte commun " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint
+  Actif:Boursorama:CCAnna                           -500.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
