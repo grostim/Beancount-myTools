@@ -3226,6 +3226,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Epicerie
   Actif:Boursorama:CCAnna                            -65.26 EUR
 
+2018-07-30 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Restaurant
+  Actif:Boursorama:CCAnna                            -18.70 EUR
+
 2018-07-25 * "CHQ. N.6378044 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
