@@ -3851,6 +3851,12 @@ plugin "beancount.plugins.check_commodity"
   Revenus:VentesAnna
   Actif:Boursorama:CCAnna                            389.00 EUR
 
+2018-12-10 * "CARTE 08122018 79 OXYGEN CB*3946 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Coiffeur
+  Actif:Boursorama:CCAnna                           -108.00 EUR
+
 2018-12-11 * "REM CHQ N. 0640397 " ""
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
