@@ -3208,6 +3208,12 @@ plugin "beancount.plugins.check_commodity"
   Revenus:Salaires:CHNiort
   Actif:Boursorama:CCAnna                           1422.73 EUR
 
+2018-07-25 * "CARTE 24072018 IE ITUNES.COM/BIL CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Apple
+  Actif:Boursorama:CCAnna                             -0.99 EUR
+
 2018-07-25 * "CHQ. N.6378044 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
