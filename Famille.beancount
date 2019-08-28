@@ -7071,3 +7071,9 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Apple
   Actif:Boursorama:CCAnna                             -0.99 EUR
 
+2018-09-25 * "VIR SEPA TRESORERIE HOSP DU SUD DEUX SEV " "PAYE DU MOIS 09/18CH NIORT PA"
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                           1422.73 EUR
+
