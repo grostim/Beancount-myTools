@@ -3450,6 +3450,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Telephone
   Actif:Boursorama:CCAnna                            -22.99 EUR
 
+2018-09-24 * "CARTE 22092018 79 KING JOUET CB*2967 " ""
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Cadeaux
+  Actif:Boursorama:CCAnna                            -31.99 EUR
+
 2018-09-10 * "CARTE 08092018 79 BIO C'BON NIOR CB*2967 " ""
   document: "2018-09-28 Boursorama.pdf"
   source: "pdfbourso"
