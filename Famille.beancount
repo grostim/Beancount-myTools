@@ -2774,6 +2774,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -95.57 EUR
 
+2018-05-24 * "CARTE 23052018 IE ITUNES.COM/BIL CB*2967 " ""
+  document: "2018-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Abo:Apple
+  Actif:Boursorama:CCAnna                             -0.99 EUR
+
 2018-05-21 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
   document: "2018-05-31 Boursorama.pdf"
   source: "pdfbourso"
