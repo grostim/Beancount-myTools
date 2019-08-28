@@ -2453,7 +2453,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -29.80 EUR
 
-2018-03-29 balance Actif:Boursorama:CCAnna  2939.7899999999999636202119290828704833984375 EUR
+2018-03-29 balance Actif:Boursorama:CCAnna  2939.78 EUR
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
 
