@@ -3115,12 +3115,13 @@ plugin "beancount.plugins.check_commodity"
 2018-07-12 * "CARTE 11072018 79 LA MALLE AUX I CB*2967 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
-  Depenses:Cadeaux
-  Actif:Boursorama:CCAnna                            -11.90 EUR
-
-2018-07-13 * "CARTE 12072018 79 LAMBERT MARTIN CB*2967 " ""
-  document: "2018-07-31 Boursorama.pdf"
+2018-12-11 * "REM CHQ N. 0640397 " ""
+  document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
+  Revenus:VentesAnna
+  Actif:Boursorama:CCAnna                            349.00 EUR
+
+source: "pdfbourso"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                             -7.80 EUR
 
@@ -3868,6 +3869,12 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna
   Actif:Boursorama:CCAnna                           -100.00 EUR
+
+2018-12-13 * "PRLV SEPA GENERALI VIE SA " ".131567757/9921/51519425"
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:AVAnna2
+  Actif:Boursorama:CCAnna                            -50.00 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
