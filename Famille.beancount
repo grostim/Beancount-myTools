@@ -3118,6 +3118,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Cadeaux
   Actif:Boursorama:CCAnna                            -11.90 EUR
 
+2018-07-13 * "CARTE 12072018 79 LAMBERT MARTIN CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                             -7.80 EUR
+
 2018-07-06 * "CARTE 05072018 79 O RESTAURATION CB*2967 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
