@@ -3741,6 +3741,12 @@ plugin "beancount.plugins.check_commodity"
   Revenus:Salaires:CHNiort
   Actif:Boursorama:CCAnna                           2109.10 EUR
 
+2018-11-29 * "VIR complement decouvert " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint
+  Actif:Boursorama:CCAnna                           -300.00 EUR
+
 2018-11-20 * "PRLV SEPA Bouygues Telecom " "Lignes mobiles"
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
