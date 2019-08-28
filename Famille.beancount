@@ -3919,6 +3919,12 @@ source: "pdfbourso"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -60.97 EUR
 
+2018-12-13 * "CHQ. N.3013172 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -93.40 EUR
+
 2018-12-12 * "REM CHQ N. 0640379 " ""
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
