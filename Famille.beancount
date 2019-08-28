@@ -7540,3 +7540,9 @@ source: "pdfbourso"
 
 
 
+2018-12-17 * "CARTE 15122018 93 Vente Privee CB*3946 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -25.00 EUR
+
