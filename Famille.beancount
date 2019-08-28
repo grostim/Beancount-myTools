@@ -3515,6 +3515,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Cash
   Actif:Boursorama:CCAnna                            -60.00 EUR
 
+2018-10-08 * "CARTE 06102018 79 SARL DEVAUD CB*2967 " ""
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Loisirs:Couture
+  Actif:Boursorama:CCAnna                            -82.12 EUR
+
 2018-10-05 * "CARTE 03102018 93 VENTE PRIVEE C CB*2967 " ""
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
