@@ -3881,6 +3881,12 @@ source: "pdfbourso"
   Revenus:VentesAnna
   Actif:Boursorama:CCAnna                             15.00 EUR
 
+2018-12-11 * "REM CHQ N. 0640412 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:VentesAnna
+  Actif:Boursorama:CCAnna                            195.00 EUR
+
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
