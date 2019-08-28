@@ -3681,6 +3681,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna
   Actif:Boursorama:CCAnna                           -100.00 EUR
 
+2018-11-02 * "CARTE 31102018 79 TAO NIORT CB*2967 " ""
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -10.79 EUR
+
 2018-10-31 balance Actif:Boursorama:CCAnna  1636.73000000000001818989403545856475830078125 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
