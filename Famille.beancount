@@ -2946,6 +2946,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -31.50 EUR
 
+2018-06-25 * "CARTE 21062018 17 AYONA CB*2967 " ""
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Habillement
+  Actif:Boursorama:CCAnna                            -80.00 EUR
+
 2018-06-22 * "CARTE 21062018 17 LA CANTINE DU CB*2967 " ""
   document: "2018-06-29 Boursorama.pdf"
   source: "pdfbourso"
