@@ -3220,6 +3220,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -24.00 EUR
 
+2018-07-27 * "CARTE 26072018 79 E LECLERC CB*2967 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Alimentaire:Epicerie
+  Actif:Boursorama:CCAnna                            -65.26 EUR
+
 2018-07-25 * "CHQ. N.6378044 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
