@@ -3046,6 +3046,12 @@ plugin "beancount.plugins.check_commodity"
   Revenus:Salaires:CHNiort
   Actif:Boursorama:CCAnna                            489.43 EUR
 
+2018-07-03 * "CHQ. N.5886965 " ""
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Immobilier:Menage:Salaire
+  Actif:Boursorama:CCAnna                            -88.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
