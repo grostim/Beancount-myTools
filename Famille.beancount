@@ -3390,6 +3390,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Cadeaux
   Actif:Boursorama:CCAnna                            -14.00 EUR
 
+2018-09-03 ! "CARTE 02092018 35 AMENDE RADAR W CB*2967 " ""
+  document: "2018-09-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:A-CLASSER
+  Actif:Boursorama:CCAnna                            -90.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
