@@ -3785,6 +3785,12 @@ plugin "beancount.plugins.check_commodity"
   Revenus:VentesAnna
   Actif:Boursorama:CCAnna                             20.00 EUR
 
+2018-12-04 * "CARTE 03122018 79 INTERMARCHE DA CB*3946 " ""
+  document: "2018-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Depenses:Voitures:Carburant
+  Actif:Boursorama:CCAnna                            -40.15 EUR
+
 2018-12-03 * "VIR Epargne CEL " "GROS ANNA"
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
