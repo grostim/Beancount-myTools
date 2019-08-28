@@ -3142,6 +3142,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Coiffeur
   Actif:Boursorama:CCAnna                            -33.00 EUR
 
+2018-07-20 ! "VIR SEPA CERF FORMATION SAS " "Virt Sal 06/2018 CERF Formation"
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                             37.30 EUR
+
 2018-07-06 * "CARTE 05072018 79 O RESTAURATION CB*2967 " ""
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
