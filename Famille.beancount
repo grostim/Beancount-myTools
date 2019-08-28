@@ -7215,4 +7215,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Couture
   Actif:Boursorama:CCAnna                            -83.60 EUR
 
+<<<<<<< HEAD
+>>>>>>> parent of 36e633e... autocommit by fava: file saved
+=======
 >>>>>>> parent of 36e633e... autocommit by fava: file saved
