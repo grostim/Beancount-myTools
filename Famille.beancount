@@ -2982,6 +2982,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Apple
   Actif:Boursorama:CCAnna                             -0.99 EUR
 
+2018-06-26 * "VIR SEPA TRES. HOSPITALIERE SUD DEUX-SE " "PAYE DU MOIS 06/18CH NIORT PA"
+  document: "2018-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Revenus:Salaires:CHNiort
+  Actif:Boursorama:CCAnna                           1422.25 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
