@@ -39,6 +39,9 @@ class pdfbourso(importer.ImporterProtocol):
             if re.search('BOURSORAMA BANQUE', text) is not None:
                 self.type="Compte"
                 return 1
+            if re.search('BOUSFRPPXXX', text) is not None:
+                self.type="Compte"
+                return 1
             if re.search('Relevé de Carte', text) is not None:
                 self.type="CB"
                 return 1
@@ -91,13 +94,13 @@ class pdfbourso(importer.ImporterProtocol):
             if self.debug:
                 print(compte)
 
-            control = 'SOLDE\sAU\s:\s(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})'
+            control = 'SOLDE\s(?:EN\sEUR\s)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})'
             match = re.search(control, text)
             if match:
-                datebalance = parse_datetime(match.group(1),dayfirst="True").date()
-                longueur = len(match.group(2))
-                balance = match.group(3).replace(".", '').replace(",", '.')
-            if longueur <90:
+                datebalance = parse_datetime(match.group(2),dayfirst="True").date()
+                longueur = len(match.group(1))+len(match.group(3))
+                balance = match.group(4).replace(".", '').replace(",", '.')
+            if longueur <77:
                 #Si la distance entre les 2 champs est petite, alors, c'est un débit.
                 balance = "-" + balance
 
@@ -151,7 +154,7 @@ class pdfbourso(importer.ImporterProtocol):
                 if self.debug:
                     print(longueur)
 
-                if longueur > 140:
+                if longueur > 136:
                     ope["type"] = "Credit"
                 else:
                     ope["type"] = "Debit"

@@ -25,6 +25,7 @@ ACCOUNTLIST = {
         '10014935408'       : 'Passif:Boursorama:CBTim',
         '4979********1974'  : 'Passif:Boursorama:CBTim',
         'xxxx-xxxxxx-72001' : 'Passif:AirFrance:Amex',
+        '00030305440'       : 'Actif:Boursorama:CELAnna',
     }
 
 CONFIG = [
