@@ -2710,7 +2710,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCAnna                             -8.40 EUR
 
 
-2018-05-01 balance Actif:Boursorama:CCAnna  2142.59000000000014551915228366851806640625 EUR
+2018-05-01 balance Actif:Boursorama:CCAnna  2142.59 EUR
   document: "2018-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
