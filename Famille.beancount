@@ -1859,7 +1859,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCJoint                           400.00 EUR
   Actif:Boursorama:CCAnna                           -400.00 EUR
 
-2017-12-29 balance Actif:Boursorama:CCAnna  2490.71 EUR
+2017-12-29 balance Actif:Boursorama:CCAnna          2490.71 EUR
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -2067,7 +2067,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Sante
   Actif:Boursorama:CCAnna                            -18.86 EUR
 
-2018-01-31 balance Actif:Boursorama:CCAnna  3463.94 EUR
+2018-01-31 balance Actif:Boursorama:CCAnna          3463.94 EUR
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -2299,7 +2299,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Actif:Boursorama:CCAnna                            -46.00 EUR
 
-2018-03-01 balance Actif:Boursorama:CCAnna  5249.88 EUR
+2018-03-01 balance Actif:Boursorama:CCAnna          5249.88 EUR
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -2453,7 +2453,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Alimentaire:Restaurant
   Actif:Boursorama:CCAnna                            -29.80 EUR
 
-2018-03-29 balance Actif:Boursorama:CCAnna  2939.78 EUR
+2018-03-29 balance Actif:Boursorama:CCAnna          2939.78 EUR
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -2710,7 +2710,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCAnna                             -8.40 EUR
 
 
-2018-05-01 balance Actif:Boursorama:CCAnna  2142.59 EUR
+2018-05-01 balance Actif:Boursorama:CCAnna          2142.59 EUR
   document: "2018-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -2840,7 +2840,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Enfants:Loisirs
   Actif:Boursorama:CCAnna                            -14.50 EUR
 
-2018-06-01 balance Actif:Boursorama:CCAnna  1835.93 EUR
+2018-06-01 balance Actif:Boursorama:CCAnna          1835.93 EUR
   document: "2018-06-29 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -4511,7 +4511,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:NoteDeFrais
   Passif:AirFrance:Amex                              -46.06 EUR
 
-2018-02-08 balance Passif:AirFrance:Amex  -1459.34 EUR
+2018-02-08 balance Passif:AirFrance:Amex           -1459.34 EUR
   source: "pdfamex"
 
 2018-02-08 * "DAYS INN AND SUITES LINDSAY 169.44" ""
@@ -4628,7 +4628,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -3.99 EUR
 
-2018-03-09 balance Passif:AirFrance:Amex  -861.93 EUR
+2018-03-09 balance Passif:AirFrance:Amex            -861.93 EUR
   source: "pdfamex"
 
 2018-03-10 * "PICARD 282NIORT 282 NIORT" ""
@@ -5024,7 +5024,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Banque:Frais
   Passif:AirFrance:Amex                             -165.00 EUR
 
-2018-07-09 balance Passif:AirFrance:Amex             -613.07 EUR
+2018-07-09 balance Passif:AirFrance:Amex            -613.07 EUR
   source: "pdfamex"
 
 
@@ -5682,7 +5682,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Gadgets
   Passif:AirFrance:Amex                               -7.39 EUR
 
-2018-12-09 balance Passif:AirFrance:Amex             -623.24 EUR
+2018-12-09 balance Passif:AirFrance:Amex            -623.24 EUR
   source: "pdfamex"
 
 2018-12-10 * "RYANAIR LTD AIRLINE DUBLIN" ""
@@ -5809,7 +5809,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -9.84 EUR
 
-2019-01-09 balance Passif:AirFrance:Amex            -1433.39 EUR
+2019-01-09 balance Passif:AirFrance:Amex           -1433.39 EUR
   source: "pdfamex"
 
 ;2019-01-14 ! "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
@@ -5917,7 +5917,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Culture
   Passif:AirFrance:Amex                               -3.99 EUR
 
-2019-03-10 balance Passif:AirFrance:Amex             -157.71 EUR
+2019-03-10 balance Passif:AirFrance:Amex            -157.71 EUR
   source: "pdfamex"
 
 2019-03-12 * "GOOGLE *GOOGLE PHOTOS G.CO/HELPPAY#" ""
@@ -6396,7 +6396,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Banque:Frais
   Passif:AirFrance:Amex                             -165.00 EUR
 
-2019-07-09 balance Passif:AirFrance:Amex            -2152.49 EUR
+2019-07-09 balance Passif:AirFrance:Amex           -2152.49 EUR
   source: "pdfamex"
 
 2019-08-19 balance  Passif:AirFrance:Amex              0.00 EUR
