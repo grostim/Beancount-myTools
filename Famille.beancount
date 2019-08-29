@@ -8304,10 +8304,10 @@ plugin "beancount.plugins.check_commodity"
   document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
 
-2013-12-09 * "Transfert CEL La Banque Postale " ""
+2013-12-04 * "VIR LA BANQUE POSTALE BX" "Transfert CEL La Banque Postale"
   document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
-  Actif:Boursorama:CELAnna                         10500.00 EUR
+  Actif:Boursorama:CELAnna                         11131.12 EUR
   Equity:Opening-Balances
 
 2013-12-09 * " VIR Transfert CEL LDD " ""
@@ -8325,6 +8325,10 @@ plugin "beancount.plugins.check_commodity"
 
 2014-01-07 balance Actif:Boursorama:CELAnna  731.30 EUR
   document: "2014-02-03 Boursorama.pdf"
+  source: "pdfbourso"
+
+2014-02-04 balance Actif:Boursorama:CELAnna  831.299999999999954525264911353588104248046875 EUR
+  document: "2014-03-03 Boursorama.pdf"
   source: "pdfbourso"
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
