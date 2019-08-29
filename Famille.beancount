@@ -4883,7 +4883,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCAnna
 
 2014-01-02 * " VIR Epargne CEL " ""
-  document: "2014-06-01 Boursorama.pdf"
+  document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
@@ -8301,11 +8301,17 @@ plugin "beancount.plugins.check_commodity"
 ;2004-07-20 pad  Actif:Boursorama:CELAnna  Equity:Opening-Balances
 
 2013-09-25 balance Actif:Boursorama:CELAnna               0 EUR
-  document: "2014-06-01 Boursorama.pdf"
+  document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
 
+2013-12-09 * "Transfert CEL La Banque Postale " ""
+  document: "2014-01-06 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                         10500.00 EUR
+  Equity:Opening-Balances
+
 2013-12-09 * " VIR Transfert CEL LDD " ""
-  document: "2014-06-01 Boursorama.pdf"
+  document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna                        -10500.00 EUR
   Actif:Boursorama:LDDAnna
