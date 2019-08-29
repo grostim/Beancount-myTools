@@ -1,23 +1,23 @@
 2013-09-25 balance Actif:Boursorama:CELAnna                        0.00 EUR
-  document: "2014-06-01 Boursorama.pdf"
+  document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
 
 2013-12-04 * " VIR LA BANQUE POSTALE BX " ""
-  document: "2014-06-01 Boursorama.pdf"
+  document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna  11131.12 EUR
 
 2013-12-09 * " VIR Transfert CEL LDD " ""
-  document: "2014-06-01 Boursorama.pdf"
+  document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna  -10500.00 EUR
 
 2013-12-31 * " *INTERETS " ""
-  document: "2014-06-01 Boursorama.pdf"
+  document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna  0.18 EUR
 
 2014-01-02 * " VIR Epargne CEL " ""
-  document: "2014-06-01 Boursorama.pdf"
+  document: "2014-01-06 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna  100.00 EUR

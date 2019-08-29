@@ -1,8 +1,8 @@
 2014-03-04 balance Actif:Boursorama:CELAnna                        931.30 EUR
-  document: "2014-01-04 Boursorama.pdf"
+  document: "2014-04-01 Boursorama.pdf"
   source: "pdfbourso"
 
 2014-04-01 * "VIR Epargne CEL " ""
-  document: "2014-01-04 Boursorama.pdf"
+  document: "2014-04-01 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna  100.00 EUR
