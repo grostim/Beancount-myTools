@@ -70,7 +70,7 @@ class pdfbourso(importer.ImporterProtocol):
         text = file.convert(pdf_to_text)
         match = re.search("au\s*(\d*/\d*/\d*)", text)
         if match:
-            return parse_datetime(match.group(1)).date()
+            return parse_datetime(match.group(1), , dayfirst="True").date()
 
     def extract(self, file, existing_entries=None):
 
