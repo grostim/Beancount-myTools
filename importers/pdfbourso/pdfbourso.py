@@ -96,15 +96,20 @@ class pdfbourso(importer.ImporterProtocol):
             if self.debug:
                 print(compte)
 
-            control = "SOLDE\s(?:EN\sEUR\s)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
+            control = "SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
             match = re.search(control, text)
             if match:
                 datebalance = parse_datetime(
                     match.group(2), dayfirst="True"
                 ).date() + datetime.timedelta(1)
-                longueur = len(match.group(1)) + len(match.group(3))
+                longueur = (
+                    len(match.group(1))
+                    + len(match.group(3))
+                    + len(match.group(2))
+                    + len(match.group(4))
+                )
                 balance = match.group(4).replace(".", "").replace(",", ".")
-            if longueur < 77:
+            if longueur < 84:
                 # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                 balance = "-" + balance
 
@@ -159,12 +164,12 @@ class pdfbourso(importer.ImporterProtocol):
                     print(ope["montant"])
 
                 # Longueur de l'espace intercalaire
-                longueur = len(chunk[0]) + len(chunk[2])
+                longueur = len(chunk[0]) + len(chunk[1]) + len(chunk[2]) + len(chunk[3])
                 # Si debogage, affichage de l'extraction
                 if self.debug:
                     print(longueur)
 
-                if longueur > 136:
+                if longueur > 149:
                     ope["type"] = "Credit"
                 else:
                     ope["type"] = "Debit"

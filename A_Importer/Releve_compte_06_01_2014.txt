@@ -1,0 +1,48 @@
+                                                                                       Extrait de votre Compte Epargne Logement
+
+
+
+
+                                                                                                                                   1
+
+ GROS ANNA                                                                                GROS ANNA
+ 21 RUE DE BRIOUX                                                                         21 RUE DE BRIOUX
+ 79000 NIORT                                                                              79000 NIORT
+
+
+
+
+Date          Nº de RIB                                            Devise Agence                                         Période                                     Page
+              Banque      Guichet Nº de compte           Clé RIB
+6/01/2014      40618 80268 00030305440                     69       EUR                                                  du   25/09/2013           au   6/01/2014 1
+B.I.C. BOUSFRPPXXX                I.B.A.N. FR76 4061 8802 6800 0303 0544 069                                     MOUVEMENTS EN EUROS
+       Date                                    Libellé                                          Valeur                     Débit                          Crédit
+
+                                                          SOLDE EN EUR          AU :        24/09/2013                                                               0,00
+
+
+ 4/12/2013     VIR LA BANQUE POSTALE BX                                                      4/12/2013                                                     11.131,12
+ 9/12/2013     VIR Transfert CEL LDD                                                         9/12/2013                      10.500,00
+ 2/01/2014     VIR Epargne CEL                                                               2/01/2014                                                             100,00
+ 2/01/2014     *INTERETS                                                                    31/12/2013                                                               0,18
+
+
+
+
+                                                  Nouveau solde en EUR                                                                                         731,30
+                                                  Soit en FRF (1 FRF = 6,55957 EUR)                                                                          4.797,01
+
+                                  Situation de votre Compte Epargne Logement                                                       en EUR
+  Intérêts acquis à        0,75%:                                     87,17       (soit                     571,80 FRF)
+
+  Intérêts acquis à        1,25%:                                   213,98        (soit                  1.403,62 FRF)
+
+  Intérêts acquis à        1,50%:                                   258,81        (soit                  1.697,68 FRF)
+
+  Intérêts acquis à        1,75%:                                     85,67       (soit                     561,96 FRF)
+
+  Droits à prêts déjà utilisés :                                       0,00
+
+                   A réception d'un extrait de compte vous disposez d'un délai d'un mois pour formuler toute réclamation auprès de votre agence.
+                         A défaut d'observation dans ce délai, nous considérons votre silence comme une approbation tacite des comptes.
+                                                                                                                                                                            Mod. 25.91423-31
