@@ -17,7 +17,7 @@ from dateutil.parser import parse as parse_datetime
 from importers.myutils import pdf_to_text
 from beancount.core import amount, data, flags
 from beancount.ingest import importer
-from beancount.core.number import Decimal
+from beancount.core.number import Decimal, D
 
 
 class pdfbourso(importer.ImporterProtocol):
@@ -128,7 +128,7 @@ class pdfbourso(importer.ImporterProtocol):
                     meta,
                     datebalance,
                     self.accountList[compte],
-                    amount.Amount(Decimal(balance), "EUR"),
+                    amount.Amount(D(balance), "EUR"),
                     None,
                     None,
                 )
