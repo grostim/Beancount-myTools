@@ -8376,51 +8376,51 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                             0.18 EUR
   Revenus:Interets
 
-2014-01-07 balance Actif:Boursorama:CELAnna  731.30 EUR
+2014-01-07 balance Actif:Boursorama:CELAnna          731.30 EUR
   document: "2014-02-03 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-02-04 balance Actif:Boursorama:CELAnna  831.30 EUR
+2014-02-04 balance Actif:Boursorama:CELAnna          831.30 EUR
   document: "2014-03-03 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-03-04 balance Actif:Boursorama:CELAnna  931.30 EUR
+2014-03-04 balance Actif:Boursorama:CELAnna          931.30 EUR
   document: "2014-04-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-04-02 balance Actif:Boursorama:CELAnna  1031.30 EUR
+2014-04-02 balance Actif:Boursorama:CELAnna         1031.30 EUR
   document: "2014-05-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-05-03 balance Actif:Boursorama:CELAnna  1131.30 EUR
+2014-05-03 balance Actif:Boursorama:CELAnna         1131.30 EUR
   document: "2014-06-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-06-03 balance Actif:Boursorama:CELAnna  1231.30 EUR
+2014-06-03 balance Actif:Boursorama:CELAnna         1231.30 EUR
   document: "2014-07-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-07-02 balance Actif:Boursorama:CELAnna  1331.30 EUR
+2014-07-02 balance Actif:Boursorama:CELAnna         1331.30 EUR
   document: "2014-08-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-08-02 balance Actif:Boursorama:CELAnna  1431.30 EUR
+2014-08-02 balance Actif:Boursorama:CELAnna         1431.30 EUR
   document: "2014-09-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-09-02 balance Actif:Boursorama:CELAnna  1531.30 EUR
+2014-09-02 balance Actif:Boursorama:CELAnna         1531.30 EUR
   document: "2014-10-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-10-02 balance Actif:Boursorama:CELAnna  1631.30 EUR
+2014-10-02 balance Actif:Boursorama:CELAnna         1631.30 EUR
   document: "2014-11-03 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-11-04 balance Actif:Boursorama:CELAnna  1731.30 EUR
+2014-11-04 balance Actif:Boursorama:CELAnna         1731.30 EUR
   document: "2014-12-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-11-04 balance Actif:Boursorama:CELAnna  1731.30 EUR
+2014-11-04 balance Actif:Boursorama:CELAnna         1731.30 EUR
   document: "2014-12-01 Boursorama.pdf"
   source: "pdfbourso"
 
