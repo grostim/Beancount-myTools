@@ -8275,21 +8275,28 @@ plugin "beancount.plugins.check_commodity"
 
 ** Livrets
 
+*** CEL Tim
 2007-09-07 open Actif:Boursorama:CELTim                     EUR
   account: "00030269844"
 2007-09-08 pad  Actif:Boursorama:CELTim  Equity:Opening-Balances
 2019-08-19 balance  Actif:Boursorama:CELTim         6810.74 EUR
+
+*** LDD Joint
 
 2007-09-07 open Actif:Boursorama:LDDJoint                   EUR
   account: "00020132893"
 2007-09-08 pad  Actif:Boursorama:LDDJoint  Equity:Opening-Balances
 2019-08-19 balance  Actif:Boursorama:LDDJoint         44.16 EUR
 
+***CEL Anna
+
 2004-07-19 open Actif:Boursorama:CELAnna                    EUR
   account: "00030305440"
 ;2004-07-20 pad  Actif:Boursorama:CELAnna  Equity:Opening-Balances
 
-
+2013-09-25 balance Actif:Boursorama:CELAnna               0 EUR
+  document: "2014-06-01 Boursorama.pdf"
+  source: "pdfbourso"
 
 2013-12-09 * " VIR Transfert CEL LDD " ""
   document: "2014-06-01 Boursorama.pdf"
@@ -8303,27 +8310,23 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                             0.18 EUR
   Revenus:Interets
 
-2013-09-25 balance Actif:Boursorama:CELAnna               0 EUR
-  document: "2014-06-01 Boursorama.pdf"
-  source: "pdfbourso"
-
-2014-11-04 balance Actif:Boursorama:CELAnna  1731.299999999999954525264911353588104248046875 EUR
-  document: "2014-01-12 Boursorama.pdf"
-  source: "pdfbourso"
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
 
+*** PEL Anna
 2007-07-20 open Actif:Boursorama:PELAnna                    EUR
   account: "00031305390"
 2007-07-21 pad  Actif:Boursorama:PELAnna  Equity:Opening-Balances
 2019-08-19 balance  Actif:Boursorama:PELAnna        6334.34 EUR
 
+*** LDD Anna
 2007-09-07 open Actif:Boursorama:LDDAnna                    EUR
   account: "00020871896"
 2007-09-08 pad  Actif:Boursorama:LDDAnna  Equity:Opening-Balances
 
 2019-08-19 balance  Actif:Boursorama:LDDAnna         217.16 EUR
 
+*** Livret A Anna
 1980-06-21 open Actif:BanquePostale:LAAnna                  EUR
   account: "00040239557"
 2000-01-01 pad  Actif:BanquePostale:LAAnna  Equity:Opening-Balances
