@@ -8412,15 +8412,15 @@ plugin "beancount.plugins.check_commodity"
   document: "2014-10-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-10-02 balance Actif:Boursorama:CELAnna  1631.299999999999954525264911353588104248046875 EUR
+2014-10-02 balance Actif:Boursorama:CELAnna  1631.30 EUR
   document: "2014-11-03 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-11-04 balance Actif:Boursorama:CELAnna  1731.299999999999954525264911353588104248046875 EUR
+2014-11-04 balance Actif:Boursorama:CELAnna  1731.30 EUR
   document: "2014-12-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-11-04 balance Actif:Boursorama:CELAnna  1731.299999999999954525264911353588104248046875 EUR
+2014-11-04 balance Actif:Boursorama:CELAnna  1731.30 EUR
   document: "2014-12-01 Boursorama.pdf"
   source: "pdfbourso"
 
