@@ -8281,7 +8281,10 @@ plugin "beancount.plugins.check_commodity"
 
 2004-07-19 open Actif:Boursorama:CELAnna                    EUR
   account: "00030305440"
-2004-07-20 pad  Actif:Boursorama:CELAnna  Equity:Opening-Balances
+;2004-07-20 pad  Actif:Boursorama:CELAnna  Equity:Opening-Balances
+
+
+
 2013-12-09 * " VIR Transfert CEL LDD " ""
   document: "2014-06-01 Boursorama.pdf"
   source: "pdfbourso"
@@ -8293,8 +8296,6 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna                             0.18 EUR
   Revenus:Interets
-
-2019-08-19 balance  Actif:Boursorama:CELAnna        3818.69 EUR
 
 2013-09-25 balance Actif:Boursorama:CELAnna               0 EUR
   document: "2014-06-01 Boursorama.pdf"
@@ -8310,6 +8311,7 @@ plugin "beancount.plugins.check_commodity"
 2007-09-07 open Actif:Boursorama:LDDAnna                    EUR
   account: "00020871896"
 2007-09-08 pad  Actif:Boursorama:LDDAnna  Equity:Opening-Balances
+
 2019-08-19 balance  Actif:Boursorama:LDDAnna         217.16 EUR
 
 1980-06-21 open Actif:BanquePostale:LAAnna                  EUR
