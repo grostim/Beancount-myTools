@@ -1,0 +1,93 @@
+2019-03-29 balance Actif:Boursorama:CCAnna                         2511.51 EUR
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+
+2019-04-01 * "VIR Contribution compte commun " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -500.00 EUR
+
+2019-04-01 * "VIR Epargne CEL " "GROS ANNA"
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -100.00 EUR
+
+2019-04-02 * "CARTE 30/03/19 79 KARPE DIEM CB*3946 " ""
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -39.00 EUR
+
+2019-04-04 * "CARTE 31/03/19 ES Zara.com CB*3946 " ""
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -54.84 EUR
+
+2019-04-05 * "CARTE 03/04/19 79 L'ARROSOIR CB*3946 " ""
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -33.00 EUR
+
+2019-04-08 * "PRLV SEPA TRES. HOSPITALIERE SUD DEUX-SE " "Repas restaurant"
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -22.26 EUR
+
+2019-04-08 * "RETRAIT DAB 07/04/19 NIORT CB*3946 " "79"
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -60.00 EUR
+
+2019-04-11 * "PRLV SEPA GENERALI VIE SA " ".136749940/9921/51519425"
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -50.00 EUR
+
+2019-04-11 * "CHQ. N.5886967 " ""
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -96.00 EUR
+
+2019-04-11 * "CARTE 10/04/19 79 DECATHLON 0092 CB*3946 " ""
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -25.00 EUR
+
+2019-04-11 * "CARTE 10/04/19 79 NATUR HOME CB*3946 " ""
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -21.80 EUR
+
+2019-04-15 * "RETRAIT DAB 13/04/19 NIORT CB*3946 " "79"
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -60.00 EUR
+
+2019-04-15 * "CARTE 13/04/19 33 L OLAKETAL CB*3946 " ""
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -21.45 EUR
+
+2019-04-15 * "CARTE 13/04/19 33 AUCHAN SUPER M CB*3946 " ""
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -20.22 EUR
+
+2019-04-16 * "CHQ. N.3013181 " ""
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -46.70 EUR
+
+2019-04-23 * "PRLV SEPA Bouygues Telecom " "BOUYGUES TELECOM"
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -22.99 EUR
+
+2019-04-25 * "VIR SEPA TRESORERIE HOSP DU SUD DEUX SEV " "PAYE DU MOIS 04/19CH NIORT PA"
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  1560.19 EUR
+
+2019-04-26 * "VIR Virement interne depuis COMPTE PERS " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCAnna  -500.00 EUR
