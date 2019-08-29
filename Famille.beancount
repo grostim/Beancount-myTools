@@ -8272,6 +8272,10 @@ plugin "beancount.plugins.check_commodity"
 2004-07-20 pad  Actif:Boursorama:CELAnna  Equity:Opening-Balances
 2019-08-19 balance  Actif:Boursorama:CELAnna        3818.69 EUR
 
+2013-09-25 balance Actif:Boursorama:CELAnna               0 EUR
+  document: "2014-06-01 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
 
 2007-07-20 open Actif:Boursorama:PELAnna                    EUR
