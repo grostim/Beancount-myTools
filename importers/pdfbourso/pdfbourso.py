@@ -12,6 +12,7 @@ __copyright__ = "Copyright (C) 2016  Martin Blais / Mofified in 2019 by Grostim"
 __license__ = "GNU GPLv2"
 
 import re
+import datetime
 from dateutil.parser import parse as parse_datetime
 from importers.myutils import pdf_to_text
 from beancount.core import amount, data, flags
@@ -97,7 +98,7 @@ class pdfbourso(importer.ImporterProtocol):
             control = 'SOLDE\s(?:EN\sEUR\s)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})'
             match = re.search(control, text)
             if match:
-                datebalance = parse_datetime(match.group(2),dayfirst="True").date()
+                datebalance = parse_datetime(match.group(2),dayfirst="True").date() + datetime.timedelta(1)
                 longueur = len(match.group(1))+len(match.group(3))
                 balance = match.group(4).replace(".", '').replace(",", '.')
             if longueur <77:
