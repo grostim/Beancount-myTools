@@ -4882,6 +4882,12 @@ plugin "beancount.plugins.check_commodity"
   Equity:Opening-Balances                          11131.12 EUR
   Actif:Boursorama:CCAnna
 
+2014-01-02 * " VIR Epargne CEL " ""
+  document: "2014-06-01 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                           100.00 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
