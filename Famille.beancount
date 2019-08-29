@@ -4876,6 +4876,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Habillement
   Actif:Boursorama:CCAnna                            -30.05 EUR
 
+2013-12-04 ! " VIR LA BANQUE POSTALE BX " "Transfert depuis CEL LBP"
+  document: "2014-06-01 Boursorama.pdf"
+  source: "pdfbourso"
+  Equity:Opening-Balances                          11131.12 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
