@@ -9077,11 +9077,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           147.78 EUR
   Revenus:Interets
 
-2016-01-01 balance Actif:Boursorama:PELAnna  5911.1899999999995998223312199115753173828125 EUR
+2016-01-01 balance Actif:Boursorama:PELAnna  5911.19 EUR
   document: "2016-01-04 Boursorama.pdf"
   source: "pdfbourso"
 
-2016-12-31 balance Actif:Boursorama:PELAnna  6058.9700000000002546585164964199066162109375 EUR
+2016-12-31 balance Actif:Boursorama:PELAnna  6058.97 EUR
   document: "2017-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9091,7 +9091,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           151.89 EUR
   Revenus:Interets
 
-2017-12-30 balance Actif:Boursorama:PELAnna  6210.8599999999996725819073617458343505859375 EUR
+2017-12-30 balance Actif:Boursorama:PELAnna  6210.86 EUR
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9113,16 +9113,16 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           155.15 EUR
   Revenus:Interets
 
-2019-01-01 balance Actif:Boursorama:PELAnna  6205.8800000000001091393642127513885498046875 EUR
-  document: "2019-01-31 Boursorama.pdf"
-  source: "pdfbourso"
-
 2018-12-31 * "PRELEVEMENT SOCIAUX " ""
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:PELAnna                           -26.69 EUR
   Depenses:Impots:PS
 
+2018-12-31 balance Actif:Boursorama:PELAnna  6205.88 EUR
+  document: "2019-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
 
 *** LDD Anna
