@@ -5146,6 +5146,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
 
+2017-06-21 * "VIR anniversaire " ""
+  document: "2017-06-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                          -300.00 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
