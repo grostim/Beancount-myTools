@@ -8745,3 +8745,7 @@ plugin "beancount.plugins.check_commodity"
 
 
 
+2015-09-02 balance Actif:Boursorama:CELAnna            2100 EUR
+  document: "2015-10-01 Boursorama.pdf"
+  source: "pdfbourso"
+
