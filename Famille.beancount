@@ -8484,6 +8484,10 @@ plugin "beancount.plugins.check_commodity"
 
 2015-03-03 balance Actif:Boursorama:CELAnna  2139.1199999999998908606357872486114501953125 EUR
   document: "2015-04-07 Boursorama.pdf"
+2015-05-05 balance Actif:Boursorama:CELAnna  2339.1199999999998908606357872486114501953125 EUR
+  document: "2015-06-01 Boursorama.pdf"
+  source: "pdfbourso"
+
   source: "pdfbourso"
 
 2015-05-05 balance Actif:Boursorama:CELAnna  2339.1199999999998908606357872486114501953125 EUR
