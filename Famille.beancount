@@ -8985,6 +8985,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-12-16 Boursorama.pdf"
   source: "pdfbourso"
 
+2013-12-31 * "INT OU AGIOS " ""
+  document: "2014-01-02 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:PELAnna                            11.32 EUR
+  Revenus:Interets
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
 
 *** LDD Anna
