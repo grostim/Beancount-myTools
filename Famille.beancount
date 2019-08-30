@@ -8704,6 +8704,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                             3.58 EUR
   Revenus:Interets
 
+2016-12-31 * "*PRELEVEMENT FISCAL " ""
+  document: "2017-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                            -0.55 EUR
+  Depenses:Impots:PS
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
 
 *** PEL Anna
