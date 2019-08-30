@@ -9113,6 +9113,10 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           155.15 EUR
   Revenus:Interets
 
+2019-01-01 balance Actif:Boursorama:PELAnna  6205.8800000000001091393642127513885498046875 EUR
+  document: "2019-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+
 2018-12-31 * "PRELEVEMENT SOCIAUX " ""
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
