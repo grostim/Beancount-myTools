@@ -8424,6 +8424,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2014-12-01 Boursorama.pdf"
   source: "pdfbourso"
 
+2014-12-31 * "*INTERETS " ""
+  document: "2015-01-02 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                             7.82 EUR
+  Revenus:Interets
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
 
 *** PEL Anna
