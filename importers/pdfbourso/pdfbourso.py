@@ -169,7 +169,7 @@ class pdfbourso(importer.ImporterProtocol):
                 if self.debug:
                     print(longueur)
 
-                if longueur > 149:
+                if longueur > 148:
                     ope["type"] = "Credit"
                 else:
                     ope["type"] = "Debit"

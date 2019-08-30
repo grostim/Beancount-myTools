@@ -18,6 +18,7 @@ ACCOUNTLIST = {
     "4979********1974": "Passif:Boursorama:CBTim",
     "xxxx-xxxxxx-72001": "Passif:AirFrance:Amex",
     "00030305440": "Actif:Boursorama:CELAnna",
+    "00031305390": "Actif:Boursorama:PELAnna",
 }
 
 IMPORTER = pdfbourso.pdfbourso(ACCOUNTLIST)
