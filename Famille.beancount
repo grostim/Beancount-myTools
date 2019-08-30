@@ -8749,3 +8749,8 @@ plugin "beancount.plugins.check_commodity"
   document: "2015-10-01 Boursorama.pdf"
   source: "pdfbourso"
 
+2015-10-01 * "VIR Epargne CEL " ""
+  document: "2015-10-01 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                           100.00 EUR
+
