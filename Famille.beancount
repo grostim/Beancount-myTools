@@ -5014,14 +5014,14 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
 
-2015-11-02 * "VIR Epargne CEL " ""
-  document: "2015-11-02 Boursorama.pdf"
+2015-10-01 * "VIR Epargne CEL " ""
+  document: "2015-10-01 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
 
-2015-12-01 * "VIR Epargne CEL " ""
-  document: "2015-12-01 Boursorama.pdf"
+2015-11-02 * "VIR Epargne CEL " ""
+  document: "2015-11-02 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
@@ -8548,12 +8548,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2015-09-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-10-02 balance Actif:Boursorama:CELAnna            2200 EUR
-  document: "2015-11-02 Boursorama.pdf"
-2015-11-03 balance Actif:Boursorama:CELAnna            2300 EUR
-  document: "2015-12-01 Boursorama.pdf"
+2015-09-02 balance Actif:Boursorama:CELAnna            2100 EUR
+  document: "2015-10-01 Boursorama.pdf"
   source: "pdfbourso"
 
+2015-10-02 balance Actif:Boursorama:CELAnna            2200 EUR
+  document: "2015-11-02 Boursorama.pdf"
   source: "pdfbourso"
 
 2015-11-03 balance Actif:Boursorama:CELAnna            2300 EUR
@@ -8775,12 +8775,4 @@ plugin "beancount.plugins.check_commodity"
 
 
 
-2015-09-02 balance Actif:Boursorama:CELAnna            2100 EUR
-  document: "2015-10-01 Boursorama.pdf"
-  source: "pdfbourso"
-
-2015-10-01 * "VIR Epargne CEL " ""
-  document: "2015-10-01 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Boursorama:CELAnna                           100.00 EUR
 
