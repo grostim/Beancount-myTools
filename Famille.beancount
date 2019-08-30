@@ -3744,7 +3744,7 @@ plugin "beancount.plugins.check_commodity"
 2018-11-29 * "VIR placement prime " "GROS/ANNA"
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
-  Actif:Boursorama:CELAnna
+  Actif:Boursorama:LDDAnna
   Actif:Boursorama:CCAnna                           -200.00 EUR
 
 2018-11-29 * "RETRAIT DAB 28112018 NIORT CB*3946 " "79"
@@ -8915,6 +8915,12 @@ plugin "beancount.plugins.check_commodity"
 2018-12-01 balance Actif:Boursorama:CELAnna  2908.70 EUR
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
+
+2018-12-31 * "*INTER.BRUTS " ""
+  document: "2019-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                            12.06 EUR
+  Revenus:Interets
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
 
