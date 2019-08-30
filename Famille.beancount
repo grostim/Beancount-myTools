@@ -8544,6 +8544,10 @@ plugin "beancount.plugins.check_commodity"
 
 2015-10-02 balance Actif:Boursorama:CELAnna            2200 EUR
   document: "2015-11-02 Boursorama.pdf"
+2015-11-03 balance Actif:Boursorama:CELAnna            2300 EUR
+  document: "2015-12-01 Boursorama.pdf"
+  source: "pdfbourso"
+
   source: "pdfbourso"
 
 2015-11-03 balance Actif:Boursorama:CELAnna            2300 EUR
