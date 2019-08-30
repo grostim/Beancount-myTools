@@ -8732,39 +8732,39 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                             7.82 EUR
   Revenus:Interets
 
-2014-12-31 balance Actif:Boursorama:CELAnna  1831.30 EUR
+2014-12-31 balance Actif:Boursorama:CELAnna         1831.30 EUR
   document: "2015-01-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-01-03 balance Actif:Boursorama:CELAnna  1939.12 EUR
+2015-01-03 balance Actif:Boursorama:CELAnna         1939.12 EUR
   document: "2015-02-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-02-03 balance Actif:Boursorama:CELAnna  2039.12 EUR
+2015-02-03 balance Actif:Boursorama:CELAnna         2039.12 EUR
   document: "2015-03-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-03-03 balance Actif:Boursorama:CELAnna  2139.12 EUR
+2015-03-03 balance Actif:Boursorama:CELAnna         2139.12 EUR
   document: "2015-04-07 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-04-08 balance Actif:Boursorama:CELAnna  2239.12 EUR
+2015-04-08 balance Actif:Boursorama:CELAnna         2239.12 EUR
   document: "2015-05-04 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-05-05 balance Actif:Boursorama:CELAnna  2339.12 EUR
+2015-05-05 balance Actif:Boursorama:CELAnna         2339.12 EUR
   document: "2015-06-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-06-02 balance Actif:Boursorama:CELAnna  2439.12 EUR
+2015-06-02 balance Actif:Boursorama:CELAnna         2439.12 EUR
   document: "2015-07-01 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-07-02 balance Actif:Boursorama:CELAnna  2539.12 EUR
+2015-07-02 balance Actif:Boursorama:CELAnna         2539.12 EUR
   document: "2015-08-03 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-08-04 balance Actif:Boursorama:CELAnna  2639.12 EUR
+2015-08-04 balance Actif:Boursorama:CELAnna         2639.12 EUR
   document: "2015-08-10 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8800,7 +8800,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                            -2.18 EUR
   Depenses:Impots:PS
 
-2016-01-05 balance Actif:Boursorama:CELAnna  2511.88 EUR
+2016-01-05 balance Actif:Boursorama:CELAnna         2511.88 EUR
   document: "2016-02-29 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8856,51 +8856,51 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                            -0.55 EUR
   Depenses:Impots:PS
 
-2017-02-01 balance Actif:Boursorama:CELAnna  1003.03 EUR
+2017-02-01 balance Actif:Boursorama:CELAnna         1003.03 EUR
   document: "2017-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-03-01 balance Actif:Boursorama:CELAnna  1103.03 EUR
+2017-03-01 balance Actif:Boursorama:CELAnna         1103.03 EUR
   document: "2017-03-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-04-01 balance Actif:Boursorama:CELAnna  1203.03 EUR
+2017-04-01 balance Actif:Boursorama:CELAnna         1203.03 EUR
   document: "2017-04-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-04-29 balance Actif:Boursorama:CELAnna  1303.03 EUR
+2017-04-29 balance Actif:Boursorama:CELAnna         1303.03 EUR
   document: "2017-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-06-01 balance Actif:Boursorama:CELAnna  1403.03 EUR
+2017-06-01 balance Actif:Boursorama:CELAnna         1403.03 EUR
   document: "2017-06-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-07-01 balance Actif:Boursorama:CELAnna  1203.03 EUR
+2017-07-01 balance Actif:Boursorama:CELAnna         1203.03 EUR
   document: "2017-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-08-01 balance Actif:Boursorama:CELAnna  1303.03 EUR
+2017-08-01 balance Actif:Boursorama:CELAnna         1303.03 EUR
   document: "2017-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-09-01 balance Actif:Boursorama:CELAnna  1403.03 EUR
+2017-09-01 balance Actif:Boursorama:CELAnna         1403.03 EUR
   document: "2017-09-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-09-30 balance Actif:Boursorama:CELAnna  1503.03 EUR
+2017-09-30 balance Actif:Boursorama:CELAnna         1503.03 EUR
   document: "2017-10-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-11-01 balance Actif:Boursorama:CELAnna  1603.03 EUR
+2017-11-01 balance Actif:Boursorama:CELAnna         1603.03 EUR
   document: "2017-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-12-01 balance Actif:Boursorama:CELAnna  1703.03 EUR
+2017-12-01 balance Actif:Boursorama:CELAnna         1703.03 EUR
   document: "2017-12-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-12-30 balance Actif:Boursorama:CELAnna  1803.03 EUR
+2017-12-30 balance Actif:Boursorama:CELAnna         1803.03 EUR
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8916,47 +8916,47 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                             6.71 EUR
   Revenus:Interets
 
-2018-02-01 balance Actif:Boursorama:CELAnna  1908.70 EUR
+2018-02-01 balance Actif:Boursorama:CELAnna         1908.70 EUR
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-03-01 balance Actif:Boursorama:CELAnna  2008.70 EUR
+2018-03-01 balance Actif:Boursorama:CELAnna         2008.70 EUR
   document: "2018-03-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-03-30 balance Actif:Boursorama:CELAnna  2108.70 EUR
+2018-03-30 balance Actif:Boursorama:CELAnna         2108.70 EUR
   document: "2018-04-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-05-01 balance Actif:Boursorama:CELAnna  2208.70 EUR
+2018-05-01 balance Actif:Boursorama:CELAnna         2208.70 EUR
   document: "2018-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-06-01 balance Actif:Boursorama:CELAnna  2308.70 EUR
+2018-06-01 balance Actif:Boursorama:CELAnna         2308.70 EUR
   document: "2018-06-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-06-30 balance Actif:Boursorama:CELAnna  2408.70 EUR
+2018-06-30 balance Actif:Boursorama:CELAnna         2408.70 EUR
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-08-01 balance Actif:Boursorama:CELAnna  2508.70 EUR
+2018-08-01 balance Actif:Boursorama:CELAnna         2508.70 EUR
   document: "2018-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-09-01 balance Actif:Boursorama:CELAnna  2608.70 EUR
+2018-09-01 balance Actif:Boursorama:CELAnna         2608.70 EUR
   document: "2018-09-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-09-29 balance Actif:Boursorama:CELAnna  2708.70 EUR
+2018-09-29 balance Actif:Boursorama:CELAnna         2708.70 EUR
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-11-01 balance Actif:Boursorama:CELAnna  2808.70 EUR
+2018-11-01 balance Actif:Boursorama:CELAnna         2808.70 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-12-01 balance Actif:Boursorama:CELAnna  2908.70 EUR
+2018-12-01 balance Actif:Boursorama:CELAnna         2908.70 EUR
   document: "2018-12-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8972,31 +8972,31 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                            -2.07 EUR
   Depenses:Impots:PS
 
-2018-12-31 balance Actif:Boursorama:CELAnna  3008.70 EUR
+2018-12-31 balance Actif:Boursorama:CELAnna         3008.70 EUR
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-02-01 balance Actif:Boursorama:CELAnna  3118.70 EUR
+2019-02-01 balance Actif:Boursorama:CELAnna         3118.70 EUR
   document: "2019-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-03-01 balance Actif:Boursorama:CELAnna  3218.70 EUR
+2019-03-01 balance Actif:Boursorama:CELAnna         3218.70 EUR
   document: "2019-03-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-03-30 balance Actif:Boursorama:CELAnna  3318.70 EUR
+2019-03-30 balance Actif:Boursorama:CELAnna         3318.70 EUR
   document: "2019-04-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-05-01 balance Actif:Boursorama:CELAnna  3418.70 EUR
+2019-05-01 balance Actif:Boursorama:CELAnna         3418.70 EUR
   document: "2019-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-06-01 balance Actif:Boursorama:CELAnna  3518.70 EUR
+2019-06-01 balance Actif:Boursorama:CELAnna         3518.70 EUR
   document: "2019-06-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-06-29 balance Actif:Boursorama:CELAnna  3618.70 EUR
+2019-06-29 balance Actif:Boursorama:CELAnna         3618.70 EUR
   document: "2019-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9006,8 +9006,6 @@ plugin "beancount.plugins.check_commodity"
 2007-07-20 open Actif:Boursorama:PELAnna                    EUR
   account: "00031305390"
 ;2007-07-21 pad  Actif:Boursorama:PELAnna  Equity:Opening-Balances
-2019-08-19 balance  Actif:Boursorama:PELAnna        6334.34 EUR
-
 
 2013-09-25 balance Actif:Boursorama:PELAnna               0 EUR
   document: "2013-12-05 Boursorama.pdf"
@@ -9019,7 +9017,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                          5442.37 EUR
   Equity:Opening-Balances
 
-2013-12-06 balance Actif:Boursorama:PELAnna  5442.37 EUR
+2013-12-06 balance Actif:Boursorama:PELAnna         5442.37 EUR
   document: "2013-12-16 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9029,35 +9027,35 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                            11.32 EUR
   Revenus:Interets
 
-2013-12-31 balance Actif:Boursorama:PELAnna  5487.37 EUR
+2013-12-31 balance Actif:Boursorama:PELAnna         5487.37 EUR
   document: "2014-01-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-01-03 balance Actif:Boursorama:PELAnna  5498.69 EUR
+2014-01-03 balance Actif:Boursorama:PELAnna         5498.69 EUR
   document: "2014-01-14 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-01-15 balance Actif:Boursorama:PELAnna  5543.69 EUR
+2014-01-15 balance Actif:Boursorama:PELAnna         5543.69 EUR
   document: "2014-02-14 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-02-15 balance Actif:Boursorama:PELAnna  5588.69 EUR
+2014-02-15 balance Actif:Boursorama:PELAnna         5588.69 EUR
   document: "2014-03-14 Boursorama.pdf"
   source: "pdfbourso"
   
-2014-03-15 balance Actif:Boursorama:PELAnna  5633.69 EUR
+2014-03-15 balance Actif:Boursorama:PELAnna         5633.69 EUR
   document: "2014-04-14 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-04-15 balance Actif:Boursorama:PELAnna  5678.69 EUR
+2014-04-15 balance Actif:Boursorama:PELAnna         5678.69 EUR
   document: "2014-05-14 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-05-15 balance Actif:Boursorama:PELAnna  5723.69 EUR
+2014-05-15 balance Actif:Boursorama:PELAnna         5723.69 EUR
   document: "2014-06-16 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-05-15 balance Actif:Boursorama:PELAnna  5723.69 EUR
+2014-05-15 balance Actif:Boursorama:PELAnna         5723.69 EUR
   document: "2014-06-16 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9067,7 +9065,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           142.50 EUR
   Revenus:Interets
 
-2014-12-31 balance Actif:Boursorama:PELAnna  5768.69 EUR
+2014-12-31 balance Actif:Boursorama:PELAnna         5768.69 EUR
   document: "2015-01-02 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9077,11 +9075,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           147.78 EUR
   Revenus:Interets
 
-2015-12-31 balance Actif:Boursorama:PELAnna  5911.19 EUR
+2015-12-31 balance Actif:Boursorama:PELAnna         5911.19 EUR
   document: "2016-01-04 Boursorama.pdf"
   source: "pdfbourso"
 
-2016-12-31 balance Actif:Boursorama:PELAnna  6058.97 EUR
+2016-12-31 balance Actif:Boursorama:PELAnna         6058.97 EUR
   document: "2017-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9091,7 +9089,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           151.89 EUR
   Revenus:Interets
 
-2017-12-30 balance Actif:Boursorama:PELAnna  6210.86 EUR
+2017-12-30 balance Actif:Boursorama:PELAnna         6210.86 EUR
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9119,10 +9117,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           -26.69 EUR
   Depenses:Impots:PS
 
-2018-12-31 balance Actif:Boursorama:PELAnna  6205.88 EUR
+2018-12-31 balance Actif:Boursorama:PELAnna         6205.88 EUR
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
-  
+
+2019-08-19 balance  Actif:Boursorama:PELAnna        6334.34 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
 
 *** LDD Anna
