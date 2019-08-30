@@ -8612,6 +8612,10 @@ plugin "beancount.plugins.check_commodity"
 
 2016-03-01 balance Actif:Boursorama:CELAnna             300 EUR
   document: "2016-03-31 Boursorama.pdf"
+2016-04-30 balance Actif:Boursorama:CELAnna             500 EUR
+  document: "2016-05-31 Boursorama.pdf"
+  source: "pdfbourso"
+
   source: "pdfbourso"
 
 2016-04-01 balance Actif:Boursorama:CELAnna             400 EUR
