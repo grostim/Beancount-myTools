@@ -8618,7 +8618,7 @@ plugin "beancount.plugins.check_commodity"
 2007-09-08 pad  Actif:Boursorama:LDDJoint  Equity:Opening-Balances
 2019-08-19 balance  Actif:Boursorama:LDDJoint         44.16 EUR
 
-***CEL Anna
+*** CEL Anna
 
 2004-07-19 open Actif:Boursorama:CELAnna                    EUR
   account: "00030305440"
@@ -8997,11 +8997,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                            11.32 EUR
   Revenus:Interets
 
-2014-01-01 balance Actif:Boursorama:PELAnna  5487.3699999999998908606357872486114501953125 EUR
+2014-01-01 balance Actif:Boursorama:PELAnna  5487.37 EUR
   document: "2014-01-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-01-03 balance Actif:Boursorama:PELAnna  5498.6899999999995998223312199115753173828125 EUR
+2014-01-03 balance Actif:Boursorama:PELAnna  5498.69 EUR
   document: "2014-01-14 Boursorama.pdf"
   source: "pdfbourso"
 
