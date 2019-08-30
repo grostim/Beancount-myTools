@@ -8969,6 +8969,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-12-05 Boursorama.pdf"
   source: "pdfbourso"
 
+2013-11-28 * "VIR LBP BORDEAUX " ""
+  document: "2013-12-05 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:PELAnna                          5442.37 EUR
+  Equity:Opening-Balances
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
 
 *** LDD Anna
