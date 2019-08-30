@@ -8638,6 +8638,10 @@ plugin "beancount.plugins.check_commodity"
   document: "2016-06-30 Boursorama.pdf"
   source: "pdfbourso"
 
+2016-07-01 balance Actif:Boursorama:CELAnna             700 EUR
+  document: "2016-07-29 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
 
 *** PEL Anna
