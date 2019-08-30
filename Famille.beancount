@@ -5038,6 +5038,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
 
+2016-02-15 * "VIR interne " ""
+  document: "2016-02-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                         -2311.88 EUR
+  Actif:Boursorama:CCAnna
+
 2016-02-01 * "VIR Epargne CEL " ""
   document: "2016-02-29 Boursorama.pdf"
   source: "pdfbourso"
