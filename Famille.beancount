@@ -8981,7 +8981,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                          5442.37 EUR
   Equity:Opening-Balances
 
-2013-12-06 balance Actif:Boursorama:PELAnna  5442.3699999999998908606357872486114501953125 EUR
+2013-12-06 balance Actif:Boursorama:PELAnna  5442.37 EUR
   document: "2013-12-16 Boursorama.pdf"
   source: "pdfbourso"
 
