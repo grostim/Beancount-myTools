@@ -9006,7 +9006,7 @@ plugin "beancount.plugins.check_commodity"
 2007-07-20 open Actif:Boursorama:PELAnna                    EUR
   account: "00031305390"
 ;2007-07-21 pad  Actif:Boursorama:PELAnna  Equity:Opening-Balances
-;2019-08-19 balance  Actif:Boursorama:PELAnna        6334.34 EUR
+2019-08-19 balance  Actif:Boursorama:PELAnna        6334.34 EUR
 
 
 2013-09-25 balance Actif:Boursorama:PELAnna               0 EUR
@@ -9077,7 +9077,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           147.78 EUR
   Revenus:Interets
 
-2016-01-01 balance Actif:Boursorama:PELAnna  5911.19 EUR
+2015-12-31 balance Actif:Boursorama:PELAnna  5911.19 EUR
   document: "2016-01-04 Boursorama.pdf"
   source: "pdfbourso"
 
