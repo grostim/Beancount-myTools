@@ -8997,12 +8997,16 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                            11.32 EUR
   Revenus:Interets
 
-2014-01-01 balance Actif:Boursorama:PELAnna  5487.37 EUR
+2013-12-31 balance Actif:Boursorama:PELAnna  5487.37 EUR
   document: "2014-01-02 Boursorama.pdf"
   source: "pdfbourso"
 
 2014-01-03 balance Actif:Boursorama:PELAnna  5498.69 EUR
   document: "2014-01-14 Boursorama.pdf"
+  source: "pdfbourso"
+
+2014-01-15 balance Actif:Boursorama:PELAnna  5543.6899999999995998223312199115753173828125 EUR
+  document: "2014-02-14 Boursorama.pdf"
   source: "pdfbourso"
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
