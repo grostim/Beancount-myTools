@@ -8760,15 +8760,15 @@ plugin "beancount.plugins.check_commodity"
   document: "2017-03-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-04-01 balance Actif:Boursorama:CELAnna  1203.029999999999972715158946812152862548828125 EUR
+2017-04-01 balance Actif:Boursorama:CELAnna  1203.03 EUR
   document: "2017-04-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-04-29 balance Actif:Boursorama:CELAnna  1303.029999999999972715158946812152862548828125 EUR
+2017-04-29 balance Actif:Boursorama:CELAnna  1303.03 EUR
   document: "2017-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-06-01 balance Actif:Boursorama:CELAnna  1403.029999999999972715158946812152862548828125 EUR
+2017-06-01 balance Actif:Boursorama:CELAnna  1403.03 EUR
   document: "2017-06-30 Boursorama.pdf"
   source: "pdfbourso"
 
