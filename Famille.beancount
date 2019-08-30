@@ -5122,6 +5122,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
 
+2017-03-01 * "VIR Epargne CEL " ""
+  document: "2017-03-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                           100.00 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
