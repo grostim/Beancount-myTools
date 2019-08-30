@@ -8872,6 +8872,7 @@ plugin "beancount.plugins.check_commodity"
 1981-07-02 open Depenses:Impots:IR                          EUR
 1981-07-02 open Depenses:Impots:TH                          EUR
 1981-07-02 open Depenses:Impots:TF                          EUR
+1981-07-02 open Depenses:Impots:PS                          EUR
 1981-07-02 open Depenses:Loisirs:Billeterie                 EUR
 1981-07-02 open Depenses:Loisirs:Culture                    EUR
 1981-07-02 open Depenses:Loisirs:Couture                    EUR
