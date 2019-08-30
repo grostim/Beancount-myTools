@@ -8784,11 +8784,11 @@ plugin "beancount.plugins.check_commodity"
   document: "2017-06-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-07-01 balance Actif:Boursorama:CELAnna  1203.029999999999972715158946812152862548828125 EUR
+2017-07-01 balance Actif:Boursorama:CELAnna  1203.03 EUR
   document: "2017-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-08-01 balance Actif:Boursorama:CELAnna  1303.029999999999972715158946812152862548828125 EUR
+2017-08-01 balance Actif:Boursorama:CELAnna  1303.03 EUR
   document: "2017-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
