@@ -8886,6 +8886,10 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-06-29 Boursorama.pdf"
   source: "pdfbourso"
 
+2018-06-30 balance Actif:Boursorama:CELAnna  2408.6999999999998181010596454143524169921875 EUR
+  document: "2018-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
 
 *** PEL Anna
