@@ -5074,6 +5074,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
 
+2016-07-22 * "VIR complement decouvert " ""
+  document: "2016-07-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELAnna                          -300.00 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
