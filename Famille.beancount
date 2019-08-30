@@ -8964,6 +8964,9 @@ plugin "beancount.plugins.check_commodity"
 2007-07-21 pad  Actif:Boursorama:PELAnna  Equity:Opening-Balances
 2019-08-19 balance  Actif:Boursorama:PELAnna        6334.34 EUR
 
+
+1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
+
 *** LDD Anna
 2007-09-07 open Actif:Boursorama:LDDAnna                    EUR
   account: "00020871896"
