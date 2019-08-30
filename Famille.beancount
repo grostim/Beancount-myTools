@@ -1869,11 +1869,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCJoint
   Actif:Boursorama:CCAnna                           -500.00 EUR
 
-2018-01-02 * "VIR Epargne CEL " "GROS ANNA"
-  document: "2018-01-31 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Boursorama:CELAnna
-  Actif:Boursorama:CCAnna                           -100.00 EUR
+;2018-01-02 * "VIR Epargne CEL " "GROS ANNA"
+;  document: "2018-01-31 Boursorama.pdf"
+;  source: "pdfbourso"
+;  Actif:Boursorama:CELAnna
+;  Actif:Boursorama:CCAnna                           -100.00 EUR
 
 2018-01-03 * "PAIEMENT CARTE 29122017 79 CHIC DEPOT " ""
   document: "2018-01-31 Boursorama.pdf"
@@ -5182,11 +5182,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
 
-2017-12-01 * "VIR Epargne CEL " ""
-  document: "2017-12-29 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Boursorama:CELAnna                           100.00 EUR
-  Actif:Boursorama:CCAnna
+;2017-12-01 * "VIR Epargne CEL " ""
+;  document: "2017-12-29 Boursorama.pdf"
+;  source: "pdfbourso"
+;  Actif:Boursorama:CELAnna                           100.00 EUR
+;  Actif:Boursorama:CCAnna
 
 2017-12-01 * "VIR Epargne CEL " ""
   document: "2017-12-29 Boursorama.pdf"
@@ -5200,11 +5200,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                           100.00 EUR
   Actif:Boursorama:CCAnna
 
-2018-02-01 * "VIR Epargne CEL " ""
-  document: "2018-02-28 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Boursorama:CELAnna                           100.00 EUR
-  Actif:Boursorama:CCAnna
+;2018-02-01 * "VIR Epargne CEL " ""
+;  document: "2018-02-28 Boursorama.pdf"
+;  source: "pdfbourso"
+;  Actif:Boursorama:CELAnna                           100.00 EUR
+;  Actif:Boursorama:CCAnna
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
@@ -8850,7 +8850,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2017-12-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-12-30 balance Actif:Boursorama:CELAnna  1803.029999999999972715158946812152862548828125 EUR
+2017-12-30 balance Actif:Boursorama:CELAnna  1803.03 EUR
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
