@@ -8962,7 +8962,7 @@ plugin "beancount.plugins.check_commodity"
 2007-07-20 open Actif:Boursorama:PELAnna                    EUR
   account: "00031305390"
 ;2007-07-21 pad  Actif:Boursorama:PELAnna  Equity:Opening-Balances
-2019-08-19 balance  Actif:Boursorama:PELAnna        6334.34 EUR
+;2019-08-19 balance  Actif:Boursorama:PELAnna        6334.34 EUR
 
 
 2013-09-25 balance Actif:Boursorama:PELAnna               0 EUR
