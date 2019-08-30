@@ -8936,27 +8936,23 @@ plugin "beancount.plugins.check_commodity"
   document: "2019-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-02-01 balance Actif:Boursorama:CELAnna  3118.69000000000005456968210637569427490234375 EUR
-  document: "2019-02-28 Boursorama.pdf"
-  source: "pdfbourso"
-
-2019-03-30 balance Actif:Boursorama:CELAnna  3318.69000000000005456968210637569427490234375 EUR
-  document: "2019-04-30 Boursorama.pdf"
-  source: "pdfbourso"
-
-2019-03-01 balance Actif:Boursorama:CELAnna  3218.69000000000005456968210637569427490234375 EUR
+2019-03-01 balance Actif:Boursorama:CELAnna  3218.70 EUR
   document: "2019-03-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-05-01 balance Actif:Boursorama:CELAnna  3418.69000000000005456968210637569427490234375 EUR
+2019-03-30 balance Actif:Boursorama:CELAnna  3318.70 EUR
+  document: "2019-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+
+2019-05-01 balance Actif:Boursorama:CELAnna  3418.70 EUR
   document: "2019-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-06-01 balance Actif:Boursorama:CELAnna  3518.69000000000005456968210637569427490234375 EUR
+2019-06-01 balance Actif:Boursorama:CELAnna  3518.70 EUR
   document: "2019-06-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-06-29 balance Actif:Boursorama:CELAnna  3618.69000000000005456968210637569427490234375 EUR
+2019-06-29 balance Actif:Boursorama:CELAnna  3618.70 EUR
   document: "2019-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
