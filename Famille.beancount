@@ -5212,6 +5212,12 @@ plugin "beancount.plugins.check_commodity"
 ;  Actif:Boursorama:CELAnna                           100.00 EUR
 ;  Actif:Boursorama:CCAnna
 
+2013-12-16 * "VIR GROS ANNA " ""
+  document: "2013-12-16 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:PELAnna                            45.00 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
