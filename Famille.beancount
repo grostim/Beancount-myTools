@@ -8820,25 +8820,25 @@ plugin "beancount.plugins.check_commodity"
 
 2017-08-01 balance Actif:Boursorama:CELAnna  1303.03 EUR
   document: "2017-08-31 Boursorama.pdf"
-2017-09-30 balance Actif:Boursorama:CELAnna  1503.029999999999972715158946812152862548828125 EUR
-  document: "2017-10-31 Boursorama.pdf"
   source: "pdfbourso"
 
-  source: "pdfbourso"
-
-2017-09-01 balance Actif:Boursorama:CELAnna  1403.029999999999972715158946812152862548828125 EUR
+2017-09-01 balance Actif:Boursorama:CELAnna  1403.03 EUR
   document: "2017-09-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-11-01 balance Actif:Boursorama:CELAnna  1603.029999999999972715158946812152862548828125 EUR
+2017-09-30 balance Actif:Boursorama:CELAnna  1503.03 EUR
+  document: "2017-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+
+2017-11-01 balance Actif:Boursorama:CELAnna  1603.03 EUR
   document: "2017-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-12-01 balance Actif:Boursorama:CELAnna  1703.029999999999972715158946812152862548828125 EUR
+2017-12-01 balance Actif:Boursorama:CELAnna  1703.03 EUR
   document: "2017-12-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-12-01 balance Actif:Boursorama:CELAnna  1703.029999999999972715158946812152862548828125 EUR
+2017-12-01 balance Actif:Boursorama:CELAnna  1703.03 EUR
   document: "2017-12-29 Boursorama.pdf"
   source: "pdfbourso"
 
