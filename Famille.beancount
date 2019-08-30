@@ -8584,7 +8584,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                            14.06 EUR
   Revenus:Interets
 
-2016-01-01 balance Actif:Boursorama:CELAnna            2400 EUR
+2015-12-31 balance Actif:Boursorama:CELAnna            2400 EUR
   document: "2016-01-04 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8594,8 +8594,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                            -2.18 EUR
   Depenses:Impots:TH
 
-2016-01-05 balance Actif:Boursorama:CELAnna  2511.8800000000001091393642127513885498046875 EUR
+2016-01-05 balance Actif:Boursorama:CELAnna  2511.88 EUR
   document: "2016-02-29 Boursorama.pdf"
+  source: "pdfbourso"
+
+2016-03-01 balance Actif:Boursorama:CELAnna             300 EUR
+  document: "2016-03-31 Boursorama.pdf"
   source: "pdfbourso"
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
