@@ -8480,23 +8480,19 @@ plugin "beancount.plugins.check_commodity"
   document: "2015-02-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-02-03 balance Actif:Boursorama:CELAnna  2039.1199999999998908606357872486114501953125 EUR
+2015-02-03 balance Actif:Boursorama:CELAnna  2039.12 EUR
   document: "2015-03-02 Boursorama.pdf"
-2015-04-08 balance Actif:Boursorama:CELAnna  2239.1199999999998908606357872486114501953125 EUR
+  source: "pdfbourso"
+
+2015-03-03 balance Actif:Boursorama:CELAnna  2139.12 EUR
+  document: "2015-04-07 Boursorama.pdf"
+  source: "pdfbourso"
+
+2015-04-08 balance Actif:Boursorama:CELAnna  2239.12 EUR
   document: "2015-05-04 Boursorama.pdf"
   source: "pdfbourso"
 
-  source: "pdfbourso"
-
-2015-03-03 balance Actif:Boursorama:CELAnna  2139.1199999999998908606357872486114501953125 EUR
-  document: "2015-04-07 Boursorama.pdf"
-2015-05-05 balance Actif:Boursorama:CELAnna  2339.1199999999998908606357872486114501953125 EUR
-  document: "2015-06-01 Boursorama.pdf"
-  source: "pdfbourso"
-
-  source: "pdfbourso"
-
-2015-05-05 balance Actif:Boursorama:CELAnna  2339.1199999999998908606357872486114501953125 EUR
+2015-05-05 balance Actif:Boursorama:CELAnna  2339.12 EUR
   document: "2015-06-01 Boursorama.pdf"
   source: "pdfbourso"
 
