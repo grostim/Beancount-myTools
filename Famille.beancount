@@ -9011,7 +9011,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2014-01-14 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-01-15 balance Actif:Boursorama:PELAnna  5543.6899999999995998223312199115753173828125 EUR
+2014-01-15 balance Actif:Boursorama:PELAnna  5543.69 EUR
   document: "2014-02-14 Boursorama.pdf"
   source: "pdfbourso"
 
