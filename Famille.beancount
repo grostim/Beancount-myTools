@@ -8566,6 +8566,10 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                            14.06 EUR
   Revenus:Interets
 
+2016-01-01 balance Actif:Boursorama:CELAnna            2400 EUR
+  document: "2016-01-04 Boursorama.pdf"
+  source: "pdfbourso"
+
 2015-12-31 ! "*PRELEVEMENT FISCAL " ""
   document: "2016-01-04 Boursorama.pdf"
   source: "pdfbourso"
