@@ -8866,7 +8866,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                             6.71 EUR
   Revenus:Interets
 
-2018-02-01 balance Actif:Boursorama:CELAnna  1908.700000000000045474735088646411895751953125 EUR
+2018-02-01 balance Actif:Boursorama:CELAnna  1908.70 EUR
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
