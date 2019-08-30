@@ -9107,6 +9107,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                          -160.25 EUR
   Depenses:Impots:PS
 
+2018-12-31 * "INT OU AGIOS " ""
+  document: "2019-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:PELAnna                           155.15 EUR
+  Revenus:Interets
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
 
 *** LDD Anna
