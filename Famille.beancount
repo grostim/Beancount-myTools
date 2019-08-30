@@ -8928,6 +8928,10 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELAnna                            -2.07 EUR
   Depenses:Impots:PS
 
+2019-01-01 balance Actif:Boursorama:CELAnna  3008.6999999999998181010596454143524169921875 EUR
+  document: "2019-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
 
 *** PEL Anna
