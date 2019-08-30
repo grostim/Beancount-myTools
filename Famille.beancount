@@ -9091,6 +9091,10 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PELAnna                           151.89 EUR
   Revenus:Interets
 
+2017-12-30 balance Actif:Boursorama:PELAnna  6210.8599999999996725819073617458343505859375 EUR
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
 
 *** LDD Anna
