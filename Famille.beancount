@@ -9081,6 +9081,10 @@ plugin "beancount.plugins.check_commodity"
   document: "2016-01-04 Boursorama.pdf"
   source: "pdfbourso"
 
+2016-12-31 balance Actif:Boursorama:PELAnna  6058.9700000000002546585164964199066162109375 EUR
+  document: "2017-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
 
 *** LDD Anna
