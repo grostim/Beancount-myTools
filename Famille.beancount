@@ -9181,8 +9181,6 @@ plugin "beancount.plugins.check_commodity"
 2007-09-07 open Actif:Boursorama:LDDAnna                    EUR
   account: "00020871896"
 ;2007-09-08 pad  Actif:Boursorama:LDDAnna  Equity:Opening-Balances
-;2019-08-19 balance  Actif:Boursorama:LDDAnna         217.16 EUR
-
 
 2013-12-06 balance Actif:Boursorama:LDDAnna               0 EUR
   document: "2013-12-31 Boursorama.pdf"
@@ -9277,7 +9275,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                             0.13 EUR
   Revenus:Interets
 
-2018-12-31 balance Actif:Boursorama:LDDAnna  216.909999999999996589394868351519107818603515625 EUR
+2018-12-31 balance Actif:Boursorama:LDDAnna  216.91 EUR
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9286,6 +9284,8 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfbourso"
   Actif:Boursorama:LDDAnna                             0.25 EUR
   Revenus:Interets
+
+2019-08-19 balance  Actif:Boursorama:LDDAnna         217.16 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDAnna"
 
