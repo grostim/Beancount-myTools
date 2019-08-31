@@ -8842,6 +8842,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2016-04-29 Boursorama.pdf"
   source: "pdfbourso"
 
+2016-04-22 * "VIR interne " ""
+  document: "2016-04-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCTim
+  Actif:Boursorama:CELTim                          -2000.00 EUR
+
 2016-04-06 * "VIR interne " ""
   document: "2016-04-29 Boursorama.pdf"
   source: "pdfbourso"
