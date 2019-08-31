@@ -8780,11 +8780,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                             15.19 EUR
   Revenus:Interets
 
-2015-01-03 balance Actif:Boursorama:CELTim  2621.90999999999985448084771633148193359375 EUR
+2015-01-03 balance Actif:Boursorama:CELTim  2621.91 EUR
   document: "2015-06-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-06-30 balance Actif:Boursorama:CELTim  1621.910000000000081854523159563541412353515625 EUR
+2015-06-30 balance Actif:Boursorama:CELTim  1621.91 EUR
   document: "2015-12-17 Boursorama.pdf"
   source: "pdfbourso"
 
