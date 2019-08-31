@@ -1822,6 +1822,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                        -10531.08 EUR
   Actif:Boursorama:CCJoint
 
+2016-02-15 * "VIR interne " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2016-02-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna                        -10531.08 EUR
+  Actif:Boursorama:CCJoint
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
