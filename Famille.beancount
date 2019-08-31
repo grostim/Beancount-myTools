@@ -9336,3 +9336,7 @@ plugin "beancount.plugins.check_commodity"
 
 
 
+2013-12-06 balance Actif:Boursorama:LDDAnna               0 EUR
+  document: "2013-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+
