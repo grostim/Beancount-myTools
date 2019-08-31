@@ -9128,9 +9128,11 @@ plugin "beancount.plugins.check_commodity"
 *** LDD Anna
 2007-09-07 open Actif:Boursorama:LDDAnna                    EUR
   account: "00020871896"
-2007-09-08 pad  Actif:Boursorama:LDDAnna  Equity:Opening-Balances
+;2007-09-08 pad  Actif:Boursorama:LDDAnna  Equity:Opening-Balances
+;2019-08-19 balance  Actif:Boursorama:LDDAnna         217.16 EUR
 
-2019-08-19 balance  Actif:Boursorama:LDDAnna         217.16 EUR
+
+1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
 
 *** Livret A Anna
 1980-06-21 open Actif:BanquePostale:LAAnna                  EUR
