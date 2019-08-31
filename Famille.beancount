@@ -8719,7 +8719,7 @@ plugin "beancount.plugins.check_commodity"
 2013-12-16 * " VIR Avance sur frais Tecnal"
   document: "2013-12-05 Boursorama.pdf"
   source: "pdfbourso"
-  Actif:Boursorama:CELTim                            406.50 EUR
+  Actif:Boursorama:CELTim                            500.00 EUR
   Passif:Tecnal:AvanceSurFrais
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
