@@ -8742,6 +8742,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2014-02-05 Boursorama.pdf"
   source: "pdfbourso"
 
+2014-02-05 * "VIR gggg " ""
+  document: "2014-02-05 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCTim
+  Actif:Boursorama:CELTim                           -400.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
 *** LDD Joint
