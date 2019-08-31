@@ -8984,6 +8984,10 @@ plugin "beancount.plugins.check_commodity"
   document: "2019-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2019-06-01 balance Actif:Boursorama:CELTim  1810.740000000000009094947017729282379150390625 EUR
+  document: "2019-08-30 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
 *** LDD Joint
