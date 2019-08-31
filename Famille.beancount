@@ -9242,19 +9242,19 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                           101.22 EUR
   Revenus:Interets
 
-2016-01-01 balance Actif:Boursorama:LDDAnna  10439.860000000000582076609134674072265625 EUR
+2016-01-01 balance Actif:Boursorama:LDDAnna  10439.86 EUR
   document: "2016-01-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2016-01-30 balance Actif:Boursorama:LDDAnna  10541.079999999999927240423858165740966796875 EUR
+2016-01-30 balance Actif:Boursorama:LDDAnna  10541.08 EUR
   document: "2016-02-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2016-01-30 balance Actif:Boursorama:LDDAnna  10541.079999999999927240423858165740966796875 EUR
+2016-01-30 balance Actif:Boursorama:LDDAnna  10541.08 EUR
   document: "2016-02-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2016-01-30 balance Actif:Boursorama:LDDAnna  10541.079999999999927240423858165740966796875 EUR
+2016-01-30 balance Actif:Boursorama:LDDAnna  10541.08 EUR
   document: "2016-02-29 Boursorama.pdf"
   source: "pdfbourso"
 
