@@ -9210,6 +9210,10 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                          1015.00 EUR
   Revenus:Cerises
 
+2015-10-31 balance Actif:Boursorama:LDDAnna  11454.860000000000582076609134674072265625 EUR
+  document: "2015-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDAnna"
 
 *** Livret A Anna
