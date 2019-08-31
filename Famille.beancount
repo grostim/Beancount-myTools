@@ -8726,6 +8726,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2014-01-02 Boursorama.pdf"
   source: "pdfbourso"
 
+2014-01-02 * "VIR 13eme mois " ""
+  document: "2014-01-02 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCTim
+  Actif:Boursorama:CELTim                           2000.00 EUR
+
 2013-12-31 * "*INTERETS " ""
   document: "2014-01-02 Boursorama.pdf"
   source: "pdfbourso"
