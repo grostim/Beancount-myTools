@@ -8912,6 +8912,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2017-12-31 * "*PRELEVEMENT FISCAL " ""
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELTim                             -0.29 EUR
+  Depenses:Impots:PS
+
 2017-12-31 * "*INTER.BRUTS " ""
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
