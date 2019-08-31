@@ -8798,6 +8798,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2016-01-04 Boursorama.pdf"
   source: "pdfbourso"
 
+2015-12-31 * "*INTER.BRUTS " ""
+  document: "2016-01-04 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELTim                             13.77 EUR
+  Revenus:Interets
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
 *** LDD Joint
