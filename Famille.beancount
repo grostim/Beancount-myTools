@@ -733,6 +733,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                          -1000.00 EUR
   Actif:Boursorama:CCTim
 
+2018-10-16 * "VIR Depot pour invest Pole Laitier " ""
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCTim
+  Actif:Boursorama:PEAPME:Cash                    -11550.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
