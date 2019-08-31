@@ -1,0 +1,13 @@
+2013-12-06 balance Actif:Boursorama:LDDAnna                        0.00 EUR
+  document: "2013-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+
+2013-12-09 * "VIR Versement initial LDD " "GROS ANNA"
+  document: "2013-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna  10.00 EUR
+
+2013-12-09 * "VIR Transfert CEL LDD " "GROS ANNA"
+  document: "2013-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna  10500.00 EUR
