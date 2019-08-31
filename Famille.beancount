@@ -5282,6 +5282,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                           400.00 EUR
   Actif:Boursorama:CCAnna
 
+2015-07-07 * "VIR complement decouvert " "MME ANNA GROS"
+  document: "2015-07-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna                         -1500.00 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
