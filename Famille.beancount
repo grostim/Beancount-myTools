@@ -5302,11 +5302,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                         -1015.00 EUR
   Actif:Boursorama:CCAnna
 
-2018-11-29 * "VIR placement prime " "GROS ANNA"
-  document: "2018-11-30 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Boursorama:LDDAnna                           200.00 EUR
-  Actif:Boursorama:CCAnna
+;2018-11-29 * "VIR placement prime " "GROS ANNA"
+;  document: "2018-11-30 Boursorama.pdf"
+;  source: "pdfbourso"
+;  Actif:Boursorama:LDDAnna                           200.00 EUR
+;  Actif:Boursorama:CCAnna
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
@@ -9263,11 +9263,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                             6.78 EUR
   Revenus:Interets
 
-2018-02-01 balance Actif:Boursorama:LDDAnna  16.910000000000000142108547152020037174224853515625 EUR
+2018-02-01 balance Actif:Boursorama:LDDAnna  16.91 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-12-30 balance Actif:Boursorama:LDDAnna  16.780000000000001136868377216160297393798828125 EUR
+2017-12-30 balance Actif:Boursorama:LDDAnna  16.78 EUR
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9276,6 +9276,10 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfbourso"
   Actif:Boursorama:LDDAnna                             0.13 EUR
   Revenus:Interets
+
+2018-12-31 balance Actif:Boursorama:LDDAnna  216.909999999999996589394868351519107818603515625 EUR
+  document: "2019-01-31 Boursorama.pdf"
+  source: "pdfbourso"
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDAnna"
 
