@@ -8744,7 +8744,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                              0.22 EUR
   Revenus:Interets
 
-2014-01-03 balance Actif:Boursorama:CELTim  2906.72 EUR
+2014-01-03 balance Actif:Boursorama:CELTim          2906.72 EUR
   document: "2014-02-05 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8760,7 +8760,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                           -650.00 EUR
 
-2014-02-06 balance Actif:Boursorama:CELTim  1856.72 EUR
+2014-02-06 balance Actif:Boursorama:CELTim          1856.72 EUR
   document: "2014-04-02 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8770,7 +8770,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                            750.00 EUR
 
-2014-12-31 balance Actif:Boursorama:CELTim  2606.72 EUR
+2014-12-31 balance Actif:Boursorama:CELTim          2606.72 EUR
   document: "2015-01-02 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8780,11 +8780,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                             15.19 EUR
   Revenus:Interets
 
-2015-01-03 balance Actif:Boursorama:CELTim  2621.91 EUR
+2015-01-03 balance Actif:Boursorama:CELTim          2621.91 EUR
   document: "2015-06-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-06-30 balance Actif:Boursorama:CELTim  1621.91 EUR
+2015-06-30 balance Actif:Boursorama:CELTim          1621.91 EUR
   document: "2015-12-17 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9297,11 +9297,11 @@ plugin "beancount.plugins.check_commodity"
   document: "2014-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-02-01 balance Actif:Boursorama:LDDAnna  10515.76 EUR
+2014-02-01 balance Actif:Boursorama:LDDAnna        10515.76 EUR
   document: "2014-04-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-02-01 balance Actif:Boursorama:LDDAnna  10515.76 EUR
+2014-02-01 balance Actif:Boursorama:LDDAnna        10515.76 EUR
   document: "2014-04-30 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9311,15 +9311,15 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                           124.10 EUR
   Revenus:Interets
 
-2014-12-31 balance Actif:Boursorama:LDDAnna  11015.76 EUR
+2014-12-31 balance Actif:Boursorama:LDDAnna        11015.76 EUR
   document: "2015-01-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-01-31 balance Actif:Boursorama:LDDAnna  11939.86 EUR
+2015-01-31 balance Actif:Boursorama:LDDAnna        11939.86 EUR
   document: "2015-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-08-01 balance Actif:Boursorama:LDDAnna  10439.86 EUR
+2015-08-01 balance Actif:Boursorama:LDDAnna        10439.86 EUR
   document: "2015-10-30 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9329,11 +9329,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                          1015.00 EUR
   Revenus:Cerises
 
-2015-10-31 balance Actif:Boursorama:LDDAnna  11454.86 EUR
+2015-10-31 balance Actif:Boursorama:LDDAnna        11454.86 EUR
   document: "2015-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-11-30 balance Actif:Boursorama:LDDAnna  10439.86 EUR
+2015-11-30 balance Actif:Boursorama:LDDAnna        10439.86 EUR
   document: "2015-12-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9343,11 +9343,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                           101.22 EUR
   Revenus:Interets
 
-2015-12-31 balance Actif:Boursorama:LDDAnna  10439.86 EUR
+2015-12-31 balance Actif:Boursorama:LDDAnna        10439.86 EUR
   document: "2016-01-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2016-01-30 balance Actif:Boursorama:LDDAnna  10541.08 EUR
+2016-01-30 balance Actif:Boursorama:LDDAnna        10541.08 EUR
   document: "2016-02-29 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9362,11 +9362,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                             6.78 EUR
   Revenus:Interets
 
-2018-02-01 balance Actif:Boursorama:LDDAnna  16.91 EUR
+2018-02-01 balance Actif:Boursorama:LDDAnna           16.91 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-12-30 balance Actif:Boursorama:LDDAnna  16.78 EUR
+2017-12-30 balance Actif:Boursorama:LDDAnna           16.78 EUR
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9376,7 +9376,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                             0.13 EUR
   Revenus:Interets
 
-2018-12-31 balance Actif:Boursorama:LDDAnna  216.91 EUR
+2018-12-31 balance Actif:Boursorama:LDDAnna          216.91 EUR
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
