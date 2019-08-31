@@ -8880,6 +8880,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                           2800.00 EUR
 
+2017-01-26 * " VIR interne " ""
+  document: "2017-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCTim
+  Actif:Boursorama:CELTim                          -1000.00 EUR
+
 2016-12-31 * " *INTER.BRUTS " ""
   document: "2017-01-31 Boursorama.pdf"
   source: "pdfbourso"
