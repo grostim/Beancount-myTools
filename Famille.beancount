@@ -8695,7 +8695,8 @@ plugin "beancount.plugins.check_commodity"
 ;2007-09-08 pad  Actif:Boursorama:CELTim  Equity:Opening-Balances
 ;2019-08-19 balance  Actif:Boursorama:CELTim         6810.74 EUR
 
-1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
+
+1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
 *** LDD Joint
 
