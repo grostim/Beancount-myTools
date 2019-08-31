@@ -736,8 +736,8 @@ plugin "beancount.plugins.check_commodity"
 2018-10-16 * "VIR Depot pour invest Pole Laitier " ""
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
-  Actif:Boursorama:CCTim
-  Actif:Boursorama:PEAPME:Cash                    -11550.00 EUR
+  Actif:Boursorama:PEAPME:Cash
+  Actif:Boursorama:CELTim                    -11550.00 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
@@ -8954,6 +8954,10 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2018-11-01 balance Actif:Boursorama:CELTim  2751.5500000000001818989403545856475830078125 EUR
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
 *** LDD Joint
@@ -9605,9 +9609,9 @@ plugin "beancount.plugins.check_commodity"
     Passif:Linxea:Avance                             -20000 EUR
     Actif:Boursorama:CCTim                            20000 EUR
 
-2018-10-16 * "Virement pour invest Pole Laitier"
-    Actif:Boursorama:PEAPME:Cash                      11550 EUR
-    Actif:Boursorama:CCTim                           -11550 EUR
+;2018-10-16 * "Virement pour invest Pole Laitier"
+;    Actif:Boursorama:PEAPME:Cash                      11550 EUR
+;    Actif:Boursorama:CCTim                           -11550 EUR
 
 2018-10-16 open   Actif:Nominatif:CTS2                      CTS2
 
