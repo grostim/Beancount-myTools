@@ -8964,7 +8964,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                          -2450.00 EUR
 
-2018-12-31 balance Actif:Boursorama:CELTim  301.55000000000001136868377216160297393798828125 EUR
+2018-12-31 balance Actif:Boursorama:CELTim  301.55 EUR
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8980,11 +8980,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                             11.10 EUR
   Revenus:Interets
 
-2019-02-01 balance Actif:Boursorama:CELTim  310.740000000000009094947017729282379150390625 EUR
+2019-02-01 balance Actif:Boursorama:CELTim  310.74 EUR
   document: "2019-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-06-01 balance Actif:Boursorama:CELTim  1810.740000000000009094947017729282379150390625 EUR
+2019-06-01 balance Actif:Boursorama:CELTim  1810.74 EUR
   document: "2019-08-30 Boursorama.pdf"
   source: "pdfbourso"
 
