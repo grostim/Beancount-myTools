@@ -9224,6 +9224,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2015-12-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2015-12-31 * "*INTER.BRUTS 31/12/15 " ""
+  document: "2016-01-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna                           101.22 EUR
+  Revenus:Interets
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDAnna"
 
 *** Livret A Anna
