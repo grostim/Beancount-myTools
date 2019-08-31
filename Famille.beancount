@@ -9150,7 +9150,29 @@ plugin "beancount.plugins.check_commodity"
 ;2019-08-19 balance  Actif:Boursorama:LDDAnna         217.16 EUR
 
 
-1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:PELAnna"
+2013-12-06 balance Actif:Boursorama:LDDAnna               0 EUR
+  document: "2013-12-31 Boursorama.pdf"
+  source: "pdfbourso"
+
+2013-12-31 * "*INTERETS AU 31/12/13 " ""
+  document: "2014-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna                             5.76 EUR
+  Revenus:Interets
+
+2013-12-31 balance Actif:Boursorama:LDDAnna           10510 EUR
+  document: "2014-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+
+2014-02-01 balance Actif:Boursorama:LDDAnna  10515.76 EUR
+  document: "2014-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+
+2014-02-01 balance Actif:Boursorama:LDDAnna  10515.76 EUR
+  document: "2014-04-30 Boursorama.pdf"
+  source: "pdfbourso"
+
+1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDAnna"
 
 *** Livret A Anna
 1980-06-21 open Actif:BanquePostale:LAAnna                  EUR
@@ -9353,26 +9375,4 @@ plugin "beancount.plugins.check_commodity"
 
 
 
-
-2013-12-06 balance Actif:Boursorama:LDDAnna               0 EUR
-  document: "2013-12-31 Boursorama.pdf"
-  source: "pdfbourso"
-
-2013-12-31 * "*INTERETS AU 31/12/13 " ""
-  document: "2014-01-31 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Boursorama:LDDAnna                             5.76 EUR
-  Revenus:Interets
-
-2013-12-31 balance Actif:Boursorama:LDDAnna           10510 EUR
-  document: "2014-01-31 Boursorama.pdf"
-  source: "pdfbourso"
-
-2014-02-01 balance Actif:Boursorama:LDDAnna  10515.76 EUR
-  document: "2014-04-30 Boursorama.pdf"
-  source: "pdfbourso"
-
-2014-02-01 balance Actif:Boursorama:LDDAnna  10515.760000000000218278728425502777099609375 EUR
-  document: "2014-04-30 Boursorama.pdf"
-  source: "pdfbourso"
 
