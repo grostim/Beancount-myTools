@@ -8692,8 +8692,10 @@ plugin "beancount.plugins.check_commodity"
 *** CEL Tim
 2007-09-07 open Actif:Boursorama:CELTim                     EUR
   account: "00030269844"
-2007-09-08 pad  Actif:Boursorama:CELTim  Equity:Opening-Balances
-2019-08-19 balance  Actif:Boursorama:CELTim         6810.74 EUR
+;2007-09-08 pad  Actif:Boursorama:CELTim  Equity:Opening-Balances
+;2019-08-19 balance  Actif:Boursorama:CELTim         6810.74 EUR
+
+1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELAnna"
 
 *** LDD Joint
 
