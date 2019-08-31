@@ -8902,6 +8902,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2017-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
+2017-02-16 * "VIR Vacances " ""
+  document: "2017-02-28 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCTim
+  Actif:Boursorama:CELTim                           -801.88 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
 *** LDD Joint
