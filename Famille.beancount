@@ -8954,7 +8954,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-11-01 balance Actif:Boursorama:CELTim  2751.5500000000001818989403545856475830078125 EUR
+2018-11-01 balance Actif:Boursorama:CELTim  2751.55 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
