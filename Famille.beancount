@@ -8924,7 +8924,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                              1.84 EUR
   Revenus:Interets
 
-2018-02-01 balance Actif:Boursorama:CELTim  301.55000000000001136868377216160297393798828125 EUR
+2018-02-01 balance Actif:Boursorama:CELTim  301.55 EUR
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8934,7 +8934,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                           1000.00 EUR
 
-2018-08-01 balance Actif:Boursorama:CELTim  1301.549999999999954525264911353588104248046875 EUR
+2018-08-01 balance Actif:Boursorama:CELTim  1301.55 EUR
   document: "2018-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8943,6 +8943,10 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfbourso"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                          13000.00 EUR
+
+2018-09-01 balance Actif:Boursorama:CELTim  14301.54999999999927240423858165740966796875 EUR
+  document: "2018-10-31 Boursorama.pdf"
+  source: "pdfbourso"
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
