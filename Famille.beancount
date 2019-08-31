@@ -721,6 +721,12 @@ plugin "beancount.plugins.check_commodity"
 
 2019-08-19 balance  Actif:Boursorama:CCTim          -635.52 EUR
 
+2013-12-16 * "VIR Avance sur frais Tecnal " ""
+  document: "2013-12-16 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CCTim
+  Depenses:A-CLASSER                                 500.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
