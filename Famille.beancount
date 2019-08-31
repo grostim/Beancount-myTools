@@ -9196,7 +9196,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2015-01-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-01-31 balance Actif:Boursorama:LDDAnna  11939.860000000000582076609134674072265625 EUR
+2015-01-31 balance Actif:Boursorama:LDDAnna  11939.86 EUR
   document: "2015-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
