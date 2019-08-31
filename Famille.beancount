@@ -1816,11 +1816,7 @@ plugin "beancount.plugins.check_commodity"
 
 2019-08-19 balance  Actif:Boursorama:CCJoint         674.97 EUR
 
-2016-02-15 * "VIR interne " "MLE ANNA TRINQUIER OU M GROS"
-  document: "2016-02-29 Boursorama.pdf"
-  source: "pdfbourso"
-  Actif:Boursorama:LDDAnna                        -10531.08 EUR
-  Actif:Boursorama:CCJoint
+
 
 2016-02-15 * "VIR interne " "MLE ANNA TRINQUIER OU M GROS"
   document: "2016-02-29 Boursorama.pdf"
@@ -9260,6 +9256,10 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfbourso"
   Actif:Boursorama:LDDAnna                             6.78 EUR
   Revenus:Interets
+
+2018-02-01 balance Actif:Boursorama:LDDAnna  16.910000000000000142108547152020037174224853515625 EUR
+  document: "2018-11-30 Boursorama.pdf"
+  source: "pdfbourso"
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDAnna"
 
