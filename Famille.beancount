@@ -8716,6 +8716,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-12-16 Boursorama.pdf"
   source: "pdfbourso"
 
+2013-12-16 * " VIR Avance sur frais Tecnal"
+  document: "2013-12-05 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELTim                            406.50 EUR
+  Passif:Tecnal:AvanceSurFrais
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
 *** LDD Joint
@@ -9440,7 +9446,7 @@ plugin "beancount.plugins.check_commodity"
 
 ** Frais en attente de remboursement
 1981-02-07 open Actif:NoteDeFrais 
-
+1981-02-07 open Passif:Tecnal:AvanceSurFrais
 
 * Comptes Revenus et Depenses
 
