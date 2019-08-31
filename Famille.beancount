@@ -9234,6 +9234,10 @@ plugin "beancount.plugins.check_commodity"
   document: "2016-01-29 Boursorama.pdf"
   source: "pdfbourso"
 
+2016-01-30 balance Actif:Boursorama:LDDAnna  10541.079999999999927240423858165740966796875 EUR
+  document: "2016-02-29 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDAnna"
 
 *** Livret A Anna
