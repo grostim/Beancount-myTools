@@ -9346,3 +9346,9 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-12-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2013-12-31 * "*INTERETS AU 31/12/13 " ""
+  document: "2014-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna                             5.76 EUR
+  Revenus:Interets
+
