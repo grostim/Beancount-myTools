@@ -8700,6 +8700,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-12-05 Boursorama.pdf"
   source: "pdfbourso"
 
+2013-11-28 * "VIR LBP BORDEAUX " "Transfert CEL Banque Postale"
+  document: "2013-12-05 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELTim                            406.50 EUR
+  Equity:Opening-Balances
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
 *** LDD Joint
