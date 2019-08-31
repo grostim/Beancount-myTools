@@ -5274,6 +5274,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                           500.00 EUR
   Actif:Boursorama:CCAnna
 
+2015-01-11 * "VIR EPARGNE " "GROS ANNA"
+  document: "2015-01-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna                           400.00 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
