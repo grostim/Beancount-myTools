@@ -8774,6 +8774,10 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                             15.19 EUR
   Revenus:Interets
 
+2015-01-03 balance Actif:Boursorama:CELTim  2621.90999999999985448084771633148193359375 EUR
+  document: "2015-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CELTim"
 
 *** LDD Joint
