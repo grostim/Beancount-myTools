@@ -727,6 +727,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Depenses:A-CLASSER                                 500.00 EUR
 
+2015-06-29 * "VIR interne " ""
+  document: "2015-06-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:CELTim                          -1000.00 EUR
+  Actif:Boursorama:CCTim
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
