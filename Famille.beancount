@@ -9275,6 +9275,10 @@ plugin "beancount.plugins.check_commodity"
   document: "2017-12-29 Boursorama.pdf"
   source: "pdfbourso"
 
+2017-12-30 balance Actif:Boursorama:LDDJoint  429.1100000000000136424205265939235687255859375 EUR
+  document: "2018-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDJoint"
 
 *** CEL Anna
