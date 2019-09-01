@@ -1908,6 +1908,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                         -500.00 EUR
   Actif:Boursorama:CCJoint
 
+2015-06-30 * "VIR VIREMENT CREATION COMPTE " "M GROS FELICIEN"
+  document: "2015-06-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                          -10.00 EUR
+  Depenses:Cadeaux
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
