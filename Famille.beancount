@@ -9157,7 +9157,6 @@ plugin "beancount.plugins.check_commodity"
 2007-09-07 open Actif:Boursorama:LDDJoint                   EUR
   account: "00020132893"
 ;2007-09-08 pad  Actif:Boursorama:LDDJoint  Equity:Opening-Balances
-;2019-08-19 balance  Actif:Boursorama:LDDJoint         44.16 EUR
 
 2013-08-24 balance Actif:Boursorama:LDDJoint              0 EUR
   document: "2013-08-30 Boursorama.pdf"
@@ -9205,23 +9204,23 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                           17.68 EUR
   Revenus:Interets
 
-2014-02-01 balance Actif:Boursorama:LDDJoint  9521.86 EUR
+2014-02-01 balance Actif:Boursorama:LDDJoint        9521.86 EUR
   document: "2014-06-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-07-01 balance Actif:Boursorama:LDDJoint  8872.36 EUR
+2014-07-01 balance Actif:Boursorama:LDDJoint        8872.36 EUR
   document: "2014-08-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-08-30 balance Actif:Boursorama:LDDJoint  8272.36 EUR
+2014-08-30 balance Actif:Boursorama:LDDJoint        8272.36 EUR
   document: "2014-09-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-10-01 balance Actif:Boursorama:LDDJoint  6772.36 EUR
+2014-10-01 balance Actif:Boursorama:LDDJoint        6772.36 EUR
   document: "2014-11-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-12-31 balance Actif:Boursorama:LDDJoint  3272.36 EUR
+2014-12-31 balance Actif:Boursorama:LDDJoint        3272.36 EUR
   document: "2015-01-30 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9231,23 +9230,23 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                           93.98 EUR
   Revenus:Interets
 
-2015-01-31 balance Actif:Boursorama:LDDJoint  3366.34 EUR
+2015-01-31 balance Actif:Boursorama:LDDJoint        3366.34 EUR
   document: "2015-04-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-04-03 balance Actif:Boursorama:LDDJoint  2366.34 EUR
+2015-04-03 balance Actif:Boursorama:LDDJoint        2366.34 EUR
   document: "2015-06-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-07-01 balance Actif:Boursorama:LDDJoint  1856.34 EUR
+2015-07-01 balance Actif:Boursorama:LDDJoint        1856.34 EUR
   document: "2015-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-09-01 balance Actif:Boursorama:LDDJoint  1356.34 EUR
+2015-09-01 balance Actif:Boursorama:LDDJoint        1356.34 EUR
   document: "2015-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-12-31 balance Actif:Boursorama:LDDJoint  167.74 EUR
+2015-12-31 balance Actif:Boursorama:LDDJoint         167.74 EUR
   document: "2016-01-29 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9257,15 +9256,15 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                           18.06 EUR
   Revenus:Interets
 
-2016-01-30 balance Actif:Boursorama:LDDJoint  7990.80 EUR
+2016-01-30 balance Actif:Boursorama:LDDJoint        7990.80 EUR
   document: "2016-02-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2016-03-01 balance Actif:Boursorama:LDDJoint  1324.35 EUR
+2016-03-01 balance Actif:Boursorama:LDDJoint        1324.35 EUR
   document: "2016-03-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2016-12-31 balance Actif:Boursorama:LDDJoint  24.35 EUR
+2016-12-31 balance Actif:Boursorama:LDDJoint          24.35 EUR
   document: "2017-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9275,7 +9274,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                            4.76 EUR
   Revenus:Interets
 
-2017-02-01 balance Actif:Boursorama:LDDJoint  29.11 EUR
+2017-02-01 balance Actif:Boursorama:LDDJoint          29.11 EUR
   document: "2017-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9285,15 +9284,15 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                         3200.00 EUR
   Depenses:Immobilier:Travaux
 
-2017-09-01 balance Actif:Boursorama:LDDJoint  3229.11 EUR
+2017-09-01 balance Actif:Boursorama:LDDJoint        3229.11 EUR
   document: "2017-09-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-09-30 balance Actif:Boursorama:LDDJoint  2429.11 EUR
+2017-09-30 balance Actif:Boursorama:LDDJoint        2429.11 EUR
   document: "2017-12-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-12-30 balance Actif:Boursorama:LDDJoint  429.11 EUR
+2017-12-30 balance Actif:Boursorama:LDDJoint         429.11 EUR
   document: "2018-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9303,19 +9302,19 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                            6.88 EUR
   Revenus:Interets
 
-2018-02-01 balance Actif:Boursorama:LDDJoint  435.99 EUR
+2018-02-01 balance Actif:Boursorama:LDDJoint         435.99 EUR
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-03-01 balance Actif:Boursorama:LDDJoint  35.99 EUR
+2018-03-01 balance Actif:Boursorama:LDDJoint          35.99 EUR
   document: "2018-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-09-01 balance Actif:Boursorama:LDDJoint  6035.99 EUR
+2018-09-01 balance Actif:Boursorama:LDDJoint        6035.99 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-12-31 balance Actif:Boursorama:LDDJoint  35.99 EUR
+2018-12-31 balance Actif:Boursorama:LDDJoint          35.99 EUR
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9324,6 +9323,8 @@ plugin "beancount.plugins.check_commodity"
   source: "pdfbourso"
   Actif:Boursorama:LDDJoint                            8.17 EUR
   Revenus:Interets
+
+2019-08-19 balance  Actif:Boursorama:LDDJoint         44.16 EUR
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDJoint"
 
