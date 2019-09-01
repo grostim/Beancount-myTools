@@ -737,7 +737,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:PEAPME:Cash
-  Actif:Boursorama:CELTim                    -11550.00 EUR
+  Actif:Boursorama:CELTim                         -11550.00 EUR
 
 2013-11-08 * "VIR cccccccc " "GROS TIMOTHEE"
   document: "2013-11-29 Boursorama.pdf"
@@ -8830,7 +8830,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                           -500.00 EUR
 
-2015-12-31 balance Actif:Boursorama:CELTim  1121.91 EUR
+2015-12-31 balance Actif:Boursorama:CELTim          1121.91 EUR
   document: "2016-01-04 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8846,7 +8846,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                             13.77 EUR
   Revenus:Interets
 
-2016-01-05 balance Actif:Boursorama:CELTim  1133.55 EUR
+2016-01-05 balance Actif:Boursorama:CELTim          1133.55 EUR
   document: "2016-02-29 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8890,7 +8890,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                           2878.13 EUR
 
-2016-04-30 balance Actif:Boursorama:CELTim  1178.13 EUR
+2016-04-30 balance Actif:Boursorama:CELTim          1178.13 EUR
   document: "2016-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8934,7 +8934,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                              2.22 EUR
   Revenus:Interets
 
-2017-02-01 balance Actif:Boursorama:CELTim  1101.88 EUR
+2017-02-01 balance Actif:Boursorama:CELTim          1101.88 EUR
   document: "2017-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8960,7 +8960,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                              1.84 EUR
   Revenus:Interets
 
-2018-02-01 balance Actif:Boursorama:CELTim  301.55 EUR
+2018-02-01 balance Actif:Boursorama:CELTim           301.55 EUR
   document: "2018-07-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8970,7 +8970,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                           1000.00 EUR
 
-2018-08-01 balance Actif:Boursorama:CELTim  1301.55 EUR
+2018-08-01 balance Actif:Boursorama:CELTim          1301.55 EUR
   document: "2018-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8980,11 +8980,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                          13000.00 EUR
 
-2018-09-01 balance Actif:Boursorama:CELTim  14301.55 EUR
+2018-09-01 balance Actif:Boursorama:CELTim         14301.55 EUR
   document: "2018-10-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-11-01 balance Actif:Boursorama:CELTim  2751.55 EUR
+2018-11-01 balance Actif:Boursorama:CELTim          2751.55 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -8994,7 +8994,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Actif:Boursorama:CELTim                          -2450.00 EUR
 
-2018-12-31 balance Actif:Boursorama:CELTim  301.55 EUR
+2018-12-31 balance Actif:Boursorama:CELTim           301.55 EUR
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9010,11 +9010,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CELTim                             11.10 EUR
   Revenus:Interets
 
-2019-02-01 balance Actif:Boursorama:CELTim  310.74 EUR
+2019-02-01 balance Actif:Boursorama:CELTim           310.74 EUR
   document: "2019-05-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2019-06-01 balance Actif:Boursorama:CELTim  1810.74 EUR
+2019-06-01 balance Actif:Boursorama:CELTim          1810.74 EUR
   document: "2019-08-30 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9059,11 +9059,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                         6290.00 EUR
   Actif:Boursorama:CCTim
 
-2013-10-01 balance Actif:Boursorama:LDDJoint  504.18 EUR
+2013-10-01 balance Actif:Boursorama:LDDJoint         504.18 EUR
   document: "2013-11-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2013-12-31 balance Actif:Boursorama:LDDJoint  9504.1800000000002910383045673370361328125 EUR
+2013-12-31 balance Actif:Boursorama:LDDJoint        9504.18 EUR
   document: "2014-01-31 Boursorama.pdf"
   source: "pdfbourso"
 

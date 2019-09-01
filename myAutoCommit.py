@@ -19,15 +19,15 @@ class AutoCommit(FavaExtensionBase):  # pragma: no cover
     def after_write_source(self, path, _):
         message = "autocommit by fava: file saved"
         self._run(["git", "add", path])
-        self._run(["git", "commit", "-m", message])
-        self._run(["git", "push"])
+        self._run(["git", "commit", "-am", message])
+#        self._run(["git", "push"])
 
     def after_insert_metadata(self, *_):
         message = "autocommit by fava: metadata added"
         self._run(["git", "commit", "-am", message])
-        self._run(["git", "push"])
+#        self._run(["git", "push"])
 
     def after_insert_entry(self, entry):
         message = "autocommit by fava: entry on {}".format(entry.date)
         self._run(["git", "commit", "-am", message])
-        self._run(["git", "push"])
+#        self._run(["git", "push"])
