@@ -9156,6 +9156,7 @@ plugin "beancount.plugins.check_commodity"
 
 ; L'historique du Livret A est simplifié.
 2006-09-01 open Actif:BanquePostale:LAJoint                 EUR
+2006-10-01 pad  Actif:Boursorama:CCTim  Equity:Opening-Balances
 
 2012-12-15 * "Epargne"
   Actif:BanquePostale:LAJoint                       -260.91 EUR
