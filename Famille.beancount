@@ -9154,6 +9154,10 @@ plugin "beancount.plugins.check_commodity"
 
 *** LDD Joint
 
+2013-08-24 open Actif:BanquePostale:LAJoint                 EUR
+
+2013-12-31 close Actif:BanquePostale:LAJoint                EUR
+
 2013-08-24 open Actif:Boursorama:LDDJoint                   EUR
   account: "00020132893"
 
@@ -9165,11 +9169,11 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-09-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2013-09-09 * "CHQ BQ N° 1077490 LA BANQUE POSTALE " ""
+2013-09-09 * "CHQ BQ N° 1077490 LA BANQUE POSTALE " "Frais de rachat crédit Immo"
   document: "2013-09-30 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:LDDJoint                        -2495.82 EUR
-  Equity:Opening-Balances
+  Depenses:Banque:Frais
 
 2013-09-10 * "VIR ,,,, " "GROS TIMOTHEE"
   document: "2013-09-30 Boursorama.pdf"
