@@ -10272,6 +10272,13 @@ plugin "beancount.plugins.check_commodity"
 2016-02-27 pad    Passif:Boursorama:EmpruntRP  Equity:Opening-Balances
 2019-08-19 balance  Passif:Boursorama:EmpruntRP  -119731.74 EUR
 
+2016-03-26 * "ECH PRET:80280000606862232601" ""
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint                         -1082.26 EUR
+  Passif:Boursorama:EmpruntRP                        814.88 EUR
+  Depenses:Banque:Interet                            226.04 EUR
+  Depenses:Banque:AssuEmprunt                         41.34 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:EmpruntRP"
 
 *** Pret Conso
