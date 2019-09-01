@@ -9097,15 +9097,15 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                           17.68 EUR
   Revenus:Interets
 
-2014-02-01 balance Actif:Boursorama:LDDJoint  9521.860000000000582076609134674072265625 EUR
+2014-02-01 balance Actif:Boursorama:LDDJoint  9521.86 EUR
   document: "2014-06-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-07-01 balance Actif:Boursorama:LDDJoint  8872.360000000000582076609134674072265625 EUR
+2014-07-01 balance Actif:Boursorama:LDDJoint  8872.36 EUR
   document: "2014-08-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-08-30 balance Actif:Boursorama:LDDJoint  8272.360000000000582076609134674072265625 EUR
+2014-08-30 balance Actif:Boursorama:LDDJoint  8272.36 EUR
   document: "2014-09-30 Boursorama.pdf"
   source: "pdfbourso"
 
