@@ -10034,7 +10034,7 @@ plugin "beancount.plugins.check_commodity"
 2016-01-26 balance  Actif:BanquePostale:LAAnna     8938.51 EUR
 
 2016-12-31 * "Versement interets"
-  Actif:BanquePostale:LAAnna                           67,04 EUR
+  Actif:BanquePostale:LAAnna                           67.04 EUR
   Revenus:Interets
 
 2017-02-15 * "Virement" "POUR VOYAGE"
