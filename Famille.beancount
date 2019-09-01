@@ -9115,7 +9115,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2014-09-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2014-10-01 balance Actif:Boursorama:LDDJoint  6772.3599999999996725819073617458343505859375 EUR
+2014-10-01 balance Actif:Boursorama:LDDJoint  6772.36 EUR
   document: "2014-11-28 Boursorama.pdf"
   source: "pdfbourso"
 
