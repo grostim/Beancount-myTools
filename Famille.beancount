@@ -79,7 +79,7 @@ plugin "beancount.plugins.check_commodity"
 
 ; L'historique du CC Joint LBP est simplifié.
 2006-09-01 open Actif:BanquePostale:CCTim                 EUR
-2006-10-01 pad  Actif:BanquePostale:CTim  Equity:Opening-Balances
+2006-10-01 pad  Actif:BanquePostale:CCTim  Equity:Opening-Balances
 
 2013-08-31 balance Actif:BanquePostale:CCTim            0 EUR
 2013-09-30 close Actif:BanquePostale:CCTim
