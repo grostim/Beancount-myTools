@@ -9154,9 +9154,8 @@ plugin "beancount.plugins.check_commodity"
 
 *** LDD Joint
 
-2007-09-07 open Actif:Boursorama:LDDJoint                   EUR
+2013-08-24 open Actif:Boursorama:LDDJoint                   EUR
   account: "00020132893"
-;2007-09-08 pad  Actif:Boursorama:LDDJoint  Equity:Opening-Balances
 
 2013-08-24 balance Actif:Boursorama:LDDJoint              0 EUR
   document: "2013-08-30 Boursorama.pdf"
