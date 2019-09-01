@@ -75,6 +75,16 @@ plugin "beancount.plugins.check_commodity"
 * Comptes
 ** Comptes Courants
 *** CCTim
+
+
+; L'historique du CC Joint LBP est simplifié.
+2006-09-01 open Actif:BanquePostale:CCTim                 EUR
+2006-10-01 pad  Actif:BanquePostale:CTim  Equity:Opening-Balances
+
+2013-08-31 balance Actif:BanquePostale:CCTim            0 EUR
+2013-09-30 close Actif:BanquePostale:CCTim
+
+
 2013-08-26 open Actif:Boursorama:CCTim
   account: "00040132901"
 2013-08-27 pad  Actif:Boursorama:CCTim  Equity:Opening-Balances
@@ -8892,6 +8902,18 @@ plugin "beancount.plugins.check_commodity"
 ** Livrets
 
 *** CEL Tim
+
+; L'historique du CEL Tim LBP est simplifié.
+2006-09-01 open Actif:BanquePostale:CELTim                 EUR
+2006-10-01 pad  Actif:BanquePostale:CELTim  Equity:Opening-Balances
+
+2013-12-31 balance Actif:BanquePostale:CELTim            0 EUR
+2013-12-30 close Actif:BanquePostale:CELTim
+
+2013-11-28 * "*INTERETS " "A date du transfert"
+  Actif:BanquePostale:CELTim                              18.13 EUR
+  Revenus:Interets
+
 2007-09-07 open Actif:Boursorama:CELTim                     EUR
   account: "00030269844"
 ;2007-09-08 pad  Actif:Boursorama:CELTim  Equity:Opening-Balances
@@ -8906,7 +8928,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-12-05 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:CELTim                            406.50 EUR
-  Equity:Opening-Balances
+  Actif:BanquePostale:CELTim
 
 2013-12-06 balance Actif:Boursorama:CELTim            406.5 EUR
   document: "2013-12-16 Boursorama.pdf"
