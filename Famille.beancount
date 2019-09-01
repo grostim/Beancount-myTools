@@ -11224,3 +11224,10 @@ plugin "beancount.plugins.check_commodity"
 2022-12-27 balance Passif:Boursorama:EmpruntRP  -84075.41000000000349245965480804443359375 EUR
   source: "pdfbourso"
 
+2023-01-26 * "ECH PRET:80280000606862232601" ""
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint                         -1082.26 EUR
+  Passif:Boursorama:EmpruntRP                        918.31 EUR
+  Depenses:Banque:Interet                            122.61 EUR
+  Depenses:Banque:AssuEmprunt                         41.34 EUR
+
