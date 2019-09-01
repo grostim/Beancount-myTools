@@ -9151,7 +9151,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2015-04-02 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-04-03 balance Actif:Boursorama:LDDJoint  2366.34000000000014551915228366851806640625 EUR
+2015-04-03 balance Actif:Boursorama:LDDJoint  2366.34 EUR
   document: "2015-06-30 Boursorama.pdf"
   source: "pdfbourso"
 
