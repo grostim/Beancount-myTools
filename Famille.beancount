@@ -81,7 +81,7 @@ plugin "beancount.plugins.check_commodity"
 2006-09-01 open Actif:BanquePostale:CCTim                 EUR
 2006-10-01 pad  Actif:BanquePostale:CCTim  Equity:Opening-Balances
 
-2013-08-31 balance Actif:BanquePostale:CCTim            0 EUR
+2013-08-31 balance Actif:BanquePostale:CCTim              0 EUR
 2013-09-30 close Actif:BanquePostale:CCTim
 
 
@@ -8907,39 +8907,43 @@ plugin "beancount.plugins.check_commodity"
 2007-09-07 open Actif:BanquePostale:CELTim                 EUR
 2007-09-08 pad  Actif:BanquePostale:CELTim  Equity:Opening-Balances
 
+2011-10-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       -4428.18 EUR
+  Actif:BanquePostale:LAJoint
+
 2012-02-15 * "Mouvement epargne"
-  Actif:BanquePostale:CELTim                             -250 EUR
+  Actif:BanquePostale:CELTim                           -250 EUR
   Actif:BanquePostale:CCTim
   
 2012-03-15 * "Mouvement epargne"
-  Actif:BanquePostale:CELTim                             -600 EUR
+  Actif:BanquePostale:CELTim                           -600 EUR
   Actif:BanquePostale:CCTim
   
 2012-05-15 * "Mouvement epargne"
-  Actif:BanquePostale:CELTim                             -1895 EUR
+  Actif:BanquePostale:CELTim                          -1895 EUR
   Actif:BanquePostale:CCTim
 
 2012-09-15 * "Mouvement epargne"
-  Actif:BanquePostale:CELTim                             -2400 EUR
+  Actif:BanquePostale:CELTim                          -2400 EUR
   Actif:BanquePostale:CCTim
 
 2013-09-15 * "Mouvement epargne"
-  Actif:BanquePostale:CELTim                             7113.57 EUR
+  Actif:BanquePostale:CELTim                        7113.57 EUR
   Actif:BanquePostale:CCTim
 
 2013-09-15 * "Mouvement epargne"
-  Actif:BanquePostale:CELTim                             -750.00 EUR
+  Actif:BanquePostale:CELTim                        -750.00 EUR
   Actif:BanquePostale:CCTim
 
 2013-09-15 * "Mouvement epargne"
-  Actif:BanquePostale:CELTim                             -6500.00 EUR
+  Actif:BanquePostale:CELTim                       -6500.00 EUR
   Actif:Boursorama:CCTim
 
 2013-11-28 * "*INTERETS " "A date du transfert"
-  Actif:BanquePostale:CELTim                              18.13 EUR
+  Actif:BanquePostale:CELTim                          18.13 EUR
   Revenus:Interets
 
-2013-12-30 balance Actif:BanquePostale:CELTim            0 EUR
+2013-12-30 balance Actif:BanquePostale:CELTim             0 EUR
 2013-12-31 close Actif:BanquePostale:CELTim
 
 2013-09-18 open Actif:Boursorama:CELTim                     EUR ; Ancienneté fiscale au 2007-09-07
@@ -10092,7 +10096,7 @@ plugin "beancount.plugins.check_commodity"
 2010-02-26 balance  Actif:BanquePostale:LAAnna      4877.02 EUR
 
 2010-12-31 * "Versement interets"
-  Actif:BanquePostale:LAAnna                         71.12 EUR
+  Actif:BanquePostale:LAAnna                          71.12 EUR
   Revenus:Interets
 
 2011-01-28 balance  Actif:BanquePostale:LAAnna      4948.14 EUR
@@ -10294,7 +10298,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Immobilier:RP                                     1 RESIDENCE_PRINCIPALE {255000 EUR}
   Actif:Boursorama:CCJoint
   Passif:Boursorama:EmpruntRP                       -155000 EUR
-  Depenses:Immobilier:FraisNotaire                   19500 EUR
+  Depenses:Immobilier:FraisNotaire                    19500 EUR
 
 2018-12-15 open Actif:Immobilier:RPParents                  RP_PARENTS
 
