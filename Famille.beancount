@@ -10033,16 +10033,17 @@ plugin "beancount.plugins.check_commodity"
 2013-12-23 balance  Actif:BanquePostale:LAAnna      6316.86 EUR
 
 2013-12-24 * "Remise chèque"
-  Actif:BanquePostale:LAAnna                          1303.00 EUR
+  Actif:BanquePostale:LAAnna                        1303.00 EUR
   Revenus:VentesAnna
 
 2013-12-31 * "Versement interets"
   Actif:BanquePostale:LAAnna                          95.28 EUR
   Revenus:Interets
-2014-01-24 balance  Actif:BanquePostale:LAAnna 7715.14 EUR
+
+2014-01-24 balance  Actif:BanquePostale:LAAnna      7715.14 EUR
 
 2014-02-28 * "Remise chèque"
-  Actif:BanquePostale:LAAnna                          165.00 EUR
+  Actif:BanquePostale:LAAnna                         165.00 EUR
   Revenus:VentesAnna
 
 2014-07-15 * "Remise chèque"
@@ -10050,13 +10051,13 @@ plugin "beancount.plugins.check_commodity"
   Revenus:VentesAnna
 
 2014-08-20 * "Remise chèque"
-  Actif:BanquePostale:LAAnna                          170.00 EUR
+  Actif:BanquePostale:LAAnna                         170.00 EUR
   Revenus:VentesAnna
 
 2014-09-26 balance  Actif:BanquePostale:LAAnna      8102.14 EUR
 
 2014-12-13 * "Remise chèque"
-  Actif:BanquePostale:LAAnna                          666.00 EUR
+  Actif:BanquePostale:LAAnna                         666.00 EUR
   Revenus:VentesAnna
 
 2014-12-26 balance  Actif:BanquePostale:LAAnna      8768.14 EUR
