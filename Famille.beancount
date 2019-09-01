@@ -55,7 +55,7 @@ plugin "beancount.plugins.check_commodity"
 2018-10-01 commodity CTS1
   asset-class: "actions"
   asset-subclass: "PME"
-  
+
 2018-10-01 commodity CTS2
   asset-class: "actions"
   asset-subclass: "PME"
@@ -71,7 +71,7 @@ plugin "beancount.plugins.check_commodity"
 2018-01-01 commodity JARDINSEUROPE
   asset-class: "Immo"
   asset-subclass: "Locatif"
-  
+
 * Comptes
 ** Comptes Courants
 *** CCTim
@@ -10246,7 +10246,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Immobilier:RP                                     1 RESIDENCE_PRINCIPALE {255000 EUR}
   Actif:Boursorama:CCJoint
   Passif:Boursorama:EmpruntRP                       -155000 EUR
-  Depenses:Immobilier:FraisNotaire                   -19500 EUR
+  Depenses:Immobilier:FraisNotaire                   19500 EUR
 
 2018-12-15 open Actif:Immobilier:RPParents                  RP_PARENTS
 
