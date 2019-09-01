@@ -835,7 +835,7 @@ plugin "beancount.plugins.check_commodity"
 
 ; L'historique du CC Joint LBP est simplifié.
 2006-09-01 open Actif:BanquePostale:CCJoint                 EUR
-2006-10-01 pad  Actif:Boursorama:CCJoint  Equity:Opening-Balances
+2006-10-01 pad  Actif:BanquePostale:CCJoint  Equity:Opening-Balances
 
 2013-08-31 balance Actif:BanquePostale:CCJoint            0 EUR
 2013-09-31 close Actif:BanquePostale:CCJoint
