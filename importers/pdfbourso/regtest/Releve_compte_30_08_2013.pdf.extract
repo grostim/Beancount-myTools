@@ -1,0 +1,13 @@
+2013-08-24 balance Actif:Boursorama:LDDAnna                        0.00 EUR
+  document: "2013-08-30 Boursorama.pdf"
+  source: "pdfbourso"
+
+2013-08-26 * "VIR Versement initial LDD " "TRINQUIER"
+  document: "2013-08-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna  10.00 EUR
+
+2013-08-28 * "VIR tt " "TRINQUIER"
+  document: "2013-08-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDAnna  5700.00 EUR

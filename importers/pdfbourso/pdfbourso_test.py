@@ -20,6 +20,7 @@ ACCOUNTLIST = {
     "00030305440": "Actif:Boursorama:CELAnna",
     "00031305390": "Actif:Boursorama:PELAnna",
     "00020871896": "Actif:Boursorama:LDDAnna",
+    "00020132893": "Actif:Boursorama:LDDAnna"
 }
 
 IMPORTER = pdfbourso.pdfbourso(ACCOUNTLIST)
