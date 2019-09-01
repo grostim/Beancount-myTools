@@ -9180,7 +9180,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:BanquePostale:CCJoint
 
 2013-01-15 * "Epargne"
-  Actif:BanquePostale:LAJoint                         -2000 EUR
+  Actif:BanquePostale:LAJoint                         -1700 EUR
   Actif:BanquePostale:CCJoint
 
 2013-01-31 balance Actif:BanquePostale:LAJoint     11801.75 EUR
