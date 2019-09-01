@@ -10814,3 +10814,10 @@ plugin "beancount.plugins.check_commodity"
 2019-07-27 balance Passif:Boursorama:EmpruntRP  -120596.789999999993597157299518585205078125 EUR
   source: "pdfbourso"
 
+2019-08-26 * "ECH PRET:80280000606862232601" ""
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint                         -1082.26 EUR
+  Passif:Boursorama:EmpruntRP                        865.05 EUR
+  Depenses:Banque:Interet                            175.87 EUR
+  Depenses:Banque:AssuEmprunt                         41.34 EUR
+
