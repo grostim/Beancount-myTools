@@ -9249,6 +9249,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2017-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2017-08-03 * "VIR Assurance Entree. " "TRINQUIER"
+  document: "2017-08-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                         3200.00 EUR
+  Depenses:Immobilier:Travaux
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDJoint"
 
 *** CEL Anna
