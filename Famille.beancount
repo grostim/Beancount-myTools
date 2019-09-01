@@ -9017,6 +9017,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-09-30 Boursorama.pdf"
   source: "pdfbourso"
 
+2013-09-03 * "VIR ttt " "GROS TIMOTHEE"
+  document: "2013-09-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                         6290.00 EUR
+  Equity:Opening-Balances
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDJoint"
 
 *** CEL Anna
