@@ -9192,7 +9192,7 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Voitures:Achats
 
 2013-08-31 balance Actif:BanquePostale:LAJoint            0 EUR
-2013-09-31 close Actif:BanquePostale:LAJoint
+2013-09-30 close Actif:BanquePostale:LAJoint
 
 ; Historique réel pour le LDD Joint
 2013-08-24 open Actif:Boursorama:LDDJoint                   EUR
