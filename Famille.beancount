@@ -1842,6 +1842,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDAnna                        -10531.08 EUR
   Actif:Boursorama:CCJoint
 
+2013-08-26 * "VIR Versement initial LDD " "TRINQUIER"
+  document: "2013-08-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                           10.00 EUR
+  Actif:Boursorama:CCJoint
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
