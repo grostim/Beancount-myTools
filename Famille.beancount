@@ -10796,3 +10796,6 @@ plugin "beancount.plugins.check_commodity"
 2019-01-27 balance Passif:Boursorama:EmpruntRP  -125760.699999999997089616954326629638671875 EUR
   source: "pdfbourso"
 
+2019-02-27 balance Passif:Boursorama:EmpruntRP  -124903.1799999999930150806903839111328125 EUR
+  source: "pdfbourso"
+
