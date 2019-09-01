@@ -9129,6 +9129,10 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                           93.98 EUR
   Revenus:Interets
 
+2015-01-31 balance Actif:Boursorama:LDDJoint  3366.34000000000014551915228366851806640625 EUR
+  document: "2015-04-02 Boursorama.pdf"
+  source: "pdfbourso"
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDJoint"
 
 *** CEL Anna
