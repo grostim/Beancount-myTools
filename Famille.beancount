@@ -9247,7 +9247,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2016-03-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2016-12-31 balance Actif:Boursorama:LDDJoint  24.35000000000000142108547152020037174224853515625 EUR
+2016-12-31 balance Actif:Boursorama:LDDJoint  24.35 EUR
   document: "2017-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9257,7 +9257,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                            4.76 EUR
   Revenus:Interets
 
-2017-02-01 balance Actif:Boursorama:LDDJoint  29.1099999999999994315658113919198513031005859375 EUR
+2017-02-01 balance Actif:Boursorama:LDDJoint  29.11 EUR
   document: "2017-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
@@ -9267,11 +9267,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                         3200.00 EUR
   Depenses:Immobilier:Travaux
 
-2017-09-01 balance Actif:Boursorama:LDDJoint  3229.11000000000012732925824820995330810546875 EUR
+2017-09-01 balance Actif:Boursorama:LDDJoint  3229.11 EUR
   document: "2017-09-29 Boursorama.pdf"
   source: "pdfbourso"
 
-2017-09-30 balance Actif:Boursorama:LDDJoint  2429.11000000000012732925824820995330810546875 EUR
+2017-09-30 balance Actif:Boursorama:LDDJoint  2429.11 EUR
   document: "2017-12-29 Boursorama.pdf"
   source: "pdfbourso"
 
