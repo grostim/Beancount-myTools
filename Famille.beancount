@@ -5344,6 +5344,12 @@ plugin "beancount.plugins.check_commodity"
 ;  Actif:Boursorama:LDDAnna                           200.00 EUR
 ;  Actif:Boursorama:CCAnna
 
+2013-11-08 * "VIR vvvvvvvvvv " "TRINQUIER"
+  document: "2013-11-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                         8000.00 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCAnna"
 
 ** Cartes de crédit
