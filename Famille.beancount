@@ -781,6 +781,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                         7500.00 EUR
   Actif:Boursorama:CCTim
 
+2016-01-09 * "VIR interne " "TRINQUIER"
+  document: "2016-01-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                          305.00 EUR
+  Actif:Boursorama:CCAnna
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
