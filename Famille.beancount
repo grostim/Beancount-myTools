@@ -9182,36 +9182,36 @@ plugin "beancount.plugins.check_commodity"
   Actif:BanquePostale:CCJoint
 
 2009-09-15 * "Epargne"
-  Actif:BanquePostale:LAJoint                       100.00 EUR
+  Actif:BanquePostale:LAJoint                        100.00 EUR
   Actif:BanquePostale:CCJoint
 
 2009-11-30 balance Actif:BanquePostale:LAJoint      3541.00 EUR
 
 2009-12-31 * "Interets"
-  Actif:BanquePostale:LAJoint                       55.93 EUR
+  Actif:BanquePostale:LAJoint                         55.93 EUR
   Revenus:Interets
 
 2010-01-30 balance Actif:BanquePostale:LAJoint      3596.93 EUR
 
 2010-02-15 * "Epargne"
-  Actif:BanquePostale:LAJoint                       -1800.00 EUR
+  Actif:BanquePostale:LAJoint                      -1800.00 EUR
   Actif:BanquePostale:CCJoint
 
 2010-03-15 * "Epargne"
-  Actif:BanquePostale:LAJoint                       -1000.00 EUR
+  Actif:BanquePostale:LAJoint                      -1000.00 EUR
   Actif:BanquePostale:CCJoint
 
 2010-07-15 * "Epargne"
   Actif:BanquePostale:LAJoint                       -700.00 EUR
   Actif:BanquePostale:CCJoint
 
-2010-11-30 balance Actif:BanquePostale:LAJoint      96.93 EUR
+2010-11-30 balance Actif:BanquePostale:LAJoint        96.93 EUR
 
 2010-12-30 * "Interets"
-  Actif:BanquePostale:LAJoint                       15.09 EUR
+  Actif:BanquePostale:LAJoint                         15.09 EUR
   Revenus:Interets
 
-2010-12-31 balance Actif:BanquePostale:LAJoint      112.02 EUR
+2010-12-31 balance Actif:BanquePostale:LAJoint       112.02 EUR
 
 2011-03-15 * "Epargne"
   Actif:BanquePostale:LAJoint                       1000.00 EUR
@@ -9221,20 +9221,20 @@ plugin "beancount.plugins.check_commodity"
   Actif:BanquePostale:LAJoint                       -740.00 EUR
   Actif:BanquePostale:CCJoint
 
-2011-09-30 balance Actif:BanquePostale:LAJoint      372.02 EUR
+2011-09-30 balance Actif:BanquePostale:LAJoint       372.02 EUR
 
 2011-11-29 pad  Actif:BanquePostale:LAJoint  Revenus:Salaires:Tecnal ; Solde de tout compte départ Tecnal
 
-2011-11-30 balance Actif:BanquePostale:LAJoint        15300.00 EUR
+2011-11-30 balance Actif:BanquePostale:LAJoint     15300.00 EUR
 
 2011-12-31 * "Interets"
-  Actif:BanquePostale:LAJoint                       62.66 EUR
+  Actif:BanquePostale:LAJoint                         62.66 EUR
   Revenus:Interets
 
 2012-01-31 balance Actif:BanquePostale:LAJoint     15362.66 EUR
 
 2012-11-15 * "Epargne"
-  Actif:BanquePostale:LAJoint                       -1600.00 EUR
+  Actif:BanquePostale:LAJoint                      -1600.00 EUR
   Actif:BanquePostale:CCJoint
 
 2012-12-15 * "Epargne"
@@ -10030,35 +10030,35 @@ plugin "beancount.plugins.check_commodity"
   account: "00040239557"
 2000-01-01 pad  Actif:BanquePostale:LAAnna  Equity:Opening-Balances
 
-2014-01-26 balance  Actif:BanquePostale:LAAnna     8768.14 EUR
+2014-01-26 balance  Actif:BanquePostale:LAAnna      8768.14 EUR
 
 2014-12-31 * "Versement interets"
-  Actif:BanquePostale:LAAnna                           91.01 EUR
+  Actif:BanquePostale:LAAnna                          91.01 EUR
   Revenus:Interets
   
-2015-01-26 balance  Actif:BanquePostale:LAAnna     8859.15 EUR
+2015-01-26 balance  Actif:BanquePostale:LAAnna      8859.15 EUR
 
 2015-12-31 * "Versement interets"
-  Actif:BanquePostale:LAAnna                           79.36 EUR
+  Actif:BanquePostale:LAAnna                          79.36 EUR
   Revenus:Interets
 
-2016-01-26 balance  Actif:BanquePostale:LAAnna     8938.51 EUR
+2016-01-26 balance  Actif:BanquePostale:LAAnna      8938.51 EUR
 
 2016-12-31 * "Versement interets"
-  Actif:BanquePostale:LAAnna                           67.04 EUR
+  Actif:BanquePostale:LAAnna                          67.04 EUR
   Revenus:Interets
 
 2017-02-15 * "Virement" "POUR VOYAGE"
   Actif:BanquePostale:LAAnna                          -1000 EUR
   Actif:Boursorama:CCJoint
 
-2017-02-24 balance  Actif:BanquePostale:LAAnna     8005.55 EUR
+2017-02-24 balance  Actif:BanquePostale:LAAnna      8005.55 EUR
 
 2017-12-31 * "Versement interets"
-  Actif:BanquePostale:LAAnna                           60.67 EUR
+  Actif:BanquePostale:LAAnna                          60.67 EUR
   Revenus:Interets
 
-2018-01-26 balance  Actif:BanquePostale:LAAnna     8066.22 EUR
+2018-01-26 balance  Actif:BanquePostale:LAAnna      8066.22 EUR
 
 2018-12-31 * "Versement interets"
   Actif:BanquePostale:LAAnna                           60.5 EUR
