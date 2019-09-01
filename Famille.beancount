@@ -11434,3 +11434,10 @@ plugin "beancount.plugins.check_commodity"
 2024-09-27 balance Passif:Boursorama:EmpruntRP  -64507.0599999999976716935634613037109375 EUR
   source: "pdfbourso"
 
+2024-10-26 * "ECH PRET:80280000606862232601" ""
+  source: "pdfbourso"
+  Actif:Boursorama:CCJoint                         -1082.26 EUR
+  Passif:Boursorama:EmpruntRP                        946.85 EUR
+  Depenses:Banque:Interet                             94.07 EUR
+  Depenses:Banque:AssuEmprunt                         41.34 EUR
+
