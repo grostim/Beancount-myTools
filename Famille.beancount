@@ -9171,6 +9171,11 @@ plugin "beancount.plugins.check_commodity"
 
 2010-11-30 balance Actif:BanquePostale:LAJoint      96.93 EUR
 
+
+2010-12-30 * "Interets"
+  Actif:BanquePostale:LAJoint                       15.02 EUR
+  Revenus:Interets
+
 2010-12-31 balance Actif:BanquePostale:LAJoint      112.02 EUR
 
 2011-03-15 * "Epargne"
