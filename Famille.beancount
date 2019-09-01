@@ -9017,6 +9017,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-09-30 Boursorama.pdf"
   source: "pdfbourso"
 
+2013-09-09 * "CHQ BQ N° 1077490 LA BANQUE POSTALE " ""
+  document: "2013-09-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                        -2495.82 EUR
+  Depenses:A-CLASSER
+
 2013-09-03 * "VIR ttt " "GROS TIMOTHEE"
   document: "2013-09-30 Boursorama.pdf"
   source: "pdfbourso"
