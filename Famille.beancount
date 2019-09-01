@@ -8907,6 +8907,22 @@ plugin "beancount.plugins.check_commodity"
 2007-09-07 open Actif:BanquePostale:CELTim                 EUR
 2007-09-08 pad  Actif:BanquePostale:CELTim  Equity:Opening-Balances
 
+2012-02-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                             -250 EUR
+  Actif:BanquePostale:CCTim
+  
+2012-03-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                             -600 EUR
+  Actif:BanquePostale:CCTim
+  
+2012-05-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                             -1895 EUR
+  Actif:BanquePostale:CCTim
+
+2012-09-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                             -2400 EUR
+  Actif:BanquePostale:CCTim
+
 2013-09-15 * "Mouvement epargne"
   Actif:BanquePostale:CELTim                             7113.57 EUR
   Actif:BanquePostale:CCTim
@@ -8917,7 +8933,7 @@ plugin "beancount.plugins.check_commodity"
 
 2013-09-15 * "Mouvement epargne"
   Actif:BanquePostale:CELTim                             -6500.00 EUR
-  Depenses:A-CLASSER
+  Actif:Boursorama:CCTim
 
 2013-11-28 * "*INTERETS " "A date du transfert"
   Actif:BanquePostale:CELTim                              18.13 EUR
