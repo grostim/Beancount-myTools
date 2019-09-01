@@ -793,6 +793,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                          833.55 EUR
   Actif:Boursorama:CCTim
 
+2016-02-15 * "VIR interne " "GROS TIMOTHEE"
+  document: "2016-02-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                        -3000.00 EUR
+  Actif:Boursorama:CCTim
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
