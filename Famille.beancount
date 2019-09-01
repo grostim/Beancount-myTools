@@ -10510,3 +10510,6 @@ plugin "beancount.plugins.check_commodity"
 1981-07-03 pad  Actif:Cash  Equity:Opening-Balances
 2019-08-23 balance  Actif:Cash                         7000 EUR
 
+2016-08-27 balance Passif:Boursorama:EmpruntRP  -150092.859999999986030161380767822265625 EUR
+  source: "pdfbourso"
+
