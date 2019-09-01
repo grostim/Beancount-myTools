@@ -10042,7 +10042,7 @@ plugin "beancount.plugins.check_commodity"
 2014-01-24 balance  Actif:BanquePostale:LAAnna 7715.14 EUR
 
 2014-02-28 * "Remise chèque"
-  Actif:BanquePostale:LAAnna                          165 EUR
+  Actif:BanquePostale:LAAnna                          165.00 EUR
   Revenus:VentesAnna
 
 2014-07-15 * "Remise chèque"
