@@ -9067,6 +9067,12 @@ plugin "beancount.plugins.check_commodity"
   document: "2014-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
+2013-12-31 * "*INTERETS AU 31/12/13 " ""
+  document: "2014-01-31 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                           17.68 EUR
+  Revenus:Interets
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDJoint"
 
 *** CEL Anna
