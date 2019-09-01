@@ -8907,12 +8907,12 @@ plugin "beancount.plugins.check_commodity"
 2006-09-01 open Actif:BanquePostale:CELTim                 EUR
 2006-10-01 pad  Actif:BanquePostale:CELTim  Equity:Opening-Balances
 
-2013-12-31 balance Actif:BanquePostale:CELTim            0 EUR
-2013-12-30 close Actif:BanquePostale:CELTim
-
 2013-11-28 * "*INTERETS " "A date du transfert"
   Actif:BanquePostale:CELTim                              18.13 EUR
   Revenus:Interets
+
+2013-12-31 balance Actif:BanquePostale:CELTim            0 EUR
+2013-12-30 close Actif:BanquePostale:CELTim
 
 2007-09-07 open Actif:Boursorama:CELTim                     EUR
   account: "00030269844"
