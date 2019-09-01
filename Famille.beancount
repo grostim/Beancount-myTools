@@ -10030,6 +10030,11 @@ plugin "beancount.plugins.check_commodity"
   account: "00040239557"
 2000-01-01 pad  Actif:BanquePostale:LAAnna  Equity:Opening-Balances
 
+2015-01-26 balance  Actif:BanquePostale:LAAnna     8859.15 EUR
+
+2015-12-31 * "Versement interets"
+  Actif:BanquePostale:LAAnna                           79.36 EUR
+  Revenus:Interets
 
 2016-01-26 balance  Actif:BanquePostale:LAAnna     8938.51 EUR
 
