@@ -62,15 +62,15 @@ plugin "beancount.plugins.check_commodity"
 
 2016-02-26 commodity RESIDENCE_PRINCIPALE
   asset-class: "Immo"
-  asset-subclass: "Residentiel"
+  asset-subclass: "RP"
 
 1998-01-01 commodity RP_PARENTS
   asset-class: "Immo"
-  asset-subclass: "Residentiel"
+  asset-subclass: "nueprop"
 
 2018-01-01 commodity JARDINSEUROPE
   asset-class: "Immo"
-  asset-subclass: "Locatif"
+  asset-subclass: "nueprop"
 
 * Comptes
 ** Comptes Courants
