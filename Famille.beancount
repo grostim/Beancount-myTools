@@ -769,6 +769,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                         -700.00 EUR
   Actif:Boursorama:CCTim
 
+2015-11-27 * "VIR SEPA Ingrid Audurier " "Salaire novembre"
+  document: "2015-11-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                         -488.60 EUR
+  Depenses:A-CLASSER
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
