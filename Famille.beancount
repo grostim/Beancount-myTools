@@ -10266,15 +10266,22 @@ plugin "beancount.plugins.check_commodity"
 2019-08-23 balance  Actif:BanquePostale:LAAnna     10126.72 EUR
 
 ** Emprunts
-
+*** Emprunt RP
 2016-02-26 open   Passif:Boursorama:EmpruntRP               EUR
   account: "00060686223"
 2016-02-27 pad    Passif:Boursorama:EmpruntRP  Equity:Opening-Balances
 2019-08-19 balance  Passif:Boursorama:EmpruntRP  -119731.74 EUR
 
+1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:EmpruntRP"
+
+*** Pret Conso
 2019-08-05 open   Passif:Boursorama:PretConso               EUR
   account: "00060818936"
 2019-08-19 balance  Passif:Boursorama:PretConso      -10000 EUR
+
+
+1981-02-07 custom "fava-option" "insert-entry" "Passif:Boursorama:PretConso"
+
 
 2018-08-01 open   Passif:Linxea:Avance                      EUR
   account: ""
@@ -10396,6 +10403,8 @@ plugin "beancount.plugins.check_commodity"
 1981-07-02 open Depenses:Alimentaire:VinsEtAlcool           EUR
 1981-07-02 open Depenses:Assurance:CB                       EUR
 1981-07-02 open Depenses:Banque:Frais                       EUR
+1981-07-02 open Depenses:Banque:Interet                     EUR
+1981-07-02 open Depenses:Banque:AssuEmprunt                 EUR
 1981-07-02 open Depenses:Cadeaux                            EUR
 1981-07-02 open Depenses:Coiffeur                           EUR
 1981-07-02 open Depenses:Divers                             EUR

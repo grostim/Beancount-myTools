@@ -56,9 +56,6 @@ class pdfbourso(importer.ImporterProtocol):
         return "Boursorama.pdf"
 
     def file_account(self, file):
-        # Si debogage, affichage de l'extraction
-        if self.debug:
-            print(text)
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
         if self.type == "Compte":
@@ -222,4 +219,93 @@ class pdfbourso(importer.ImporterProtocol):
                     postings=[posting_1],
                 )
                 entries.append(transac)
+
+        if self.type == "Amortissement":
+            # Identification du numéro de compte
+            control = "N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
+            match = re.search(control, text)
+            if match:
+                compte = match.group(1)
+
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(compte)
+
+            control = "(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
+            chunks = re.findall(control, text)
+
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(chunks)
+
+            index = 0
+            for chunk in chunks:
+                index += 1
+                meta = data.new_metadata(file.name, index)
+                meta["source"] = "pdfbourso"
+
+                ope = dict()
+                ope["date"] = parse_datetime(chunk[0], dayfirst="True").date()
+                ope["prelevement"] = amount.Amount(Decimal("-" + chunk[1].replace(",", ".")), "EUR")
+                ope["amortissement"] = amount.Amount(Decimal(chunk[2].replace(",", ".")), "EUR")
+                ope["interet"] = amount.Amount(Decimal(chunk[3].replace(",", ".")), "EUR")
+                ope["assurance"] = amount.Amount(Decimal(chunk[4].replace(",", ".")), "EUR")
+                ope["CRD"] = amount.Amount(Decimal("-" + chunk[7].replace(",", ".")), "EUR")
+
+                # Creation de la transactiocn
+                posting_1 = data.Posting(
+                    account="Actif:Boursorama:CCJoint",
+                    units=ope["prelevement"],
+                    cost=None,
+                    flag=None,
+                    meta=None,
+                    price=None,
+                )
+                posting_2 = data.Posting(
+                    account=self.accountList[compte],
+                    units=ope["amortissement"],
+                    cost=None,
+                    flag=None,
+                    meta=None,
+                    price=None,
+                )
+                posting_3 = data.Posting(
+                    account="Depenses:Banque:Interet",
+                    units=ope["interet"],
+                    cost=None,
+                    flag=None,
+                    meta=None,
+                    price=None,
+                )
+                posting_4 = data.Posting(
+                    account="Depenses:Banque:AssuEmprunt",
+                    units=ope["assurance"],
+                    cost=None,
+                    flag=None,
+                    meta=None,
+                    price=None,
+                )
+                flag = flags.FLAG_OKAY
+                transac = data.Transaction(
+                    meta=meta,
+                    date=ope["date"],
+                    flag=flag,
+                    payee="ECH PRET:80280000606862232601",
+                    narration="",
+                    tags=data.EMPTY_SET,
+                    links=data.EMPTY_SET,
+                    postings=[posting_1,posting_2,posting_3,posting_4],
+                )
+                entries.append(transac)
+                entries.append(
+                    data.Balance(
+                        meta,
+                        ope["date"] + datetime.timedelta(1),
+                        self.accountList[compte],
+                        ope["CRD"],
+                        None,
+                        None,
+                    )
+                )
+
         return entries
