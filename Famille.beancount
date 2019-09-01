@@ -9173,11 +9173,11 @@ plugin "beancount.plugins.check_commodity"
   document: "2015-06-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-07-01 balance Actif:Boursorama:LDDJoint  1856.339999999999918145476840436458587646484375 EUR
+2015-07-01 balance Actif:Boursorama:LDDJoint  1856.34 EUR
   document: "2015-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2015-09-01 balance Actif:Boursorama:LDDJoint  1356.339999999999918145476840436458587646484375 EUR
+2015-09-01 balance Actif:Boursorama:LDDJoint  1356.34 EUR
   document: "2015-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
