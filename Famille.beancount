@@ -739,6 +739,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:PEAPME:Cash
   Actif:Boursorama:CELTim                    -11550.00 EUR
 
+2013-11-08 * "VIR cccccccc " "GROS TIMOTHEE"
+  document: "2013-11-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                         1000.00 EUR
+  Actif:Boursorama:CCTim
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
