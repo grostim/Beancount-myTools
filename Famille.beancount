@@ -8991,11 +8991,11 @@ plugin "beancount.plugins.check_commodity"
   Actif:BanquePostale:CELTim                          -2400 EUR
   Actif:BanquePostale:CCTim
 
-2013-09-15 * "Mouvement epargne"
+2013-05-15 * "Mouvement epargne"
   Actif:BanquePostale:CELTim                        7113.57 EUR
   Actif:BanquePostale:CCTim
 
-2013-09-15 * "Mouvement epargne"
+2013-06-15 * "Mouvement epargne"
   Actif:BanquePostale:CELTim                        -750.00 EUR
   Actif:BanquePostale:CCTim
 
