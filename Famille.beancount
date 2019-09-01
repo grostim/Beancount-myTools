@@ -8997,7 +8997,7 @@ plugin "beancount.plugins.check_commodity"
 ;2007-09-08 pad  Actif:Boursorama:LDDJoint  Equity:Opening-Balances
 ;2019-08-19 balance  Actif:Boursorama:LDDJoint         44.16 EUR
 
-1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDAnna"
+1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDJoint"
 
 *** CEL Anna
 
