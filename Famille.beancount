@@ -10054,11 +10054,11 @@ plugin "beancount.plugins.check_commodity"
 
 2013-01-26 balance  Actif:BanquePostale:LAAnna      5464.86 EUR
 
-2013-01-14 * "Epargne"
+2013-02-14 * "Epargne"
   Actif:BanquePostale:LAAnna                         800.00 EUR
   Actif:BanquePostale:CCAnna
 
-2013-01-14 * "Epargne"
+2013-04-14 * "Epargne"
   Actif:BanquePostale:LAAnna                        -200.00 EUR
   Actif:BanquePostale:CCAnna
 
