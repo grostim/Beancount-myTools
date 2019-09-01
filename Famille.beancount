@@ -1974,6 +1974,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                          -10.00 EUR
   Depenses:Cadeaux
 
+2017-12-18 * "VIR Paiement plancher " "MLE ANNA TRINQUIER OU M GROS"
+  document: "2017-12-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                        -2000.00 EUR
+  Actif:Boursorama:CCJoint
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
