@@ -8968,7 +8968,11 @@ plugin "beancount.plugins.check_commodity"
 2011-10-15 * "Mouvement epargne"
   Actif:BanquePostale:CELTim                       -4428.18 EUR
   Actif:BanquePostale:LAJoint
-  
+
+2011-12-31 * "*INTERETS " ""
+  Actif:BanquePostale:CELTim                          97.98 EUR
+  Revenus:Interets
+
 2012-01-01 balance Actif:BanquePostale:CELTim          5669.80 EUR
 
 2012-02-15 * "Mouvement epargne"
