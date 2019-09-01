@@ -9303,19 +9303,19 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                            6.88 EUR
   Revenus:Interets
 
-2018-02-01 balance Actif:Boursorama:LDDJoint  435.990000000000009094947017729282379150390625 EUR
+2018-02-01 balance Actif:Boursorama:LDDJoint  435.99 EUR
   document: "2018-02-28 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-03-01 balance Actif:Boursorama:LDDJoint  35.99000000000000198951966012828052043914794921875 EUR
+2018-03-01 balance Actif:Boursorama:LDDJoint  35.99 EUR
   document: "2018-08-31 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-09-01 balance Actif:Boursorama:LDDJoint  6035.989999999999781721271574497222900390625 EUR
+2018-09-01 balance Actif:Boursorama:LDDJoint  6035.99 EUR
   document: "2018-11-30 Boursorama.pdf"
   source: "pdfbourso"
 
-2018-12-31 balance Actif:Boursorama:LDDJoint  35.99000000000000198951966012828052043914794921875 EUR
+2018-12-31 balance Actif:Boursorama:LDDJoint  35.99 EUR
   document: "2019-01-31 Boursorama.pdf"
   source: "pdfbourso"
 
