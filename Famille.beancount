@@ -9169,6 +9169,22 @@ plugin "beancount.plugins.check_commodity"
 2006-09-01 open Actif:BanquePostale:LAJoint                 EUR
 2006-10-01 pad  Actif:BanquePostale:LAJoint  Equity:Opening-Balances
 
+2011-03-15 * "Epargne"
+  Actif:BanquePostale:LAJoint                       1000.00 EUR
+  Actif:BanquePostale:CCJoint
+
+2011-04-15 * "Epargne"
+  Actif:BanquePostale:LAJoint                       -740.00 EUR
+  Actif:BanquePostale:CCJoint
+
+2011-09-30 balance Actif:BanquePostale:LAJoint      1872.02 EUR
+
+2006-10-01 pad  Actif:BanquePostale:LAJoint  Revenus:Salaires:Tecnal ; Solde de tout compte départ Tecnal
+
+2011-11-31 balance Actif:BanquePostale:LAJoint        16800 EUR
+
+2006-10-01 pad  Actif:BanquePostale:LAJoint  Actif:BanquePostale:CCJoint ; Pas de traces, donc on suppose que c'est de la simple deseparg e
+
 2012-01-31 balance Actif:BanquePostale:LAJoint     15362.66 EUR
 
 2012-11-15 * "Epargne"
