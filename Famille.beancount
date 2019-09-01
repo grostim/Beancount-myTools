@@ -10861,3 +10861,6 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Banque:Interet                            170.81 EUR
   Depenses:Banque:AssuEmprunt                         41.34 EUR
 
+2019-12-27 balance Passif:Boursorama:EmpruntRP  -116258.91000000000349245965480804443359375 EUR
+  source: "pdfbourso"
+
