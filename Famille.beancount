@@ -8907,12 +8907,24 @@ plugin "beancount.plugins.check_commodity"
 2007-09-07 open Actif:BanquePostale:CELTim                 EUR
 2007-09-08 pad  Actif:BanquePostale:CELTim  Equity:Opening-Balances
 
+2013-09-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                             7113.57 EUR
+  Actif:BanquePostale:CCTim
+
+2013-09-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                             -750.00 EUR
+  Actif:BanquePostale:CCTim
+
+2013-09-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                             -6500.00 EUR
+  Depenses:A-CLASSER
+
 2013-11-28 * "*INTERETS " "A date du transfert"
   Actif:BanquePostale:CELTim                              18.13 EUR
   Revenus:Interets
 
-2013-12-31 balance Actif:BanquePostale:CELTim            0 EUR
-2013-12-30 close Actif:BanquePostale:CELTim
+2013-12-30 balance Actif:BanquePostale:CELTim            0 EUR
+2013-12-31 close Actif:BanquePostale:CELTim
 
 2013-09-18 open Actif:Boursorama:CELTim                     EUR ; Ancienneté fiscale au 2007-09-07
   account: "00030269844"
