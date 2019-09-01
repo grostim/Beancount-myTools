@@ -775,6 +775,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                         -488.60 EUR
   Depenses:A-CLASSER
 
+2016-01-01 * "VIR interne " "GROS TIMOTHEE"
+  document: "2016-01-29 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                         7500.00 EUR
+  Actif:Boursorama:CCTim
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCTim"
 
 *** CCJoint
