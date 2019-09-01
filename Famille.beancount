@@ -9179,7 +9179,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:BanquePostale:LAJoint                       -740.00 EUR
   Actif:BanquePostale:CCJoint
 
-2011-09-30 balance Actif:BanquePostale:LAJoint      1872.02 EUR
+2011-09-30 balance Actif:BanquePostale:LAJoint      372.02 EUR
 
 2011-11-29 pad  Actif:BanquePostale:LAJoint  Revenus:Salaires:Tecnal ; Solde de tout compte départ Tecnal
 
