@@ -838,7 +838,7 @@ plugin "beancount.plugins.check_commodity"
 2006-10-01 pad  Actif:BanquePostale:CCJoint  Equity:Opening-Balances
 
 2013-08-31 balance Actif:BanquePostale:CCJoint            0 EUR
-2013-09-31 close Actif:BanquePostale:CCJoint
+2013-09-30 close Actif:BanquePostale:CCJoint
 
 
 
