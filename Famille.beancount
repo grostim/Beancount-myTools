@@ -9029,6 +9029,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                          500.00 EUR
   Equity:Opening-Balances
 
+2013-09-10 * "VIR ,,, " "TRINQUIER"
+  document: "2013-09-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                         1500.00 EUR
+  Equity:Opening-Balances
+
 2013-09-03 * "VIR ttt " "GROS TIMOTHEE"
   document: "2013-09-30 Boursorama.pdf"
   source: "pdfbourso"
