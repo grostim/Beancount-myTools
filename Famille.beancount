@@ -9154,7 +9154,7 @@ plugin "beancount.plugins.check_commodity"
 
 *** LDD Joint
 
-2013-08-24 open Actif:BanquePostale:LAJoint                 EUR
+2006-09-01 open Actif:BanquePostale:LAJoint                 EUR
 
 2013-12-31 close Actif:BanquePostale:LAJoint                EUR
 
