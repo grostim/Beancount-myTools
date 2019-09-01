@@ -2012,6 +2012,17 @@ plugin "beancount.plugins.check_commodity"
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
+
+
+; L'historique du CC Anna LBP est simplifié.
+2000-09-01 open Actif:BanquePostale:CCAnna                 EUR
+2000-10-01 pad  Actif:BanquePostale:CCAnna  Equity:Opening-Balances
+
+2013-08-31 balance Actif:BanquePostale:CCAnna            0 EUR
+2013-09-30 close Actif:BanquePostale:CCAnna
+
+
+
 2013-09-13 open Actif:Boursorama:CCAnna                     EUR
   account: "00040239557"
 2013-09-14 pad  Actif:Boursorama:CCAnna  Equity:Opening-Balances
