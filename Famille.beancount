@@ -9829,6 +9829,3 @@ plugin "beancount.plugins.check_commodity"
 1981-07-02 open Actif:Cash                                  EUR
 1981-07-03 pad  Actif:Cash  Equity:Opening-Balances
 2019-08-23 balance  Actif:Cash                         7000 EUR
-
-
-
