@@ -9027,13 +9027,13 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-09-30 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:LDDJoint                        -2495.82 EUR
-  Depenses:A-CLASSER
+  Equity:Opening-Balances
 
 2013-09-10 * "VIR ,,,, " "GROS TIMOTHEE"
   document: "2013-09-30 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:LDDJoint                          500.00 EUR
-  Equity:Opening-Balances
+  Actif:Boursorama:CCTim
 
 2013-09-10 * "VIR ,,, " "TRINQUIER"
   document: "2013-09-30 Boursorama.pdf"
@@ -9045,7 +9045,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-09-30 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:LDDJoint                         6290.00 EUR
-  Equity:Opening-Balances
+  Actif:Boursorama:CCTim
 
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:LDDJoint"
 
