@@ -1942,7 +1942,7 @@ plugin "beancount.plugins.check_commodity"
   document: "2013-08-30 Boursorama.pdf"
   source: "pdfbourso"
   Actif:Boursorama:LDDJoint                         5700.00 EUR
-  Equity:Opening-Balances
+  Actif:BanquePostale:LAJoint
 
 2013-09-16 * "VIR nnnnn " "COMPTE JOINT"
   document: "2013-09-30 Boursorama.pdf"
@@ -9154,10 +9154,35 @@ plugin "beancount.plugins.check_commodity"
 
 *** LDD Joint
 
+; L'historique du Livret A est simplifié.
 2006-09-01 open Actif:BanquePostale:LAJoint                 EUR
 
-2013-12-31 close Actif:BanquePostale:LAJoint
+2012-12-15 * "Epargne"
+  Actif:BanquePostale:LAJoint                       -260.91 EUR
+  Actif:BanquePostale:CCJoint
 
+2013-01-15 * "Epargne"
+  Actif:BanquePostale:LAJoint                         -2000 EUR
+  Actif:BanquePostale:CCJoint
+
+2013-01-31 balance Actif:BanquePostale:LAJoint     11801.75 EUR
+
+2013-02-15 * "Epargne"
+  Actif:BanquePostale:LAJoint                          8000 EUR
+  Actif:BanquePostale:CCJoint
+
+2013-05-15 * "Epargne"
+  Actif:BanquePostale:LAJoint                       3148.25 EUR
+  Actif:BanquePostale:CCJoint
+
+2013-08-15 * "Achat Prius"
+  Actif:BanquePostale:LAJoint                     -13000.00 EUR
+  Depenses:Voitures:Achats
+
+2013-08-31 balance Actif:BanquePostale:LAJoint            0 EUR
+2013-09-31 close Actif:BanquePostale:LAJoint
+
+; Historique réel pour le LDD Joint
 2013-08-24 open Actif:Boursorama:LDDJoint                   EUR
   account: "00020132893"
 
