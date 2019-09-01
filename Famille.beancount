@@ -9191,7 +9191,7 @@ plugin "beancount.plugins.check_commodity"
   Actif:BanquePostale:LAJoint                     -13000.00 EUR
   Depenses:Voitures:Achats
 
-2013-08-31 pad  Actif:BanquePostale:LAJoint  Actif:Boursorama:CCJoint
+2013-08-30 pad  Actif:BanquePostale:LAJoint  Actif:Boursorama:CCJoint
 
 2013-08-31 balance Actif:BanquePostale:LAJoint            0 EUR
 2013-09-30 close Actif:BanquePostale:LAJoint
