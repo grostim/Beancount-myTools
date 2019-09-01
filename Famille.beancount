@@ -8907,6 +8907,54 @@ plugin "beancount.plugins.check_commodity"
 2007-09-07 open Actif:BanquePostale:CELTim                 EUR
 2007-09-08 pad  Actif:BanquePostale:CELTim  Equity:Opening-Balances
 
+2009-05-30 balance Actif:BanquePostale:CELTim          6012.70 EUR
+
+2009-07-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       -700 EUR
+  Actif:BanquePostale:CCTim
+  
+2009-09-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       -200 EUR
+  Actif:BanquePostale:CCTim
+  
+2009-12-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       840.20 EUR
+  Actif:BanquePostale:CCTim
+
+2010-01-01 balance Actif:BanquePostale:CELTim          6011.18 EUR
+
+2010-01-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       1299.8 EUR
+  Actif:BanquePostale:CCTim
+
+2010-03-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       1000 EUR
+  Actif:BanquePostale:CCTim
+
+2010-07-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       -200 EUR
+  Actif:BanquePostale:CCTim
+  
+2010-08-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       -2400 EUR
+  Actif:BanquePostale:CCTim
+  
+2010-12-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       2500 EUR
+  Actif:BanquePostale:CCTim
+
+2011-01-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       1500 EUR
+  Actif:BanquePostale:CCTim
+
+2011-02-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       -980.00 EUR
+  Actif:BanquePostale:CCTim
+
+2011-08-15 * "Mouvement epargne"
+  Actif:BanquePostale:CELTim                       1209.10 EUR
+  Actif:BanquePostale:CCTim
+
 2011-10-15 * "Mouvement epargne"
   Actif:BanquePostale:CELTim                       -4428.18 EUR
   Actif:BanquePostale:LAJoint
