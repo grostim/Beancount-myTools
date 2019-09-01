@@ -1872,6 +1872,12 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:LDDJoint                         -600.00 EUR
   Actif:Boursorama:CCJoint
 
+2014-06-23 * "VIR SEPA GROS Adelaide " "Cadeau de noel"
+  document: "2014-06-30 Boursorama.pdf"
+  source: "pdfbourso"
+  Actif:Boursorama:LDDJoint                          -49.50 EUR
+  Depenses:Cadeaux
+
 1981-02-07 custom "fava-option" "insert-entry" "Actif:Boursorama:CCJoint"
 
 *** CCAnna
