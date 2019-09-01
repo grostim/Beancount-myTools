@@ -9170,6 +9170,11 @@ plugin "beancount.plugins.check_commodity"
 2006-10-01 pad  Actif:BanquePostale:LAJoint  Equity:Opening-Balances
 
 2009-11-30 balance Actif:BanquePostale:LAJoint      3541.00 EUR
+
+2009-12-31 * "Interets"
+  Actif:BanquePostale:LAJoint                       55.93 EUR
+  Revenus:Interets
+
 2010-01-30 balance Actif:BanquePostale:LAJoint      3596.93 EUR
 
 2010-02-15 * "Epargne"
