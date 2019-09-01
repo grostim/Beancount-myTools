@@ -44,6 +44,9 @@ class pdfbourso(importer.ImporterProtocol):
             if re.search("BOUSFRPPXXX", text) is not None:
                 self.type = "Compte"
                 return 1
+            if re.search("tableau d'amortissement|Echéancier Prévisionnel", text) is not None:
+                self.type = "Amortissement"
+                return 1
             if re.search("Relevé de Carte", text) is not None:
                 self.type = "CB"
                 return 1
@@ -53,22 +56,32 @@ class pdfbourso(importer.ImporterProtocol):
         return "Boursorama.pdf"
 
     def file_account(self, file):
+        # Si debogage, affichage de l'extraction
+        if self.debug:
+            print(text)
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
         if self.type == "Compte":
-            control = "8026\d\s*\d{11}"
+            control = "8026\d\s*(\d{11})"
         elif self.type == "CB":
-            control = "\s*4979\*{8}\d{4}"
+            control = "\s*4979\*{8}\(d{4})"
+        elif self.type == "Amortissement":
+            control = "N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
+        # Si debogage, affichage de l'extraction
+        if self.debug:
+            print(control)
         match = re.search(control, text)
+        # Si debogage, affichage de l'extraction
+        if self.debug:
+            print(match.group(1))
         if match:
-            compte = match.group(0).split(" ")[-1]
-            control = "8026\d\s*\d{11}"
+            compte = match.group(1)
             return self.accountList[compte]
 
     def file_date(self, file):
         # Get the actual statement's date from the contents of the file.
         text = file.convert(pdf_to_text)
-        match = re.search("au\s*(\d*/\d*/\d*)", text)
+        match = re.search("(?:au\s*|Date départ\s*:\s)(\d*/\d*/\d*)", text)
         if match:
             return parse_datetime(match.group(1), dayfirst="True").date()
 

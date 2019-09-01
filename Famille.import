@@ -31,6 +31,8 @@ ACCOUNTLIST = {
     "00020871896": "Actif:Boursorama:LDDAnna",
     "00030269844": "Actif:Boursorama:CELTim",
     "00020132893": "Actif:Boursorama:LDDJoint",
+    "80329 - 00060818936": "Passif:Boursorama:PretConso",
+    "80280-00060686223": "Passif:Boursorama:EmpruntRP",
 }
 
 CONFIG = [
