@@ -9183,9 +9183,11 @@ plugin "beancount.plugins.check_commodity"
 
 2011-11-29 pad  Actif:BanquePostale:LAJoint  Revenus:Salaires:Tecnal ; Solde de tout compte départ Tecnal
 
-2011-11-30 balance Actif:BanquePostale:LAJoint        16800 EUR
+2011-11-30 balance Actif:BanquePostale:LAJoint        15300.00 EUR
 
-2012-01-30 pad  Actif:BanquePostale:LAJoint  Actif:BanquePostale:CCJoint ; Pas de traces, donc on suppose que c'est de la simple deseparg e
+2011-12-31 * "Interets"
+  Actif:BanquePostale:LAJoint                       62.66 EUR
+  Revenus:Interets
 
 2012-01-31 balance Actif:BanquePostale:LAJoint     15362.66 EUR
 
