@@ -290,7 +290,7 @@ class pdfbourso(importer.ImporterProtocol):
                     meta=meta,
                     date=ope["date"],
                     flag=flag,
-                    payee="ECH PRET:80280000606862232601",
+                    payee="ECH PRET:8028000060686223",
                     narration="",
                     tags=data.EMPTY_SET,
                     links=data.EMPTY_SET,
