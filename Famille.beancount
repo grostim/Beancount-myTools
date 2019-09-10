@@ -8876,6 +8876,12 @@ plugin "beancount.plugins.check_commodity"
 
 2019-08-19 balance  Passif:AirFrance:Amex              0.00 EUR
 
+2019-08-08 * "GOOGLE *GOOGLE PLAY AP G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Abo:GooglePlay
+  Passif:AirFrance:Amex                              -18.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
