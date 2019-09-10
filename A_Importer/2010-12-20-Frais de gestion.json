@@ -1,0 +1,78 @@
+{
+    "compte": "P54112927",
+    "ope": "Frais de gestion",
+    "table": [
+        {
+            "date": "2010-12-20",
+            "fond": "EUROCROI",
+            "isin": "XS0320203994",
+            "montant": "1,31",
+            "nbpart": "-0,0026",
+            "nomfond": "EUROCROISSANCE 10%",
+            "valeurpart": "506,10"
+        },
+        {
+            "date": "2010-12-20",
+            "fond": "DWSRUSSI",
+            "isin": "LU0146864797",
+            "montant": "1,36",
+            "nbpart": "-0,0059",
+            "nomfond": "DWS Russia",
+            "valeurpart": "231,55"
+        },
+        {
+            "date": "2010-12-20",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "1,56",
+            "nbpart": "-0,0071",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "221,36"
+        },
+        {
+            "date": "2010-12-20",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "1,83",
+            "nbpart": "-0,0010",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "1\u00a0774,64"
+        },
+        {
+            "date": "2010-12-20",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "1,93",
+            "nbpart": "-0,0127",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "152,72"
+        },
+        {
+            "date": "2010-12-20",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "1,99",
+            "nbpart": "-0,0099",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "200,56"
+        },
+        {
+            "date": "2010-12-20",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "2,05",
+            "nbpart": "-0,0057",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "358,15"
+        },
+        {
+            "date": "2010-12-20",
+            "fond": "BNPEXI10",
+            "isin": "XS0470431742",
+            "montant": "3,72",
+            "nbpart": "-0,0034",
+            "nomfond": "BNP Exigence 10%",
+            "valeurpart": "1\u00a0096,70"
+        }
+    ]
+}

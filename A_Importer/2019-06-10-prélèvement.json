@@ -1,0 +1,51 @@
+{
+    "compte": "P54112927",
+    "ope": "pr\u00e9l\u00e8vement",
+    "table": [
+        {
+            "date": "2019-06-13",
+            "fond": "CAC40MAS",
+            "isin": "FR0007052782",
+            "montant": "30,00",
+            "nbpart": "0,5555",
+            "nomfond": "LYX.CAC40 DR UC ETF D EUR FCP",
+            "valeurpart": "54,00"
+        },
+        {
+            "date": "2019-06-13",
+            "fond": "MAGELLA1",
+            "isin": "FR0000292278",
+            "montant": "30,00",
+            "nbpart": "1,3072",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "22,95"
+        },
+        {
+            "date": "2019-06-13",
+            "fond": "MULTILUX",
+            "isin": "LU0252633754",
+            "montant": "30,00",
+            "nbpart": "0,2608",
+            "nomfond": "LYXOR Dax (Dr) Ucits ETF",
+            "valeurpart": "115,04"
+        },
+        {
+            "date": "2019-06-13",
+            "fond": "ETFMSCIW",
+            "isin": "FR0010315770",
+            "montant": "30,00",
+            "nbpart": "0,1593",
+            "nomfond": "LYXOR Ucits ETF MSCI World",
+            "valeurpart": "188,36"
+        },
+        {
+            "date": "2019-06-13",
+            "fond": "H2OMULTI",
+            "isin": "FR0013393329",
+            "montant": "30,00",
+            "nbpart": "0,2631",
+            "nomfond": "H2O Multibonds SR",
+            "valeurpart": "114,04"
+        }
+    ]
+}

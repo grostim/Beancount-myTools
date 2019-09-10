@@ -1,0 +1,24 @@
+{
+    "compte": "P54112927",
+    "ope": "Arbitrage",
+    "table": [
+        {
+            "date": "2014-04-22",
+            "fond": "OBJSMCEU",
+            "isin": "FR0010689141",
+            "montant": "409,70",
+            "nbpart": "-0,3741",
+            "nomfond": "LAZARD small caps euro",
+            "valeurpart": "1\u00a0095,23"
+        },
+        {
+            "date": "2014-04-22",
+            "fond": "FIDEEUSM",
+            "isin": "LU0061175625",
+            "montant": "409,70",
+            "nbpart": "11,5604",
+            "nomfond": "FIDELITY Fds-European Sm-A",
+            "valeurpart": "35,44"
+        }
+    ]
+}

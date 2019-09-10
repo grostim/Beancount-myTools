@@ -1,0 +1,123 @@
+{
+    "compte": "P54112927",
+    "ope": "Frais de gestion",
+    "table": [
+        {
+            "date": "2009-03-23",
+            "fond": "TALENTS",
+            "isin": "FR0007062567",
+            "montant": "0,06",
+            "nbpart": "-0,0004",
+            "nomfond": "TALENTS",
+            "valeurpart": "139,00"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "0,14",
+            "nbpart": "-0,0017",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "86,28"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "CAC40MAS",
+            "isin": "FR0007052782",
+            "montant": "0,22",
+            "nbpart": "-0,0078",
+            "nomfond": "LYX.CAC40 DR UC ETF D EUR FCP",
+            "valeurpart": "28,21"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "TOCDIVIC",
+            "isin": "FR0010546929",
+            "montant": "0,24",
+            "nbpart": "-0,0199",
+            "nomfond": "TOCQUEVILLE Dividende C",
+            "valeurpart": "12,28"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "CENTIFOL",
+            "isin": "FR0007076930",
+            "montant": "0,28",
+            "nbpart": "-0,0019",
+            "nomfond": "CENTIFOLIA C",
+            "valeurpart": "152,49"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "AGRESSOR",
+            "isin": "FR0010321802",
+            "montant": "0,36",
+            "nbpart": "-0,0006",
+            "nomfond": "ECHIQUIER Agressor",
+            "valeurpart": "601,90"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "0,64",
+            "nbpart": "-0,0054",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "117,47"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "1,29",
+            "nbpart": "-0,0145",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "88,52"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "0,73",
+            "nbpart": "-0,0008",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "925,66"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "0,86",
+            "nbpart": "-0,0033",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "260,58"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "EUROCROI",
+            "isin": "XS0320203994",
+            "montant": "0,67",
+            "nbpart": "-0,0026",
+            "nomfond": "EUROCROISSANCE 10%",
+            "valeurpart": "256,60"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "RPCARBLA",
+            "isin": "FR0007448006",
+            "montant": "0,07",
+            "nbpart": "-0,0008",
+            "nomfond": "RP Selection Carte Blanche",
+            "valeurpart": "90,50"
+        },
+        {
+            "date": "2009-03-23",
+            "fond": "EASTCAPI",
+            "isin": "SE0000888208",
+            "montant": "0,11",
+            "nbpart": "-0,0584",
+            "nomfond": "EAST K Eastern Europ Fd",
+            "valeurpart": "1,86"
+        }
+    ]
+}

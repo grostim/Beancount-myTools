@@ -1,0 +1,51 @@
+{
+    "compte": "P54112927",
+    "ope": "Arbitrage",
+    "table": [
+        {
+            "date": "2009-12-14",
+            "fond": "AGRESSOR",
+            "isin": "FR0010321802",
+            "montant": "639,73",
+            "nbpart": "-0,6702",
+            "nomfond": "ECHIQUIER Agressor",
+            "valeurpart": "954,51"
+        },
+        {
+            "date": "2009-12-14",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "750,16",
+            "nbpart": "-6,0478",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "124,04"
+        },
+        {
+            "date": "2009-12-14",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "285,92",
+            "nbpart": "-0,2067",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "1\u00a0383,46"
+        },
+        {
+            "date": "2009-12-14",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "599,84",
+            "nbpart": "-3,1744",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "188,96"
+        },
+        {
+            "date": "2009-12-14",
+            "fond": "BNPEXI10",
+            "isin": "XS0470431742",
+            "montant": "275,65",
+            "nbpart": "2,2784",
+            "nomfond": "BNP Exigence 10%",
+            "valeurpart": "998,80"
+        }
+    ]
+}

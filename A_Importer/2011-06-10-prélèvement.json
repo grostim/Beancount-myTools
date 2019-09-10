@@ -1,0 +1,60 @@
+{
+    "compte": "P54112927",
+    "ope": "pr\u00e9l\u00e8vement",
+    "table": [
+        {
+            "date": "2011-06-15",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "25,00",
+            "nbpart": "0,1242",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "201,31"
+        },
+        {
+            "date": "2011-06-15",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "25,00",
+            "nbpart": "0,0731",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "341,87"
+        },
+        {
+            "date": "2011-06-15",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "25,00",
+            "nbpart": "0,0157",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "1\u00a0594,92"
+        },
+        {
+            "date": "2011-06-15",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "25,00",
+            "nbpart": "0,1600",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "156,25"
+        },
+        {
+            "date": "2011-06-15",
+            "fond": "DWSRUSSI",
+            "isin": "LU0146864797",
+            "montant": "25,00",
+            "nbpart": "0,1059",
+            "nomfond": "DWS Russia",
+            "valeurpart": "236,01"
+        },
+        {
+            "date": "2011-06-15",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "25,00",
+            "nbpart": "0,1258",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "198,70"
+        }
+    ]
+}

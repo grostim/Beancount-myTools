@@ -1,0 +1,78 @@
+{
+    "compte": "P54112927",
+    "ope": "Arbitrage",
+    "table": [
+        {
+            "date": "2009-08-31",
+            "fond": "RPCARBLA",
+            "isin": "FR0007448006",
+            "montant": "61,07",
+            "nbpart": "-0,5265",
+            "nomfond": "RP Selection Carte Blanche",
+            "valeurpart": "115,98"
+        },
+        {
+            "date": "2009-08-31",
+            "fond": "EASTCAPI",
+            "isin": "SE0000888208",
+            "montant": "111,87",
+            "nbpart": "-38,8195",
+            "nomfond": "EAST K Eastern Europ Fd",
+            "valeurpart": "2,88"
+        },
+        {
+            "date": "2009-08-31",
+            "fond": "AXAWFBRA",
+            "isin": "LU0227146197",
+            "montant": "179,93",
+            "nbpart": "-1,7527",
+            "nomfond": "AXA Wf Frm Emerg Mkt A C",
+            "valeurpart": "102,66"
+        },
+        {
+            "date": "2009-08-31",
+            "fond": "CLAMOBLI",
+            "isin": "FR0010166181",
+            "montant": "181,66",
+            "nbpart": "-0,0042",
+            "nomfond": "AMUNDI Obli Haut Rendement I",
+            "valeurpart": "43\u00a0048,27"
+        },
+        {
+            "date": "2009-08-31",
+            "fond": "HSBCGIFA",
+            "isin": "LU0196696453",
+            "montant": "196,51",
+            "nbpart": "-10,1276",
+            "nomfond": "HSBC Gif Brazil Equity Ac",
+            "valeurpart": "19,40"
+        },
+        {
+            "date": "2009-08-31",
+            "fond": "AGRESSOR",
+            "isin": "FR0010321802",
+            "montant": "241,24",
+            "nbpart": "0,2669",
+            "nomfond": "ECHIQUIER Agressor",
+            "valeurpart": "903,83"
+        },
+        {
+            "date": "2009-08-31",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "241,24",
+            "nbpart": "1,4867",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "162,26"
+        },
+        {
+            "date": "2009-08-31",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "248,55",
+            "nbpart": "1,9147",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "129,81"
+        }
+    ]
+}

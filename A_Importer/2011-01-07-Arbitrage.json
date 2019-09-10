@@ -1,0 +1,33 @@
+{
+    "compte": "P54112927",
+    "ope": "Arbitrage",
+    "table": [
+        {
+            "date": "2011-01-10",
+            "fond": "Eurossima",
+            "isin": "Eurossima",
+            "montant": "800,00",
+            "nbpart": "\u00a0",
+            "nomfond": "Eurossima",
+            "valeurpart": ""
+        },
+        {
+            "date": "2011-01-10",
+            "fond": "BARASEAN",
+            "isin": "IE0004868828",
+            "montant": "900,00",
+            "nbpart": "6,8084",
+            "nomfond": "BARING Int Umb A Sean Frt Fd A",
+            "valeurpart": "132,19"
+        },
+        {
+            "date": "2011-01-10",
+            "fond": "MIDDLEEM",
+            "isin": "LU0303816705",
+            "montant": "900,00",
+            "nbpart": "60,5653",
+            "nomfond": "FIDELITY Em Eur Middle East A",
+            "valeurpart": "14,86"
+        }
+    ]
+}

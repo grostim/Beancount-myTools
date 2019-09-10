@@ -1,0 +1,96 @@
+{
+    "compte": "P54112927",
+    "ope": "Arbitrage",
+    "table": [
+        {
+            "date": "2015-03-27",
+            "fond": "H20MBSRC",
+            "isin": "FR0010923375",
+            "montant": "69,89",
+            "nbpart": "-0,3287",
+            "nomfond": "H2O Multibonds R",
+            "valeurpart": "212,64"
+        },
+        {
+            "date": "2015-03-27",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "25,68",
+            "nbpart": "-0,1256",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "204,48"
+        },
+        {
+            "date": "2015-03-27",
+            "fond": "DWSRUSSI",
+            "isin": "LU0146864797",
+            "montant": "26,01",
+            "nbpart": "-0,1589",
+            "nomfond": "DWS Russia",
+            "valeurpart": "163,69"
+        },
+        {
+            "date": "2015-03-27",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "26,02",
+            "nbpart": "-0,0464",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "561,33"
+        },
+        {
+            "date": "2015-03-27",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "26,70",
+            "nbpart": "-0,1063",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "251,14"
+        },
+        {
+            "date": "2015-03-27",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "26,84",
+            "nbpart": "-0,1138",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "235,90"
+        },
+        {
+            "date": "2015-03-27",
+            "fond": "CAC40MAS",
+            "isin": "FR0007052782",
+            "montant": "50,27",
+            "nbpart": "1,0050",
+            "nomfond": "LYX.CAC40 DR UC ETF D EUR FCP",
+            "valeurpart": "50,02"
+        },
+        {
+            "date": "2015-03-27",
+            "fond": "ETFMSCIW",
+            "isin": "FR0010315770",
+            "montant": "50,29",
+            "nbpart": "0,3140",
+            "nomfond": "LYXOR Ucits ETF MSCI World",
+            "valeurpart": "160,13"
+        },
+        {
+            "date": "2015-03-27",
+            "fond": "MAGELLA1",
+            "isin": "FR0000292278",
+            "montant": "50,29",
+            "nbpart": "2,3090",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "21,78"
+        },
+        {
+            "date": "2015-03-27",
+            "fond": "MULTILUX",
+            "isin": "LU0252633754",
+            "montant": "50,29",
+            "nbpart": "0,4379",
+            "nomfond": "LYXOR Dax (Dr) Ucits ETF",
+            "valeurpart": "114,84"
+        }
+    ]
+}

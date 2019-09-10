@@ -1,0 +1,114 @@
+{
+    "compte": "P54112927",
+    "ope": "Frais de gestion",
+    "table": [
+        {
+            "date": "2007-09-17",
+            "fond": "TALENTS",
+            "isin": "FR0007062567",
+            "montant": "0,13",
+            "nbpart": "-0,0004",
+            "nomfond": "TALENTS",
+            "valeurpart": "314,98"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "0,60",
+            "nbpart": "-0,0029",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "205,78"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "0,80",
+            "nbpart": "-0,0017",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "469,53"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "0,49",
+            "nbpart": "-0,0021",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "232,47"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "RPCARBLA",
+            "isin": "FR0007448006",
+            "montant": "0,13",
+            "nbpart": "-0,0007",
+            "nomfond": "RP Selection Carte Blanche",
+            "valeurpart": "190,07"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "LFP Multimmo",
+            "isin": "LFP Multimmo",
+            "montant": "0,15",
+            "nbpart": "-0,0008",
+            "nomfond": "LFP Multimmo",
+            "valeurpart": "186,11"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "AGRESSOR",
+            "isin": "FR0010321802",
+            "montant": "0,26",
+            "nbpart": "-0,0002",
+            "nomfond": "ECHIQUIER Agressor",
+            "valeurpart": "1\u00a0283,00"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "EASTCAPI",
+            "isin": "SE0000888208",
+            "montant": "0,32",
+            "nbpart": "-0,0589",
+            "nomfond": "EAST K Eastern Europ Fd",
+            "valeurpart": "5,47"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "ECHIPATR",
+            "isin": "FR0010434019",
+            "montant": "0,38",
+            "nbpart": "-0,0005",
+            "nomfond": "ECHIQUIER Patrimoine",
+            "valeurpart": "759,08"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "0,43",
+            "nbpart": "-0,0003",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "1\u00a0436,06"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "CENTIFOL",
+            "isin": "FR0007076930",
+            "montant": "0,43",
+            "nbpart": "-0,0018",
+            "nomfond": "CENTIFOLIA C",
+            "valeurpart": "241,61"
+        },
+        {
+            "date": "2007-09-17",
+            "fond": "TOCDIVIC",
+            "isin": "FR0010546929",
+            "montant": "0,45",
+            "nbpart": "-0,0201",
+            "nomfond": "TOCQUEVILLE Dividende C",
+            "valeurpart": "22,29"
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "compte": "P54112927",
+    "ope": "pr\u00e9l\u00e8vement",
+    "table": [
+        {
+            "date": "2015-05-13",
+            "fond": "CAC40MAS",
+            "isin": "FR0007052782",
+            "montant": "30,00",
+            "nbpart": "0,6005",
+            "nomfond": "LYX.CAC40 DR UC ETF D EUR FCP",
+            "valeurpart": "49,96"
+        },
+        {
+            "date": "2015-05-13",
+            "fond": "MAGELLA1",
+            "isin": "FR0000292278",
+            "montant": "30,00",
+            "nbpart": "1,3363",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "22,45"
+        },
+        {
+            "date": "2015-05-13",
+            "fond": "MULTILUX",
+            "isin": "LU0252633754",
+            "montant": "30,00",
+            "nbpart": "0,2740",
+            "nomfond": "LYXOR Dax (Dr) Ucits ETF",
+            "valeurpart": "109,49"
+        },
+        {
+            "date": "2015-05-13",
+            "fond": "ETFMSCIW",
+            "isin": "FR0010315770",
+            "montant": "30,00",
+            "nbpart": "0,1892",
+            "nomfond": "LYXOR Ucits ETF MSCI World",
+            "valeurpart": "158,59"
+        },
+        {
+            "date": "2015-05-13",
+            "fond": "H20MBSRC",
+            "isin": "FR0010923375",
+            "montant": "30,00",
+            "nbpart": "0,1533",
+            "nomfond": "H2O Multibonds R",
+            "valeurpart": "195,68"
+        }
+    ]
+}

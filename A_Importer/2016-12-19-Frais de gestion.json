@@ -1,0 +1,51 @@
+{
+    "compte": "P54112927",
+    "ope": "Frais de gestion",
+    "table": [
+        {
+            "date": "2016-12-19",
+            "fond": "MAGELLA1",
+            "isin": "FR0000292278",
+            "montant": "7,33",
+            "nbpart": "-0,3529",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "20,78"
+        },
+        {
+            "date": "2016-12-19",
+            "fond": "ETFMSCIW",
+            "isin": "FR0010315770",
+            "montant": "8,59",
+            "nbpart": "-0,0516",
+            "nomfond": "LYXOR Ucits ETF MSCI World",
+            "valeurpart": "166,49"
+        },
+        {
+            "date": "2016-12-19",
+            "fond": "H20MBSRC",
+            "isin": "FR0010923375",
+            "montant": "9,74",
+            "nbpart": "-0,0366",
+            "nomfond": "H2O Multibonds R",
+            "valeurpart": "266,00"
+        },
+        {
+            "date": "2016-12-19",
+            "fond": "MULTILUX",
+            "isin": "LU0252633754",
+            "montant": "7,82",
+            "nbpart": "-0,0715",
+            "nomfond": "LYXOR Dax (Dr) Ucits ETF",
+            "valeurpart": "109,45"
+        },
+        {
+            "date": "2016-12-19",
+            "fond": "CAC40MAS",
+            "isin": "FR0007052782",
+            "montant": "8,17",
+            "nbpart": "-0,1727",
+            "nomfond": "LYX.CAC40 DR UC ETF D EUR FCP",
+            "valeurpart": "47,33"
+        }
+    ]
+}

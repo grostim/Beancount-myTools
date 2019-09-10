@@ -1,0 +1,87 @@
+{
+    "compte": "P54112927",
+    "ope": "Frais de gestion",
+    "table": [
+        {
+            "date": "2013-12-23",
+            "fond": "MIDDLEEM",
+            "isin": "LU0303816705",
+            "montant": "1,34",
+            "nbpart": "-0,0894",
+            "nomfond": "FIDELITY Em Eur Middle East A",
+            "valeurpart": "15,03"
+        },
+        {
+            "date": "2013-12-23",
+            "fond": "EUROCROI",
+            "isin": "XS0320203994",
+            "montant": "1,72",
+            "nbpart": "-0,0026",
+            "nomfond": "EUROCROISSANCE 10%",
+            "valeurpart": "675,20"
+        },
+        {
+            "date": "2013-12-23",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "2,34",
+            "nbpart": "-0,0143",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "163,40"
+        },
+        {
+            "date": "2013-12-23",
+            "fond": "BARASEAN",
+            "isin": "IE0004868828",
+            "montant": "2,36",
+            "nbpart": "-0,0189",
+            "nomfond": "BARING Int Umb A Sean Frt Fd A",
+            "valeurpart": "124,96"
+        },
+        {
+            "date": "2013-12-23",
+            "fond": "DWSRUSSI",
+            "isin": "LU0146864797",
+            "montant": "2,46",
+            "nbpart": "-0,0124",
+            "nomfond": "DWS Russia",
+            "valeurpart": "197,96"
+        },
+        {
+            "date": "2013-12-23",
+            "fond": "MAGELLA1",
+            "isin": "FR0000292278",
+            "montant": "3,07",
+            "nbpart": "-0,1845",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "16,61"
+        },
+        {
+            "date": "2013-12-23",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "3,81",
+            "nbpart": "-0,0171",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "222,28"
+        },
+        {
+            "date": "2013-12-23",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "4,01",
+            "nbpart": "-0,0093",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "433,07"
+        },
+        {
+            "date": "2013-12-23",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "4,04",
+            "nbpart": "-0,0218",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "185,57"
+        }
+    ]
+}

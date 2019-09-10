@@ -1,0 +1,51 @@
+{
+    "compte": "P54112927",
+    "ope": "pr\u00e9l\u00e8vement",
+    "table": [
+        {
+            "date": "2009-01-14",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "25,00",
+            "nbpart": "0,2271",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "110,07"
+        },
+        {
+            "date": "2009-01-14",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "25,00",
+            "nbpart": "0,0273",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "915,79"
+        },
+        {
+            "date": "2009-01-14",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "50,00",
+            "nbpart": "0,5287",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "94,57"
+        },
+        {
+            "date": "2009-01-14",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "25,00",
+            "nbpart": "0,2684",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "93,14"
+        },
+        {
+            "date": "2009-01-14",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "25,00",
+            "nbpart": "0,0877",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "284,90"
+        }
+    ]
+}

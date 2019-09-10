@@ -1,0 +1,87 @@
+{
+    "compte": "P54112927",
+    "ope": "Frais de gestion",
+    "table": [
+        {
+            "date": "2011-12-19",
+            "fond": "EUROCROI",
+            "isin": "XS0320203994",
+            "montant": "0,77",
+            "nbpart": "-0,0026",
+            "nomfond": "EUROCROISSANCE 10%",
+            "valeurpart": "297,50"
+        },
+        {
+            "date": "2011-12-19",
+            "fond": "MIDDLEEM",
+            "isin": "LU0303816705",
+            "montant": "1,05",
+            "nbpart": "-0,0904",
+            "nomfond": "FIDELITY Em Eur Middle East A",
+            "valeurpart": "11,58"
+        },
+        {
+            "date": "2011-12-19",
+            "fond": "DWSRUSSI",
+            "isin": "LU0146864797",
+            "montant": "1,43",
+            "nbpart": "-0,0080",
+            "nomfond": "DWS Russia",
+            "valeurpart": "180,37"
+        },
+        {
+            "date": "2011-12-19",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "1,57",
+            "nbpart": "-0,0093",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "168,55"
+        },
+        {
+            "date": "2011-12-19",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "1,74",
+            "nbpart": "-0,0158",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "109,68"
+        },
+        {
+            "date": "2011-12-19",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "1,75",
+            "nbpart": "-0,0124",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "141,72"
+        },
+        {
+            "date": "2011-12-19",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "1,86",
+            "nbpart": "-0,0013",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "1\u00a0432,28"
+        },
+        {
+            "date": "2011-12-19",
+            "fond": "BARASEAN",
+            "isin": "IE0004868828",
+            "montant": "2,19",
+            "nbpart": "-0,0190",
+            "nomfond": "BARING Int Umb A Sean Frt Fd A",
+            "valeurpart": "115,00"
+        },
+        {
+            "date": "2011-12-19",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "2,29",
+            "nbpart": "-0,0070",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "326,41"
+        }
+    ]
+}

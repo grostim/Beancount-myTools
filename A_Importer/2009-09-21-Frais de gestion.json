@@ -1,0 +1,78 @@
+{
+    "compte": "P54112927",
+    "ope": "Frais de gestion",
+    "table": [
+        {
+            "date": "2009-09-21",
+            "fond": "DWSRUSSI",
+            "isin": "LU0146864797",
+            "montant": "0,41",
+            "nbpart": "-0,0029",
+            "nomfond": "DWS Russia",
+            "valeurpart": "139,06"
+        },
+        {
+            "date": "2009-09-21",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "0,90",
+            "nbpart": "-0,0065",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "138,38"
+        },
+        {
+            "date": "2009-09-21",
+            "fond": "AGRESSOR",
+            "isin": "FR0010321802",
+            "montant": "0,97",
+            "nbpart": "-0,0010",
+            "nomfond": "ECHIQUIER Agressor",
+            "valeurpart": "970,83"
+        },
+        {
+            "date": "2009-09-21",
+            "fond": "EUROCROI",
+            "isin": "XS0320203994",
+            "montant": "1,20",
+            "nbpart": "-0,0026",
+            "nomfond": "EUROCROISSANCE 10%",
+            "valeurpart": "458,50"
+        },
+        {
+            "date": "2009-09-21",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "1,25",
+            "nbpart": "-0,0010",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "1\u00a0292,25"
+        },
+        {
+            "date": "2009-09-21",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "1,26",
+            "nbpart": "-0,0041",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "309,00"
+        },
+        {
+            "date": "2009-09-21",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "1,55",
+            "nbpart": "-0,0091",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "170,39"
+        },
+        {
+            "date": "2009-09-21",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "2,30",
+            "nbpart": "-0,0176",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "130,62"
+        }
+    ]
+}

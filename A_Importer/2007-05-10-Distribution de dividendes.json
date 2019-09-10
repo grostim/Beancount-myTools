@@ -1,0 +1,15 @@
+{
+    "compte": "P54112927",
+    "ope": "Distribution de dividendes",
+    "table": [
+        {
+            "date": "2007-05-10",
+            "fond": "SELECSLR",
+            "isin": "QS0002005476",
+            "montant": "1,38",
+            "nbpart": "0,0024",
+            "nomfond": "SELECTINVEST 1",
+            "valeurpart": "576,04"
+        }
+    ]
+}

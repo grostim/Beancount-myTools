@@ -1,0 +1,24 @@
+{
+    "compte": "P54112927",
+    "ope": "Arbitrage",
+    "table": [
+        {
+            "date": "2011-02-02",
+            "fond": "Eurossima",
+            "isin": "Eurossima",
+            "montant": "719,93",
+            "nbpart": "\u00a0",
+            "nomfond": "Eurossima",
+            "valeurpart": ""
+        },
+        {
+            "date": "2011-02-02",
+            "fond": "BARASEAN",
+            "isin": "IE0004868828",
+            "montant": "719,93",
+            "nbpart": "5,8631",
+            "nomfond": "BARING Int Umb A Sean Frt Fd A",
+            "valeurpart": "122,79"
+        }
+    ]
+}

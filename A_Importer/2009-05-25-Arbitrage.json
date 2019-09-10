@@ -1,0 +1,78 @@
+{
+    "compte": "P54112927",
+    "ope": "Arbitrage",
+    "table": [
+        {
+            "date": "2009-05-26",
+            "fond": "TALENTS",
+            "isin": "FR0007062567",
+            "montant": "49,21",
+            "nbpart": "-0,2924",
+            "nomfond": "TALENTS",
+            "valeurpart": "168,27"
+        },
+        {
+            "date": "2009-05-26",
+            "fond": "CAC40MAS",
+            "isin": "FR0007052782",
+            "montant": "175,96",
+            "nbpart": "-5,2043",
+            "nomfond": "LYX.CAC40 DR UC ETF D EUR FCP",
+            "valeurpart": "33,81"
+        },
+        {
+            "date": "2009-05-26",
+            "fond": "TOCDIVIC",
+            "isin": "FR0010546929",
+            "montant": "187,60",
+            "nbpart": "-13,2675",
+            "nomfond": "TOCQUEVILLE Dividende C",
+            "valeurpart": "14,14"
+        },
+        {
+            "date": "2009-05-26",
+            "fond": "CENTIFOL",
+            "isin": "FR0007076930",
+            "montant": "215,05",
+            "nbpart": "-1,2431",
+            "nomfond": "CENTIFOLIA C",
+            "valeurpart": "173,00"
+        },
+        {
+            "date": "2009-05-26",
+            "fond": "CLAMOBLI",
+            "isin": "FR0010166181",
+            "montant": "156,94",
+            "nbpart": "0,0042",
+            "nomfond": "AMUNDI Obli Haut Rendement I",
+            "valeurpart": "37\u00a0120,80"
+        },
+        {
+            "date": "2009-05-26",
+            "fond": "AXAWFBRA",
+            "isin": "LU0227146197",
+            "montant": "156,96",
+            "nbpart": "1,7553",
+            "nomfond": "AXA Wf Frm Emerg Mkt A C",
+            "valeurpart": "89,42"
+        },
+        {
+            "date": "2009-05-26",
+            "fond": "DWSRUSSI",
+            "isin": "LU0146864797",
+            "montant": "156,96",
+            "nbpart": "1,3388",
+            "nomfond": "DWS Russia",
+            "valeurpart": "117,24"
+        },
+        {
+            "date": "2009-05-26",
+            "fond": "HSBCGIFA",
+            "isin": "LU0196696453",
+            "montant": "156,96",
+            "nbpart": "10,1428",
+            "nomfond": "HSBC Gif Brazil Equity Ac",
+            "valeurpart": "15,48"
+        }
+    ]
+}

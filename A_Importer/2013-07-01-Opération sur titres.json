@@ -1,0 +1,15 @@
+{
+    "compte": "P54112927",
+    "ope": "Op\u00e9ration sur titres",
+    "table": [
+        {
+            "date": "2013-07-01",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "796,38",
+            "nbpart": "-1,1406",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "1\u00a0575,00"
+        }
+    ]
+}

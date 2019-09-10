@@ -1,0 +1,15 @@
+{
+    "compte": "P54112927",
+    "ope": "Distribution de dividendes",
+    "table": [
+        {
+            "date": "2011-05-05",
+            "fond": "BARASEAN",
+            "isin": "IE0004868828",
+            "montant": "7,30",
+            "nbpart": "0,0599",
+            "nomfond": "BARING Int Umb A Sean Frt Fd A",
+            "valeurpart": "121,88"
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "compte": "P54112927",
+    "ope": "pr\u00e9l\u00e8vement",
+    "table": [
+        {
+            "date": "2007-05-15",
+            "fond": "AGRESSOR",
+            "isin": "FR0010321802",
+            "montant": "25,00",
+            "nbpart": "0,0180",
+            "nomfond": "ECHIQUIER Agressor",
+            "valeurpart": "1\u00a0387,92"
+        },
+        {
+            "date": "2007-05-15",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "25,00",
+            "nbpart": "0,0490",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "509,79"
+        },
+        {
+            "date": "2007-05-15",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "25,00",
+            "nbpart": "0,1214",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "205,85"
+        },
+        {
+            "date": "2007-05-15",
+            "fond": "MAGELLAN",
+            "isin": "FR0000292278",
+            "montant": "25,00",
+            "nbpart": "0,0180",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "1\u00a0381,88"
+        },
+        {
+            "date": "2007-05-15",
+            "fond": "ECHIPATR",
+            "isin": "FR0010434019",
+            "montant": "25,00",
+            "nbpart": "0,0328",
+            "nomfond": "ECHIQUIER Patrimoine",
+            "valeurpart": "759,97"
+        }
+    ]
+}

@@ -1,0 +1,123 @@
+{
+    "compte": "P54112927",
+    "ope": "Frais de gestion",
+    "table": [
+        {
+            "date": "2014-06-23",
+            "fond": "DWSRUSSI",
+            "isin": "LU0146864797",
+            "montant": "0,18",
+            "nbpart": "-0,0009",
+            "nomfond": "DWS Russia",
+            "valeurpart": "193,34"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "FRMUEURO",
+            "isin": "LU0140363267",
+            "montant": "0,63",
+            "nbpart": "-0,0320",
+            "nomfond": "FRANKLIN Mutual European",
+            "valeurpart": "19,80"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "GVSSAFRA",
+            "isin": "FR0000026585",
+            "montant": "0,64",
+            "nbpart": "-0,0010",
+            "nomfond": "SSga EMU Alpha Equity Fund I",
+            "valeurpart": "641,70"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "MIDDLEEM",
+            "isin": "LU0303816705",
+            "montant": "1,36",
+            "nbpart": "-0,0891",
+            "nomfond": "FIDELITY Em Eur Middle East A",
+            "valeurpart": "15,31"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "DWSINVES",
+            "isin": "LU0210301635",
+            "montant": "1,49",
+            "nbpart": "-0,0086",
+            "nomfond": "DWS Invest Glb Em Mk Eq LC",
+            "valeurpart": "173,62"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "EUROCROI",
+            "isin": "XS0320203994",
+            "montant": "2,00",
+            "nbpart": "-0,0025",
+            "nomfond": "EUROCROISSANCE 10%",
+            "valeurpart": "787,10"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "BARASEAN",
+            "isin": "IE0004868828",
+            "montant": "2,59",
+            "nbpart": "-0,0190",
+            "nomfond": "BARING Int Umb A Sean Frt Fd A",
+            "valeurpart": "136,00"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "ORSAYDEV",
+            "isin": "FR0007044680",
+            "montant": "4,64",
+            "nbpart": "-0,0228",
+            "nomfond": "ODDO BHF Active All Cap CI",
+            "valeurpart": "203,17"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "ECHIAGEN",
+            "isin": "FR0010321810",
+            "montant": "4,06",
+            "nbpart": "-0,0181",
+            "nomfond": "ECHIQUIER Agenor Mid C Europ A",
+            "valeurpart": "224,90"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "ECOACTRE",
+            "isin": "FR0000973562",
+            "montant": "4,54",
+            "nbpart": "-0,0097",
+            "nomfond": "ECOFI Action Rendement C",
+            "valeurpart": "465,73"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "MAGELLA1",
+            "isin": "FR0000292278",
+            "montant": "3,54",
+            "nbpart": "-0,1976",
+            "nomfond": "MAGELLAN",
+            "valeurpart": "17,91"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "METROSEL",
+            "isin": "FR0007078811",
+            "montant": "0,61",
+            "nbpart": "-0,0011",
+            "nomfond": "METROPOLE Selection",
+            "valeurpart": "556,07"
+        },
+        {
+            "date": "2014-06-23",
+            "fond": "FIDEEUSM",
+            "isin": "LU0061175625",
+            "montant": "0,63",
+            "nbpart": "-0,0173",
+            "nomfond": "FIDELITY Fds-European Sm-A",
+            "valeurpart": "36,06"
+        }
+    ]
+}
