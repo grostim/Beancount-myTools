@@ -8882,6 +8882,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                              -18.99 EUR
 
+2019-08-09 ! "PAYPAL *ASTEROIDGES 4029357733" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:A-CLASSER
+  Passif:AirFrance:Amex                             -119.00 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
