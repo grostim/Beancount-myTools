@@ -8918,6 +8918,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:GooglePlay
   Passif:AirFrance:Amex                              -19.99 EUR
 
+2019-08-24 * "PAYPAL *BIKECOMPONE 2405450045" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Loisirs:Velos
+  Passif:AirFrance:Amex                             -196.08 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
