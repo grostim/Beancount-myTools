@@ -8906,6 +8906,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Voitures:Peages
   Passif:AirFrance:Amex                              -62.80 EUR
 
+2019-08-18 * "GOOGLE *GOOGLE STORAGE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -1.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
