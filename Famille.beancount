@@ -8930,6 +8930,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Abo:Serveur
   Passif:AirFrance:Amex                              -62.40 EUR
 
+2019-09-03 * "AWS EMEA AWS.AMAZON.CO .42" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                               -0.39 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
