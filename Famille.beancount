@@ -8888,6 +8888,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:A-CLASSER
   Passif:AirFrance:Amex                             -119.00 EUR
 
+2019-08-12 * "PRELEVEMENT AUTOMATIQUE ENREGISTRE-MERCI" ""
+  source: "pdfamex"
+  type: "Débit"
+  Actif:Boursorama:CCTim
+  Passif:AirFrance:Amex                             1279.99 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
