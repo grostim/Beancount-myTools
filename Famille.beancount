@@ -8924,6 +8924,12 @@ plugin "beancount.plugins.check_commodity"
   Depenses:Loisirs:Velos
   Passif:AirFrance:Amex                             -196.08 EUR
 
+2019-09-02 * "GOOGLE *GSUITE_FAMILLE G.CO/HELPPAY#" ""
+  source: "pdfamex"
+  type: "Credit"
+  Depenses:Abo:Serveur
+  Passif:AirFrance:Amex                              -62.40 EUR
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
