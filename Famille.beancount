@@ -8951,6 +8951,9 @@ plugin "beancount.plugins.check_commodity"
   Actif:Boursorama:CCTim
   Passif:AirFrance:Amex                             2317.49 EUR
 
+2019-08-09 balance Passif:AirFrance:Amex  -1279.990000000000009094947017729282379150390625 EUR
+  source: "pdfamex"
+
 1981-02-07 custom "fava-option" "insert-entry" "Passif:AirFrance:Amex"
 
 ** Livrets
