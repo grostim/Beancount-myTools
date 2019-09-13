@@ -58,7 +58,53 @@ class jsongenerali(importer.ImporterProtocol):
         return parse_datetime(
             re.search("(\d{4}-\d{2}-\d{2})-", path.basename(file.name)).group(1)
         ).date()
+    
+    def balayageJSONtable():
+        """Une procédure qui balaye toutes les lignes du JSON"""
+        postings = []
+        total = 0
+        for ligne in jsondata["table"]:
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(ligne)
 
+            postings.append(
+                data.Posting(
+                    account=self.accountList[jsondata["compte"]]
+                    + ":"
+                    + ligne["isin"],
+                    units=amount.Amount(
+                        Decimal(
+                            ligne["nbpart"]
+                            .replace(",", ".")
+                            .replace(" ", "")
+                            .replace("\xa0", "")
+                        ),
+                        ligne["isin"],
+                    ),
+                    cost=position.Cost(
+                        Decimal(
+                            ligne["valeurpart"]
+                            .replace(",", ".")
+                            .replace(" ", "")
+                            .replace("\xa0", "")
+                        ),
+                        ligne["date"],
+                        None,
+                        None,
+                    ),
+                    flag=None,
+                    meta=None,
+                    price=None,
+                )
+            )
+            total = total + Decimal(
+                ligne["montant"]
+                .replace(",", ".")
+                .replace(" ", "")
+                .replace("\xa0", "")
+            )
+            
     def extract(self, file, existing_entries=None):
         entries = []
         with open(file.name, "r") as read_file:
@@ -116,49 +162,3 @@ class jsongenerali(importer.ImporterProtocol):
                 )               
 
         return entries
-
-    def balayageJSONtable():
-        """Une procédure qui balaye toutes les lignes du JSON"""
-        postings = []
-        total = 0
-        for ligne in jsondata["table"]:
-            # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(ligne)
-
-            postings.append(
-                data.Posting(
-                    account=self.accountList[jsondata["compte"]]
-                    + ":"
-                    + ligne["isin"],
-                    units=amount.Amount(
-                        Decimal(
-                            ligne["nbpart"]
-                            .replace(",", ".")
-                            .replace(" ", "")
-                            .replace("\xa0", "")
-                        ),
-                        ligne["isin"],
-                    ),
-                    cost=position.Cost(
-                        Decimal(
-                            ligne["valeurpart"]
-                            .replace(",", ".")
-                            .replace(" ", "")
-                            .replace("\xa0", "")
-                        ),
-                        ligne["date"],
-                        None,
-                        None,
-                    ),
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
-            )
-            total = total + Decimal(
-                ligne["montant"]
-                .replace(",", ".")
-                .replace(" ", "")
-                .replace("\xa0", "")
-            )
