@@ -13,52 +13,6 @@ from beancount.core import amount, position, data, flags
 from beancount.ingest import importer
 from beancount.core.number import Decimal, D
 
-def balayageJSONtable(jsondata):
-    """Une procédure qui balaye toutes les lignes du JSON"""
-    postings = []
-    total = 0
-    for ligne in jsondata["table"]:
-        # Si debogage, affichage de l'extraction
-        if self.debug:
-            print(ligne)
-            
-        postings.append(
-            data.Posting(
-                account=self.accountList[jsondata["compte"]]
-                + ":"
-                + ligne["isin"],
-                units=amount.Amount(
-                    Decimal(
-                        ligne["nbpart"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                    ),
-                    ligne["isin"],
-                ),
-                cost=position.Cost(
-                    Decimal(
-                        ligne["valeurpart"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                    ),
-                    ligne["date"],
-                    None,
-                    None,
-                ),
-                flag=None,
-                meta=None,
-                price=None,
-            )
-        )
-        total = total + Decimal(
-            ligne["montant"]
-            .replace(",", ".")
-            .replace(" ", "")
-            .replace("\xa0", "")
-        )    
-
 class jsongenerali(importer.ImporterProtocol):
     """Importer pour Generali Assurance Vie.."""
 
@@ -115,7 +69,7 @@ class jsongenerali(importer.ImporterProtocol):
 
             if jsondata["ope"] == "prélèvement" or jsondata["ope"] == "Versement Libre":
                 
-                balayageJSONtable(jsondata)
+                balayageJSONtable()
 
                 # On crée la dernière transaction.
                 postings.append(
@@ -148,7 +102,7 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             if jsondata["ope"] == "Frais de gestion":
-                balayageJSONtable(jsondata)
+                balayageJSONtable()
                 # On crée la dernière transaction.
                 postings.append(
                     data.Posting(
@@ -163,3 +117,48 @@ class jsongenerali(importer.ImporterProtocol):
 
         return entries
 
+    def balayageJSONtable():
+        """Une procédure qui balaye toutes les lignes du JSON"""
+        postings = []
+        total = 0
+        for ligne in jsondata["table"]:
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(ligne)
+
+            postings.append(
+                data.Posting(
+                    account=self.accountList[jsondata["compte"]]
+                    + ":"
+                    + ligne["isin"],
+                    units=amount.Amount(
+                        Decimal(
+                            ligne["nbpart"]
+                            .replace(",", ".")
+                            .replace(" ", "")
+                            .replace("\xa0", "")
+                        ),
+                        ligne["isin"],
+                    ),
+                    cost=position.Cost(
+                        Decimal(
+                            ligne["valeurpart"]
+                            .replace(",", ".")
+                            .replace(" ", "")
+                            .replace("\xa0", "")
+                        ),
+                        ligne["date"],
+                        None,
+                        None,
+                    ),
+                    flag=None,
+                    meta=None,
+                    price=None,
+                )
+            )
+            total = total + Decimal(
+                ligne["montant"]
+                .replace(",", ".")
+                .replace(" ", "")
+                .replace("\xa0", "")
+            )    
