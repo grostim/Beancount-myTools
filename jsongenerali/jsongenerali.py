@@ -14,6 +14,51 @@ from beancount.core import amount, position, data, flags
 from beancount.ingest import importer
 from beancount.core.number import Decimal, D
 
+def balayageJSONtable():
+    """Une procédure qui balaye toutes les lignes du JSON"""
+    postings = []
+    total = 0
+    for ligne in jsondata["table"]:
+        # Si debogage, affichage de l'extraction
+        if self.debug:
+            print(ligne)
+            
+        postings.append(
+            data.Posting(
+                account=self.accountList[jsondata["compte"]]
+                + ":"
+                + ligne["isin"],
+                units=amount.Amount(
+                    Decimal(
+                        ligne["nbpart"]
+                        .replace(",", ".")
+                        .replace(" ", "")
+                        .replace("\xa0", "")
+                    ),
+                    ligne["isin"],
+                ),
+                cost=position.Cost(
+                    Decimal(
+                        ligne["valeurpart"]
+                        .replace(",", ".")
+                        .replace(" ", "")
+                        .replace("\xa0", "")
+                    ),
+                    ligne["date"],
+                    None,
+                    None,
+                ),
+                flag=None,
+                meta=None,
+                price=None,
+            )
+        )
+        total = total + Decimal(
+            ligne["montant"]
+            .replace(",", ".")
+            .replace(" ", "")
+            .replace("\xa0", "")
+        )    
 
 class jsongenerali(importer.ImporterProtocol):
     """Importer pour Generali Assurance Vie.."""
@@ -70,51 +115,9 @@ class jsongenerali(importer.ImporterProtocol):
                 print(jsondata["ope"])
 
             if jsondata["ope"] == "prélèvement" or jsondata["ope"] == "Versement Libre":
+                
+                balayageJSONtable()
 
-                postings = []
-                total = 0
-                for ligne in jsondata["table"]:
-
-                    # Si debogage, affichage de l'extraction
-                    if self.debug:
-                        print(ligne)
-
-                    postings.append(
-                        data.Posting(
-                            account=self.accountList[jsondata["compte"]]
-                            + ":"
-                            + ligne["isin"],
-                            units=amount.Amount(
-                                Decimal(
-                                    ligne["nbpart"]
-                                    .replace(",", ".")
-                                    .replace(" ", "")
-                                    .replace("\xa0", "")
-                                ),
-                                ligne["isin"],
-                            ),
-                            cost=position.Cost(
-                                Decimal(
-                                    ligne["valeurpart"]
-                                    .replace(",", ".")
-                                    .replace(" ", "")
-                                    .replace("\xa0", "")
-                                ),
-                                ligne["date"],
-                                None,
-                                None,
-                            ),
-                            flag=None,
-                            meta=None,
-                            price=None,
-                        )
-                    )
-                    total = total + Decimal(
-                        ligne["montant"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                    )
                 # On crée la dernière transaction.
                 postings.append(
                     data.Posting(
@@ -146,7 +149,18 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             if jsondata["ope"] == "Frais de gestion":
-   
+                balayageJSONtable()
+                # On crée la dernière transaction.
+                postings.append(
+                    data.Posting(
+                        account=self.compteDividende,
+                        units=amount.Amount(Decimal(str(total)), "EUR"),
+                        cost=None,
+                        flag=None,
+                        meta=None,
+                        price=None,
+                    )
+                )               
 
         return entries
 
