@@ -11,6 +11,7 @@ sys.path.insert(0, path.join(path.dirname(__file__)))
 from importers.QIF.ImporterQIF import ImporterQIF
 from importers.pdfbourso.pdfbourso import pdfbourso
 from importers.pdfamex.pdfamex import pdfamex
+from importers.jsongenerali.jsongenerali import jsongenerali
 from beancount.ingest import extract
 from smart_importer import apply_hooks, PredictPayees, PredictPostings
 from beancount.ingest.importers import ofx
@@ -33,12 +34,14 @@ ACCOUNTLIST = {
     "00020132893": "Actif:Boursorama:LDDJoint",
     "80329 - 00060818936": "Passif:Boursorama:PretConso",
     "80280-00060686223": "Passif:Boursorama:EmpruntRP",
+    "P54112927": "Actif:Linxea:AVTim1",
 }
 
 CONFIG = [
     apply_hooks(ImporterQIF(ACCOUNTLIST), [PredictPostings()]),
     apply_hooks(pdfbourso(ACCOUNTLIST, debug=True), [PredictPostings()]),
     apply_hooks(pdfamex(ACCOUNTLIST, debug=True), [PredictPostings()]),
+    jsongenerali(ACCOUNTLIST, debug=True, compteTiers = "Actif:Boursorama:CCTim"),
 ]
 
 # Override the header on extracted text (if desired).

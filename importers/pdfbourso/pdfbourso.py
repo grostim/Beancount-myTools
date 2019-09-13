@@ -250,7 +250,7 @@ class pdfbourso(importer.ImporterProtocol):
                 ope["amortissement"] = amount.Amount(Decimal(chunk[2].replace(",", ".")), "EUR")
                 ope["interet"] = amount.Amount(Decimal(chunk[3].replace(",", ".")), "EUR")
                 ope["assurance"] = amount.Amount(Decimal(chunk[4].replace(",", ".")), "EUR")
-                ope["CRD"] = amount.Amount(Decimal("-" + chunk[7].replace(",", ".")), "EUR")
+                ope["CRD"] = amount.Amount(Decimal("-" + str(chunk[7].replace(",", "."))), "EUR")
 
                 # Creation de la transactiocn
                 posting_1 = data.Posting(
