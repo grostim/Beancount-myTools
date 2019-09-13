@@ -161,4 +161,4 @@ class jsongenerali(importer.ImporterProtocol):
                 .replace(",", ".")
                 .replace(" ", "")
                 .replace("\xa0", "")
-            )    
+            )
