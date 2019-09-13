@@ -18,13 +18,22 @@ from beancount.core.number import Decimal, D
 class jsongenerali(importer.ImporterProtocol):
     """Importer pour Generali Assurance Vie.."""
 
-    def __init__(self, accountList, debug: bool = False, compteTiers = "Actif:FIXME"):
+    def __init__(
+        self,
+        accountList,
+        debug: bool = False,
+        compteTiers="Actif:FIXME",
+        compteFrais="Depenses:FIXME",
+        compteDividende="Revenus:FIXME",
+    ):
         assert isinstance(
             accountList, dict
         ), "La liste de comptes doit etre un type dict"
         self.accountList = accountList
         self.debug = debug
         self.compteTiers = compteTiers
+        self.compteFrais = compteFrais
+        self.compteDividendes = compteDividendes
 
     def identify(self, file):
         return re.match(r".*.json", path.basename(file.name))
@@ -33,14 +42,14 @@ class jsongenerali(importer.ImporterProtocol):
         with open(file.name, "r") as read_file:
             jsondata = json.load(read_file)
 
-            # Si debogage, affichage de l'extraction  
+            # Si debogage, affichage de l'extraction
             if self.debug:
                 print(jsondata["compte"])
 
-            return self.accountList[jsondata["compte"]] 
+            return self.accountList[jsondata["compte"]]
 
     def file_name(self, file):
-        return format(re.sub("\d{4}-\d{2}-\d{2}-","",path.basename(file.name)))
+        return format(re.sub("\d{4}-\d{2}-\d{2}-", "", path.basename(file.name)))
 
     def file_date(self, file):
 
@@ -48,10 +57,12 @@ class jsongenerali(importer.ImporterProtocol):
         if self.debug:
             print(re.search("(\d{4}-\d{2}-\d{2})-", path.basename(file.name)))
 
-        return parse_datetime(re.search("(\d{4}-\d{2}-\d{2})-", path.basename(file.name)).group(1)).date()
+        return parse_datetime(
+            re.search("(\d{4}-\d{2}-\d{2})-", path.basename(file.name)).group(1)
+        ).date()
 
     def extract(self, file, existing_entries=None):
-        entries=[]
+        entries = []
         with open(file.name, "r") as read_file:
             jsondata = json.load(read_file)
             # Si debogage, affichage de l'extraction
@@ -67,31 +78,64 @@ class jsongenerali(importer.ImporterProtocol):
                     # Si debogage, affichage de l'extraction
                     if self.debug:
                         print(ligne)
-                    
-                    postings.append(data.Posting(
-                        account=self.accountList[jsondata["compte"]] + ":" + ligne["isin"],
-                        units=amount.Amount(Decimal(ligne["nbpart"].replace(",", '.').replace(" ", '').replace('\xa0','')), ligne["isin"]),
-                        cost=position.Cost(Decimal(ligne["valeurpart"].replace(",", '.').replace(" ", '').replace('\xa0','')), ligne["date"],None,None),
+
+                    postings.append(
+                        data.Posting(
+                            account=self.accountList[jsondata["compte"]]
+                            + ":"
+                            + ligne["isin"],
+                            units=amount.Amount(
+                                Decimal(
+                                    ligne["nbpart"]
+                                    .replace(",", ".")
+                                    .replace(" ", "")
+                                    .replace("\xa0", "")
+                                ),
+                                ligne["isin"],
+                            ),
+                            cost=position.Cost(
+                                Decimal(
+                                    ligne["valeurpart"]
+                                    .replace(",", ".")
+                                    .replace(" ", "")
+                                    .replace("\xa0", "")
+                                ),
+                                ligne["date"],
+                                None,
+                                None,
+                            ),
+                            flag=None,
+                            meta=None,
+                            price=None,
+                        )
+                    )
+                    total = total + Decimal(
+                        ligne["montant"]
+                        .replace(",", ".")
+                        .replace(" ", "")
+                        .replace("\xa0", "")
+                    )
+                # On crée la dernière transaction.
+                postings.append(
+                    data.Posting(
+                        account=self.compteTiers,
+                        units=amount.Amount(Decimal(str(total)), "EUR"),
+                        cost=None,
                         flag=None,
                         meta=None,
                         price=None,
-                    ))
-                    total = total + Decimal(ligne["montant"].replace(",", '.').replace(" ", '').replace('\xa0',''))
-
-                postings.append(data.Posting(
-                    account=self.compteTiers,
-                    units=amount.Amount(Decimal(str(total)), "EUR"),
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                ))
+                    )
+                )
                 meta = data.new_metadata(file.name, 0)
                 meta["source"] = "jsongenerali"
                 flag = flags.FLAG_OKAY
                 transac = data.Transaction(
                     meta=meta,
-                    date=parse_datetime(re.search("(\d{4}-\d{2}-\d{2})-", path.basename(file.name)).group(1)).date(),
+                    date=parse_datetime(
+                        re.search(
+                            "(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
+                        ).group(1)
+                    ).date(),
                     flag=flag,
                     payee=jsondata["ope"] + " Generali",
                     narration=None,
@@ -100,4 +144,9 @@ class jsongenerali(importer.ImporterProtocol):
                     postings=postings,
                 )
                 entries.append(transac)
+
+            if jsondata["ope"] == "Frais de gestion":
+   
+
         return entries
+

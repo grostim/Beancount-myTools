@@ -6,6 +6,7 @@ Toutes ces dépendances sont inclues dans le docker que j'ai créé pour l'occas
 https://github.com/grostim/fava-docker
 Mais rien n'empèche d'utiliser ces scripts hors Docker.
 
+Les fichiers de regtest ne sont pas partagés sur github, car bien entendu ce sont des fichiers personnels.
 
 ## QIFBoursorama 
 Un importer pour les fichiers QIF générés par Boursorama.
