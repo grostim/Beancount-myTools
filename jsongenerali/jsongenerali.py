@@ -13,6 +13,7 @@ from beancount.core import amount, position, data, flags
 from beancount.ingest import importer
 from beancount.core.number import Decimal, D
 
+
 class jsongenerali(importer.ImporterProtocol):
     """Importer pour Generali Assurance Vie.."""
 
@@ -58,21 +59,33 @@ class jsongenerali(importer.ImporterProtocol):
         return parse_datetime(
             re.search("(\d{4}-\d{2}-\d{2})-", path.basename(file.name)).group(1)
         ).date()
-    
-    def balayageJSONtable():
+
+    def balayageJSONtable(self, jsondata, afficherCost: bool = False):
         """Une procédure qui balaye toutes les lignes du JSON"""
-        postings = []
-        total = 0
+        self.postings = []
+        self.total = 0
         for ligne in jsondata["table"]:
             # Si debogage, affichage de l'extraction
             if self.debug:
                 print(ligne)
+            if afficherCost:
+                cost = position.Cost(
+                    Decimal(
+                        ligne["valeurpart"]
+                        .replace(",", ".")
+                        .replace(" ", "")
+                        .replace("\xa0", "")
+                    ),
+                    ligne["date"],
+                    None,
+                    None,
+                )
+            else:
+                cost = None
 
-            postings.append(
+            self.postings.append(
                 data.Posting(
-                    account=self.accountList[jsondata["compte"]]
-                    + ":"
-                    + ligne["isin"],
+                    account=self.accountList[jsondata["compte"]] + ":" + ligne["isin"],
                     units=amount.Amount(
                         Decimal(
                             ligne["nbpart"]
@@ -82,29 +95,16 @@ class jsongenerali(importer.ImporterProtocol):
                         ),
                         ligne["isin"],
                     ),
-                    cost=position.Cost(
-                        Decimal(
-                            ligne["valeurpart"]
-                            .replace(",", ".")
-                            .replace(" ", "")
-                            .replace("\xa0", "")
-                        ),
-                        ligne["date"],
-                        None,
-                        None,
-                    ),
+                    cost=cost,
                     flag=None,
                     meta=None,
                     price=None,
                 )
             )
-            total = total + Decimal(
-                ligne["montant"]
-                .replace(",", ".")
-                .replace(" ", "")
-                .replace("\xa0", "")
+            self.total = self.total + Decimal(
+                ligne["montant"].replace(",", ".").replace(" ", "").replace("\xa0", "")
             )
-            
+
     def extract(self, file, existing_entries=None):
         entries = []
         with open(file.name, "r") as read_file:
@@ -114,14 +114,14 @@ class jsongenerali(importer.ImporterProtocol):
                 print(jsondata["ope"])
 
             if jsondata["ope"] == "prélèvement" or jsondata["ope"] == "Versement Libre":
-                
-                balayageJSONtable()
+
+                self.balayageJSONtable(jsondata, afficherCost=True)
 
                 # On crée la dernière transaction.
-                postings.append(
+                self.postings.append(
                     data.Posting(
                         account=self.compteTiers,
-                        units=amount.Amount(Decimal(str(total)), "EUR"),
+                        units=amount.Amount(Decimal(str(self.total)), "EUR"),
                         cost=None,
                         flag=None,
                         meta=None,
@@ -143,22 +143,39 @@ class jsongenerali(importer.ImporterProtocol):
                     narration=None,
                     tags=data.EMPTY_SET,
                     links=data.EMPTY_SET,
-                    postings=postings,
+                    postings=self.postings,
                 )
                 entries.append(transac)
 
             if jsondata["ope"] == "Frais de gestion":
-                balayageJSONtable()
+                self.balayageJSONtable(jsondata, afficherCost=False)
                 # On crée la dernière transaction.
-                postings.append(
+                self.postings.append(
                     data.Posting(
-                        account=self.compteDividende,
-                        units=amount.Amount(Decimal(str(total)), "EUR"),
+                        account=self.compteFrais,
+                        units=amount.Amount(Decimal(str(self.total)), "EUR"),
                         cost=None,
                         flag=None,
                         meta=None,
                         price=None,
                     )
-                )               
-
+                )
+                meta = data.new_metadata(file.name, 0)
+                meta["source"] = "jsongenerali"
+                flag = flags.FLAG_OKAY
+                transac = data.Transaction(
+                    meta=meta,
+                    date=parse_datetime(
+                        re.search(
+                            "(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
+                        ).group(1)
+                    ).date(),
+                    flag=flag,
+                    payee=jsondata["ope"] + " Generali",
+                    narration=None,
+                    tags=data.EMPTY_SET,
+                    links=data.EMPTY_SET,
+                    postings=self.postings,
+                )
+                entries.append(transac)
         return entries
