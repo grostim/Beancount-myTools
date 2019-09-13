@@ -9,12 +9,11 @@ import datetime
 import json
 from os import path
 from dateutil.parser import parse as parse_datetime
-from importers.myutils import pdf_to_text
 from beancount.core import amount, position, data, flags
 from beancount.ingest import importer
 from beancount.core.number import Decimal, D
 
-def balayageJSONtable():
+def balayageJSONtable(jsondata):
     """Une procédure qui balaye toutes les lignes du JSON"""
     postings = []
     total = 0
@@ -69,7 +68,7 @@ class jsongenerali(importer.ImporterProtocol):
         debug: bool = False,
         compteTiers="Actif:FIXME",
         compteFrais="Depenses:FIXME",
-        compteDividende="Revenus:FIXME",
+        compteDividendes="Revenus:FIXME",
     ):
         assert isinstance(
             accountList, dict
@@ -116,7 +115,7 @@ class jsongenerali(importer.ImporterProtocol):
 
             if jsondata["ope"] == "prélèvement" or jsondata["ope"] == "Versement Libre":
                 
-                balayageJSONtable()
+                balayageJSONtable(jsondata)
 
                 # On crée la dernière transaction.
                 postings.append(
@@ -149,7 +148,7 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             if jsondata["ope"] == "Frais de gestion":
-                balayageJSONtable()
+                balayageJSONtable(jsondata)
                 # On crée la dernière transaction.
                 postings.append(
                     data.Posting(
