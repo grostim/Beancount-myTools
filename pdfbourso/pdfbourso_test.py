@@ -27,6 +27,6 @@ IMPORTER = pdfbourso.pdfbourso(ACCOUNTLIST)
 
 
 @regtest.with_importer(IMPORTER)
-@regtest.with_testdir("/myData/importers/pdfbourso/regtest")
+@regtest.with_testdir("/myData/myTools/pdfbourso/regtest")
 class TestImporter(regtest.ImporterTestBase):
     pass

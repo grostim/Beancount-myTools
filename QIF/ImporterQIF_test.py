@@ -14,7 +14,7 @@ ACCOUNTLIST = {
 IMPORTER = ImporterQIF.ImporterQIF(ACCOUNTLIST)
 
 @regtest.with_importer(IMPORTER)
-@regtest.with_testdir("/myData/importers/QIF/regtest")
+@regtest.with_testdir("/myData/myTools/QIF/regtest")
 class TestImporter(regtest.ImporterTestBase):
     pass
 

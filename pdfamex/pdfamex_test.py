@@ -22,7 +22,7 @@ ACCOUNTLIST = {
 IMPORTER = pdfamex.pdfamex(ACCOUNTLIST)
 
 @regtest.with_importer(IMPORTER)
-@regtest.with_testdir("/myData/importers/pdfamex/regtest")
+@regtest.with_testdir("/myData/myTools/pdfamex/regtest")
 class TestImporter(regtest.ImporterTestBase):
     pass
 
