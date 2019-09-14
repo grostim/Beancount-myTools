@@ -68,7 +68,7 @@ class jsongenerali(importer.ImporterProtocol):
             # Si debogage, affichage de l'extraction
             if self.debug:
                 print(ligne)
-            if afficherCost:
+            if afficherCost and re.match("-", ligne["nbpart"]) is None:
                 cost = position.Cost(
                     Decimal(
                         ligne["valeurpart"]
@@ -147,7 +147,7 @@ class jsongenerali(importer.ImporterProtocol):
                 )
                 entries.append(transac)
 
-            if jsondata["ope"] == "Frais de gestion":
+            elif jsondata["ope"] == "Frais de gestion":
                 self.balayageJSONtable(jsondata, afficherCost=False)
                 # On crée la dernière transaction.
                 self.postings.append(
@@ -178,4 +178,60 @@ class jsongenerali(importer.ImporterProtocol):
                     postings=self.postings,
                 )
                 entries.append(transac)
+
+            elif jsondata["ope"] == "Distribution de dividendes":
+                self.balayageJSONtable(jsondata, afficherCost=True)
+                # On crée la dernière transaction.
+                self.postings.append(
+                    data.Posting(
+                        account=self.compteDividendes,
+                        units=amount.Amount(Decimal("-" + str(self.total)), "EUR"),
+                        cost=None,
+                        flag=None,
+                        meta=None,
+                        price=None,
+                    )
+                )
+                meta = data.new_metadata(file.name, 0)
+                meta["source"] = "jsongenerali"
+                flag = flags.FLAG_OKAY
+                transac = data.Transaction(
+                    meta=meta,
+                    date=parse_datetime(
+                        re.search(
+                            "(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
+                        ).group(1)
+                    ).date(),
+                    flag=flag,
+                    payee=jsondata["ope"] + " Generali",
+                    narration=None,
+                    tags=data.EMPTY_SET,
+                    links=data.EMPTY_SET,
+                    postings=self.postings,
+                )
+                entries.append(transac)
+
+            elif jsondata["ope"] == "Arbitrage":
+                self.balayageJSONtable(jsondata, afficherCost=True)
+                meta = data.new_metadata(file.name, 0)
+                meta["source"] = "jsongenerali"
+                flag = flags.FLAG_OKAY
+                transac = data.Transaction(
+                    meta=meta,
+                    date=parse_datetime(
+                        re.search(
+                            "(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
+                        ).group(1)
+                    ).date(),
+                    flag=flag,
+                    payee=jsondata["ope"] + " Generali",
+                    narration=None,
+                    tags=data.EMPTY_SET,
+                    links=data.EMPTY_SET,
+                    postings=self.postings,
+                )
+                entries.append(transac)
+
+            else:
+               raise "Type de relevé inconnu"
         return entries
