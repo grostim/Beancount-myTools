@@ -68,6 +68,7 @@ class jsongenerali(importer.ImporterProtocol):
             # Si debogage, affichage de l'extraction
             if self.debug:
                 print(ligne)
+                print(parse_datetime(ligne["date"]).date)
 
             if ligne["valeurpart"] == '':
                 ligne["valeurpart"] = "1.00"
@@ -81,8 +82,8 @@ class jsongenerali(importer.ImporterProtocol):
                         .replace(" ", "")
                         .replace("\xa0", "")
                     ),
-                    ligne["date"],
-                    None,
+                    "EUR",
+                    parse_datetime(ligne["date"]).date(),
                     None,
                 )
             else:
