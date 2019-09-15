@@ -68,6 +68,11 @@ class jsongenerali(importer.ImporterProtocol):
             # Si debogage, affichage de l'extraction
             if self.debug:
                 print(ligne)
+
+            if ligne["valeurpart"] == '':
+                ligne["valeurpart"] = "1.00"
+                ligne["nbpart"] = ligne["montant"]
+
             if afficherCost and re.match("-", ligne["nbpart"]) is None:
                 cost = position.Cost(
                     Decimal(
@@ -211,7 +216,7 @@ class jsongenerali(importer.ImporterProtocol):
                 )
                 entries.append(transac)
 
-            elif jsondata["ope"] == "Arbitrage":
+            elif jsondata["ope"] == "Arbitrage" or "Opération sur titres":
                 self.balayageJSONtable(jsondata, afficherCost=True)
                 meta = data.new_metadata(file.name, 0)
                 meta["source"] = "jsongenerali"
@@ -233,5 +238,5 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             else:
-               raise "Type de relevé inconnu"
+               print(path.basename(file.name)+ " : Type de relevé inconnu")
         return entries

@@ -8,6 +8,7 @@ import requests
 import re
 import pprint
 import json
+import configparser
 from bs4 import BeautifulSoup
 from dateutil.parser import parse as parse_datetime
 
@@ -42,6 +43,8 @@ def balayagetableau():
 
 
 EXPORTDIR = "A_Importer/"
+config = configparser.ConfigParser()
+config.read('generali.ini')
 
 """On ouvre la session et on va sur la page d'acceuil pour receuillir les cookies qui vont bien"""
 s = requests.Session()
@@ -49,15 +52,14 @@ baseurl = "https://assurancevie.linxea.com"
 r = s.get(baseurl)
 
 """Login avec les identifiants"""
-# TODO: A sécuriser
 url = (
     baseurl
     + "/b2b2c/entreesite/EntAccLog?task=Valider&valider=%2Fb2b2c%2Fentreesite%2FEntAccLog%3Ftask%3DValider"
-    + "&loginSaisi=tgros&loginSaisi=&loginSaisi=N&loginSaisi=loginSaisi&loginSaisi=M&"
-    + "password=sorg1234&password=&password=N&password=password&password=M"
+    + "&loginSaisi="+config['GENERALI']['User']+"&loginSaisi=&loginSaisi=N&loginSaisi=loginSaisi&loginSaisi=M&"
+    + "password="+config['GENERALI']['Password']+"&password=&password=N&password=password&password=M"
 )
 r = s.get(url)
-
+print(r)
 """A la recherche de l'accès au compte"""
 soup = BeautifulSoup(r.text, "html.parser")
 finurl = soup.find_all("a")[1].get("href")
@@ -82,7 +84,7 @@ while 1:
         # print(ope["type"])
         """On passe en revue les différentes lignes du tableau (sauf la première)"""
         lignes = soupette.table.find_all("table")[2].table.find_all("tr")
-        if ope["ope"] == "Arbitrage":
+        if ope["ope"] == "Arbitrage" or ope["ope"] == "Opération sur titres":
        	    balayagetableau()
             lignes = soupette.table.find_all("table")[4].find_all("tr")
             balayagetableau()
