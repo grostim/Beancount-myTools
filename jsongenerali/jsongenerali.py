@@ -70,18 +70,26 @@ class jsongenerali(importer.ImporterProtocol):
                 print(ligne)
                 print(parse_datetime(ligne["date"]).date)
 
-            if ligne["valeurpart"] == '':
+            if ligne["valeurpart"] == "":
                 ligne["valeurpart"] = "1.00"
                 ligne["nbpart"] = ligne["montant"]
 
             if afficherCost and re.match("-", ligne["nbpart"]) is None:
                 cost = position.Cost(
                     Decimal(
-                        ligne["valeurpart"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                    ),
+                        float(
+                            ligne["montant"]
+                            .replace(",", ".")
+                            .replace(" ", "")
+                            .replace("\xa0", "")
+                        )
+                        / float(
+                            ligne["nbpart"]
+                            .replace(",", ".")
+                            .replace(" ", "")
+                            .replace("\xa0", "")
+                        )
+                    ).quantize(Decimal(".0001")),
                     "EUR",
                     parse_datetime(ligne["date"]).date(),
                     None,
@@ -91,7 +99,9 @@ class jsongenerali(importer.ImporterProtocol):
 
             self.postings.append(
                 data.Posting(
-                    account=self.accountList[jsondata["compte"]] + ":" + ligne["isin"],
+                    account=self.accountList[jsondata["compte"]]
+                    + ":"
+                    + ligne["isin"].replace(" ", "").upper(),
                     units=amount.Amount(
                         Decimal(
                             ligne["nbpart"]
@@ -99,7 +109,7 @@ class jsongenerali(importer.ImporterProtocol):
                             .replace(" ", "")
                             .replace("\xa0", "")
                         ),
-                        ligne["isin"],
+                        ligne["isin"].replace(" ", "").upper(),
                     ),
                     cost=cost,
                     flag=None,
@@ -127,7 +137,7 @@ class jsongenerali(importer.ImporterProtocol):
                 self.postings.append(
                     data.Posting(
                         account=self.compteTiers,
-                        units=amount.Amount(Decimal(str(self.total)), "EUR"),
+                        units=amount.Amount(Decimal("-" + str(self.total)), "EUR"),
                         cost=None,
                         flag=None,
                         meta=None,
@@ -239,5 +249,5 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             else:
-               print(path.basename(file.name)+ " : Type de relevé inconnu")
+                print(path.basename(file.name) + " : Type de relevé inconnu")
         return entries
