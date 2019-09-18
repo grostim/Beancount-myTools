@@ -8,6 +8,8 @@ Mais rien n'empèche d'utiliser ces scripts hors Docker.
 
 Les fichiers de regtest ne sont pas partagés sur github, car bien entendu ce sont des fichiers personnels.
 
+Tous ces poutils sont très perfectibles, n'hésitez pas à me faire part de vos propositions d'améliorations, ou mieux encore une pull request.
+
 ## QIFBoursorama 
 Un importer pour les fichiers QIF générés par Boursorama.
 
