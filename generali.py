@@ -1,5 +1,12 @@
 # -*- coding: utf8 -*-
 """ Parseur de l'historique Generali.
+
+Ce script s'attend à trouver un ficher de config nommé "generali.ini" qui contiendra vos identifiants sous la forme suivante:
+
+[GENERALI]
+User = identifiant
+Password = MotDePasse
+
 """
 __copyright__ = "Copyright (C) 2019  Grostim"
 __license__ = "Je ne sais pas"
