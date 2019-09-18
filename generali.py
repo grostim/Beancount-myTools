@@ -36,7 +36,7 @@ def balayagetableau():
             dataline["valeurpart"] = ""
 
         dataline["nbpart"] = ligne.find_all("td")[3].text
-        dataline["montant"] = re.search("(\d*,\d{2})", ligne.find_all("td")[4].text).group(1)
+        dataline["montant"] = re.search("(\d{0,3}\s?\d*,\d{2})", ligne.find_all("td")[4].text).group(1)
         ope["table"].append(dataline)
 
 

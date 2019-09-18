@@ -82,12 +82,14 @@ class jsongenerali(importer.ImporterProtocol):
                             .replace(",", ".")
                             .replace(" ", "")
                             .replace("\xa0", "")
+                            .replace(r"\u00a", "")
                         )
                         / float(
                             ligne["nbpart"]
                             .replace(",", ".")
                             .replace(" ", "")
                             .replace("\xa0", "")
+                            .replace(r"\u00a", "")
                         )
                     ).quantize(Decimal(".0001")),
                     "EUR",
@@ -108,17 +110,42 @@ class jsongenerali(importer.ImporterProtocol):
                             .replace(",", ".")
                             .replace(" ", "")
                             .replace("\xa0", "")
+                            .replace(r"\u00a", "")
                         ),
                         ligne["isin"].replace(" ", "").upper(),
                     ),
                     cost=cost,
                     flag=None,
                     meta=None,
-                    price=None,
+                    price=amount.Amount(
+                        Decimal(
+                            abs(
+                                float(
+                                    ligne["montant"]
+                                    .replace(",", ".")
+                                    .replace(" ", "")
+                                    .replace("\xa0", "")
+                                    .replace(r"\u00a", "")
+                                )
+                                / float(
+                                    ligne["nbpart"]
+                                    .replace(",", ".")
+                                    .replace(" ", "")
+                                    .replace("\xa0", "")
+                                    .replace(r"\u00a", "")
+                                )
+                            )
+                        ).quantize(Decimal(".0001")),
+                        "EUR",
+                    ),
                 )
             )
             self.total = self.total + Decimal(
-                ligne["montant"].replace(",", ".").replace(" ", "").replace("\xa0", "")
+                ligne["montant"]
+                .replace(",", ".")
+                .replace(" ", "")
+                .replace("\xa0", "")
+                .replace(r"\u00a", "")
             )
 
     def extract(self, file, existing_entries=None):
@@ -131,7 +158,7 @@ class jsongenerali(importer.ImporterProtocol):
 
             if jsondata["ope"] == "prélèvement" or jsondata["ope"] == "Versement Libre":
 
-                self.balayageJSONtable(jsondata, afficherCost=True)
+                self.balayageJSONtable(jsondata, afficherCost=False)
 
                 # On crée la dernière transaction.
                 self.postings.append(
@@ -196,7 +223,7 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             elif jsondata["ope"] == "Distribution de dividendes":
-                self.balayageJSONtable(jsondata, afficherCost=True)
+                self.balayageJSONtable(jsondata, afficherCost=False)
                 # On crée la dernière transaction.
                 self.postings.append(
                     data.Posting(
@@ -228,7 +255,7 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             elif jsondata["ope"] == "Arbitrage" or "Opération sur titres":
-                self.balayageJSONtable(jsondata, afficherCost=True)
+                self.balayageJSONtable(jsondata, afficherCost=False)
                 meta = data.new_metadata(file.name, 0)
                 meta["source"] = "jsongenerali"
                 flag = flags.FLAG_OKAY
