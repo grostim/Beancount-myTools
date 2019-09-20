@@ -93,7 +93,7 @@ class jsongenerali(importer.ImporterProtocol):
                         )
                     ).quantize(Decimal(".0001")),
                     "EUR",
-                    parse_datetime(ligne["date"]).date(),
+                    None,
                     None,
                 )
             else:
@@ -158,7 +158,7 @@ class jsongenerali(importer.ImporterProtocol):
 
             if jsondata["ope"] == "prélèvement" or jsondata["ope"] == "Versement Libre":
 
-                self.balayageJSONtable(jsondata, afficherCost=False)
+                self.balayageJSONtable(jsondata, afficherCost=True)
 
                 # On crée la dernière transaction.
                 self.postings.append(
@@ -191,7 +191,7 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             elif jsondata["ope"] == "Frais de gestion":
-                self.balayageJSONtable(jsondata, afficherCost=False)
+                self.balayageJSONtable(jsondata, afficherCost=True)
                 # On crée la dernière transaction.
                 self.postings.append(
                     data.Posting(
@@ -223,7 +223,7 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             elif jsondata["ope"] == "Distribution de dividendes":
-                self.balayageJSONtable(jsondata, afficherCost=False)
+                self.balayageJSONtable(jsondata, afficherCost=True)
                 # On crée la dernière transaction.
                 self.postings.append(
                     data.Posting(
@@ -255,7 +255,7 @@ class jsongenerali(importer.ImporterProtocol):
                 entries.append(transac)
 
             elif jsondata["ope"] == "Arbitrage" or "Opération sur titres":
-                self.balayageJSONtable(jsondata, afficherCost=False)
+                self.balayageJSONtable(jsondata, afficherCost=True)
                 meta = data.new_metadata(file.name, 0)
                 meta["source"] = "jsongenerali"
                 flag = flags.FLAG_OKAY
