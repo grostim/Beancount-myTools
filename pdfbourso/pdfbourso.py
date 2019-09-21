@@ -47,7 +47,10 @@ class pdfbourso(importer.ImporterProtocol):
             if re.search("BOUSFRPPXXX", text) is not None:
                 self.type = "Compte"
                 return 1
-            if re.search("tableau d'amortissement|Echéancier Prévisionnel", text) is not None:
+            if (
+                re.search("tableau d'amortissement|Echéancier Prévisionnel", text)
+                is not None
+            ):
                 self.type = "Amortissement"
                 return 1
 
@@ -67,12 +70,9 @@ class pdfbourso(importer.ImporterProtocol):
         # Si debogage, affichage de l'extraction
         if self.debug:
             print(self.type)
-            print(control)
-            print(text)
         match = re.search(control, text)
         # Si debogage, affichage de l'extraction
         if self.debug:
-            print(match)
             print(match.group(1))
         if match:
             compte = match.group(1)
@@ -122,9 +122,9 @@ class pdfbourso(importer.ImporterProtocol):
                     + len(match.group(4))
                 )
                 balance = match.group(4).replace(".", "").replace(",", ".")
-            if longueur < 84:
+                if longueur < 84:
                 # Si la distance entre les 2 champs est petite, alors, c'est un débit.
-                balance = "-" + balance
+                    balance = "-" + balance
 
             # Si debogage, affichage de l'extraction
             if self.debug:
@@ -249,11 +249,21 @@ class pdfbourso(importer.ImporterProtocol):
 
                 ope = dict()
                 ope["date"] = parse_datetime(chunk[0], dayfirst="True").date()
-                ope["prelevement"] = amount.Amount(Decimal("-" + chunk[1].replace(",", ".")), "EUR")
-                ope["amortissement"] = amount.Amount(Decimal(chunk[2].replace(",", ".")), "EUR")
-                ope["interet"] = amount.Amount(Decimal(chunk[3].replace(",", ".")), "EUR")
-                ope["assurance"] = amount.Amount(Decimal(chunk[4].replace(",", ".")), "EUR")
-                ope["CRD"] = amount.Amount(Decimal("-" + str(chunk[7].replace(",", "."))), "EUR")
+                ope["prelevement"] = amount.Amount(
+                    Decimal("-" + chunk[1].replace(",", ".")), "EUR"
+                )
+                ope["amortissement"] = amount.Amount(
+                    Decimal(chunk[2].replace(",", ".")), "EUR"
+                )
+                ope["interet"] = amount.Amount(
+                    Decimal(chunk[3].replace(",", ".")), "EUR"
+                )
+                ope["assurance"] = amount.Amount(
+                    Decimal(chunk[4].replace(",", ".")), "EUR"
+                )
+                ope["CRD"] = amount.Amount(
+                    Decimal("-" + str(chunk[7].replace(",", "."))), "EUR"
+                )
 
                 # Creation de la transactiocn
                 posting_1 = data.Posting(
@@ -297,7 +307,7 @@ class pdfbourso(importer.ImporterProtocol):
                     narration="",
                     tags=data.EMPTY_SET,
                     links=data.EMPTY_SET,
-                    postings=[posting_1,posting_2,posting_3,posting_4],
+                    postings=[posting_1, posting_2, posting_3, posting_4],
                 )
                 entries.append(transac)
                 entries.append(
@@ -310,5 +320,73 @@ class pdfbourso(importer.ImporterProtocol):
                         None,
                     )
                 )
+
+        if self.type == "CB":
+            # Identification du numéro de compte
+            control = "\s*(4979\*{8}\d{4})"
+            match = re.search(control, text)
+            if match:
+                compte = match.group(1)
+
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(compte)
+
+            control = "(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})\s*((?:\d{1,3}\.)?\d{1,3},\d{2})"
+            chunks = re.findall(control, text)
+
+            # Si debogage, affichage de l'extraction
+            if self.debug:
+                print(control)
+                print(chunks)
+
+            index = 0
+            for chunk in chunks:
+                index += 1
+                meta = data.new_metadata(file.name, index)
+                meta["source"] = "pdfbourso"
+                meta["document"] = document
+                ope = dict()
+
+                # Si debogage, affichage de l'extraction
+                if self.debug:
+                    print(chunk)
+
+                ope["date"] = chunk[0]
+                # Si debogage, affichage de l'extraction
+                if self.debug:
+                    print(ope["date"])
+
+                ope["montant"] = "-" + chunk[2].replace(".", "").replace(",", ".")
+                # Si debogage, affichage de l'extraction
+                if self.debug:
+                    print(ope["montant"])
+
+                ope["payee"] = re.sub("\s+", " ", chunk[1])
+                # Si debogage, affichage de l'extraction
+                if self.debug:
+                    print(ope["payee"])
+
+                # Creation de la transaction
+                posting_1 = data.Posting(
+                    account=self.accountList[compte],
+                    units=amount.Amount(Decimal(ope["montant"]), "EUR"),
+                    cost=None,
+                    flag=None,
+                    meta=None,
+                    price=None,
+                )
+                flag = flags.FLAG_OKAY
+                transac = data.Transaction(
+                    meta=meta,
+                    date=parse_datetime(ope["date"], dayfirst="True").date(),
+                    flag=flag,
+                    payee=ope["payee"] or "inconnu",
+                    narration=None,
+                    tags=data.EMPTY_SET,
+                    links=data.EMPTY_SET,
+                    postings=[posting_1],
+                )
+                entries.append(transac)
 
         return entries
