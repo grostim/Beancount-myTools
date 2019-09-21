@@ -38,6 +38,9 @@ class pdfbourso(importer.ImporterProtocol):
         # from ACME. The filename they provide (Statement.pdf) isn't useful.On considéère que c'est un relevé Boursorama si on trouve le mot "BOURSORAMA" dedans.
         text = file.convert(pdf_to_text)
         if text:
+            if re.search("Relevé de Carte", text) is not None:
+                self.type = "CB"
+                return 1
             if re.search("BOURSORAMA BANQUE", text) is not None:
                 self.type = "Compte"
                 return 1
@@ -46,9 +49,6 @@ class pdfbourso(importer.ImporterProtocol):
                 return 1
             if re.search("tableau d'amortissement|Echéancier Prévisionnel", text) is not None:
                 self.type = "Amortissement"
-                return 1
-            if re.search("Relevé de Carte", text) is not None:
-                self.type = "CB"
                 return 1
 
     def file_name(self, file):
@@ -61,15 +61,18 @@ class pdfbourso(importer.ImporterProtocol):
         if self.type == "Compte":
             control = "8026\d\s*(\d{11})"
         elif self.type == "CB":
-            control = "\s*4979\*{8}\(d{4})"
+            control = "\s*(4979\*{8}\d{4})"
         elif self.type == "Amortissement":
             control = "N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
         # Si debogage, affichage de l'extraction
         if self.debug:
+            print(self.type)
             print(control)
+            print(text)
         match = re.search(control, text)
         # Si debogage, affichage de l'extraction
         if self.debug:
+            print(match)
             print(match.group(1))
         if match:
             compte = match.group(1)
