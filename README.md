@@ -32,3 +32,7 @@ A ce stade, il n'a été testé que sur un contrat commercialisé par Linxea.
 
 ## JSONGenerali
 Un importer pour les relevés au format JSON généré par le script précédent.
+
+## PDFBinck
+Un importer pour les relevés au format PDF emis par Binck France.
+A ce stade, cet importer se contente de classer le fichier.
