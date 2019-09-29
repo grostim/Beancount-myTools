@@ -12,13 +12,13 @@ Tous ces poutils sont très perfectibles, n'hésitez pas à me faire part de vos
 
 ## QIFBoursorama 
 Un importer pour les fichiers QIF générés par Boursorama.
+Je recommandecependant d'importer les pdfs avec PDFbourso : (plus de détails et récupération des balance).
 
 ## PDFBourso
 Un importer pour les relevés au format PDF emis par Boursorama.
-A ce stade, il fonctionne avec:
+Testé avec:
 - les relevés de compte courant
 - les relevés de LDD et CEL
-Il ne fonctionne pas avec:
 - Les relevés de carte à débit différé.
 Il n'a pas été testé avec les autres types de comptes.
 
@@ -32,4 +32,3 @@ A ce stade, il n'a été testé que sur un contrat commercialisé par Linxea.
 
 ## JSONGenerali
 Un importer pour les relevés au format JSON généré par le script précédent.
-WORK-IN-PROGRESS. Non fonctionnel à ce jour.
