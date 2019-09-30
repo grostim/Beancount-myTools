@@ -3,7 +3,12 @@
 This price fetcher use the iexfinance python library:
 https://addisonlynch.github.io/iexfinance
 
+You need an API key.
+You have to declare it in the environment variable IEX_TOKEN
+
+In order to use this price fetcher with bean-price make sure it is in the PYTHON_PATH.
 """
+
 __copyright__ = "Copyright (C) 2019  Grostim"
 __license__ = "MIT"
 
