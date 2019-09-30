@@ -8,12 +8,13 @@ __copyright__ = "Copyright (C) 2019  Grostim"
 __license__ = "MIT"
 
 import datetime
+from dateutil.parser import parse as parse_datetime
 import requests
 from iexfinance.stocks import Stock
+from iexfinance.stocks import get_historical_data
 from dateutil import tz
 from beancount.core.number import D
 from beancount.prices import source
-
 
 class IEXError(ValueError):
     "An error from the IEX API."
@@ -41,8 +42,8 @@ class Source(source.Source):
           code must be able to handle this. Also note that the price's returned
           time must be timezone-aware.
         """
-        theStock = Stock(ticker)
-        if theStock is not None:
+        try:
+            theStock = Stock(ticker)
             theQuote = theStock.get_book()["quote"]
            
             # IEX is American markets.
@@ -52,7 +53,8 @@ class Source(source.Source):
 
             thePrice = D(theQuote["latestPrice"]).quantize(D('0.01'))
             return source.SourcePrice(thePrice, theDate, 'USD')
-        else:
+        except :
+            raise IEXError("Erreur lors de l'execution de la requete")
             return None
 
 
@@ -78,4 +80,16 @@ class Source(source.Source):
           code must be able to handle this. Also note that the price's returned
           time must be timezone-aware.
         """
-
+        try:
+            theQuote = get_historical_data(ticker, time.date(), close_only=True)
+            for theDate in theQuote.keys():
+                thePrice = D(theQuote[theDate]["close"]).quantize(D('0.01'))
+                # IEX is American markets.
+                us_timezone = tz.gettz("America/New_York")
+                theDate = parse_datetime(theDate)
+                theDate = theDate.astimezone(us_timezone)
+                break
+            return source.SourcePrice(thePrice, theDate, 'USD')
+        except:
+            raise IEXError("Erreur lors de l'execution de la requete")
+            return None
