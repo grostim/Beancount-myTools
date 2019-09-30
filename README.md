@@ -36,3 +36,8 @@ Un importer pour les relevés au format JSON généré par le script précédent
 ## PDFBinck
 Un importer pour les relevés au format PDF emis par Binck France.
 A ce stade, cet importer se contente de classer le fichier.
+
+## IEXCloud
+Un price fetcher qui utilise iexcloud.io.
+Une clef API est requise (gratuite pour un usage limité)
+
