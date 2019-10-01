@@ -41,3 +41,6 @@ A ce stade, cet importer se contente de classer le fichier.
 Un price fetcher qui utilise iexcloud.io.
 Une clef API est requise (gratuite pour un usage limité)
 
+## AMFGeco
+un price fetcher pour FCP et sicav FR qui utilise la base AMF Geco
+
