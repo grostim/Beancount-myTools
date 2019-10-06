@@ -123,7 +123,7 @@ class pdfbourso(importer.ImporterProtocol):
                 )
                 balance = match.group(4).replace(".", "").replace(",", ".")
                 if longueur < 84:
-                # Si la distance entre les 2 champs est petite, alors, c'est un débit.
+                    # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                     balance = "-" + balance
 
             # Si debogage, affichage de l'extraction

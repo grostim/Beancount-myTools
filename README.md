@@ -43,4 +43,3 @@ Une clef API est requise (gratuite pour un usage limité)
 
 ## AMFGeco
 un price fetcher pour FCP et sicav FR qui utilise la base AMF Geco
-
