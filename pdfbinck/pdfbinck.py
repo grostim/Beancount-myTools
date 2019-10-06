@@ -51,7 +51,11 @@ class pdfbinck(importer.ImporterProtocol):
 
     def file_name(self, file):
         # Normalize the name to something meaningful.
-        return "Binck.pdf"
+        # Recherche du numéro de compte dans le fichier.
+        text = file.convert(pdf_to_text)
+        control = "Opérations :\s*(\d*-\d*)"
+        match = re.search(control, text)
+        return "Ope " + match.group(1) + " Binck.pdf"
 
     def file_date(self, file):
         # Get the actual statement's date from the contents of the file.
