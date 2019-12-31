@@ -41,10 +41,7 @@ class pdfbourso(importer.ImporterProtocol):
             if re.search("Relevé de Carte", text) is not None:
                 self.type = "CB"
                 return 1
-            if re.search("BOURSORAMA BANQUE", text) is not None:
-                self.type = "Compte"
-                return 1
-            if re.search("BOUSFRPPXXX", text) is not None:
+            if re.search("BOURSORAMA BANQUE|BOUSFRPPXXX", text) is not None:
                 self.type = "Compte"
                 return 1
             if (
@@ -97,6 +94,7 @@ class pdfbourso(importer.ImporterProtocol):
         # Si debogage, affichage de l'extraction
         if self.debug:
             print(text)
+            print(self.type)
 
         if self.type == "Compte":
             # Identification du numéro de compte
@@ -128,6 +126,7 @@ class pdfbourso(importer.ImporterProtocol):
 
             # Si debogage, affichage de l'extraction
             if self.debug:
+                print(self.type)
                 print(datebalance)
                 print(balance)
                 print(longueur)

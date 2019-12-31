@@ -49,18 +49,22 @@ class Source(source.Source):
         url = BASEURL + ticker
         r = s.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
-        cours = soup.find('span', class_="vl-box-value").get_text(strip=True)
+        try:
+          cours = soup.find('span', class_="vl-box-value").get_text(strip=True)
 
-        control ="(.*)\s*([A-Z]{3})"
-        match = re.match(control, cours)
-        thePrice = D(match.group(1).replace(" ","").replace(",",".")).quantize(D('0.01'))
+          control ="(.*)\s*([A-Z]{3})"
+          match = re.match(control, cours)
+          thePrice = D(match.group(1).replace(" ","").replace(",",".")).quantize(D('0.01'))
 
-        theDate = soup.find('span', class_="vl-box-date").get_text(strip=True)
-        theDate = parse_datetime(theDate, dayfirst=True)
-        fr_timezone = tz.gettz("Europe/Paris")
-        theDate = theDate.astimezone(fr_timezone)
+          theDate = soup.find('span', class_="vl-box-date").get_text(strip=True)
+          theDate = parse_datetime(theDate, dayfirst=True)
+          fr_timezone = tz.gettz("Europe/Paris")
+          theDate = theDate.astimezone(fr_timezone)
 
-        return source.SourcePrice(thePrice, theDate, match.group(2))
+          return source.SourcePrice(thePrice, theDate, match.group(2))
+        except:
+          raise QuantalysError("Cours introuvable sur Quantaly")
+          return None
 
     def get_historical_price(self, ticker, time):
         """Return the historical price found for the symbol at the given date.
@@ -84,5 +88,5 @@ class Source(source.Source):
           code must be able to handle this. Also note that the price's returned
           time must be timezone-aware.
         """
-        raise IEXError("Import de l'historique pas encore implémenté")
+        raise QuantalysError("Import de l'historique pas encore implémenté")
         return None
