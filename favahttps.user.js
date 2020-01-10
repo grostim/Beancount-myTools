@@ -4,8 +4,8 @@
 // @version      0.1
 // @description  Rajoute une balise meta
 // @icon         https://github.com/beancount/fava/raw/master/fava/static/images/favicon.ico
-// @downloadURL  https://gitlab.com/BZHDeveloper/HFR/raw/master/multimp.user.js
-// @updateURL    https://gitlab.com/BZHDeveloper/HFR/raw/master/multimp.user.js
+// @downloadURL  https://github.com/grostim/Beancount-myTools/raw/master/favahttps.user.js
+// @updateURL    https://github.com/grostim/Beancount-myTools/raw/master/favahttps.user.js
 // @author       You
 // @match        https://fava.famillegros.com/*
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
