@@ -46,3 +46,8 @@ un price fetcher pour FCP et sicav FR qui utilise la base AMF Geco
 
 ## Quantalys
 un price fetcher pour FCP et sicav FR qui utilise la base Quantalys. Ce price fetcher ne peut pas récupérer les historiques.
+
+## fichepaye
+Un importer pour les bulletins de paye (pdf) de mon employeur. Ceux ci sont édités avec Sage.
+Il est peut probable que le script soit directement utilisable par un salarié d'une autre entreprise (d'autant plus que certains comptes sont en dur dans le code python), mais celà peut servir de base d'inspiration à d'autres personne. 
+
