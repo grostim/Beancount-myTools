@@ -49,8 +49,11 @@ class Source(source.Source):
         url = BASEURL + ticker
         r = s.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
-        cours = soup.find('span', class_="vl-box-value").get_text(strip=True)
-
+        try:
+          cours = soup.find('span', class_="vl-box-value").get_text(strip=True)
+        except:
+          raise QuantalysError("Pas de cours disponible ?")
+          return None
         control ="(.*)\s*(%)"
         match = re.match(control, cours)
         thePrice = D(match.group(1).replace(" ","").replace(",",".")).quantize(D('0.01'))
@@ -84,5 +87,5 @@ class Source(source.Source):
           code must be able to handle this. Also note that the price's returned
           time must be timezone-aware.
         """
-        raise IEXError("Import de l'historique pas encore implémenté")
+        raise QuantalysError("Import de l'historique pas encore implémenté")
         return None
