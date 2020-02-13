@@ -17,7 +17,7 @@ Merci : https://github.com/akashin/beancount-price-sources/blob/master/akashin_s
 
 bean-price -e 'GBP:cryptocompare/BTC:GBP'
 """
-class CryptoCompare(ValueError):
+class CryptoCompareError(ValueError):
     "An error from the CryptoCompare Price Fetcher"
     
 class Source(source.Source):
