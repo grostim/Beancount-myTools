@@ -17,7 +17,9 @@ Merci : https://github.com/akashin/beancount-price-sources/blob/master/akashin_s
 
 bean-price -e 'GBP:cryptocompare/BTC:GBP'
 """
-
+class CryptoCompare(ValueError):
+    "An error from the CryptoCompare Price Fetcher"
+    
 class Source(source.Source):
     "CryptoCompare API price extractor."
 
@@ -36,10 +38,13 @@ class Source(source.Source):
             response = json.loads(response)
         except error.HTTPError:
             return None
-
-        price = D(response[commodity][currency]).quantize(D('1.000000000000000000'))
-        return source.SourcePrice(D('0') if price == 0 else price, trade_date, currency)
-
+        try:
+            price = D(response[commodity][currency]).quantize(D('1.000000000000000000'))
+            return source.SourcePrice(D('0') if price == 0 else price, trade_date, currency)
+        except:
+          raise CryptoCompareError("Pas de cours disponible ?")
+          return None
+        
     def get_latest_price(self, ticker):
         commodity, currency = ticker.split(':')
         url = 'https://min-api.cryptocompare.com/data/price?fsym={}&tsyms={}'.format(commodity, currency)
@@ -52,7 +57,11 @@ class Source(source.Source):
             response = json.loads(response)
         except error.HTTPError:
             return None
-        price = D(response[currency]).quantize(D('1.000000000000000000'))
-        trade_date = datetime.now()
-        trade_date = trade_date.replace(tzinfo=pytz.UTC)
-        return source.SourcePrice(D('0') if price == 0 else price, trade_date, currency)
+        try:
+            price = D(response[currency]).quantize(D('1.000000000000000000'))
+            trade_date = datetime.now()
+            trade_date = trade_date.replace(tzinfo=pytz.UTC)
+            return source.SourcePrice(D('0') if price == 0 else price, trade_date, currency)
+        except:
+          raise CryptoCompareError("Pas de cours disponible ?")
+          return None
