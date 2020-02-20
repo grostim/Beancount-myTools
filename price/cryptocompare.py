@@ -40,7 +40,7 @@ class Source(source.Source):
             return None
         try:
             price = D(response[commodity][currency]).quantize(D('1.000000000000000000'))
-            return source.SourcePrice(D('0') if price == 0 else price, trade_date, currency)
+            return None if price == 0 else source.SourcePrice(price, trade_date, currency)
         except:
           raise CryptoCompareError("Pas de cours disponible ?")
           return None
@@ -61,7 +61,7 @@ class Source(source.Source):
             price = D(response[currency]).quantize(D('1.000000000000000000'))
             trade_date = datetime.now()
             trade_date = trade_date.replace(tzinfo=pytz.UTC)
-            return source.SourcePrice(D('0') if price == 0 else price, trade_date, currency)
+            return None if price == 0 else source.SourcePrice(price, trade_date, currency)
         except:
           raise CryptoCompareError("Pas de cours disponible ?")
           return None
