@@ -28,7 +28,7 @@ class pdfbourso(importer.ImporterProtocol):
             accountList, dict
         ), "La liste de comptes doit etre un type dict"
         self.accountList = accountList
-        self.debug = debug
+        self.debug = True
 
     def identify(self, file):
         if file.mimetype() != "application/pdf":
@@ -45,7 +45,7 @@ class pdfbourso(importer.ImporterProtocol):
                 self.type = "Compte"
                 return 1
             if (
-                re.search("tableau d'amortissement|Echéancier Prévisionnel", text)
+                re.search("tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif", text)
                 is not None
             ):
                 self.type = "Amortissement"
