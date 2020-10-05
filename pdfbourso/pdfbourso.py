@@ -331,7 +331,7 @@ class pdfbourso(importer.ImporterProtocol):
             if self.debug:
                 print(compte)
 
-            control = "(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})\s*((?:\d{1,3}\.)?\d{1,3},\d{2})"
+            control = "(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
