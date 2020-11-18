@@ -62,7 +62,7 @@ class Source(source.Source):
 
           return source.SourcePrice(thePrice, theDate, match.group(2))
         except:
-          raise QuantalysError("Cours introuvable sur Quantalys",cour)
+          raise QuantalysError("Cours introuvable sur Quantalys")
           return None
 
     def get_historical_price(self, ticker, time):
