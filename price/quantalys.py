@@ -50,8 +50,7 @@ class Source(source.Source):
         r = s.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         try:
-          cours = soup.find('span', class_="vl-box-value").get_text(strip=True)
-
+          cours = soup.find('div', class_="vl-box-devise-value").get_text(strip=True)
           control ="(.*)\s*([A-Z]{3})"
           match = re.match(control, cours)
           thePrice = D(match.group(1).replace(" ","").replace(",",".")).quantize(D('0.01'))
@@ -63,7 +62,7 @@ class Source(source.Source):
 
           return source.SourcePrice(thePrice, theDate, match.group(2))
         except:
-          raise QuantalysError("Cours introuvable sur Quantaly")
+          raise QuantalysError("Cours introuvable sur Quantalys",cour)
           return None
 
     def get_historical_price(self, ticker, time):
