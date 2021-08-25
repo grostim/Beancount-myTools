@@ -127,11 +127,11 @@ class pdfbourso(importer.ImporterProtocol):
                     balance = "-" + balance
 
             # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(self.type)
-                print(datebalance)
-                print(balance)
-                print(longueur)
+#            if self.debug:
+#                print(self.type)
+#                print(datebalance)
+#                print(balance)
+#                print(longueur)
 
             meta = data.new_metadata(file.name, 0)
             meta["source"] = "pdfbourso"
