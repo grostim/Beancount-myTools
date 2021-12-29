@@ -324,7 +324,7 @@ class pdfbourso(importer.ImporterProtocol):
 
         if self.type == "CB":
             # Identification du numéro de compte
-            control = "\s*(4979\*{8}\d{4})"
+            control = "\s*(4979|4810\*{8}\d{4})"
             match = re.search(control, text)
             if match:
                 compte = match.group(1)
