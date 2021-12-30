@@ -37,6 +37,7 @@ class Source(source.Source):
                 return None
             response = response.read().decode('utf-8').strip()
             response = json.loads(response)
+            logging.info("Reponse: %s", response)
         except error.HTTPError:
             return None
         try:
