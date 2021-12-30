@@ -21,7 +21,7 @@ class RealtError(ValueError):
     "An error from the Realt Price Fetcher"
     
 class Source(source.Source):
-    "CryptoCompare API price extractor."
+    "REALT API price extractor."
 
     def get_historical_price(self, ticker, date):
         raise RealtError("Import de l'historique pas encore implémenté")
@@ -40,7 +40,7 @@ class Source(source.Source):
             logging.info("Reponse: %s", response)
         except error.HTTPError:
             return None
-        logging.info("Price: %s", response[tokenPrice])
+        logging.info("Price: %s", response['tokenPrice'])
         try:
             price = D(response['tokenPrice']).quantize(D('1.00'))
             trade_date = datetime.now()
