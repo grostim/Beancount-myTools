@@ -29,7 +29,7 @@ class Source(source.Source):
 
         
     def get_latest_price(self, ticker):
-        url = 'https://api.realt.community/v1/token/{}&tsyms={}'.format(ticker)
+        url = 'https://api.realt.community/v1/token/{}'.format(ticker)
         logging.info("Fetching %s", url)
         try:
             response = net_utils.retrying_urlopen(url)
