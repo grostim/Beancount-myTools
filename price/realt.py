@@ -43,7 +43,7 @@ class Source(source.Source):
             price = D(response[tokenPrice]).quantize(D('1.00'))
             trade_date = datetime.now()
             trade_date = trade_date.replace(tzinfo=pytz.UTC)
-            return None if price == 0 else source.SourcePrice(price, trade_date, response[currency]))
+            return None if price == 0 else source.SourcePrice(price, trade_date, response[currency])
         except:
           raise RealtError("Pas de cours disponible ?")
           return None
