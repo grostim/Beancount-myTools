@@ -42,7 +42,7 @@ class Source(source.Source):
             return None
         logging.info("Price: %s", response['tokenPrice'])
         try:
-            price = D(response['tokenPrice']).quantize(D('1.00'))
+            price = D(response['tokenPrice']))
             trade_date = datetime.now()
             trade_date = trade_date.replace(tzinfo=pytz.UTC)
             return None if price == 0 else source.SourcePrice(price, trade_date, response[currency])
