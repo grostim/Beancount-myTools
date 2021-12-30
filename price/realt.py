@@ -41,13 +41,11 @@ class Source(source.Source):
         except error.HTTPError:
             return None
         logging.info("Price: %s", response['tokenPrice'])
-        trade_date = datetime.now()
-        trade_date = trade_date.replace(tzinfo=pytz.UTC)
         try:
             price = D(response['tokenPrice'])
             trade_date = datetime.now()
             trade_date = trade_date.replace(tzinfo=pytz.UTC)
-            return None if price == 0 else source.SourcePrice(price, trade_date, response[currency])
+            return None if price == 0 else source.SourcePrice(price, trade_date, response['currency'])
         except:
           raise RealtError("Pas de cours disponible ?")
           return None
