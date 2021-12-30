@@ -41,7 +41,7 @@ class Source(source.Source):
         except error.HTTPError:
             return None
         try:
-            logging.info("Price: %s", response[tokenPrice]))
+            logging.info("Price: %s", response[tokenPrice])
             price = D(response[tokenPrice]).quantize(D('1.00'))
             trade_date = datetime.now()
             trade_date = trade_date.replace(tzinfo=pytz.UTC)
