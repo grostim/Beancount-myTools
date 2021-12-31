@@ -108,7 +108,8 @@ class pdfbourso(importer.ImporterProtocol):
             # Si debogage, affichage de l'extraction
             if self.debug:
                 print(compte)
-
+            
+            # Affichage du solde initial
             control = "SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
             match = re.search(control, text)
             if match:
@@ -223,6 +224,45 @@ class pdfbourso(importer.ImporterProtocol):
                     postings=[posting_1],
                 )
                 entries.append(transac)
+
+
+            # Recherche du solde final
+            control = "Nouveau solde en EUR :\s+((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+            match = re.search(control, text)
+            if match:
+                balance = match.group(2).replace(".", "").replace(",", ".")
+                longueur = (
+                    len(match.group(1))
+                if longueur < 84:
+                    # Si la distance entre les 2 champs est petite, alors, c'est un débit.
+                    balance = "-" + balance
+                if self.debug:
+                    print(balance)
+                    print(longueur)
+                # Recherche de la date du solde final
+                control = "(\d{1,2}\/\d{2}\/\d{4}).*40618"
+                match = re.search(control, text)
+                if match:
+                    datebalance =  parse_datetime( match.group(1), dayfirst="True").date() + datetime.timedelta(1)
+                    if self.debug:
+                        print(datebalance)
+                    meta = data.new_metadata(file.name, 0)
+                    meta["source"] = "pdfbourso"
+                    meta["document"] = document
+
+                    entries.append(
+                        data.Balance(
+                            meta,
+                            datebalance,
+                            self.accountList[compte],
+                            amount.Amount(D(balance), "EUR"),
+                            None,
+                            None,
+                        )
+                    )
+
+
+
 
         if self.type == "Amortissement":
             # Identification du numéro de compte
