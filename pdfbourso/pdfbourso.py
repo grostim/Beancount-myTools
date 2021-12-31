@@ -63,7 +63,7 @@ class pdfbourso(importer.ImporterProtocol):
         if self.type == "Compte":
             control = "\s*(\d{11})"
         elif self.type == "CB":
-            control = "\s*(4979|4810\*{8}\d{4})"
+            control = "\s*((4979|4810)\*{8}\d{4})"
         elif self.type == "Amortissement":
             control = "N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
         # Si debogage, affichage de l'extraction
@@ -324,7 +324,7 @@ class pdfbourso(importer.ImporterProtocol):
 
         if self.type == "CB":
             # Identification du numéro de compte
-            control = "\s*(4979|4810\*{8}\d{4})"
+            control = "\s*((4979|4810)\*{8}\d{4})"
             match = re.search(control, text)
             if match:
                 compte = match.group(1)
