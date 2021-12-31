@@ -231,8 +231,7 @@ class pdfbourso(importer.ImporterProtocol):
             match = re.search(control, text)
             if match:
                 balance = match.group(2).replace(".", "").replace(",", ".")
-                longueur = (
-                    len(match.group(1))
+                longueur = (len(match.group(1))
                 if longueur < 84:
                     # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                     balance = "-" + balance
