@@ -429,4 +429,34 @@ class pdfbourso(importer.ImporterProtocol):
                 )
                 entries.append(transac)
 
+
+            # Recherche du solde final
+            control = "A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+            match = re.search(control, text)
+            if match:
+                balance = "-"  + match.group(2).replace(".", "").replace(",", ".")
+                if self.debug:
+                    print(balance)
+                # Recherche de la date du solde final
+                control = "(\d{1,2}\/\d{2}\/\d{4}).*40618"
+                match = re.search(control, text)
+                if match:
+                    datebalance =  parse_datetime( match.group(1), dayfirst="True").date()
+                    if self.debug:
+                        print(datebalance)
+                    meta = data.new_metadata(file.name, 0)
+                    meta["source"] = "pdfbourso"
+                    meta["document"] = document
+
+                    entries.append(
+                        data.Balance(
+                            meta,
+                            datebalance,
+                            self.accountList[compte],
+                            amount.Amount(D(balance), "EUR"),
+                            None,
+                            None,
+                        )
+                    )
+
         return entries
