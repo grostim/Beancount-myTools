@@ -242,7 +242,7 @@ class pdfbourso(importer.ImporterProtocol):
                 control = "(\d{1,2}\/\d{2}\/\d{4}).*40618"
                 match = re.search(control, text)
                 if match:
-                    datebalance =  parse_datetime( match.group(1), dayfirst="True").date() + datetime.timedelta(1)
+                    datebalance =  parse_datetime( match.group(1), dayfirst="True").date()
                     if self.debug:
                         print(datebalance)
                     meta = data.new_metadata(file.name, 0)
