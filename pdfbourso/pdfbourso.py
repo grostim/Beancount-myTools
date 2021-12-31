@@ -231,7 +231,7 @@ class pdfbourso(importer.ImporterProtocol):
             match = re.search(control, text)
             if match:
                 balance = match.group(2).replace(".", "").replace(",", ".")
-                longueur = (len(match.group(1))
+                longueur = len(match.group(1))
                 if self.debug:
                     print(balance)
                     print(longueur)
