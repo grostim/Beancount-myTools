@@ -227,17 +227,17 @@ class pdfbourso(importer.ImporterProtocol):
 
 
             # Recherche du solde final
-            control = "Nouveau solde en EUR :\s+((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+            control = "Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
             match = re.search(control, text)
             if match:
                 balance = match.group(2).replace(".", "").replace(",", ".")
                 longueur = (len(match.group(1))
-                if longueur < 84:
-                    # Si la distance entre les 2 champs est petite, alors, c'est un débit.
-                    balance = "-" + balance
                 if self.debug:
                     print(balance)
                     print(longueur)
+                if longueur < 84:
+                    # Si la distance entre les 2 champs est petite, alors, c'est un débit.
+                    balance = "-" + balance
                 # Recherche de la date du solde final
                 control = "(\d{1,2}\/\d{2}\/\d{4}).*40618"
                 match = re.search(control, text)
