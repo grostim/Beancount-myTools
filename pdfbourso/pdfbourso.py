@@ -43,11 +43,19 @@ class pdfbourso(importer.ImporterProtocol):
             if re.search("Relevé de Carte", text) is not None:
                 self.type = "CB"
                 return 1
-            if re.search("BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151", text) is not None:
+            if (
+                re.search(
+                    "BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151", text
+                )
+                is not None
+            ):
                 self.type = "Compte"
                 return 1
             if (
-                re.search("tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif", text)
+                re.search(
+                    "tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif",
+                    text,
+                )
                 is not None
             ):
                 self.type = "Amortissement"
@@ -108,7 +116,7 @@ class pdfbourso(importer.ImporterProtocol):
             # Si debogage, affichage de l'extraction
             if self.debug:
                 print(compte)
-            
+
             # Affichage du solde initial
             control = "SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
             match = re.search(control, text)
@@ -128,11 +136,11 @@ class pdfbourso(importer.ImporterProtocol):
                     balance = "-" + balance
 
             # Si debogage, affichage de l'extraction
-#            if self.debug:
-#                print(self.type)
-#                print(datebalance)
-#                print(balance)
-#                print(longueur)
+            #            if self.debug:
+            #                print(self.type)
+            #                print(datebalance)
+            #                print(balance)
+            #                print(longueur)
 
             meta = data.new_metadata(file.name, 0)
             meta["source"] = "pdfbourso"
@@ -225,9 +233,10 @@ class pdfbourso(importer.ImporterProtocol):
                 )
                 entries.append(transac)
 
-
             # Recherche du solde final
-            control = "Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+            control = (
+                "Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+            )
             match = re.search(control, text)
             if match:
                 balance = match.group(2).replace(".", "").replace(",", ".")
@@ -242,7 +251,7 @@ class pdfbourso(importer.ImporterProtocol):
                 control = "(\d{1,2}\/\d{2}\/\d{4}).*40618"
                 match = re.search(control, text)
                 if match:
-                    datebalance =  parse_datetime( match.group(1), dayfirst="True").date()
+                    datebalance = parse_datetime(match.group(1), dayfirst="True").date()
                     if self.debug:
                         print(datebalance)
                     meta = data.new_metadata(file.name, 0)
@@ -259,9 +268,6 @@ class pdfbourso(importer.ImporterProtocol):
                             None,
                         )
                     )
-
-
-
 
         if self.type == "Amortissement":
             # Identification du numéro de compte
@@ -372,7 +378,9 @@ class pdfbourso(importer.ImporterProtocol):
             if self.debug:
                 print(compte)
 
-            control = "(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
+            control = (
+                "(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
+            )
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
@@ -429,19 +437,18 @@ class pdfbourso(importer.ImporterProtocol):
                 )
                 entries.append(transac)
 
-
             # Recherche du solde final
             control = "A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
             match = re.search(control, text)
             if match:
-                balance = "-"  + match.group(2).replace(".", "").replace(",", ".")
+                balance = "-" + match.group(2).replace(".", "").replace(",", ".")
                 if self.debug:
                     print(balance)
                 # Recherche de la date du solde final
                 control = "(\d{1,2}\/\d{2}\/\d{4}).*40618"
                 match = re.search(control, text)
                 if match:
-                    datebalance =  parse_datetime( match.group(1), dayfirst="True").date()
+                    datebalance = parse_datetime(match.group(1), dayfirst="True").date()
                     if self.debug:
                         print(datebalance)
                     meta = data.new_metadata(file.name, 0)
