@@ -48,24 +48,31 @@ class Source(source.Source):
         """
 
         s = requests.Session()
-        url = BASEURL + "/Bio/rech_part.aspx?varvalidform=on&CodeISIN=" + ticker + "&CLASSPROD=0&NumAgr=&selectNRJ=0&NomProd=&NomSOc=&action=new&valid_form=Lancer+la+recherche"
+        url = (
+            BASEURL
+            + "/Bio/rech_part.aspx?varvalidform=on&CodeISIN="
+            + ticker
+            + "&CLASSPROD=0&NumAgr=&selectNRJ=0&NomProd=&NomSOc=&action=new&valid_form=Lancer+la+recherche"
+        )
         r = s.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         try:
-          numProd = soup.find("input", {"name":"NumProd"})['value']
+            numProd = soup.find("input", {"name": "NumProd"})["value"]
         except:
-          raise AMFGecoError("ISIN introuvable sur AMFGeco")
-          return None
+            raise AMFGecoError("ISIN introuvable sur AMFGeco")
+            return None
 
-        theDate = soup.find('td', text="Date VL :").next_sibling.get_text(strip=True)
+        theDate = soup.find("td", text="Date VL :").next_sibling.get_text(strip=True)
         theDate = parse_datetime(theDate, dayfirst=True)
         fr_timezone = tz.gettz("Europe/Paris")
         theDate = theDate.astimezone(fr_timezone)
 
-        thePrice = soup.find('td', text="Valeur (€) :").next_sibling.get_text(strip=True)
-        thePrice = D(thePrice.replace(" ","").replace(",",".")).quantize(D('0.01'))
+        thePrice = soup.find("td", text="Valeur (€) :").next_sibling.get_text(
+            strip=True
+        )
+        thePrice = D(thePrice.replace(" ", "").replace(",", ".")).quantize(D("0.01"))
 
-        return source.SourcePrice(thePrice, theDate, 'EUR')
+        return source.SourcePrice(thePrice, theDate, "EUR")
 
     def get_historical_price(self, ticker, time):
         """Return the historical price found for the symbol at the given date.
@@ -90,34 +97,65 @@ class Source(source.Source):
           time must be timezone-aware.
         """
 
-
         s = requests.Session()
-        url = BASEURL + "/Bio/rech_part.aspx?varvalidform=on&CodeISIN=" + ticker + "&CLASSPROD=0&NumAgr=&selectNRJ=0&NomProd=&NomSOc=&action=new&valid_form=Lancer+la+recherche"
+        url = (
+            BASEURL
+            + "/Bio/rech_part.aspx?varvalidform=on&CodeISIN="
+            + ticker
+            + "&CLASSPROD=0&NumAgr=&selectNRJ=0&NomProd=&NomSOc=&action=new&valid_form=Lancer+la+recherche"
+        )
 
         r = s.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         try:
-          numProd = soup.find("input", {"name":"NumProd"})['value']
-          numPart = soup.find("input", {"name":"NumPart"})['value']
+            numProd = soup.find("input", {"name": "NumProd"})["value"]
+            numPart = soup.find("input", {"name": "NumPart"})["value"]
         except:
-          raise AMFGecoError("ISIN introuvable sur AMFGeco")
-          return None
+            raise AMFGecoError("ISIN introuvable sur AMFGeco")
+            return None
 
-        url = BASEURL + "Bio/info_part.aspx?SEC=VL&NumProd=" + numProd + "&NumPart=" + numPart + "&DateDeb=" + str(time.date().day) + "%2F" + str(time.date().month) + "%2F" + str(time.date().year)  + "&DateFin=" + str(time.date().day) + "%2F" + str(time.date().month) + "%2F" + str(time.date().year)  + "&btnvalid=OK"
+        url = (
+            BASEURL
+            + "Bio/info_part.aspx?SEC=VL&NumProd="
+            + numProd
+            + "&NumPart="
+            + numPart
+            + "&DateDeb="
+            + str(time.date().day)
+            + "%2F"
+            + str(time.date().month)
+            + "%2F"
+            + str(time.date().year)
+            + "&DateFin="
+            + str(time.date().day)
+            + "%2F"
+            + str(time.date().month)
+            + "%2F"
+            + str(time.date().year)
+            + "&btnvalid=OK"
+        )
 
         r = s.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         try:
-          theDate = soup.find("tr", class_="ligne2").find_all('td')[0].get_text(strip=True)
-          theDate = parse_datetime(theDate, dayfirst=True)
-          fr_timezone = tz.gettz("Europe/Paris")
-          theDate = theDate.astimezone(fr_timezone)
+            theDate = (
+                soup.find("tr", class_="ligne2").find_all("td")[0].get_text(strip=True)
+            )
+            theDate = parse_datetime(theDate, dayfirst=True)
+            fr_timezone = tz.gettz("Europe/Paris")
+            theDate = theDate.astimezone(fr_timezone)
 
-          thePrice = soup.find("tr", class_="ligne2").find_all('td')[1].get_text(strip=True)
-          thePrice = D(thePrice.replace(" ","").replace(",",".")).quantize(D('0.01'))
+            thePrice = (
+                soup.find("tr", class_="ligne2").find_all("td")[1].get_text(strip=True)
+            )
+            thePrice = D(thePrice.replace(" ", "").replace(",", ".")).quantize(
+                D("0.01")
+            )
 
         except:
-          raise AMFGecoError("Pas de valeur liquidative publiée à cette date sur AMFGeco")
-          return None
+            raise AMFGecoError(
+                "Pas de valeur liquidative publiée à cette date sur AMFGeco"
+            )
+            return None
 
-        return source.SourcePrice(thePrice, theDate, 'EUR')
+        return source.SourcePrice(thePrice, theDate, "EUR")

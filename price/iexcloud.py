@@ -21,6 +21,7 @@ from dateutil import tz
 from beancount.core.number import D
 from beancount.prices import source
 
+
 class IEXError(ValueError):
     "An error from the IEX API."
 
@@ -50,18 +51,17 @@ class Source(source.Source):
         try:
             theStock = Stock(ticker)
             theQuote = theStock.get_book()["quote"]
-           
+
             # IEX is American markets.
             us_timezone = tz.gettz("America/New_York")
             theDate = datetime.datetime.fromtimestamp(theQuote["latestUpdate"] / 1000)
             theDate = theDate.astimezone(us_timezone)
 
-            thePrice = D(theQuote["latestPrice"]).quantize(D('0.01'))
-            return source.SourcePrice(thePrice, theDate, 'USD')
-        except :
+            thePrice = D(theQuote["latestPrice"]).quantize(D("0.01"))
+            return source.SourcePrice(thePrice, theDate, "USD")
+        except:
             raise IEXError("Erreur lors de l'execution de la requete")
             return None
-
 
     def get_historical_price(self, ticker, time):
         """Return the historical price found for the symbol at the given date.
@@ -88,13 +88,13 @@ class Source(source.Source):
         try:
             theQuote = get_historical_data(ticker, time.date(), close_only=True)
             for theDate in theQuote.keys():
-                thePrice = D(theQuote[theDate]["close"]).quantize(D('0.01'))
+                thePrice = D(theQuote[theDate]["close"]).quantize(D("0.01"))
                 # IEX is American markets.
                 us_timezone = tz.gettz("America/New_York")
                 theDate = parse_datetime(theDate)
                 theDate = theDate.astimezone(us_timezone)
                 break
-            return source.SourcePrice(thePrice, theDate, 'USD')
+            return source.SourcePrice(thePrice, theDate, "USD")
         except:
             raise IEXError("Erreur lors de l'execution de la requete")
             return None

@@ -21,7 +21,7 @@ ACCOUNTLIST = {
     "00031305390": "Actif:Boursorama:PELAnna",
     "00020871896": "Actif:Boursorama:LDDAnna",
     "00020132893": "Actif:Boursorama:LDDAnna",
-    "P54112927": "Actif:Linxea:AVTim1"
+    "P54112927": "Actif:Linxea:AVTim1",
 }
 
 IMPORTER = jsongenerali.jsongenerali(ACCOUNTLIST)

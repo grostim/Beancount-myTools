@@ -10,7 +10,7 @@ Les fichiers de regtest ne sont pas partagés sur github, car bien entendu ce so
 
 Tous ces poutils sont très perfectibles, n'hésitez pas à me faire part de vos propositions d'améliorations, ou mieux encore une pull request.
 
-## QIFBoursorama 
+## QIFBoursorama
 Un importer pour les fichiers QIF générés par Boursorama.
 Je recommandecependant d'importer les pdfs avec PDFbourso : (plus de détails et récupération des balance).
 
@@ -55,5 +55,4 @@ un price fetcher pour les Realtokens - basé sur l'API du site communautaire.
 
 ## fichepaye
 Un importer pour les bulletins de paye (pdf) de mon employeur. Ceux ci sont édités avec Sage.
-Il est peut probable que le script soit directement utilisable par un salarié d'une autre entreprise (d'autant plus que certains comptes sont en dur dans le code python), mais celà peut servir de base d'inspiration à d'autres personne. 
-
+Il est peut probable que le script soit directement utilisable par un salarié d'une autre entreprise (d'autant plus que certains comptes sont en dur dans le code python), mais celà peut servir de base d'inspiration à d'autres personne.

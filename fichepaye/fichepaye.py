@@ -66,12 +66,11 @@ class fichepaye(importer.ImporterProtocol):
         # Nom du fichier tel qu'il sera renommé.
         document = str(self.file_date(file)) + " " + self.file_name(file)
 
-
         # Open the pdf file and create directives.
         entries = []
         text = file.convert(pdf_to_text)
 
-        # Si debogage, affichage de l'extraction  
+        # Si debogage, affichage de l'extraction
         if self.debug:
             print(text)
 
@@ -84,9 +83,11 @@ class fichepaye(importer.ImporterProtocol):
             compte = match.group(0)
 
         # On relève le net à payer avant IR
-        control = 'Cadre Net à payer\n\s*(\d{1,4}\,\d{2})'
+        control = "Cadre Net à payer\n\s*(\d{1,4}\,\d{2})"
         match = re.search(control, text)
-        netAvantIR = amount.Amount(-1 * Decimal(match.group(1).replace(",", '.').replace(" ", '')), "EUR")
+        netAvantIR = amount.Amount(
+            -1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")), "EUR"
+        )
         # Si debogage, affichage de l'extraction
         if self.debug:
             print(netAvantIR)
@@ -103,9 +104,11 @@ class fichepaye(importer.ImporterProtocol):
             print(posting_1)
 
         # On relève le montant IR
-        control = 'Impôt sur le revenu prélevé à la source.*\s(\d{1,4}\,\d{2})\n'
+        control = "Impôt sur le revenu prélevé à la source.*\s(\d{1,4}\,\d{2})\n"
         match = re.search(control, text)
-        IRsource = amount.Amount(1 * Decimal(match.group(1).replace(",", '.').replace(" ", '')), "EUR")
+        IRsource = amount.Amount(
+            1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")), "EUR"
+        )
         # Si debogage, affichage de l'extraction
         if self.debug:
             print(IRsource)
@@ -121,9 +124,11 @@ class fichepaye(importer.ImporterProtocol):
             print(posting_2)
 
         # On relève le Net à Payer
-        control = 'NetAPayer.*\s(\d{1,4}\,\d{2})\n'
+        control = "NetAPayer.*\s(\d{1,4}\,\d{2})\n"
         match = re.search(control, text)
-        netAPayer = amount.Amount(1* Decimal(match.group(1).replace(",", '.').replace(" ", '')), "EUR")
+        netAPayer = amount.Amount(
+            1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")), "EUR"
+        )
         # Si debogage, affichage de l'extraction
         if self.debug:
             print(netAPayer)
@@ -151,10 +156,8 @@ class fichepaye(importer.ImporterProtocol):
             narration="VIREMENT-SALAIRE",
             tags=data.EMPTY_SET,
             links=data.EMPTY_SET,
-            postings=[posting_1,posting_2,posting_3],
-            )
+            postings=[posting_1, posting_2, posting_3],
+        )
         entries.append(transac)
-
-
 
         return entries

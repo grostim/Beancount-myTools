@@ -11,7 +11,8 @@ import datetime
 import logging
 import re
 from os import path
-#import decimal
+
+# import decimal
 
 from beancount.core import amount
 from beancount.core import data  # pylint:disable=E0611
@@ -24,20 +25,23 @@ NoneType = type(None)
 
 
 class ImporterQIF(importer.ImporterProtocol):
-
-    def __init__(self,accountList):
+    def __init__(self, accountList):
         self.logger = logging.getLogger(__file__)  # pylint: disable=W0612
-        assert isinstance(accountList, dict), "La liste de comptes doit etre un type dict"
-        self.accountList=accountList
+        assert isinstance(
+            accountList, dict
+        ), "La liste de comptes doit etre un type dict"
+        self.accountList = accountList
 
     def identify(self, file):
         return re.match(r".*.qif", path.basename(file.name))
 
     def file_account(self, file):
-        return self.accountList[re.sub("\s?(\(\d*\))?.qif","",path.basename(file.name))] #regexr.com/4jp6b
+        return self.accountList[
+            re.sub("\s?(\(\d*\))?.qif", "", path.basename(file.name))
+        ]  # regexr.com/4jp6b
 
     def file_name(self, file):
-        return format(re.sub("\s?(\(\d*\))?.qif","",path.basename(file.name)))
+        return format(re.sub("\s?(\(\d*\))?.qif", "", path.basename(file.name)))
 
     def file_date(self, file):
         with open(file.name, "r", encoding="windows-1250") as fichier:
@@ -61,8 +65,8 @@ class ImporterQIF(importer.ImporterProtocol):
                 index += 1
                 meta = data.new_metadata(file.name, index)
                 meta["source"] = "qif"
-#		A supprimer car fait planter le test de regression
-#                meta["dateImport"] = str(datetime.datetime.now())
+                # 		A supprimer car fait planter le test de regression
+                #                meta["dateImport"] = str(datetime.datetime.now())
                 ope = dict()
                 first_line = chunk.split("\n")[0]
                 if first_line == "!Account":
@@ -75,18 +79,22 @@ class ImporterQIF(importer.ImporterProtocol):
                     if line[0] == "D":
                         ope["date"] = datetime.datetime.strptime(line[1:], "%d/%m/%Y")
                     if line[0] == "T":
-                        ope["montant"] = amount.Amount(Decimal(line[1:].replace(",", '')), "EUR")
+                        ope["montant"] = amount.Amount(
+                            Decimal(line[1:].replace(",", "")), "EUR"
+                        )
                     if line[0] == "P":
                         ope["tiers"] = line[1:]
                         ope["cat"] = "Depenses:A-CLASSER"
-#                    if line[0] == "L":
-#                        if line[1] == "[":
-#                            ope["tiers"] = "Virement"
-#                            ope["cat"] = "Assets:Banque:,%s" % line[2:-1]
-#                        else:
-#                            ope["cat"] = "Expenses:%s" % {line[1:]}
+                #                    if line[0] == "L":
+                #                        if line[1] == "[":
+                #                            ope["tiers"] = "Virement"
+                #                            ope["cat"] = "Assets:Banque:,%s" % line[2:-1]
+                #                        else:
+                #                            ope["cat"] = "Expenses:%s" % {line[1:]}
                 posting_1 = data.Posting(
-                    account=self.accountList[re.sub("(\s\(\d*\))?.qif","",path.basename(file.name))],
+                    account=self.accountList[
+                        re.sub("(\s\(\d*\))?.qif", "", path.basename(file.name))
+                    ],
                     units=ope["montant"],
                     cost=None,
                     flag=None,

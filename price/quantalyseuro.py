@@ -19,6 +19,7 @@ from beancount.prices import source
 
 BASEURL = "https://www.quantalys.com/SupportEuro/"
 
+
 class QuantalysError(ValueError):
     "An error from the Quantalys Price Fetcher"
 
@@ -50,15 +51,17 @@ class Source(source.Source):
         r = s.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         try:
-          cours = soup.find('span', class_="vl-box-value").get_text(strip=True)
+            cours = soup.find("span", class_="vl-box-value").get_text(strip=True)
         except:
-          raise QuantalysError("Pas de cours disponible ?")
-          return None
-        control ="(.*)\s*(%)"
+            raise QuantalysError("Pas de cours disponible ?")
+            return None
+        control = "(.*)\s*(%)"
         match = re.match(control, cours)
-        thePrice = D(match.group(1).replace(" ","").replace(",",".")).quantize(D('0.01'))
+        thePrice = D(match.group(1).replace(" ", "").replace(",", ".")).quantize(
+            D("0.01")
+        )
 
-        theDate = soup.find('span', class_="vl-box-date").get_text(strip=True)
+        theDate = soup.find("span", class_="vl-box-date").get_text(strip=True)
         theDate = parse_datetime(theDate, dayfirst=True)
         fr_timezone = tz.gettz("Europe/Paris")
         theDate = theDate.astimezone(fr_timezone)
