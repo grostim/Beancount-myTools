@@ -1,6 +1,6 @@
 """Récupère les prix de Quantalys.
 
-Récumère uniqument la dernière VL
+Récupère uniqument la dernière VL
 
 In order to use this price fetcher with bean-price make sure it is in the PYTHON_PATH.
 """
@@ -8,11 +8,10 @@ In order to use this price fetcher with bean-price make sure it is in the PYTHON
 __copyright__ = "Copyright (C) 2019  Grostim"
 __license__ = "MIT"
 
-import datetime
-from dateutil.parser import parse as parse_datetime
-import requests
 import re
+from dateutil.parser import parse as parse_datetime
 from dateutil import tz
+import requests
 from bs4 import BeautifulSoup
 from beancount.core.number import D
 from beancount.prices import source
@@ -46,27 +45,26 @@ class Source(source.Source):
           code must be able to handle this. Also note that the price's returned
           time must be timezone-aware.
         """
-        s = requests.Session()
+        session = requests.Session()
         url = BASEURL + ticker
-        r = s.get(url)
-        soup = BeautifulSoup(r.text, "html.parser")
+        request = session.get(url)
+        soup = BeautifulSoup(request.text, "html.parser")
         try:
             cours = soup.find("span", class_="vl-box-value").get_text(strip=True)
         except:
             raise QuantalysError("Pas de cours disponible ?")
-            return None
-        control = "(.*)\s*(%)"
+        control = r"(.*)\s*(%)"
         match = re.match(control, cours)
-        thePrice = D(match.group(1).replace(" ", "").replace(",", ".")).quantize(
+        the_price = D(match.group(1).replace(" ", "").replace(",", ".")).quantize(
             D("0.01")
         )
 
-        theDate = soup.find("span", class_="vl-box-date").get_text(strip=True)
-        theDate = parse_datetime(theDate, dayfirst=True)
+        the_date = soup.find("span", class_="vl-box-date").get_text(strip=True)
+        the_date = parse_datetime(the_date, dayfirst=True)
         fr_timezone = tz.gettz("Europe/Paris")
-        theDate = theDate.astimezone(fr_timezone)
+        the_date = the_date.astimezone(fr_timezone)
 
-        return source.SourcePrice(thePrice, theDate, match.group(2))
+        return source.SourcePrice(the_price, the_date, match.group(2))
 
     def get_historical_price(self, ticker, time):
         """Return the historical price found for the symbol at the given date.
@@ -91,4 +89,3 @@ class Source(source.Source):
           time must be timezone-aware.
         """
         raise QuantalysError("Import de l'historique pas encore implémenté")
-        return None
