@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 """ Parseur de l'historique Generali.
 
-Ce script s'attend à trouver un ficher de config nommé "generali.ini" 
+Ce script s'attend à trouver un ficher de config nommé "generali.ini"
 qui contiendra vos identifiants sous la forme suivante:
 
 [GENERALI]
@@ -25,7 +25,7 @@ from dateutil.parser import parse as parse_datetime
 def balayagetableau():
     """Procédure qui balaye les lignes du tableau"""
     for ligne in lignes[1:]:
-        dataline = dict()
+        dataline = {}
         try:
             dataline["fond"] = re.search(
                 "codeFonds=(.*)&", ligne.td.a.get("onclick")
@@ -33,7 +33,7 @@ def balayagetableau():
             urlfond = re.search(
                 r"javascript:creerPageExterne\('(.*)'\);", ligne.input.get("value")
             ).group(1)
-            r = s.get(baseurl + urlfond)
+            r = s.get(BASEURL + urlfond)
             compote = BeautifulSoup(r.text, "lxml")
             dataline["isin"] = re.search(r"ISIN\s:\s(..\d{10})", compote.text).group(1)
             dataline["nomfond"] = ligne.find_all("td")[0].text
@@ -64,7 +64,7 @@ EXPORTDIR = "A_Importer/"
 config = configparser.ConfigParser()
 config.read("generali.ini")
 
-"""On ouvre la session et on va sur la page d'acceuil pour receuillir les cookies qui vont bien"""
+"""On ouvre la session et on va sur la page d acceuil pour receuillir les cookies qui vont bien"""
 s = requests.Session()
 BASEURL = "https://assurancevie.linxea.com"
 r = s.get(BASEURL)
