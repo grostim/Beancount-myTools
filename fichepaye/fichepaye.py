@@ -1,7 +1,9 @@
 """Importer pour fiche de payes personnelle. (Format propre à mon employeur)
 Classement des fichiers uniquement. Pas d'import des transactions.
 """
-__copyright__ = "Copyright (C) 2016  Martin Blais / Mofified in 2019 by Grostim"
+__copyright__ = (
+    "Copyright (C) 2016  Martin Blais / Mofified in 2019 by Grostim"
+)
 __license__ = "GNU GPLv2"
 
 
@@ -57,7 +59,7 @@ class fichepaye(importer.ImporterProtocol):
     def file_date(self, file):
         # Get the actual statement's date from the contents of the file.
         text = file.convert(pdf_to_text)
-        control = "Paiement\sle\s*(\d{2}\/\d{2}\/\d{2})"
+        control = r"Paiement\sle\s*(\d{2}\/\d{2}\/\d{2})"
         match = re.search(control, text)
         if match:
             return parse_datetime(match.group(1), dayfirst="True").date()
@@ -83,10 +85,11 @@ class fichepaye(importer.ImporterProtocol):
             compte = match.group(0)
 
         # On relève le net à payer avant IR
-        control = "Cadre Net à payer\n\s*(\d{1,4}\,\d{2})"
+        control = r"Cadre Net à payer\n\s*(\d{1,4}\,\d{2})"
         match = re.search(control, text)
         netAvantIR = amount.Amount(
-            -1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")), "EUR"
+            -1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")),
+            "EUR",
         )
         # Si debogage, affichage de l'extraction
         if self.debug:
@@ -104,10 +107,13 @@ class fichepaye(importer.ImporterProtocol):
             print(posting_1)
 
         # On relève le montant IR
-        control = "Impôt sur le revenu prélevé à la source.*\s(\d{1,4}\,\d{2})\n"
+        control = (
+            r"Impôt sur le revenu prélevé à la source.*\s(\d{1,4}\,\d{2})\n"
+        )
         match = re.search(control, text)
         IRsource = amount.Amount(
-            1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")), "EUR"
+            1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")),
+            "EUR",
         )
         # Si debogage, affichage de l'extraction
         if self.debug:
@@ -124,10 +130,11 @@ class fichepaye(importer.ImporterProtocol):
             print(posting_2)
 
         # On relève le Net à Payer
-        control = "NetAPayer.*\s(\d{1,4}\,\d{2})\n"
+        control = r"NetAPayer.*\s(\d{1,4}\,\d{2})\n"
         match = re.search(control, text)
         netAPayer = amount.Amount(
-            1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")), "EUR"
+            1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")),
+            "EUR",
         )
         # Si debogage, affichage de l'extraction
         if self.debug:

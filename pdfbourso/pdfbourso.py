@@ -8,7 +8,9 @@ Furthermore, it uses an external library called pdftotext, which may or may not 
 your machine. This example shows how to write a test that gets skipped
 automatically when an external tool isn't installed.
 """
-__copyright__ = "Copyright (C) 2016  Martin Blais / Mofified in 2019 by Grostim"
+__copyright__ = (
+    "Copyright (C) 2016  Martin Blais / Mofified in 2019 by Grostim"
+)
 __license__ = "GNU GPLv2"
 
 import re
@@ -45,7 +47,8 @@ class pdfbourso(importer.ImporterProtocol):
                 return 1
             if (
                 re.search(
-                    "BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151", text
+                    r"BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151",
+                    text,
                 )
                 is not None
             ):
@@ -53,7 +56,7 @@ class pdfbourso(importer.ImporterProtocol):
                 return 1
             if (
                 re.search(
-                    "tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif",
+                    r"tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif",
                     text,
                 )
                 is not None
@@ -69,11 +72,11 @@ class pdfbourso(importer.ImporterProtocol):
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
         if self.type == "Compte":
-            control = "\s*(\d{11})"
+            control = r"\s*(\d{11})"
         elif self.type == "CB":
-            control = "\s*((4979|4810)\*{8}\d{4})"
+            control = r"\s*((4979|4810)\*{8}\d{4})"
         elif self.type == "Amortissement":
-            control = "N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
+            control = r"N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
         # Si debogage, affichage de l'extraction
         if self.debug:
             print(self.type)
@@ -88,7 +91,7 @@ class pdfbourso(importer.ImporterProtocol):
     def file_date(self, file):
         # Get the actual statement's date from the contents of the file.
         text = file.convert(pdf_to_text)
-        match = re.search("(?:au\s*|Date départ\s*:\s)(\d*/\d*/\d*)", text)
+        match = re.search(r"(?:au\s*|Date départ\s*:\s)(\d*/\d*/\d*)", text)
         if match:
             return parse_datetime(match.group(1), dayfirst="True").date()
 
@@ -108,7 +111,7 @@ class pdfbourso(importer.ImporterProtocol):
 
         if self.type == "Compte":
             # Identification du numéro de compte
-            control = "\s*\d{11}"
+            control = r"\s*\d{11}"
             match = re.search(control, text)
             if match:
                 compte = match.group(0).split(" ")[-1]
@@ -118,7 +121,7 @@ class pdfbourso(importer.ImporterProtocol):
                 print(compte)
 
             # Affichage du solde initial
-            control = "SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
+            control = r"SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
             match = re.search(control, text)
             if match:
                 datebalance = parse_datetime(
@@ -157,7 +160,7 @@ class pdfbourso(importer.ImporterProtocol):
                 )
             )
 
-            control = "\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{8,20})(.+?))?\n"  # regexr.com/4ju06
+            control = r"\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{8,20})(.+?))?\n"  # regexr.com/4ju06
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
@@ -187,7 +190,12 @@ class pdfbourso(importer.ImporterProtocol):
                     print(ope["montant"])
 
                 # Longueur de l'espace intercalaire
-                longueur = len(chunk[0]) + len(chunk[1]) + len(chunk[2]) + len(chunk[3])
+                longueur = (
+                    len(chunk[0])
+                    + len(chunk[1])
+                    + len(chunk[2])
+                    + len(chunk[3])
+                )
                 # Si debogage, affichage de l'extraction
                 if self.debug:
                     print(longueur)
@@ -201,12 +209,12 @@ class pdfbourso(importer.ImporterProtocol):
                 if self.debug:
                     print(ope["montant"])
 
-                ope["payee"] = re.sub("\s+", " ", chunk[0])
+                ope["payee"] = re.sub(r"\s+", " ", chunk[0])
                 # Si debogage, affichage de l'extraction
                 if self.debug:
                     print(ope["payee"])
 
-                ope["narration"] = re.sub("\s+", " ", chunk[4])
+                ope["narration"] = re.sub(r"\s+", " ", chunk[4])
                 # Si debogage, affichage de l'extraction
                 if self.debug:
                     print(ope["narration"])
@@ -234,9 +242,7 @@ class pdfbourso(importer.ImporterProtocol):
                 entries.append(transac)
 
             # Recherche du solde final
-            control = (
-                "Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
-            )
+            control = r"Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
             match = re.search(control, text)
             if match:
                 balance = match.group(2).replace(".", "").replace(",", ".")
@@ -248,10 +254,12 @@ class pdfbourso(importer.ImporterProtocol):
                     # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                     balance = "-" + balance
                 # Recherche de la date du solde final
-                control = "(\d{1,2}\/\d{2}\/\d{4}).*40618"
+                control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
                 match = re.search(control, text)
                 if match:
-                    datebalance = parse_datetime(match.group(1), dayfirst="True").date()
+                    datebalance = parse_datetime(
+                        match.group(1), dayfirst="True"
+                    ).date()
                     if self.debug:
                         print(datebalance)
                     meta = data.new_metadata(file.name, 0)
@@ -271,7 +279,7 @@ class pdfbourso(importer.ImporterProtocol):
 
         if self.type == "Amortissement":
             # Identification du numéro de compte
-            control = "N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
+            control = r"N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
             match = re.search(control, text)
             if match:
                 compte = match.group(1)
@@ -280,7 +288,7 @@ class pdfbourso(importer.ImporterProtocol):
             if self.debug:
                 print(compte)
 
-            control = "(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
+            control = r"(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
@@ -369,7 +377,7 @@ class pdfbourso(importer.ImporterProtocol):
 
         if self.type == "CB":
             # Identification du numéro de compte
-            control = "\s*((4979|4810)\*{8}\d{4})"
+            control = r"\s*((4979|4810)\*{8}\d{4})"
             match = re.search(control, text)
             if match:
                 compte = match.group(1)
@@ -378,9 +386,7 @@ class pdfbourso(importer.ImporterProtocol):
             if self.debug:
                 print(compte)
 
-            control = (
-                "(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
-            )
+            control = r"(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
@@ -405,12 +411,14 @@ class pdfbourso(importer.ImporterProtocol):
                 if self.debug:
                     print(ope["date"])
 
-                ope["montant"] = "-" + chunk[2].replace(".", "").replace(",", ".")
+                ope["montant"] = "-" + chunk[2].replace(".", "").replace(
+                    ",", "."
+                )
                 # Si debogage, affichage de l'extraction
                 if self.debug:
                     print(ope["montant"])
 
-                ope["payee"] = re.sub("\s+", " ", chunk[1])
+                ope["payee"] = re.sub(r"\s+", " ", chunk[1])
                 # Si debogage, affichage de l'extraction
                 if self.debug:
                     print(ope["payee"])
@@ -438,17 +446,21 @@ class pdfbourso(importer.ImporterProtocol):
                 entries.append(transac)
 
             # Recherche du solde final
-            control = "A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+            control = r"A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
             match = re.search(control, text)
             if match:
-                balance = "-" + match.group(2).replace(".", "").replace(",", ".")
+                balance = "-" + match.group(2).replace(".", "").replace(
+                    ",", "."
+                )
                 if self.debug:
                     print(balance)
                 # Recherche de la date du solde final
-                control = "(\d{1,2}\/\d{2}\/\d{4}).*40618"
+                control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
                 match = re.search(control, text)
                 if match:
-                    datebalance = parse_datetime(match.group(1), dayfirst="True").date()
+                    datebalance = parse_datetime(
+                        match.group(1), dayfirst="True"
+                    ).date()
                     if self.debug:
                         print(datebalance)
                     meta = data.new_metadata(file.name, 0)

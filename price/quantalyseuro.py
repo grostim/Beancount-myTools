@@ -50,14 +50,16 @@ class Source(source.Source):
         request = session.get(url)
         soup = BeautifulSoup(request.text, "html.parser")
         try:
-            cours = soup.find("span", class_="vl-box-value").get_text(strip=True)
-        except:
+            cours = soup.find("span", class_="vl-box-value").get_text(
+                strip=True
+            )
+        except Exception:
             raise QuantalysError("Pas de cours disponible ?")
         control = r"(.*)\s*(%)"
         match = re.match(control, cours)
-        the_price = D(match.group(1).replace(" ", "").replace(",", ".")).quantize(
-            D("0.01")
-        )
+        the_price = D(
+            match.group(1).replace(" ", "").replace(",", ".")
+        ).quantize(D("0.01"))
 
         the_date = soup.find("span", class_="vl-box-date").get_text(strip=True)
         the_date = parse_datetime(the_date, dayfirst=True)

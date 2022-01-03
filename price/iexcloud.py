@@ -54,12 +54,14 @@ class Source(source.Source):
 
             # IEX is American markets.
             us_timezone = tz.gettz("America/New_York")
-            theDate = datetime.datetime.fromtimestamp(theQuote["latestUpdate"] / 1000)
+            theDate = datetime.datetime.fromtimestamp(
+                theQuote["latestUpdate"] / 1000
+            )
             theDate = theDate.astimezone(us_timezone)
 
             thePrice = D(theQuote["latestPrice"]).quantize(D("0.01"))
             return source.SourcePrice(thePrice, theDate, "USD")
-        except:
+        except Exception:
             raise IEXError("Erreur lors de l'execution de la requete")
             return None
 
@@ -86,7 +88,9 @@ class Source(source.Source):
           time must be timezone-aware.
         """
         try:
-            theQuote = get_historical_data(ticker, time.date(), close_only=True)
+            theQuote = get_historical_data(
+                ticker, time.date(), close_only=True
+            )
             for theDate in theQuote.keys():
                 thePrice = D(theQuote[theDate]["close"]).quantize(D("0.01"))
                 # IEX is American markets.
@@ -95,6 +99,6 @@ class Source(source.Source):
                 theDate = theDate.astimezone(us_timezone)
                 break
             return source.SourcePrice(thePrice, theDate, "USD")
-        except:
+        except Exception:
             raise IEXError("Erreur lors de l'execution de la requete")
             return None

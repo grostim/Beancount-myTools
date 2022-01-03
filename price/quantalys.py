@@ -51,20 +51,24 @@ class Source(source.Source):
         r = s.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         try:
-            cours = soup.find("div", class_="vl-box-devise-value").get_text(strip=True)
-            control = "(.*)\s*([A-Z]{3})"
-            match = re.match(control, cours)
-            thePrice = D(match.group(1).replace(" ", "").replace(",", ".")).quantize(
-                D("0.01")
+            cours = soup.find("div", class_="vl-box-devise-value").get_text(
+                strip=True
             )
+            control = r"(.*)\s*([A-Z]{3})"
+            match = re.match(control, cours)
+            thePrice = D(
+                match.group(1).replace(" ", "").replace(",", ".")
+            ).quantize(D("0.01"))
 
-            theDate = soup.find("span", class_="vl-box-date").get_text(strip=True)
+            theDate = soup.find("span", class_="vl-box-date").get_text(
+                strip=True
+            )
             theDate = parse_datetime(theDate, dayfirst=True)
             fr_timezone = tz.gettz("Europe/Paris")
             theDate = theDate.astimezone(fr_timezone)
 
             return source.SourcePrice(thePrice, theDate, match.group(2))
-        except:
+        except Exception:
             raise QuantalysError("Cours introuvable sur Quantalys")
             return None
 

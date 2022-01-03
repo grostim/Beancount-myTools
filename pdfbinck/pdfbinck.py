@@ -1,7 +1,9 @@
 """Importer for PDF statements from BinckBanck.
 Classement des fichiers uniquement. Pas d'import des transactions.
 """
-__copyright__ = "Copyright (C) 2016  Martin Blais / Mofified in 2019 by Grostim"
+__copyright__ = (
+    "Copyright (C) 2016  Martin Blais / Mofified in 2019 by Grostim"
+)
 __license__ = "GNU GPLv2"
 
 
@@ -40,7 +42,7 @@ class pdfbinck(importer.ImporterProtocol):
     def file_account(self, file):
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
-        control = "N° compte :\s*(\d{2}\.\d{2}\.\d{3})"
+        control = r"N° compte :\s*(\d{2}\.\d{2}\.\d{3})"
         match = re.search(control, text)
         # Si debogage, affichage de l'extraction
         if self.debug:
@@ -53,14 +55,14 @@ class pdfbinck(importer.ImporterProtocol):
         # Normalize the name to something meaningful.
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
-        control = "Opérations :\s*(\d*-\d*)"
+        control = r"Opérations :\s*(\d*-\d*)"
         match = re.search(control, text)
         return "Ope " + match.group(1) + " Binck.pdf"
 
     def file_date(self, file):
         # Get the actual statement's date from the contents of the file.
         text = file.convert(pdf_to_text)
-        control = "Date:\s*(\d{2}-\d{2}-\d{4})"
+        control = r"Date:\s*(\d{2}-\d{2}-\d{4})"
         match = re.search(control, text)
         if match:
             return parse_datetime(match.group(1), dayfirst="True").date()

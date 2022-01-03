@@ -54,8 +54,10 @@ class Source(source.Source):
             return (
                 None
                 if price == 0
-                else source.SourcePrice(price, trade_date, response["currency"])
+                else source.SourcePrice(
+                    price, trade_date, response["currency"]
+                )
             )
-        except:
+        except Exception:
             raise RealtError("Pas de cours disponible ?")
             return None

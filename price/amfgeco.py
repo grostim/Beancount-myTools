@@ -57,12 +57,14 @@ class Source(source.Source):
         r = s.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         try:
-            numProd = soup.find("input", {"name": "NumProd"})["value"]
-        except:
+            soup.find("input", {"name": "NumProd"})["value"]
+        except Exception:
             raise AMFGecoError("ISIN introuvable sur AMFGeco")
             return None
 
-        theDate = soup.find("td", text="Date VL :").next_sibling.get_text(strip=True)
+        theDate = soup.find("td", text="Date VL :").next_sibling.get_text(
+            strip=True
+        )
         theDate = parse_datetime(theDate, dayfirst=True)
         fr_timezone = tz.gettz("Europe/Paris")
         theDate = theDate.astimezone(fr_timezone)
@@ -70,7 +72,9 @@ class Source(source.Source):
         thePrice = soup.find("td", text="Valeur (€) :").next_sibling.get_text(
             strip=True
         )
-        thePrice = D(thePrice.replace(" ", "").replace(",", ".")).quantize(D("0.01"))
+        thePrice = D(thePrice.replace(" ", "").replace(",", ".")).quantize(
+            D("0.01")
+        )
 
         return source.SourcePrice(thePrice, theDate, "EUR")
 
@@ -110,7 +114,7 @@ class Source(source.Source):
         try:
             numProd = soup.find("input", {"name": "NumProd"})["value"]
             numPart = soup.find("input", {"name": "NumPart"})["value"]
-        except:
+        except Exception:
             raise AMFGecoError("ISIN introuvable sur AMFGeco")
             return None
 
@@ -139,20 +143,24 @@ class Source(source.Source):
         soup = BeautifulSoup(r.text, "html.parser")
         try:
             theDate = (
-                soup.find("tr", class_="ligne2").find_all("td")[0].get_text(strip=True)
+                soup.find("tr", class_="ligne2")
+                .find_all("td")[0]
+                .get_text(strip=True)
             )
             theDate = parse_datetime(theDate, dayfirst=True)
             fr_timezone = tz.gettz("Europe/Paris")
             theDate = theDate.astimezone(fr_timezone)
 
             thePrice = (
-                soup.find("tr", class_="ligne2").find_all("td")[1].get_text(strip=True)
+                soup.find("tr", class_="ligne2")
+                .find_all("td")[1]
+                .get_text(strip=True)
             )
             thePrice = D(thePrice.replace(" ", "").replace(",", ".")).quantize(
                 D("0.01")
             )
 
-        except:
+        except Exception:
             raise AMFGecoError(
                 "Pas de valeur liquidative publiée à cette date sur AMFGeco"
             )

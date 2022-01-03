@@ -31,26 +31,31 @@ def balayagetableau():
                 "codeFonds=(.*)&", ligne.td.a.get("onclick")
             ).group(1)
             urlfond = re.search(
-                r"javascript:creerPageExterne\('(.*)'\);", ligne.input.get("value")
+                r"javascript:creerPageExterne\('(.*)'\);",
+                ligne.input.get("value"),
             ).group(1)
             r = s.get(BASEURL + urlfond)
             compote = BeautifulSoup(r.text, "lxml")
-            dataline["isin"] = re.search(r"ISIN\s:\s(..\d{10})", compote.text).group(1)
+            dataline["isin"] = re.search(
+                r"ISIN\s:\s(..\d{10})", compote.text
+            ).group(1)
             dataline["nomfond"] = ligne.find_all("td")[0].text
-        except:
+        except Exception:
             dataline["fond"] = ligne.find_all("td")[0].text
             dataline["isin"] = dataline["fond"]
             dataline["nomfond"] = dataline["fond"]
 
         dataline["date"] = str(
-            parse_datetime(ligne.find_all("td")[1].text, dayfirst="True").date()
+            parse_datetime(
+                ligne.find_all("td")[1].text, dayfirst="True"
+            ).date()
         )
 
         try:
             dataline["valeurpart"] = re.search(
                 r"(\d{0,3}\s?\d*,\d{2})", ligne.find_all("td")[2].text
             ).group(1)
-        except:
+        except Exception:
             dataline["valeurpart"] = ""
 
         dataline["nbpart"] = ligne.find_all("td")[3].text
@@ -109,7 +114,9 @@ while 1:
             print("OK, nous sommes à jour")
             fini = 1
             break
-        r = s.get("https://assurancevie.linxea.com/b2b2c/epargne/" + lien.get("href"))
+        r = s.get(
+            "https://assurancevie.linxea.com/b2b2c/epargne/" + lien.get("href")
+        )
         soupette = BeautifulSoup(r.text, "lxml")
         ope["ope"] = re.search(r".*:\s(.*)", soupette.table.h1.text).group(1)
         ope["compte"] = re.search(r"Adhésion.*(P\d{8})", soup.h2.text).group(1)
@@ -126,7 +133,9 @@ while 1:
 
         """Sauvegarde en fichier json"""
         filename = (
-            str(parse_datetime(lien.text, dayfirst="True").date()) + "-" + ope["ope"]
+            str(parse_datetime(lien.text, dayfirst="True").date())
+            + "-"
+            + ope["ope"]
         )
         print(filename)
         with open(EXPORTDIR + filename + ".json", "w") as fp:

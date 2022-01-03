@@ -37,15 +37,17 @@ class ImporterQIF(importer.ImporterProtocol):
 
     def file_account(self, file):
         return self.accountList[
-            re.sub("\s?(\(\d*\))?.qif", "", path.basename(file.name))
+            re.sub(r"\s?(\(\d*\))?.qif", "", path.basename(file.name))
         ]  # regexr.com/4jp6b
 
     def file_name(self, file):
-        return format(re.sub("\s?(\(\d*\))?.qif", "", path.basename(file.name)))
+        return format(
+            re.sub(r"\s?(\(\d*\))?.qif", "", path.basename(file.name))
+        )
 
     def file_date(self, file):
         with open(file.name, "r", encoding="windows-1250") as fichier:
-            chunks = fichier.read().split("\n^\n")
+            chunks = fichier.read().split(r"\n^\n")
             lines = chunks[-2].split("\n")
             return datetime.datetime.strptime(lines[-3][1:], "%d/%m/%Y").date()
 
@@ -77,7 +79,9 @@ class ImporterQIF(importer.ImporterProtocol):
                     if line[0] == "!":
                         continue
                     if line[0] == "D":
-                        ope["date"] = datetime.datetime.strptime(line[1:], "%d/%m/%Y")
+                        ope["date"] = datetime.datetime.strptime(
+                            line[1:], "%d/%m/%Y"
+                        )
                     if line[0] == "T":
                         ope["montant"] = amount.Amount(
                             Decimal(line[1:].replace(",", "")), "EUR"
@@ -93,7 +97,9 @@ class ImporterQIF(importer.ImporterProtocol):
                 #                            ope["cat"] = "Expenses:%s" % {line[1:]}
                 posting_1 = data.Posting(
                     account=self.accountList[
-                        re.sub("(\s\(\d*\))?.qif", "", path.basename(file.name))
+                        re.sub(
+                            r"(\s\(\d*\))?.qif", "", path.basename(file.name)
+                        )
                     ],
                     units=ope["montant"],
                     cost=None,

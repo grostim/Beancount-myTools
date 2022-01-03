@@ -44,11 +44,15 @@ class Source(source.Source):
         except error.HTTPError:
             return None
         try:
-            price = D(response[commodity][currency]).quantize(D("1.000000000000000000"))
-            return (
-                None if price == 0 else source.SourcePrice(price, trade_date, currency)
+            price = D(response[commodity][currency]).quantize(
+                D("1.000000000000000000")
             )
-        except:
+            return (
+                None
+                if price == 0
+                else source.SourcePrice(price, trade_date, currency)
+            )
+        except Exception:
             raise CryptoCompareError("Pas de cours disponible ?")
             return None
 
@@ -65,14 +69,17 @@ class Source(source.Source):
             response = response.read().decode("utf-8").strip()
             response = json.loads(response)
         except error.HTTPError:
+            raise CryptoCompareError("L'API Cryptocompare ne répond pas")
             return None
         try:
             price = D(response[currency]).quantize(D("1.000000000000000000"))
             trade_date = datetime.now()
             trade_date = trade_date.replace(tzinfo=pytz.UTC)
             return (
-                None if price == 0 else source.SourcePrice(price, trade_date, currency)
+                None
+                if price == 0
+                else source.SourcePrice(price, trade_date, currency)
             )
-        except:
+        except Exception:
             raise CryptoCompareError("Pas de cours disponible ?")
             return None

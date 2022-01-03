@@ -1,5 +1,7 @@
 """Unit tests for QIF importer (using pytest)."""
-__copyright__ = "Copyright (C) 2018  Martin Blais - slightly modified by Grostim"
+__copyright__ = (
+    "Copyright (C) 2018  Martin Blais - slightly modified by Grostim"
+)
 __license__ = "GNU GPLv2"
 
 from os import path

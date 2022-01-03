@@ -48,16 +48,20 @@ class jsongenerali(importer.ImporterProtocol):
             return self.accountList[jsondata["compte"]]
 
     def file_name(self, file):
-        return format(re.sub("\d{4}-\d{2}-\d{2}-", "", path.basename(file.name)))
+        return format(
+            re.sub(r"\d{4}-\d{2}-\d{2}-", "", path.basename(file.name))
+        )
 
     def file_date(self, file):
 
         # Si debogage, affichage de l'extraction
         if self.debug:
-            print(re.search("(\d{4}-\d{2}-\d{2})-", path.basename(file.name)))
+            print(re.search(r"(\d{4}-\d{2}-\d{2})-", path.basename(file.name)))
 
         return parse_datetime(
-            re.search("(\d{4}-\d{2}-\d{2})-", path.basename(file.name)).group(1)
+            re.search(r"(\d{4}-\d{2}-\d{2})-", path.basename(file.name)).group(
+                1
+            )
         ).date()
 
     def balayageJSONtable(self, jsondata, afficherCost: bool = False):
@@ -156,7 +160,10 @@ class jsongenerali(importer.ImporterProtocol):
             if self.debug:
                 print(jsondata["ope"])
 
-            if jsondata["ope"] == "prélèvement" or jsondata["ope"] == "Versement Libre":
+            if (
+                jsondata["ope"] == "prélèvement"
+                or jsondata["ope"] == "Versement Libre"
+            ):
 
                 self.balayageJSONtable(jsondata, afficherCost=True)
 
@@ -164,7 +171,9 @@ class jsongenerali(importer.ImporterProtocol):
                 self.postings.append(
                     data.Posting(
                         account=self.compteTiers,
-                        units=amount.Amount(Decimal("-" + str(self.total)), "EUR"),
+                        units=amount.Amount(
+                            Decimal("-" + str(self.total)), "EUR"
+                        ),
                         cost=None,
                         flag=None,
                         meta=None,
@@ -178,7 +187,7 @@ class jsongenerali(importer.ImporterProtocol):
                     meta=meta,
                     date=parse_datetime(
                         re.search(
-                            "(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
+                            r"(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
                         ).group(1)
                     ).date(),
                     flag=flag,
@@ -210,7 +219,7 @@ class jsongenerali(importer.ImporterProtocol):
                     meta=meta,
                     date=parse_datetime(
                         re.search(
-                            "(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
+                            r"(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
                         ).group(1)
                     ).date(),
                     flag=flag,
@@ -228,7 +237,9 @@ class jsongenerali(importer.ImporterProtocol):
                 self.postings.append(
                     data.Posting(
                         account=self.compteDividendes,
-                        units=amount.Amount(Decimal("-" + str(self.total)), "EUR"),
+                        units=amount.Amount(
+                            Decimal("-" + str(self.total)), "EUR"
+                        ),
                         cost=None,
                         flag=None,
                         meta=None,
@@ -242,7 +253,7 @@ class jsongenerali(importer.ImporterProtocol):
                     meta=meta,
                     date=parse_datetime(
                         re.search(
-                            "(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
+                            r"(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
                         ).group(1)
                     ).date(),
                     flag=flag,
@@ -263,7 +274,7 @@ class jsongenerali(importer.ImporterProtocol):
                     meta=meta,
                     date=parse_datetime(
                         re.search(
-                            "(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
+                            r"(\d{4}-\d{2}-\d{2})-", path.basename(file.name)
                         ).group(1)
                     ).date(),
                     flag=flag,
