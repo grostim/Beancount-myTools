@@ -138,7 +138,7 @@ while 1:
             + ope["ope"]
         )
         print(filename)
-        with open(EXPORTDIR + filename + ".json", "w") as fp:
+        with open(EXPORTDIR + filename + ".generali.json", "w") as fp:
             json.dump(ope, fp, sort_keys=True, indent=4)
 
         """Si on a rattrapé le retard , on sort"""

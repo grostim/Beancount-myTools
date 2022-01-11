@@ -35,7 +35,7 @@ class jsongenerali(importer.ImporterProtocol):
         self.compteDividendes = compteDividendes
 
     def identify(self, file):
-        return re.match(r".*.json", path.basename(file.name))
+        return re.match(r".*.generali.json", path.basename(file.name))
 
     def file_account(self, file):
         with open(file.name, "r") as read_file:
