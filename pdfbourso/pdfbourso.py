@@ -26,6 +26,16 @@ class pdfbourso(importer.ImporterProtocol):
     """An importer for Boursorama PDF statements."""
 
     def __init__(self, accountList, debug: bool = False):
+        """
+        This function is used to create an instance of the class.
+        It takes a list of accounts as a parameter and returns an instance of the class.
+        The class has two attributes: a list of accounts and a boolean debug flag.
+
+        :param accountList: A dictionary of accounts
+        :param debug: bool = False, defaults to False
+        :type debug: bool (optional)
+        :return: None
+        """
         assert isinstance(
             accountList, dict
         ), "La liste de comptes doit etre un type dict"
@@ -33,11 +43,19 @@ class pdfbourso(importer.ImporterProtocol):
         self.debug = True
 
     def identify(self, file):
+        """
+        The identify function takes a file as an argument and returns a boolean value.
+        If the file is a pdf, it converts it to text and checks if the text contains
+        the words "Relevé de Carte" or "BOURSORAMA BANQUE". If it does, it returns True.
+        Otherwise, it returns False.
+
+        :param file: the file to be processed
+        :return: The type of the file.
+        """
+
         if file.mimetype() != "application/pdf":
             return False
 
-        # Look for some words in the PDF file to figure out if it's a statement
-        # from ACME. The filename they provide (Statement.pdf) isn't useful.On considéère que c'est un relevé Boursorama si on trouve le mot "BOURSORAMA" dedans.
         text = file.convert(pdf_to_text)
         if self.debug:
             print(text)
@@ -69,6 +87,13 @@ class pdfbourso(importer.ImporterProtocol):
         return "Boursorama.pdf"
 
     def file_account(self, file):
+        """
+        The function file_account() takes a file object as an argument and returns the account number
+        associated with the file.
+
+        :param file: the file to convert
+        :return: The account number.
+        """
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
         if self.type == "Compte":
@@ -89,7 +114,13 @@ class pdfbourso(importer.ImporterProtocol):
             return self.accountList[compte]
 
     def file_date(self, file):
-        # Get the actual statement's date from the contents of the file.
+        """
+        It takes a file object as an argument, converts it to text, and then searches for the date in the
+        text. If it finds a date, it parses it and returns it as a datetime object.
+
+        :param file: The file to convert
+        :return: The date of the statement.
+        """
         text = file.convert(pdf_to_text)
         match = re.search(r"(?:au\s*|Date départ\s*:\s)(\d*/\d*/\d*)", text)
         if match:

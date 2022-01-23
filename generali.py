@@ -23,7 +23,11 @@ from dateutil.parser import parse as parse_datetime
 
 
 def balayagetableau():
-    """Procédure qui balaye les lignes du tableau"""
+    """
+    Procédure qui balaye les lignes du tableau
+
+    :return: None
+    """
     for ligne in lignes[1:]:
         dataline = {}
         try:

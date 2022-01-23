@@ -27,10 +27,27 @@ class Source(source.Source):
     "REALT API price extractor."
 
     def get_historical_price(self, ticker, date):
+        """
+        Placeholer, but the func is not implemented yet.
+
+        :param ticker: the ticker symbol for the stock
+        :param date: The date of the historical price you want to get
+        :return: The price of the stock at the given date.
+        """
         raise RealtError("Import de l'historique pas encore implémenté")
         return None
 
     def get_latest_price(self, ticker):
+        """
+        Fetch the current price from Realt API
+
+        Args:
+          ticker: The ticker symbol of the cryptocurrency
+
+        Returns:
+          A SourcePrice object
+        """
+
         url = "https://api.realt.community/v1/token/{}".format(ticker)
         logging.info("Fetching %s", url)
         try:

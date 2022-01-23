@@ -8,7 +8,16 @@ import subprocess
 
 
 def is_pdfminer_installed():
-    """Return true if the external Pdftotxt tool installed."""
+    """
+    It checks if the pdftotext command is available on the system.
+
+    Args:
+      None
+
+    Returns:
+      The returncode of the subprocess call.
+    """
+
     try:
         returncode = subprocess.call(
             ["pdftotext", "-v"], stdout=subprocess.PIPE, stderr=subprocess.PIPE
@@ -20,9 +29,10 @@ def is_pdfminer_installed():
 
 
 def pdf_to_text(filename):
-    """Convert a PDF file to a text equivalent.
+    """
+    It takes a PDF file and converts it to a text file.
     Args:
-      filename: A string path, the filename to convert.
+      filename: A string path, the filename to convert
     Returns:
       A string, the text contents of the filename.
     """
@@ -38,7 +48,13 @@ def pdf_to_text(filename):
 
 
 def traduire_mois(str):
-    """Traduction des abréviations de mois"""
+    """
+    Traduction des abréviations de mois
+    Args:
+      str: the string to be translated
+    Returns:
+      The string "feb"
+    """
     str = str.replace("fév", "feb")
     str = str.replace("mars", "mar")
     str = str.replace("avr", "apr")
