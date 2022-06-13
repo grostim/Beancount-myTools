@@ -38,7 +38,7 @@ def balayagetableau():
                 r"javascript:creerPageExterne\('(.*)'\);",
                 ligne.input.get("value"),
             ).group(1)
-            r = s.get(BASEURL + urlfond)
+            r = s.get(BASEURL + urlfond, verify=False)
             compote = BeautifulSoup(r.text, "lxml")
             dataline["isin"] = re.search(
                 r"ISIN\s:\s(..\d{10})", compote.text
@@ -76,7 +76,7 @@ config.read("generali.ini")
 """On ouvre la session et on va sur la page d acceuil pour receuillir les cookies qui vont bien"""
 s = requests.Session()
 BASEURL = "https://assurancevie.linxea.com"
-r = s.get(BASEURL)
+r = s.get(BASEURL, verify=False)
 
 """Login avec les identifiants"""
 URL = (
@@ -90,18 +90,18 @@ URL = (
     + config["GENERALI"]["Password"]
     + "&password=&password=N&password=password&password=M"
 )
-r = s.get(URL)
+r = s.get(URL, verify=False)
 """A la recherche de l'accès au compte"""
 soup = BeautifulSoup(r.text, "html.parser")
 FINURL = soup.find_all("a")[1].get("href")
-r = s.get(BASEURL + FINURL)
+r = s.get(BASEURL + FINURL, verify=False)
 FINURL = "/b2b2c/epargne/CoeDetCon"
-r = s.get(BASEURL + FINURL)
+r = s.get(BASEURL + FINURL, verify=False)
 """Récupération des liens sur la plage"""
 URL = "https://assurancevie.linxea.com/b2b2c/epargne/CoeLisMvt"
 firstpass = 1
 while 1:
-    r = s.get(URL)
+    r = s.get(URL, verify=False)
     soup = BeautifulSoup(r.text, "lxml")
     liens = soup.table.table.table.find_all("a")
     ope = dict()
@@ -119,7 +119,9 @@ while 1:
             fini = 1
             break
         r = s.get(
-            "https://assurancevie.linxea.com/b2b2c/epargne/" + lien.get("href")
+            "https://assurancevie.linxea.com/b2b2c/epargne/"
+            + lien.get("href"),
+            verify=False,
         )
         soupette = BeautifulSoup(r.text, "lxml")
         ope["ope"] = re.search(r".*:\s(.*)", soupette.table.h1.text).group(1)

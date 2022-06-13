@@ -85,7 +85,7 @@ class fichepaye(importer.ImporterProtocol):
             compte = match.group(0)
 
         # On relève le net à payer avant IR
-        control = r"Cadre Net à payer\n\s*(\d{1,4}\,\d{2})"
+        control = r"Cadre Net à payer\s*(\d{1,4}[,.]\d{2})"
         match = re.search(control, text)
         netAvantIR = amount.Amount(
             -1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")),
@@ -107,9 +107,7 @@ class fichepaye(importer.ImporterProtocol):
             print(posting_1)
 
         # On relève le montant IR
-        control = (
-            r"Impôt sur le revenu prélevé à la source.*\s(\d{1,4}\,\d{2})\n"
-        )
+        control = r"Impôt sur le revenu prélevé à la source.*\s\d{1,4}[,.]\d{2}\s*\d{1,4}[,.]\d{2}\s*(\d{1,4}[,.]\d{2})\s*\d{1,4}[,.]\d{2}.*\n"
         match = re.search(control, text)
         IRsource = amount.Amount(
             1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")),
@@ -130,7 +128,7 @@ class fichepaye(importer.ImporterProtocol):
             print(posting_2)
 
         # On relève le Net à Payer
-        control = r"NetAPayer.*\s(\d{1,4}\,\d{2})\n"
+        control = r"NET A PAYER AU SALARIE\s*\(EN EUROS\)\s*(\d{1,4}[.,]\d{2})"
         match = re.search(control, text)
         netAPayer = amount.Amount(
             1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")),
