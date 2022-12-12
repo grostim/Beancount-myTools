@@ -18,6 +18,7 @@ import re
 import json
 import configparser
 import requests
+import urllib.parse
 from bs4 import BeautifulSoup
 from dateutil.parser import parse as parse_datetime
 
@@ -84,12 +85,13 @@ URL = (
     + "/b2b2c/entreesite/EntAccLog?task=Valider&"
     + "valider=%2Fb2b2c%2Fentreesite%2FEntAccLog%3Ftask%3DValider"
     + "&loginSaisi="
-    + config["GENERALI"]["User"]
+    + urllib.parse.quote(config["GENERALI"]["User"])
     + "&loginSaisi=&loginSaisi=N&loginSaisi=loginSaisi&loginSaisi=M&"
     + "password="
-    + config["GENERALI"]["Password"]
+    + urllib.parse.quote(config["GENERALI"]["Password"])
     + "&password=&password=N&password=password&password=M"
 )
+print(URL)
 r = s.get(URL, verify=False)
 """A la recherche de l'accès au compte"""
 soup = BeautifulSoup(r.text, "html.parser")

@@ -16,7 +16,3 @@ repos:
         # pre-commit's default_language_version, see
         # https://pre-commit.com/#top_level-default_language_version
         language_version: python3
-  -   repo: https://gitlab.com/pycqa/flake8
-      rev: 3.7.9
-      hooks:
-      - id: flake8
