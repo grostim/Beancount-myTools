@@ -52,25 +52,21 @@ def pdf_to_text(filename: str) -> str:
         raise ValueError(f"Erreur lors de la conversion du PDF : {e.stderr}")
 
 
+TRADUCTIONS_MOIS = {
+    "fév": "feb", "mars": "mar", "avr": "apr", "mai": "may",
+    "juin": "jun", "juil": "jul", "août": "aug", "déc": "dec"
+}
+
 def traduire_mois(mois: str) -> str:
     """
     Traduit les abréviations de mois du français vers l'anglais.
-    
+
     Args:
-        mois (str): Abréviation du mois en français
-    
+        mois (str): Chaîne contenant des abréviations de mois en français.
+
     Returns:
-        str: Abréviation du mois en anglais
-    
-    Raises:
-        ValueError: Si l'abréviation du mois n'est pas reconnue
+        str: Chaîne avec les abréviations de mois traduites en anglais.
     """
-    traductions: Dict[str, str] = {
-        'jan': 'jan', 'fév': 'feb', 'mar': 'mar', 'avr': 'apr',
-        'mai': 'may', 'jui': 'jun', 'jul': 'jul', 'aoû': 'aug',
-        'sep': 'sep', 'oct': 'oct', 'nov': 'nov', 'déc': 'dec'
-    }
-    mois_lower = mois.lower()
-    if mois_lower not in traductions:
-        raise ValueError(f"Mois non reconnu : {mois}")
-    return traductions[mois_lower]
+    for fr, en in TRADUCTIONS_MOIS.items():
+        mois = mois.replace(fr, en)
+    return mois
