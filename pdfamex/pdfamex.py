@@ -103,9 +103,21 @@ class pdfamex(importer.ImporterProtocol):
         return match.group(0)
 
     def _extract_transactions(self, text, statement_date):
-        control = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?"  # regexr.com/4jqdk
-        chunks = re.findall(control, text)
-        return chunks
+        control = r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(.*?)\s*(\d+,\d{2})(?:\s*(CR))?"
+        matches = re.finditer(control, text)
+        transactions = []
+        for match in matches:
+            date_str = f"{match.group(1)} {statement_date['year']}"
+            amount = Decimal(match.group(4).replace(',', '.'))
+            if match.group(5):  # Si 'CR' est présent, le montant est positif
+                amount = -amount
+            transactions.append({
+                'date': parse_datetime(date_str, dayfirst=True),
+                'payee': match.group(3).strip(),
+                'amount': amount,
+                'currency': 'EUR'
+            })
+        return transactions
 
     def _create_transaction_entry(self, file, index, transaction, account_number):
         meta = data.new_metadata(file.name, index)
@@ -113,7 +125,7 @@ class pdfamex(importer.ImporterProtocol):
         
         posting = data.Posting(
             account=self.accountList[account_number],
-            units=transaction['amount'],
+            units=amount.Amount(transaction['amount'], transaction['currency']),
             cost=None,
             flag=None,
             meta=None,
