@@ -68,129 +68,70 @@ class pdfamex(importer.ImporterProtocol):
             self.logger.exception("Transaction %s not valid", transac)
 
     def extract(self, file, existing_entries=None):
-        # Open the pdf file and create directives.
         entries = []
         text = file.convert(pdf_to_text)
 
-        # Si debogage, affichage de l'extraction
         if self.debug:
             print(text)
 
-        # On relève d'abord la date du rapport
-        control = r"xxxx-xxxxxx-\d{5}\s*\d*/(\d*)/(\d*)"
-        match = re.search(control, text)
-        statementmonth = match.group(1)
-        statementyear = match.group(2)
+        statement_date = self._extract_statement_date(text)
+        account_number = self._extract_account_number(text)
+        transactions = self._extract_transactions(text, statement_date)
 
-        # Et le numéro de compte
-        control = r"xxxx-xxxxxx-\d{5}"
-        match = re.search(control, text)
-        if match:
-            compte = match.group(0).split(" ")[-1]
+        for index, transaction in enumerate(transactions, start=1):
+            entries.append(self._create_transaction_entry(file, index, transaction, account_number))
 
+        balance_entry = self._create_balance_entry(file, text, account_number)
+        entries.append(balance_entry)
+
+        return entries
+
+    def _extract_statement_date(self, text):
+        match = re.search(r"xxxx-xxxxxx-\d{5}\s*(\d*/(\d*)/(\d*))", text)
+        if not match:
+            raise ValueError("Date du relevé non trouvée")
+        return {
+            'full': match.group(1),
+            'month': match.group(2),
+            'year': match.group(3)
+        }
+
+    def _extract_account_number(self, text):
+        match = re.search(r"xxxx-xxxxxx-\d{5}", text)
+        if not match:
+            raise ValueError("Numéro de compte non trouvé")
+        return match.group(0)
+
+    def _extract_transactions(self, text, statement_date):
         control = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?"  # regexr.com/4jqdk
         chunks = re.findall(control, text)
+        return chunks
 
-        # Si debogage, affichage de l'extraction
-        if self.debug:
-            print(chunks)
+    def _create_transaction_entry(self, file, index, transaction, account_number):
+        meta = data.new_metadata(file.name, index)
+        meta["source"] = "pdfamex"
+        
+        posting = data.Posting(
+            account=self.accountList[account_number],
+            units=transaction['amount'],
+            cost=None,
+            flag=None,
+            meta=None,
+            price=None
+        )
 
-        index = 0
-        for chunk in chunks:
-            index += 1
-            meta = data.new_metadata(file.name, index)
-            meta["source"] = "pdfamex"
-            #            meta["statementExtract"] = re.sub("\s+"," ",chunk)
-            ope = dict()
-            ope = {}
+        return data.Transaction(
+            meta=meta,
+            date=transaction['date'].date(),
+            flag=flags.FLAG_OKAY,
+            payee=transaction['payee'] or "inconnu",
+            narration="",
+            tags=data.EMPTY_SET,
+            links=data.EMPTY_SET,
+            postings=[posting]
+        )
 
-            # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(chunk)
-
-            # A la recherche de la date.
-            match = re.search(
-                r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})",
-                chunk,
-            )
-            rawdate = match.group(2)  # On extrait la seconde date de la ligne.
-
-            # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(rawdate)
-
-            match = re.search(
-                r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s([a-zéèûôùê]{3,4})",
-                chunk,
-            )
-
-            # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(match.group(1))
-
-            if match.group(1) == "déc" and statementmonth == "01":
-                ope["date"] = parse_datetime(
-                    traduire_mois(
-                        rawdate + " 20" + str(int(statementyear) - 1)
-                    )
-                )
-            else:
-                ope["date"] = parse_datetime(
-                    traduire_mois(rawdate + " 20" + statementyear)
-                )
-
-            # A la recherche du montant.
-            control = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?$"
-            match = re.search(control, chunk)
-            # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(match)
-
-            # Recherche de "CR" si Crédit.
-            if match.group(3) is not None:
-                meta["type"] = "Débit"
-                ope["montant"] = amount.Amount(
-                    1
-                    * Decimal(
-                        match.group(2).replace(",", ".").replace(" ", "")
-                    ),
-                    "EUR",
-                )
-            else:
-                meta["type"] = "Credit"
-                ope["montant"] = amount.Amount(
-                    -1
-                    * Decimal(
-                        match.group(2).replace(",", ".").replace(" ", "")
-                    ),
-                    "EUR",
-                )
-            # Recherche du Payee
-
-            ope["tiers"] = re.sub(r"\s+", " ", match.group(1))
-            # Et on rajoute la transaction
-            posting_1 = data.Posting(
-                account=self.accountList[compte],
-                units=ope["montant"],
-                cost=None,
-                flag=None,
-                meta=None,
-                price=None,
-            )
-            flag = flags.FLAG_OKAY
-            transac = data.Transaction(
-                meta=meta,
-                date=ope["date"].date(),
-                flag=flag,
-                payee=ope["tiers"] or "inconnu",
-                narration="",
-                tags=data.EMPTY_SET,
-                links=data.EMPTY_SET,
-                postings=[posting_1],
-            )
-            entries.append(transac)
-
-        # A la recherche de la balance:
+    def _create_balance_entry(self, file, text, account_number):
         control = r"Total des dépenses pour\s+(?:.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})"
         match = re.search(control, text)
         montant = -1 * Decimal(
@@ -216,14 +157,11 @@ class pdfamex(importer.ImporterProtocol):
         if self.debug:
             print(balancedate)
 
-        entries.append(
-            data.Balance(
-                meta,
-                balancedate,
-                self.accountList[compte],
-                amount.Amount(montant, "EUR"),
-                None,
-                None,
-            )
+        return data.Balance(
+            meta,
+            balancedate,
+            self.accountList[compte],
+            amount.Amount(montant, "EUR"),
+            None,
+            None,
         )
-        return entries
