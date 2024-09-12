@@ -1,66 +1,76 @@
-""" Diverses fonctions utiles communes à mes importers.
+"""
+Diverses fonctions utiles communes à mes importers.
+
+Ce module contient des fonctions utilitaires pour la manipulation de fichiers PDF,
+la vérification de l'installation de pdfminer, et la traduction des abréviations de mois.
+
+Functions:
+    is_pdfminer_installed(): Vérifie si pdftotext est installé.
+    pdf_to_text(filename: str): Convertit un fichier PDF en texte.
+    traduire_mois(mois: str): Traduit les abréviations de mois du français vers l'anglais.
 """
 
 __copyright__ = "Copyright (C) 2019 Grostim"
 __license__ = "GNU GPLv2"
 
 import subprocess
+from typing import Dict
 
 
-def is_pdfminer_installed():
+def is_pdfminer_installed() -> bool:
     """
-    It checks if the pdftotext command is available on the system.
-
-    Args:
-      None
+    Vérifie si la commande pdftotext est disponible sur le système.
 
     Returns:
-      The returncode of the subprocess call.
+        bool: True si pdftotext est installé, False sinon.
     """
-
     try:
-        returncode = subprocess.call(
-            ["pdftotext", "-v"], stdout=subprocess.PIPE, stderr=subprocess.PIPE
-        )
-    except (FileNotFoundError, PermissionError):
+        result = subprocess.run(["pdftotext", "-v"], capture_output=True, text=True, check=False)
+        return result.returncode == 0
+    except FileNotFoundError:
         return False
-    else:
-        return returncode == 0
 
 
-def pdf_to_text(filename):
+def pdf_to_text(filename: str) -> str:
     """
-    It takes a PDF file and converts it to a text file.
+    Convertit un fichier PDF en texte.
+
     Args:
-      filename: A string path, the filename to convert
+        filename (str): Chemin du fichier à convertir
+
     Returns:
-      A string, the text contents of the filename.
+        str: Contenu textuel du fichier PDF.
+
+    Raises:
+        ValueError: Si la conversion échoue.
     """
-    pipe = subprocess.Popen(
-        ["pdftotext", "-layout", filename, "-"],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
-    stdout, stderr = pipe.communicate()
-    if stderr:
-        raise ValueError(stderr.decode())
-    return stdout.decode()
+    try:
+        result = subprocess.run(["pdftotext", "-layout", filename, "-"], 
+                                capture_output=True, text=True, check=True)
+        return result.stdout
+    except subprocess.CalledProcessError as e:
+        raise ValueError(f"Erreur lors de la conversion du PDF : {e.stderr}")
 
 
-def traduire_mois(str):
+def traduire_mois(mois: str) -> str:
     """
-    Traduction des abréviations de mois
+    Traduit les abréviations de mois du français vers l'anglais.
+    
     Args:
-      str: the string to be translated
+        mois (str): Abréviation du mois en français
+    
     Returns:
-      The string "feb"
+        str: Abréviation du mois en anglais
+    
+    Raises:
+        ValueError: Si l'abréviation du mois n'est pas reconnue
     """
-    str = str.replace("fév", "feb")
-    str = str.replace("mars", "mar")
-    str = str.replace("avr", "apr")
-    str = str.replace("mai", "may")
-    str = str.replace("juin", "jun")
-    str = str.replace("juil", "jul")
-    str = str.replace("août", "aug")
-    str = str.replace("déc", "dec")
-    return str
+    traductions: Dict[str, str] = {
+        'jan': 'jan', 'fév': 'feb', 'mar': 'mar', 'avr': 'apr',
+        'mai': 'may', 'jui': 'jun', 'jul': 'jul', 'aoû': 'aug',
+        'sep': 'sep', 'oct': 'oct', 'nov': 'nov', 'déc': 'dec'
+    }
+    mois_lower = mois.lower()
+    if mois_lower not in traductions:
+        raise ValueError(f"Mois non reconnu : {mois}")
+    return traductions[mois_lower]
