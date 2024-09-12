@@ -102,22 +102,46 @@ class pdfamex(importer.ImporterProtocol):
             raise ValueError("Numéro de compte non trouvé")
         return match.group(0)
 
-    def _extract_transactions(self, text, statement_date):
-        control = r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(.*?)\s*(\d+,\d{2})(?:\s*(CR))?"
-        matches = re.finditer(control, text)
-        transactions = []
-        for match in matches:
-            date_str = f"{match.group(1)} {statement_date['year']}"
-            amount = Decimal(match.group(4).replace(',', '.'))
-            if match.group(5):  # Si 'CR' est présent, le montant est positif
-                amount = -amount
-            transactions.append({
-                'date': parse_datetime(date_str, dayfirst=True),
-                'payee': match.group(3).strip(),
-                'amount': amount,
-                'currency': 'EUR'
-            })
-        return transactions
+from dateutil.parser import parse as parse_datetime
+import locale
+from decimal import Decimal
+
+# Ajoutez ceci au début de la classe ou dans une méthode d'initialisation
+MOIS_FR_TO_EN = {
+    'janv': 'jan', 'févr': 'feb', 'mars': 'mar', 'avr': 'apr',
+    'mai': 'may', 'juin': 'jun', 'juil': 'jul', 'août': 'aug',
+    'sept': 'sep', 'oct': 'oct', 'nov': 'nov', 'déc': 'dec'
+}
+
+def _extract_transactions(self, text, statement_date):
+    control = r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(.*?)\s*(\d+,\d{2})(?:\s*(CR))?"
+    matches = re.finditer(control, text)
+    transactions = []
+    for match in matches:
+        date_str = match.group(1)
+        # Traduire le mois en anglais
+        for fr, en in self.MOIS_FR_TO_EN.items():
+            if fr in date_str.lower():
+                date_str = date_str.lower().replace(fr, en)
+                break
+        date_str = f"{date_str} {statement_date['year']}"
+        
+        try:
+            transaction_date = parse_datetime(date_str, dayfirst=True)
+        except ValueError:
+            # Si la date ne peut pas être parsée, on passe à la transaction suivante
+            continue
+        
+        amount = Decimal(match.group(4).replace(',', '.'))
+        if match.group(5):  # Si 'CR' est présent, le montant est positif
+            amount = -amount
+        transactions.append({
+            'date': transaction_date,
+            'payee': match.group(3).strip(),
+            'amount': amount,
+            'currency': 'EUR'
+        })
+    return transactions
 
     def _create_transaction_entry(self, file, index, transaction, account_number):
         meta = data.new_metadata(file.name, index)
