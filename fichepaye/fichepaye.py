@@ -38,11 +38,13 @@ class fichepaye(importer.ImporterProtocol):
         if text:
             if re.search("Sage", text) is not None:
                 return 1
+            if re.search("DUO_TECNAL", text) is not None:
+                return 1
 
     def file_account(self, file):
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
-        control = "025680471 00015"
+        control = r"02568047100015"
         match = re.search(control, text)
         # Si debogage, affichage de l'extraction
         if self.debug:
@@ -59,7 +61,7 @@ class fichepaye(importer.ImporterProtocol):
     def file_date(self, file):
         # Get the actual statement's date from the contents of the file.
         text = file.convert(pdf_to_text)
-        control = r"Paiement\sle\s*(\d{2}\/\d{2}\/\d{2})"
+        control = r"Paiement\sle\s*(\d{2}\/\d{2}\/\d{4})"
         match = re.search(control, text)
         if match:
             return parse_datetime(match.group(1), dayfirst="True").date()
@@ -76,7 +78,7 @@ class fichepaye(importer.ImporterProtocol):
         if self.debug:
             print(text)
 
-        control = "025680471 00015"
+        control = "02568047100015"
         match = re.search(control, text)
         # Si debogage, affichage de l'extraction
         if self.debug:
@@ -85,8 +87,11 @@ class fichepaye(importer.ImporterProtocol):
             compte = match.group(0)
 
         # On relève le net à payer avant IR
-        control = r"Cadre Net à payer\s*(\d{1,4}[,.]\d{2})"
+        control = r"Net à payer avant impôt sur le revenu\s*(\d{0,3}?\s?\d{0,3}[,.]\d{2})"
         match = re.search(control, text)
+        # Si debogage, affichage de l'extraction
+        if self.debug:
+            print(match)
         netAvantIR = amount.Amount(
             -1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")),
             "EUR",
@@ -107,7 +112,7 @@ class fichepaye(importer.ImporterProtocol):
             print(posting_1)
 
         # On relève le montant IR
-        control = r"Impôt sur le revenu prélevé à la source.*\s\d{1,4}[,.]\d{2}\s*\d{1,4}[,.]\d{2}\s*(\d{1,4}[,.]\d{2})\s*\d{1,4}[,.]\d{2}.*\n"
+        control = r"Impôt sur le revenu prélevé à la source - PAS\s*\d{0,3}?\s?\d{0,3}[,.]\d{2}\s*-\s\d{0,3}[,.]\d{0,4}\s*(\d{0,3}?\s?\d{0,3}[,.]\d{2})"
         match = re.search(control, text)
         IRsource = amount.Amount(
             1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")),
@@ -128,7 +133,7 @@ class fichepaye(importer.ImporterProtocol):
             print(posting_2)
 
         # On relève le Net à Payer
-        control = r"NET A PAYER AU SALARIE\s*\(EN EUROS\)\s*(\d{1,4}[.,]\d{2})"
+        control = r"Net payé\s*(\d{0,3}?\s?\d{0,3}[,.]\d{2})"
         match = re.search(control, text)
         netAPayer = amount.Amount(
             1 * Decimal(match.group(1).replace(",", ".").replace(" ", "")),

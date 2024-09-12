@@ -22,6 +22,7 @@ import urllib.parse
 from bs4 import BeautifulSoup
 from dateutil.parser import parse as parse_datetime
 
+VERIFYCERTIFICATE = False
 
 def balayagetableau():
     """
@@ -39,7 +40,7 @@ def balayagetableau():
                 r"javascript:creerPageExterne\('(.*)'\);",
                 ligne.input.get("value"),
             ).group(1)
-            r = s.get(BASEURL + urlfond, verify=False)
+            r = s.get(BASEURL + urlfond, verify=VERIFYCERTIFICATE)
             compote = BeautifulSoup(r.text, "lxml")
             dataline["isin"] = re.search(
                 r"ISIN\s:\s(..\d{10})", compote.text
@@ -77,7 +78,7 @@ config.read("generali.ini")
 """On ouvre la session et on va sur la page d acceuil pour receuillir les cookies qui vont bien"""
 s = requests.Session()
 BASEURL = "https://assurancevie.linxea.com"
-r = s.get(BASEURL, verify=False)
+r = s.get(BASEURL, verify=VERIFYCERTIFICATE)
 
 """Login avec les identifiants"""
 URL = (
@@ -91,19 +92,22 @@ URL = (
     + urllib.parse.quote(config["GENERALI"]["Password"])
     + "&password=&password=N&password=password&password=M"
 )
+"""print(URL)"""
 print(URL)
-r = s.get(URL, verify=False)
+r = s.post(URL, verify=VERIFYCERTIFICATE)
 """A la recherche de l'accès au compte"""
 soup = BeautifulSoup(r.text, "html.parser")
+print(soup)
 FINURL = soup.find_all("a")[1].get("href")
-r = s.get(BASEURL + FINURL, verify=False)
+print(FINURL)
+r = s.get(BASEURL + FINURL, verify=VERIFYCERTIFICATE)
 FINURL = "/b2b2c/epargne/CoeDetCon"
-r = s.get(BASEURL + FINURL, verify=False)
+r = s.get(BASEURL + FINURL, verify=VERIFYCERTIFICATE)
 """Récupération des liens sur la plage"""
 URL = "https://assurancevie.linxea.com/b2b2c/epargne/CoeLisMvt"
 firstpass = 1
 while 1:
-    r = s.get(URL, verify=False)
+    r = s.get(URL, verify=VERIFYCERTIFICATE)
     soup = BeautifulSoup(r.text, "lxml")
     liens = soup.table.table.table.find_all("a")
     ope = dict()
@@ -115,7 +119,7 @@ while 1:
         print(config["GENERALI"]["last"])
         if (
             str(parse_datetime(lien.text, dayfirst="True").date())
-            == config["GENERALI"]["last"]
+            <= config["GENERALI"]["last"]
         ):
             print("OK, nous sommes à jour")
             fini = 1
@@ -123,7 +127,7 @@ while 1:
         r = s.get(
             "https://assurancevie.linxea.com/b2b2c/epargne/"
             + lien.get("href"),
-            verify=False,
+            verify=VERIFYCERTIFICATE,
         )
         soupette = BeautifulSoup(r.text, "lxml")
         ope["ope"] = re.search(r".*:\s(.*)", soupette.table.h1.text).group(1)
