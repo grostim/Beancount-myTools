@@ -34,6 +34,16 @@ class PDFAmex(importer.ImporterProtocol):
         self.account_list = account_list
         self.debug = debug
 
+    def _debug(self, message: str):
+        """
+        Affiche un message de débogage si le mode debug est activé.
+
+        Args:
+            message (str): Le message à afficher.
+        """
+        if self.debug:
+            print(f"[DEBUG] {message}")
+
     @lru_cache(maxsize=None)
     def _get_pdf_text(self, file):
         """Cache et retourne le texte du PDF."""
@@ -110,8 +120,7 @@ class PDFAmex(importer.ImporterProtocol):
             List[data.Directive]: Liste des directives extraites (transactions et solde).
         """
         text = self._get_pdf_text(file)
-        if self.debug:
-            print(text)
+        self._debug(f"Contenu du PDF :\n{text}")
 
         statement_date = self._extract_statement_date(text)
         account_number = self._extract_account_number(text)
