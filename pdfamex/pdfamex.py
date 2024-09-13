@@ -68,7 +68,7 @@ class PDFAmex(importer.ImporterProtocol):
         """
         text = file.convert(pdf_to_text)
         match = re.search(r"xxxx-xxxxxx-(\d{5})", text)
-        return self.account_list.get(match.group(1)) if match else None
+        return self.account_list.get(match.group(0).split(" ")[-1]) if match else None
 
     def file_date(self, file):
         """
