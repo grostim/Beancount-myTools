@@ -4,6 +4,7 @@ import re
 from datetime import timedelta
 from decimal import Decimal
 from typing import List, Dict, Optional
+from functools import lru_cache
 
 from dateutil.parser import parse as parse_datetime
 from beancount.core import amount, data, flags
@@ -33,6 +34,11 @@ class PDFAmex(importer.ImporterProtocol):
         self.account_list = account_list
         self.debug = debug
 
+    @lru_cache(maxsize=None)
+    def _get_pdf_text(self, file):
+        """Cache et retourne le texte du PDF."""
+        return file.convert(pdf_to_text)
+
     def identify(self, file) -> bool:
         """
         Identifie si le fichier est un relevé American Express.
@@ -45,8 +51,7 @@ class PDFAmex(importer.ImporterProtocol):
         """
         if file.mimetype() != "application/pdf":
             return False
-        text = file.convert(pdf_to_text)
-        return text and "Carte Air France KLM" in text
+        return "Carte Air France KLM" in self._get_pdf_text(file)
 
     def file_name(self, _) -> str:
         """
@@ -70,7 +75,7 @@ class PDFAmex(importer.ImporterProtocol):
         Returns:
             Optional[str]: Le nom du compte associé ou None si non trouvé.
         """
-        text = file.convert(pdf_to_text)
+        text = self._get_pdf_text(file)
         match = re.search(self.ACCOUNT_NUMBER_PATTERN, text)
         if not match:
             raise ValueError("Numéro de compte non trouvé dans le relevé")
@@ -86,7 +91,7 @@ class PDFAmex(importer.ImporterProtocol):
         Returns:
             date: La date du relevé ou None si non trouvée.
         """
-        text = file.convert(pdf_to_text)
+        text = self._get_pdf_text(file)
         match = re.search(r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)", text)
         return parse_datetime(match.group(1), dayfirst=True).date() if match else None
 
@@ -104,7 +109,7 @@ class PDFAmex(importer.ImporterProtocol):
         Returns:
             List[data.Directive]: Liste des directives extraites (transactions et solde).
         """
-        text = file.convert(pdf_to_text)
+        text = self._get_pdf_text(file)
         if self.debug:
             print(text)
 
@@ -113,10 +118,7 @@ class PDFAmex(importer.ImporterProtocol):
         transactions = self._extract_transactions(text, statement_date)
         balance = self._extract_balance(text, account_number)
 
-        entries = [self._create_transaction(t, account_number, file) for t in transactions]
-        entries.append(balance)
-
-        return entries
+        return [self._create_transaction(t, account_number, file) for t in transactions] + [balance]
 
     def _extract_statement_date(self, text: str) -> Dict[str, str]:
         """
