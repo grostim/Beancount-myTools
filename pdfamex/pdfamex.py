@@ -11,32 +11,93 @@ from beancount.ingest import importer
 from myTools.myutils import pdf_to_text, traduire_mois
 
 class PDFAmex(importer.ImporterProtocol):
-    """Importateur pour les relevés PDF American Express."""
+    """
+    Importateur pour les relevés PDF American Express.
+
+    Cette classe permet d'extraire les transactions et le solde des relevés
+    American Express au format PDF et de les convertir en entrées Beancount.
+    """
 
     def __init__(self, account_list: Dict[str, str], debug: bool = False):
+        """
+        Initialise l'importateur PDFAmex.
+
+        Args:
+            account_list (Dict[str, str]): Dictionnaire associant les numéros de compte aux noms de compte.
+            debug (bool, optional): Active le mode debug si True. Par défaut False.
+        """
         self.account_list = account_list
         self.debug = debug
 
     def identify(self, file) -> bool:
+        """
+        Identifie si le fichier est un relevé American Express.
+
+        Args:
+            file: Le fichier à identifier.
+
+        Returns:
+            bool: True si le fichier est un relevé American Express, False sinon.
+        """
         if file.mimetype() != "application/pdf":
             return False
         text = file.convert(pdf_to_text)
         return text and "Carte Air France KLM" in text
 
     def file_name(self, _) -> str:
+        """
+        Retourne le nom du fichier pour le relevé.
+
+        Args:
+            _: Paramètre non utilisé, présent pour la compatibilité avec l'interface.
+
+        Returns:
+            str: Le nom du fichier standardisé pour les relevés Amex.
+        """
         return "Amex.pdf"
 
     def file_account(self, file) -> Optional[str]:
+        """
+        Extrait le compte associé au fichier.
+
+        Args:
+            file: Le fichier à analyser.
+
+        Returns:
+            Optional[str]: Le nom du compte associé ou None si non trouvé.
+        """
         text = file.convert(pdf_to_text)
         match = re.search(r"xxxx-xxxxxx-(\d{5})", text)
         return self.account_list.get(match.group(1)) if match else None
 
     def file_date(self, file):
+        """
+        Extrait la date du relevé.
+
+        Args:
+            file: Le fichier à analyser.
+
+        Returns:
+            date: La date du relevé ou None si non trouvée.
+        """
         text = file.convert(pdf_to_text)
         match = re.search(r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)", text)
         return parse_datetime(match.group(1), dayfirst=True).date() if match else None
 
     def extract(self, file, existing_entries=None) -> List[data.Directive]:
+        """
+        Extrait les transactions et le solde du relevé.
+
+        Cette méthode analyse le contenu du fichier PDF, extrait les transactions
+        et le solde, puis les convertit en directives Beancount.
+
+        Args:
+            file: Le fichier à analyser.
+            existing_entries: Les entrées existantes (non utilisé).
+
+        Returns:
+            List[data.Directive]: Liste des directives extraites (transactions et solde).
+        """
         text = file.convert(pdf_to_text)
         if self.debug:
             print(text)
@@ -52,14 +113,45 @@ class PDFAmex(importer.ImporterProtocol):
         return entries
 
     def _extract_statement_date(self, text: str) -> Dict[str, str]:
+        """
+        Extrait la date du relevé du texte.
+
+        Args:
+            text (str): Le texte du relevé.
+
+        Returns:
+            Dict[str, str]: Un dictionnaire contenant le mois et l'année du relevé.
+        """
         match = re.search(r"xxxx-xxxxxx-\d{5}\s*\d*/(\d*)/(\d*)", text)
         return {"month": match.group(1), "year": match.group(2)} if match else {}
 
     def _extract_account_number(self, text: str) -> Optional[str]:
+        """
+        Extrait le numéro de compte du texte.
+
+        Args:
+            text (str): Le texte du relevé.
+
+        Returns:
+            Optional[str]: Le numéro de compte ou None si non trouvé.
+        """
         match = re.search(r"xxxx-xxxxxx-(\d{5})", text)
-        return match.group(0).split(" ")[-1] if match else None
+        return match.group(1) if match else None
 
     def _extract_transactions(self, text: str, statement_date: Dict[str, str]) -> List[Dict]:
+        """
+        Extrait les transactions du texte.
+
+        Cette méthode parcourt le texte du relevé pour identifier et extraire
+        toutes les transactions individuelles.
+
+        Args:
+            text (str): Le texte du relevé.
+            statement_date (Dict[str, str]): La date du relevé.
+
+        Returns:
+            List[Dict]: Liste des transactions extraites, chacune représentée par un dictionnaire.
+        """
         transactions = []
         chunks = re.findall(r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?", text)
         
@@ -71,6 +163,19 @@ class PDFAmex(importer.ImporterProtocol):
         return transactions
 
     def _parse_transaction(self, chunk: str, statement_date: Dict[str, str]) -> Optional[Dict]:
+        """
+        Parse une transaction individuelle.
+
+        Cette méthode analyse une ligne de transaction pour en extraire les détails,
+        y compris la date, le montant, le bénéficiaire et le type de transaction.
+
+        Args:
+            chunk (str): Le texte de la transaction.
+            statement_date (Dict[str, str]): La date du relevé.
+
+        Returns:
+            Optional[Dict]: Les détails de la transaction ou None si le parsing échoue.
+        """
         date_match = re.search(r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})", chunk)
         amount_match = re.search(r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?$", chunk)
 
@@ -89,10 +194,36 @@ class PDFAmex(importer.ImporterProtocol):
         }
 
     def _parse_amount(self, amount_str: str, credit_indicator: Optional[str]) -> amount.Amount:
+        """
+        Parse le montant d'une transaction.
+
+        Cette méthode convertit une chaîne de caractères représentant un montant
+        en un objet Amount de Beancount, en tenant compte du signe (débit ou crédit).
+
+        Args:
+            amount_str (str): Le montant en chaîne de caractères.
+            credit_indicator (Optional[str]): Indicateur de crédit.
+
+        Returns:
+            amount.Amount: Le montant parsé sous forme d'objet Amount de Beancount.
+        """
         decimal_amount = Decimal(amount_str.replace(",", ".").replace(" ", ""))
         return amount.Amount(decimal_amount if credit_indicator else -decimal_amount, "EUR")
 
     def _extract_balance(self, text: str, account_number: str) -> data.Balance:
+        """
+        Extrait le solde du relevé.
+
+        Cette méthode recherche et extrait le solde total du relevé, puis crée
+        une directive Balance de Beancount correspondante.
+
+        Args:
+            text (str): Le texte du relevé.
+            account_number (str): Le numéro de compte.
+
+        Returns:
+            data.Balance: Le solde extrait sous forme de directive Balance de Beancount.
+        """
         match = re.search(r"Total des dépenses pour\s+(?:.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})", text)
         balance_amount = -Decimal(match.group(1).replace(",", ".").replace(" ", "")) if match else Decimal(0)
 
@@ -109,6 +240,20 @@ class PDFAmex(importer.ImporterProtocol):
         )
 
     def _create_transaction(self, transaction: Dict, account_number: str, file) -> data.Transaction:
+        """
+        Crée une transaction Beancount à partir des données extraites.
+
+        Cette méthode convertit les détails d'une transaction extraite en une
+        directive Transaction de Beancount.
+
+        Args:
+            transaction (Dict): Les détails de la transaction.
+            account_number (str): Le numéro de compte.
+            file: Le fichier source.
+
+        Returns:
+            data.Transaction: La transaction Beancount créée.
+        """
         meta = data.new_metadata(file.name, 0, {"source": "pdfamex", "type": transaction["type"]})
         posting = data.Posting(
             account=self.account_list[account_number],
