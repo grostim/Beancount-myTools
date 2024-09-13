@@ -74,7 +74,7 @@ class PDFAmex(importer.ImporterProtocol):
         match = re.search(self.ACCOUNT_NUMBER_PATTERN, text)
         if not match:
             raise ValueError("Numéro de compte non trouvé dans le relevé")
-        return self.account_list.get(match.group(0).split(" ")[-1]) if match else None
+        return self.account_list.get(match.group(1)) if match else None
 
     def file_date(self, file):
         """
