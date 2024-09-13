@@ -10,6 +10,10 @@ from beancount.core import amount, data, flags
 from beancount.ingest import importer
 from myTools.myutils import pdf_to_text, traduire_mois
 
+ACCOUNT_NUMBER_PATTERN = r"xxxx-xxxxxx-(\d{5})"
+STATEMENT_DATE_PATTERN = r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)"
+TRANSACTION_PATTERN = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?"
+
 class PDFAmex(importer.ImporterProtocol):
     """
     Importateur pour les relevés PDF American Express.
@@ -67,7 +71,9 @@ class PDFAmex(importer.ImporterProtocol):
             Optional[str]: Le nom du compte associé ou None si non trouvé.
         """
         text = file.convert(pdf_to_text)
-        match = re.search(r"xxxx-xxxxxx-(\d{5})", text)
+        match = re.search(self.ACCOUNT_NUMBER_PATTERN, text)
+        if not match:
+            raise ValueError("Numéro de compte non trouvé dans le relevé")
         return self.account_list.get(match.group(0).split(" ")[-1]) if match else None
 
     def file_date(self, file):
@@ -125,7 +131,7 @@ class PDFAmex(importer.ImporterProtocol):
         match = re.search(r"xxxx-xxxxxx-\d{5}\s*\d*/(\d*)/(\d*)", text)
         return {"month": match.group(1), "year": match.group(2)} if match else {}
 
-    def _extract_account_number(self, text: str) -> Optional[str]:
+    def _extract_account_number(self, text: str) -> str:
         """
         Extrait le numéro de compte du texte.
 
@@ -133,10 +139,15 @@ class PDFAmex(importer.ImporterProtocol):
             text (str): Le texte du relevé.
 
         Returns:
-            Optional[str]: Le numéro de compte ou None si non trouvé.
+            str: Le numéro de compte.
+
+        Raises:
+            ValueError: Si le numéro de compte n'est pas trouvé dans le texte.
         """
-        match = re.search(r"xxxx-xxxxxx-(\d{5})", text)
-        return match.group(0).split(" ")[-1] if match else None
+        match = re.search(self.ACCOUNT_NUMBER_PATTERN, text)
+        if not match:
+            raise ValueError("Numéro de compte non trouvé dans le relevé")
+        return match.group(1)
 
     def _extract_transactions(self, text: str, statement_date: Dict[str, str]) -> List[Dict]:
         """
@@ -153,7 +164,7 @@ class PDFAmex(importer.ImporterProtocol):
             List[Dict]: Liste des transactions extraites, chacune représentée par un dictionnaire.
         """
         transactions = []
-        chunks = re.findall(r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?", text)
+        chunks = re.findall(self.TRANSACTION_PATTERN, text)
         
         for chunk in chunks:
             transaction = self._parse_transaction(chunk, statement_date)
