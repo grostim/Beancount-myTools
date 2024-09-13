@@ -136,7 +136,7 @@ class PDFAmex(importer.ImporterProtocol):
             Optional[str]: Le numéro de compte ou None si non trouvé.
         """
         match = re.search(r"xxxx-xxxxxx-(\d{5})", text)
-        return match.group(1) if match else None
+        return match.group(0).split(" ")[-1] if match else None
 
     def _extract_transactions(self, text: str, statement_date: Dict[str, str]) -> List[Dict]:
         """
