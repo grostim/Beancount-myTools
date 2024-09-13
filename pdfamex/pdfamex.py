@@ -10,10 +10,6 @@ from beancount.core import amount, data, flags
 from beancount.ingest import importer
 from myTools.myutils import pdf_to_text, traduire_mois
 
-ACCOUNT_NUMBER_PATTERN = r"xxxx-xxxxxx-(\d{5})"
-STATEMENT_DATE_PATTERN = r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)"
-TRANSACTION_PATTERN = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?"
-
 class PDFAmex(importer.ImporterProtocol):
     """
     Importateur pour les relevés PDF American Express.
@@ -21,6 +17,10 @@ class PDFAmex(importer.ImporterProtocol):
     Cette classe permet d'extraire les transactions et le solde des relevés
     American Express au format PDF et de les convertir en entrées Beancount.
     """
+
+    ACCOUNT_NUMBER_PATTERN = r"xxxx-xxxxxx-(\d{5})"
+    STATEMENT_DATE_PATTERN = r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)"
+    TRANSACTION_PATTERN = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?"
 
     def __init__(self, account_list: Dict[str, str], debug: bool = False):
         """
