@@ -109,3 +109,43 @@ Un importateur avancé pour les fiches de paie au format PDF émises par Sage ou
 - L'extraction des montants se base sur des motifs regex spécifiques qui pourraient nécessiter des mises à jour en cas de changement de format des fiches de paie.
 - Ne gère pas l'importation détaillée de toutes les lignes de la fiche de paie, se concentrant sur les montants principaux (net avant impôt, impôt sur le revenu, net à payer).
 - Suppose que les montants sont en euros. Des ajustements seraient nécessaires pour d'autres devises.
+
+
+## myutils.py
+
+Le module `myutils.py` contient diverses fonctions utilitaires communes aux importateurs. Voici un aperçu des principales fonctionnalités :
+
+### Fonctions
+
+#### `is_pdfminer_installed()`
+- Vérifie si la commande `pdftotext` est disponible sur le système.
+- Retourne `True` si `pdftotext` est installé, `False` sinon.
+
+#### `pdf_to_text(filename: str)`
+- Convertit un fichier PDF en texte.
+- Paramètres :
+  - `filename` (str) : Chemin du fichier PDF à convertir.
+- Retourne le contenu textuel du fichier PDF.
+- Lève une `ValueError` si la conversion échoue.
+
+#### `traduire_mois(mois: str)`
+- Traduit les abréviations de mois du français vers l'anglais.
+- Paramètres :
+  - `mois` (str) : Chaîne contenant des abréviations de mois en français.
+- Retourne la chaîne avec les abréviations de mois traduites en anglais.
+
+### Utilisation
+
+Ce module est particulièrement utile pour les importateurs qui nécessitent la manipulation de fichiers PDF et la traduction de dates. Il simplifie les tâches courantes telles que la vérification de l'installation de `pdftotext`, la conversion de PDF en texte, et la normalisation des abréviations de mois pour le traitement des dates.
+
+### Dépendances
+
+- Le module utilise la bibliothèque standard Python `subprocess` pour exécuter des commandes système.
+- La fonction `pdf_to_text()` nécessite que `pdftotext` soit installé sur le système.
+
+### Remarques
+
+- Les fonctions sont conçues pour être réutilisables dans différents contextes d'importation.
+- Le module inclut des gestions d'erreurs appropriées, notamment pour les cas où `pdftotext` n'est pas installé ou échoue lors de la conversion.
+- La traduction des mois est particulièrement utile pour normaliser les dates extraites de documents en français vers un format compatible avec les bibliothèques de traitement de dates en anglais.
+
