@@ -76,25 +76,36 @@ un price fetcher pour les cryptosmonnaies.
 un price fetcher pour les Realtokens - basé sur l'API du site communautaire.
 
 ## fichepaye.py
-Un importateur avancé pour les fiches de paie au format PDF émises par Sage ou DUO_. Cet outil extrait les informations clés des fiches de paie, telles que la date de paiement, le net avant impôt, l'impôt sur le revenu et le net à payer, puis les convertit en directives Beancount. Il gère efficacement le classement des fichiers sans importer de transactions.
+Un importateur avancé pour les fiches de paie au format PDF émises par Sage ou DUO_TEC. Cet outil extrait les informations clés des fiches de paie, telles que la date de paiement, le net avant impôt, l'impôt sur le revenu et le net à payer, puis les convertit en directives Beancount. Il gère efficacement l'extraction des données et la création de transactions Beancount correspondantes.
 
 ### Utilisation
-1. Assurez-vous d'avoir les dépendances nécessaires installées (beancount, dateutil, etc.).
+1. Assurez-vous d'avoir les dépendances nécessaires installées (beancount, dateutil, pdfminer, etc.).
 2. Configurez le dictionnaire `account_list` dans votre fichier de configuration Beancount pour faire correspondre les numéros de compte aux comptes Beancount appropriés.
 3. Ajoutez l'importateur à votre configuration Beancount :
    ```python
    from fichepaye import FichePaye
    CONFIG = [
-       FichePaye(account_list={
-           "02568047100015": "Revenus:Salaire:Entreprise",
-           # Ajoutez d'autres comptes si nécessaire
-       }),
+       FichePaye(
+           account_list={
+               "02568047100015": "Revenus:Salaire:Entreprise",
+               # Ajoutez d'autres comptes si nécessaire
+           },
+           compteCourant="Actif:Banque:CompteCourant",
+           compteImpot="Depenses:Impots:RevenuSource",
+           payee="NomEmployeur"
+       ),
    ]
    ```
 4. Utilisez l'importateur avec les commandes habituelles de Beancount (bean-extract, bean-identify, etc.).
 
+### Fonctionnalités
+- Extraction automatique des informations clés de la fiche de paie.
+- Création de transactions Beancount avec les montants appropriés.
+- Gestion des comptes pour le salaire, l'impôt sur le revenu et le compte courant.
+- Mode debug pour faciliter le dépannage.
+
 ### Limitations
-- Spécifiquement conçu pour les fiches de paie émises par Sage ou DUO_. Des modifications seront nécessaires pour d'autres formats.
-- Certains comptes sont codés en dur dans le script et peuvent nécessiter des ajustements.
+- Spécifiquement conçu pour les fiches de paie émises par Sage ou DUO_TEC. Des modifications seront nécessaires pour d'autres formats.
 - L'extraction des montants se base sur des motifs regex spécifiques qui pourraient nécessiter des mises à jour en cas de changement de format des fiches de paie.
-- Ne gère pas l'importation détaillée de toutes les lignes de la fiche de paie, se concentrant sur les montants principaux.
+- Ne gère pas l'importation détaillée de toutes les lignes de la fiche de paie, se concentrant sur les montants principaux (net avant impôt, impôt sur le revenu, net à payer).
+- Suppose que les montants sont en euros. Des ajustements seraient nécessaires pour d'autres devises.

@@ -35,16 +35,32 @@ class FichePaye(importer.ImporterProtocol):
     INCOME_TAX_PATTERN = r"Impôt sur le revenu prélevé à la source - PAS\s*\d{0,3}?\s?\d{0,3}[,.]\d{2}\s*-\s\d{0,3}[,.]\d{0,4}\s*(\d{0,3}?\s?\d{0,3}[,.]\d{2})"
     NET_PAY_PATTERN = r"Net payé\s*(\d{0,3}?\s?\d{0,3}[,.]\d{2})"
 
-    def __init__(self, account_list: Dict[str, str], debug: bool = False):
+    def __init__(
+        self, 
+        account_list: Dict[str, str], 
+        debug: bool = False,
+        compteCourant="Actif:FIXME",
+        compteImpot="Depenses:FIXME",
+        payee="Salaire",
+        ):
         """
         Initialise l'importateur FichePaye.
 
         Args:
             account_list (Dict[str, str]): Dictionnaire associant les numéros de compte aux noms de compte.
             debug (bool, optional): Active le mode debug si True. Par défaut False.
+            compteCourant (str, optional): Compte courant pour les transactions. Par défaut "Actif:FIXME".
+            compteImpot (str, optional): Compte pour l'impôt sur le revenu. Par défaut "Depenses:FIXME".
+            payee (str, optional): Nom du payeur pour les transactions. Par défaut "Salaire".
+
+        Cette classe permet d'importer et de traiter les fiches de paie au format PDF,
+        en extrayant les informations pertinentes et en les convertissant en entrées Beancount.
         """
         self.account_list = account_list
         self.debug = debug
+        self.compteCourant = compteCourant
+        self.compteImpot = compteImpot
+        self.payee = payee
 
     def _debug(self, message: str):
         """
@@ -187,15 +203,15 @@ class FichePaye(importer.ImporterProtocol):
         
         postings = [
             data.Posting(account=f"{account}:Salaire", units=net_before_tax, cost=None, price=None, flag=None, meta=None),
-            data.Posting(account="Depenses:Impots:IR", units=income_tax, cost=None, price=None, flag=None, meta=None),
-            data.Posting(account="Actif:Boursorama:CCTim", units=net_pay, cost=None, price=None, flag=None, meta=None)
+            data.Posting(account=self.compteImpot, units=income_tax, cost=None, price=None, flag=None, meta=None),
+            data.Posting(account=self.compteCourant, units=net_pay, cost=None, price=None, flag=None, meta=None)
         ]
 
         return data.Transaction(
             meta=meta,
             date=date,
             flag=flags.FLAG_OKAY,
-            payee="VIR SEPA TECNAL S.A.S",
+            payee=self.payee,
             narration="VIREMENT-SALAIRE",
             tags=data.EMPTY_SET,
             links=data.EMPTY_SET,
