@@ -22,6 +22,9 @@ class PDFAmex(importer.ImporterProtocol):
     ACCOUNT_NUMBER_PATTERN = r"xxxx-xxxxxx-(\d{5})"
     STATEMENT_DATE_PATTERN = r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)"
     TRANSACTION_PATTERN = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?"
+    TRANSACTION_DATE_PATTERN = r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})"
+    TRANSACTION_DETAILS_PATTERN = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?$"
+    BALANCE_PATTERN = r"Total des dépenses pour\s+(?:.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})"
 
     def __init__(self, account_list: Dict[str, str], debug: bool = False):
         """
@@ -102,7 +105,7 @@ class PDFAmex(importer.ImporterProtocol):
             date: La date du relevé ou None si non trouvée.
         """
         text = self._get_pdf_text(file)
-        match = re.search(r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)", text)
+        match = re.search(self.STATEMENT_DATE_PATTERN, text)
         return parse_datetime(match.group(1), dayfirst=True).date() if match else None
 
     def extract(self, file, existing_entries=None) -> List[data.Directive]:
@@ -139,7 +142,7 @@ class PDFAmex(importer.ImporterProtocol):
         Returns:
             Dict[str, str]: Un dictionnaire contenant le mois et l'année du relevé.
         """
-        match = re.search(r"xxxx-xxxxxx-\d{5}\s*\d*/(\d*)/(\d*)", text)
+        match = re.search(self.STATEMENT_DATE_PATTERN, text)
         return {"month": match.group(1), "year": match.group(2)} if match else {}
 
     def _extract_account_number(self, text: str) -> str:
@@ -198,8 +201,8 @@ class PDFAmex(importer.ImporterProtocol):
         Returns:
             Optional[Dict]: Les détails de la transaction ou None si le parsing échoue.
         """
-        date_match = re.search(r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})", chunk)
-        amount_match = re.search(r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?$", chunk)
+        date_match = re.search(self.TRANSACTION_DATE_PATTERN, chunk)
+        amount_match = re.search(self.TRANSACTION_DETAILS_PATTERN, chunk)
 
         if not date_match or not amount_match:
             return None
@@ -246,10 +249,10 @@ class PDFAmex(importer.ImporterProtocol):
         Returns:
             data.Balance: Le solde extrait sous forme de directive Balance de Beancount.
         """
-        match = re.search(r"Total des dépenses pour\s+(?:.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})", text)
+        match = re.search(self.BALANCE_PATTERN, text)
         balance_amount = -Decimal(match.group(1).replace(",", ".").replace(" ", "")) if match else Decimal(0)
 
-        date_match = re.search(r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)", text)
+        date_match = re.search(self.STATEMENT_DATE_PATTERN, text)
         balance_date = parse_datetime(date_match.group(1), dayfirst=True).date() + timedelta(1) if date_match else None
 
         return data.Balance(
