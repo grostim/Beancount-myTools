@@ -134,16 +134,27 @@ class PDFAmex(importer.ImporterProtocol):
 
     def _extract_statement_date(self, text: str) -> Dict[str, str]:
         """
-        Extrait la date du relevé du texte.
+        Extrait la date du relevé à partir du texte fourni.
+
+        Cette méthode recherche la date du relevé dans le texte en utilisant
+        le motif défini dans STATEMENT_DATE_PATTERN. Si une date est trouvée,
+        elle est divisée en jour, mois et année.
 
         Args:
-            text (str): Le texte du relevé.
+            text (str): Le texte du relevé à analyser.
 
         Returns:
-            Dict[str, str]: Un dictionnaire contenant le mois et l'année du relevé.
+            Dict[str, str]: Un dictionnaire contenant les parties de la date
+                            (clés : 'day', 'month', 'year'). Retourne un
+                            dictionnaire vide si aucune date n'est trouvée.
         """
         match = re.search(self.STATEMENT_DATE_PATTERN, text)
-        return {"month": match.group(1), "year": match.group(2)} if match else {}
+        if match:
+            date_str = match.group(1)
+            date_parts = date_str.split('/')
+            if len(date_parts) == 3:
+                return {"day": date_parts[0], "month": date_parts[1], "year": date_parts[2]}
+        return {}
 
     def _extract_account_number(self, text: str) -> str:
         """
