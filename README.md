@@ -75,6 +75,26 @@ un price fetcher pour les cryptosmonnaies.
 ## Realt
 un price fetcher pour les Realtokens - basé sur l'API du site communautaire.
 
-## fichepaye
-Un importer pour les bulletins de paye (pdf) de mon employeur. Ceux ci sont édités avec Sage.
-Il est peut probable que le script soit directement utilisable par un salarié d'une autre entreprise (d'autant plus que certains comptes sont en dur dans le code python), mais celà peut servir de base d'inspiration à d'autres personne.
+## fichepaye.py
+Un importateur avancé pour les fiches de paie au format PDF émises par Sage ou DUO_. Cet outil extrait les informations clés des fiches de paie, telles que la date de paiement, le net avant impôt, l'impôt sur le revenu et le net à payer, puis les convertit en directives Beancount. Il gère efficacement le classement des fichiers sans importer de transactions.
+
+### Utilisation
+1. Assurez-vous d'avoir les dépendances nécessaires installées (beancount, dateutil, etc.).
+2. Configurez le dictionnaire `account_list` dans votre fichier de configuration Beancount pour faire correspondre les numéros de compte aux comptes Beancount appropriés.
+3. Ajoutez l'importateur à votre configuration Beancount :
+   ```python
+   from fichepaye import FichePaye
+   CONFIG = [
+       FichePaye(account_list={
+           "02568047100015": "Revenus:Salaire:Entreprise",
+           # Ajoutez d'autres comptes si nécessaire
+       }),
+   ]
+   ```
+4. Utilisez l'importateur avec les commandes habituelles de Beancount (bean-extract, bean-identify, etc.).
+
+### Limitations
+- Spécifiquement conçu pour les fiches de paie émises par Sage ou DUO_. Des modifications seront nécessaires pour d'autres formats.
+- Certains comptes sont codés en dur dans le script et peuvent nécessiter des ajustements.
+- L'extraction des montants se base sur des motifs regex spécifiques qui pourraient nécessiter des mises à jour en cas de changement de format des fiches de paie.
+- Ne gère pas l'importation détaillée de toutes les lignes de la fiche de paie, se concentrant sur les montants principaux.
