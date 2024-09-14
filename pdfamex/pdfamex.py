@@ -1,7 +1,7 @@
 """Importateur pour les relevés PDF d'American Express."""
 
 import re
-from datetime import timedelta
+from datetime import timedelta, datetime
 from decimal import Decimal
 from typing import List, Dict, Optional
 from functools import lru_cache
@@ -17,6 +17,14 @@ class PDFAmex(importer.ImporterProtocol):
 
     Cette classe permet d'extraire les transactions et le solde des relevés
     American Express au format PDF et de les convertir en entrées Beancount.
+
+    Attributes:
+        ACCOUNT_NUMBER_PATTERN (str): Motif regex pour extraire le numéro de compte.
+        STATEMENT_DATE_PATTERN (str): Motif regex pour extraire la date du relevé.
+        TRANSACTION_PATTERN (str): Motif regex pour identifier les transactions.
+        TRANSACTION_DATE_PATTERN (str): Motif regex pour extraire les dates des transactions.
+        TRANSACTION_DETAILS_PATTERN (str): Motif regex pour extraire les détails des transactions.
+        BALANCE_PATTERN (str): Motif regex pour extraire le solde total.
     """
 
     ACCOUNT_NUMBER_PATTERN = r"xxxx-xxxxxx-(\d{5})"
@@ -91,7 +99,7 @@ class PDFAmex(importer.ImporterProtocol):
         text = self._get_pdf_text(file)
         match = re.search(self.ACCOUNT_NUMBER_PATTERN, text)
         if not match:
-            raise ValueError("Numéro de compte non trouvé dans le relevé")
+            self._handle_parsing_error("Numéro de compte non trouvé dans le relevé")
         return self.account_list.get(match.group(1)) if match else None
 
     def file_date(self, file):
@@ -171,7 +179,7 @@ class PDFAmex(importer.ImporterProtocol):
         """
         match = re.search(self.ACCOUNT_NUMBER_PATTERN, text)
         if not match:
-            raise ValueError("Numéro de compte non trouvé dans le relevé")
+            self._handle_parsing_error("Numéro de compte non trouvé dans le relevé")
         return match.group(1)
 
     def _extract_transactions(self, text: str, statement_date: Dict[str, str]) -> List[Dict]:
@@ -211,6 +219,11 @@ class PDFAmex(importer.ImporterProtocol):
 
         Returns:
             Optional[Dict]: Les détails de la transaction ou None si le parsing échoue.
+                Le dictionnaire contient les clés suivantes :
+                - 'date': La date de la transaction (datetime.datetime)
+                - 'amount': Le montant de la transaction (beancount.core.amount.Amount)
+                - 'payee': Le bénéficiaire de la transaction (str)
+                - 'type': Le type de transaction ('Débit' ou 'Credit')
         """
         date_match = re.search(self.TRANSACTION_DATE_PATTERN, chunk)
         amount_match = re.search(self.TRANSACTION_DETAILS_PATTERN, chunk)
@@ -220,10 +233,17 @@ class PDFAmex(importer.ImporterProtocol):
 
         raw_date = date_match.group(2)
         month = date_match.group(2).split()[1]
-        year = statement_date['year'] if month != 'déc' or statement_date['month'] != '01' else str(int(statement_date['year']) - 1)
+        current_year = int(statement_date['year'])
+        transaction_year = current_year if month != 'déc' or statement_date['month'] != '01' else current_year - 1
+        
+        transaction_date = parse_datetime(traduire_mois(f"{raw_date} {transaction_year}"))
+        
+        # Vérifier si la date de transaction est dans le futur
+        if transaction_date > datetime.now():
+            transaction_date = transaction_date.replace(year=transaction_year - 1)
         
         return {
-            "date": parse_datetime(traduire_mois(f"{raw_date} 20{year}")),
+            "date": transaction_date,
             "amount": self._parse_amount(amount_match.group(2), amount_match.group(3)),
             "payee": re.sub(r"\s+", " ", amount_match.group(1)),
             "type": "Débit" if amount_match.group(3) else "Credit"
@@ -309,3 +329,20 @@ class PDFAmex(importer.ImporterProtocol):
             links=data.EMPTY_SET,
             postings=[posting]
         )
+
+    def _handle_parsing_error(self, message: str, details: Optional[str] = None):
+        """
+        Gère les erreurs de parsing en les enregistrant et en levant une exception.
+
+        Args:
+            message (str): Le message d'erreur principal.
+            details (Optional[str]): Détails supplémentaires sur l'erreur.
+
+        Raises:
+            ValueError: Avec le message d'erreur formaté.
+        """
+        error_msg = f"Erreur de parsing : {message}"
+        if details:
+            error_msg += f"\nDétails : {details}"
+        self._debug(error_msg)
+        raise ValueError(error_msg)
