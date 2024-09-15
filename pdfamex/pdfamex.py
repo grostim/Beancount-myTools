@@ -11,6 +11,7 @@ from beancount.core import amount, data, flags
 from beancount.ingest import importer
 from myTools.myutils import pdf_to_text, traduire_mois
 
+
 class PDFAmex(importer.ImporterProtocol):
     """
     Importateur pour les relevés PDF American Express.
@@ -30,9 +31,13 @@ class PDFAmex(importer.ImporterProtocol):
     ACCOUNT_NUMBER_PATTERN = r"xxxx-xxxxxx-(\d{5})"
     STATEMENT_DATE_PATTERN = r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)"
     TRANSACTION_PATTERN = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?"
-    TRANSACTION_DATE_PATTERN = r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})"
+    TRANSACTION_DATE_PATTERN = (
+        r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})"
+    )
     TRANSACTION_DETAILS_PATTERN = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}\s+(.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})(\s*CR)?$"
-    BALANCE_PATTERN = r"Total des dépenses pour\s+(?:.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})"
+    BALANCE_PATTERN = (
+        r"Total des dépenses pour\s+(?:.*?)\s+(\d{0,3}\s{0,1}\d{1,3},\d{2})"
+    )
 
     def __init__(self, account_list: Dict[str, str], debug: bool = False):
         """
@@ -99,7 +104,9 @@ class PDFAmex(importer.ImporterProtocol):
         text = self._get_pdf_text(file)
         match = re.search(self.ACCOUNT_NUMBER_PATTERN, text)
         if not match:
-            self._handle_parsing_error("Numéro de compte non trouvé dans le relevé")
+            self._handle_parsing_error(
+                "Numéro de compte non trouvé dans le relevé"
+            )
         return self.account_list.get(match.group(1)) if match else None
 
     def file_date(self, file):
@@ -114,7 +121,11 @@ class PDFAmex(importer.ImporterProtocol):
         """
         text = self._get_pdf_text(file)
         match = re.search(self.STATEMENT_DATE_PATTERN, text)
-        return parse_datetime(match.group(1), dayfirst=True).date() if match else None
+        return (
+            parse_datetime(match.group(1), dayfirst=True).date()
+            if match
+            else None
+        )
 
     def extract(self, file, existing_entries=None) -> List[data.Directive]:
         """
@@ -138,7 +149,10 @@ class PDFAmex(importer.ImporterProtocol):
         transactions = self._extract_transactions(text, statement_date)
         balance = self._extract_balance(text, account_number)
 
-        return [self._create_transaction(t, account_number, file) for t in transactions] + [balance]
+        return [
+            self._create_transaction(t, account_number, file)
+            for t in transactions
+        ] + [balance]
 
     def _extract_statement_date(self, text: str) -> Dict[str, str]:
         """
@@ -159,9 +173,13 @@ class PDFAmex(importer.ImporterProtocol):
         match = re.search(self.STATEMENT_DATE_PATTERN, text)
         if match:
             date_str = match.group(1)
-            date_parts = date_str.split('/')
+            date_parts = date_str.split("/")
             if len(date_parts) == 3:
-                return {"day": date_parts[0], "month": date_parts[1], "year": date_parts[2]}
+                return {
+                    "day": date_parts[0],
+                    "month": date_parts[1],
+                    "year": date_parts[2],
+                }
         return {}
 
     def _extract_account_number(self, text: str) -> str:
@@ -179,10 +197,14 @@ class PDFAmex(importer.ImporterProtocol):
         """
         match = re.search(self.ACCOUNT_NUMBER_PATTERN, text)
         if not match:
-            self._handle_parsing_error("Numéro de compte non trouvé dans le relevé")
+            self._handle_parsing_error(
+                "Numéro de compte non trouvé dans le relevé"
+            )
         return match.group(1)
 
-    def _extract_transactions(self, text: str, statement_date: Dict[str, str]) -> List[Dict]:
+    def _extract_transactions(
+        self, text: str, statement_date: Dict[str, str]
+    ) -> List[Dict]:
         """
         Extrait les transactions du texte.
 
@@ -198,7 +220,7 @@ class PDFAmex(importer.ImporterProtocol):
         """
         transactions = []
         chunks = re.findall(self.TRANSACTION_PATTERN, text)
-        
+
         for chunk in chunks:
             transaction = self._parse_transaction(chunk, statement_date)
             if transaction:
@@ -206,7 +228,9 @@ class PDFAmex(importer.ImporterProtocol):
 
         return transactions
 
-    def _parse_transaction(self, chunk: str, statement_date: Dict[str, str]) -> Optional[Dict]:
+    def _parse_transaction(
+        self, chunk: str, statement_date: Dict[str, str]
+    ) -> Optional[Dict]:
         """
         Parse une transaction individuelle.
 
@@ -233,23 +257,35 @@ class PDFAmex(importer.ImporterProtocol):
 
         raw_date = date_match.group(2)
         month = date_match.group(2).split()[1]
-        current_year = int(statement_date['year'])
-        transaction_year = current_year if month != 'déc' or statement_date['month'] != '01' else current_year - 1
-        
-        transaction_date = parse_datetime(traduire_mois(f"{raw_date} {transaction_year}"))
-        
+        current_year = int(statement_date["year"])
+        transaction_year = (
+            current_year
+            if month != "déc" or statement_date["month"] != "01"
+            else current_year - 1
+        )
+
+        transaction_date = parse_datetime(
+            traduire_mois(f"{raw_date} {transaction_year}")
+        )
+
         # Vérifier si la date de transaction est dans le futur
         if transaction_date > datetime.now():
-            transaction_date = transaction_date.replace(year=transaction_year - 1)
-        
+            transaction_date = transaction_date.replace(
+                year=transaction_year - 1
+            )
+
         return {
             "date": transaction_date,
-            "amount": self._parse_amount(amount_match.group(2), amount_match.group(3)),
+            "amount": self._parse_amount(
+                amount_match.group(2), amount_match.group(3)
+            ),
             "payee": re.sub(r"\s+", " ", amount_match.group(1)),
-            "type": "Débit" if amount_match.group(3) else "Credit"
+            "type": "Débit" if amount_match.group(3) else "Credit",
         }
 
-    def _parse_amount(self, amount_str: str, credit_indicator: Optional[str]) -> amount.Amount:
+    def _parse_amount(
+        self, amount_str: str, credit_indicator: Optional[str]
+    ) -> amount.Amount:
         """
         Parse le montant d'une transaction.
 
@@ -264,7 +300,9 @@ class PDFAmex(importer.ImporterProtocol):
             amount.Amount: Le montant parsé sous forme d'objet Amount de Beancount.
         """
         decimal_amount = Decimal(amount_str.replace(",", ".").replace(" ", ""))
-        return amount.Amount(decimal_amount if credit_indicator else -decimal_amount, "EUR")
+        return amount.Amount(
+            decimal_amount if credit_indicator else -decimal_amount, "EUR"
+        )
 
     def _extract_balance(self, text: str, account_number: str) -> data.Balance:
         """
@@ -281,10 +319,19 @@ class PDFAmex(importer.ImporterProtocol):
             data.Balance: Le solde extrait sous forme de directive Balance de Beancount.
         """
         match = re.search(self.BALANCE_PATTERN, text)
-        balance_amount = -Decimal(match.group(1).replace(",", ".").replace(" ", "")) if match else Decimal(0)
+        balance_amount = (
+            -Decimal(match.group(1).replace(",", ".").replace(" ", ""))
+            if match
+            else Decimal(0)
+        )
 
         date_match = re.search(self.STATEMENT_DATE_PATTERN, text)
-        balance_date = parse_datetime(date_match.group(1), dayfirst=True).date() + timedelta(1) if date_match else None
+        balance_date = (
+            parse_datetime(date_match.group(1), dayfirst=True).date()
+            + timedelta(1)
+            if date_match
+            else None
+        )
 
         return data.Balance(
             meta=data.new_metadata("", 0, {"source": "pdfamex"}),
@@ -292,10 +339,12 @@ class PDFAmex(importer.ImporterProtocol):
             account=self.account_list[account_number],
             amount=amount.Amount(balance_amount, "EUR"),
             tolerance=None,
-            diff_amount=None
+            diff_amount=None,
         )
 
-    def _create_transaction(self, transaction: Dict, account_number: str, file) -> data.Transaction:
+    def _create_transaction(
+        self, transaction: Dict, account_number: str, file
+    ) -> data.Transaction:
         """
         Crée une transaction Beancount à partir des données extraites.
 
@@ -310,14 +359,16 @@ class PDFAmex(importer.ImporterProtocol):
         Returns:
             data.Transaction: La transaction Beancount créée.
         """
-        meta = data.new_metadata(file.name, 0, {"source": "pdfamex", "type": transaction["type"]})
+        meta = data.new_metadata(
+            file.name, 0, {"source": "pdfamex", "type": transaction["type"]}
+        )
         posting = data.Posting(
             account=self.account_list[account_number],
             units=transaction["amount"],
             cost=None,
             flag=None,
             meta=None,
-            price=None
+            price=None,
         )
         return data.Transaction(
             meta=meta,
@@ -327,10 +378,12 @@ class PDFAmex(importer.ImporterProtocol):
             narration="",
             tags=data.EMPTY_SET,
             links=data.EMPTY_SET,
-            postings=[posting]
+            postings=[posting],
         )
 
-    def _handle_parsing_error(self, message: str, details: Optional[str] = None):
+    def _handle_parsing_error(
+        self, message: str, details: Optional[str] = None
+    ):
         """
         Gère les erreurs de parsing en les enregistrant et en levant une exception.
 
