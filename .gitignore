@@ -10,3 +10,48 @@ __pycache__/
 core
 regtest/Beancount-myTools-tests
 .vscode
+# Environnements virtuels
+.venv/
+venv/
+ENV/
+
+# Fichiers de configuration IDE
+.idea/
+*.swp
+*.swo
+
+# Fichiers de logs
+*.log
+
+# Fichiers de sauvegarde
+*.bak
+
+# Fichiers de cache
+.cache/
+
+# Fichiers de build
+build/
+dist/
+*.egg-info/
+
+# Fichiers de données sensibles
+*.env
+.env
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Fichiers système macOS
+.DS_Store
+
+# Fichiers de couverture de tests
+.coverage
+htmlcov/
+
+# Fichiers de documentation générés
+docs/_build/
+
+# Fichiers spécifiques au projet
+output/
+data/raw/
