@@ -9,3 +9,4 @@ __pycache__/
 .pytest_cache/
 core
 regtest/Beancount-myTools-tests
+.vscode
