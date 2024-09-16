@@ -8,4 +8,4 @@ __pycache__/
 *$py.class
 .pytest_cache/
 core
-regtest/
+regtest/Beancount-myTools-tests
