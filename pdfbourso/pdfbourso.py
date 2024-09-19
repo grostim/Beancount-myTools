@@ -17,7 +17,7 @@ __license__ = "GNU GPLv2"
 import re
 import datetime
 from dateutil.parser import parse as parse_datetime
-from myTools.myutils import pdf_to_text
+from myutils import pdf_to_text
 from beancount.core import amount, data, flags, position
 from beancount.ingest import importer
 from beancount.core.number import Decimal, D

@@ -1,3 +1,21 @@
 [tool.black]
 line-length = 79
 include = '\.pyi?$'
+
+[tool.setuptools]
+py-modules = []
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "myTools"
+version = "0.1.0"
+description = "Librairie d'importateurs personnels"
+dependencies = [
+    "beancount>=2.3.4,<3.0",
+    "python-dateutil",
+]
+requires-python = ">=3.7"
+

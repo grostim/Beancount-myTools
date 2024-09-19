@@ -15,12 +15,12 @@ ACCOUNTLIST = {
     "xxxx-xxxxxx-72001": "Passif:AirFrance:Amex",
 }
 
-IMPORTER = pdfamex.pdfamex(ACCOUNTLIST)
+IMPORTER = pdfamex.PDFAmex(ACCOUNTLIST)
 
 
 @regtest.with_importer(IMPORTER)
 @regtest.with_testdir(
-    "/myData/myTools/regtest/Beancount-myTools-tests/pdfamex/"
+    path.abspath("regtest/Beancount-myTools-tests/pdfamex/")
 )
 class TestImporter(regtest.ImporterTestBase):
     pass
