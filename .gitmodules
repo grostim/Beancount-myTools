@@ -1,0 +1,3 @@
+[submodule "regtest/Beancount-myTools-tests"]
+	path = regtest/Beancount-myTools-tests
+	url = git@github.com:grostim/Beancount-myTools-tests.git
