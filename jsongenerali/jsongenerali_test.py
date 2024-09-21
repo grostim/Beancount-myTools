@@ -14,7 +14,7 @@ ACCOUNTLIST = {
     "P54112927": "Actif:Linxea:AVTim1",
 }
 
-IMPORTER = jsongenerali.jsongenerali(ACCOUNTLIST)
+IMPORTER = jsongenerali.JSONGenerali(ACCOUNTLIST)
 
 
 @regtest.with_importer(IMPORTER)
