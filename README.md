@@ -11,8 +11,23 @@ Les fichiers de regtest ne sont pas partagés sur github, car bien entendu ce so
 Tous ces poutils sont très perfectibles, n'hésitez pas à me faire part de vos propositions d'améliorations, ou mieux encore une pull request.
 
 ## QIFBoursorama
-Un importer pour les fichiers QIF générés par Boursorama.
-Je recommandecependant d'importer les pdfs avec PDFbourso : (plus de détails et récupération des balance).
+Un importateur pour les fichiers QIF générés par Boursorama.
+
+### Présentation générale
+Cet outil permet d'importer les transactions à partir des fichiers QIF générés par Boursorama et de les convertir en directives Beancount. Bien qu'il soit fonctionnel, il est recommandé d'utiliser plutôt l'importateur PDFBourso qui offre plus de détails et permet la récupération des soldes.
+
+### Utilisation
+1. Assurez-vous d'avoir les dépendances nécessaires installées (beancount, etc.).
+2. Configurez l'importateur dans votre fichier de configuration Beancount.
+3. Utilisez l'importateur avec les commandes habituelles de Beancount (bean-extract, bean-identify, etc.).
+
+### Limitations
+- Ne récupère pas les soldes des comptes.
+- Fournit moins de détails que l'importateur PDFBourso.
+- Peut nécessiter des ajustements en fonction des spécificités des fichiers QIF de Boursorama.
+
+### Recommandation
+Il est conseillé d'utiliser l'importateur PDFBourso à la place de cet outil pour obtenir des informations plus complètes et précises sur vos transactions Boursorama.
 
 ## PDFBourso
 Un importer pour les relevés au format PDF emis par Boursorama.
@@ -52,12 +67,42 @@ Un importateur avancé pour les relevés au format PDF émis par American Expres
 Un script qui récupère tout l'historique d'une assurance e-cie Vie (Generali) et les sauvegardes sous formes de fichiers JSON.
 A ce stade, il n'a été testé que sur un contrat commercialisé par Linxea.
 
+Ce sript n'est plus  fonctionnel à ce jour.
+
 ## JSONGenerali
-Un importer pour les relevés au format JSON généré par le script précédent.
+### Présentation générale
+Un importateur avancé pour les relevés au format JSON générés par le script Generali. Cet outil extrait les transactions des fichiers JSON, les convertit en directives Beancount, et gère efficacement les spécificités des relevés Generali, y compris les différents types d'opérations comme les versements, les arbitrages, et les distributions de dividendes.
+
+### Utilisation
+1. Assurez-vous d'avoir les dépendances nécessaires installées (beancount, json, etc.).
+2. Configurez le dictionnaire `account_list` dans votre fichier de configuration Beancount pour faire correspondre les comptes Generali à vos comptes Beancount.
+3. Ajoutez l'importateur à votre configuration Beancount :
+   ```python
+   from jsongenerali import JSONGenerali
+   CONFIG = [
+       JSONGenerali(
+           account_list={
+               "AVTim1": "Actif:Linxea:AVTim1",
+               # Ajoutez d'autres comptes si nécessaire
+           },
+           compte_tiers="Actif:Banque:CompteCourant",
+           compte_frais="Depenses:Frais:AssuranceVie",
+           compte_dividendes="Revenus:Dividendes:AssuranceVie"
+       ),
+   ]
+   ```
+4. Utilisez l'importateur avec les commandes habituelles de Beancount (bean-extract, bean-identify, etc.).
+
+### Limitations
+- Principalement testé avec les contrats Generali commercialisés par Linxea. Des ajustements peuvent être nécessaires pour d'autres types de contrats.
+- La précision des calculs dépend de la qualité des données fournies dans les fichiers JSON.
+- Certains types d'opérations spécifiques peuvent nécessiter des ajustements manuels.
 
 ## PDFBinck
 Un importer pour les relevés au format PDF emis par Binck France.
 A ce stade, cet importer se contente de classer le fichier.
+
+Cet importer n'est plus mis à jour suite au rachat de Binck par Saxo Bank.
 
 ## IEXCloud
 Un price fetcher qui utilise iexcloud.io.
