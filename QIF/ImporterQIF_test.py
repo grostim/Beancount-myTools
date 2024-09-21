@@ -17,6 +17,8 @@ IMPORTER = ImporterQIF.ImporterQIF(ACCOUNTLIST)
 
 
 @regtest.with_importer(IMPORTER)
-@regtest.with_testdir("/myData/myTools/QIF/regtest")
+@regtest.with_testdir(
+    path.abspath("regtest/Beancount-myTools-tests/QIF/")
+)
 class TestImporter(regtest.ImporterTestBase):
     pass

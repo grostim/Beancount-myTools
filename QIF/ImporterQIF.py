@@ -46,10 +46,24 @@ class ImporterQIF(importer.ImporterProtocol):
         )
 
     def file_date(self, file):
+        """
+        Extrait la date la plus récente du fichier QIF.
+
+        Args:
+            file: Le fichier QIF à analyser.
+
+        Returns:
+            datetime.date: La date la plus récente trouvée dans le fichier.
+
+        Raises:
+            ValueError: Si aucune date valide n'est trouvée dans le fichier.
+        """
         with open(file.name, "r", encoding="windows-1250") as fichier:
-            chunks = fichier.read().split(r"\n^\n")
-            lines = chunks[-2].split("\n")
-            return datetime.datetime.strptime(lines[-3][1:], "%d/%m/%Y").date()
+            contenu = fichier.read()
+            dates = re.findall(r"D(\d{2}/\d{2}/\d{4})", contenu)
+            if not dates:
+                raise ValueError("Aucune date valide trouvée dans le fichier QIF")
+            return max(datetime.datetime.strptime(date, "%d/%m/%Y").date() for date in dates)
 
     def check_before_add(self, transac):
         try:
