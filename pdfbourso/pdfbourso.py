@@ -97,6 +97,7 @@ class pdfbourso(importer.ImporterProtocol):
 
     def file_name(self, file):
         # Normalize the name to something meaningful.
+        self.identify(file)
         if self.type == "DividendeBourse":
             return "Relevé Dividendes.pdf"
         elif self.type == "EspeceBourse":
@@ -120,6 +121,7 @@ class pdfbourso(importer.ImporterProtocol):
         """
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
+        self.identify(file)
         if self.type == "Compte":
             control = r"\s*(\d{11})"
         elif self.type == "CB":
