@@ -12,7 +12,7 @@ from beancount.ingest import regression_pytest as regtest
 from . import pdfamex
 
 ACCOUNTLIST = {
-    "xxxx-xxxxxx-72001": "Passif:AirFrance:Amex",
+    "72001": "Passif:AirFrance:Amex",
 }
 
 IMPORTER = pdfamex.PDFAmex(ACCOUNTLIST)
