@@ -55,6 +55,16 @@ class PDFBourso(importer.ImporterProtocol):
         self.accountList = accountList
         self.debug = debug
 
+    def _debug(self, message: str):
+        """
+        Affiche un message de débogage si le mode debug est activé.
+
+        Args:
+            message (str): Le message à afficher.
+        """
+        if self.debug:
+            print(f"[DEBUG] {message}")
+
     def identify(self, file):
         """
         La fonction identify prend un fichier comme argument et renvoie une valeur booléenne.
@@ -69,8 +79,7 @@ class PDFBourso(importer.ImporterProtocol):
             return False
 
         text = file.convert(pdf_to_text)
-        if self.debug:
-            print(text)
+        self._debug(f"Contenu du PDF :\n{text}")
         if text:
             if re.search(self.REGEX_DIVIDENDE, text) is not None:
                 self.type = "DividendeBourse"
@@ -798,15 +807,13 @@ class PDFBourso(importer.ImporterProtocol):
                 compte = match.group(1)
 
             # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(compte)
+            self._debug(f"Numéro de compte : {compte}")
 
             control = r"(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(chunks)
+            self._debug(f"Chunks : {chunks}")
 
             index = 0
             for chunk in chunks:
@@ -896,16 +903,14 @@ class PDFBourso(importer.ImporterProtocol):
                 compte = match.group(1)
 
             # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(compte)
+            self._debug(f"Numéro de compte : {compte}")
 
             control = r"(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(control)
-                print(chunks)
+            self._debug(f"Control : {control}")
+            self._debug(f"Chunks : {chunks}")
 
             index = 0
             for chunk in chunks:
@@ -916,25 +921,21 @@ class PDFBourso(importer.ImporterProtocol):
                 ope = dict()
 
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(chunk)
+                self._debug(f"Chunk : {chunk}")
 
                 ope["date"] = chunk[0]
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(ope["date"])
+                self._debug(f"Date : {ope['date']}")
 
                 ope["montant"] = "-" + chunk[2].replace(".", "").replace(
                     ",", "."
                 )
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(ope["montant"])
+                self._debug(f"Montant : {ope['montant']}")
 
                 ope["payee"] = re.sub(r"\s+", " ", chunk[1])
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(ope["payee"])
+                self._debug(f"Payee : {ope['payee']}")
 
                 # Creation de la transaction
                 posting_1 = data.Posting(
@@ -965,8 +966,7 @@ class PDFBourso(importer.ImporterProtocol):
                 balance = "-" + match.group(2).replace(".", "").replace(
                     ",", "."
                 )
-                if self.debug:
-                    print(balance)
+                self._debug(f"Balance : {balance}")
                 # Recherche de la date du solde final
                 control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
                 match = re.search(control, text)
@@ -974,8 +974,7 @@ class PDFBourso(importer.ImporterProtocol):
                     datebalance = parse_datetime(
                         match.group(1), dayfirst="True"
                     ).date()
-                    if self.debug:
-                        print(datebalance)
+                    self._debug(f"Date de la balance : {datebalance}")
                     meta = data.new_metadata(file.name, 0)
                     meta["source"] = "pdfbourso"
                     meta["document"] = document
