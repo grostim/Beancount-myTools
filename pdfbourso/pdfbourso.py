@@ -23,7 +23,7 @@ from beancount.ingest import importer
 from beancount.core.number import Decimal, D
 
 
-class pdfbourso(importer.ImporterProtocol):
+class PDFBourso(importer.ImporterProtocol):
     """An importer for Boursorama PDF statements."""
 
     def __init__(self, accountList, debug: bool = False):
