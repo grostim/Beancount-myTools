@@ -1,17 +1,14 @@
-"""Importer for PDF statements from Boursorama.
+"""Importer pour les relevés PDF de Boursorama.
+Cet importateur identifie le fichier à partir de son contenu et ne prend en charge que le classement,
+il ne peut pas extraire de transactions à partir de la conversion PDF en texte. Ceci est courant,
+et j'ai pensé fournir un exemple de fonctionnement.
 
-This importer identifies the file from its contents and only supports filing, it
-cannot extract any transactions from the PDF conersion to text. This is common,
-and I figured I'd provide an example for how this works.
-
-Furthermore, it uses an external library called pdftotext, which may or may not be installed on
-your machine. This example shows how to write a test that gets skipped
-automatically when an external tool isn't installed.
+De plus, il utilise une bibliothèque externe appelée pdftotext, qui peut ou non être installée sur
+votre machine. Cet exemple montre comment écrire un test qui est automatiquement ignoré
+lorsqu'un outil externe n'est pas installé.
 """
 
-__copyright__ = (
-    "Copyright (C) 2016  Martin Blais / Mofified in 2019 by Grostim"
-)
+__copyright__ = "Copyright (C) 2016 Martin Blais / Modifié en 2019 par Grostim"
 __license__ = "GNU GPLv2"
 
 import re
@@ -22,38 +19,45 @@ from beancount.core import amount, data, flags, position
 from beancount.ingest import importer
 from beancount.core.number import Decimal, D
 
-
 class PDFBourso(importer.ImporterProtocol):
-    """An importer for Boursorama PDF statements."""
+    """Un importateur pour les relevés PDF Boursorama."""
+
+    # Constantes de classe pour les motifs regex
+    REGEX_DIVIDENDE = r"COUPONS REMBOURSEMENTS :"
+    REGEX_ESPECE_BOURSE = r"RELEVE COMPTE ESPECES :"
+    REGEX_BOURSE = r"OPERATION DE BOURSE"
+    REGEX_OPCVM = r"OPERATION SUR OPC"
+    REGEX_CB = r"Relevé de Carte"
+    REGEX_COMPTE = r"BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151"
+    REGEX_AMORTISSEMENT = r"tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif"
+    
+    # ... Ajoutez d'autres constantes pour les autres motifs regex ...
 
     def __init__(self, accountList, debug: bool = False):
         """
-        This function is used to create an instance of the class.
-        It takes a list of accounts as a parameter and returns an instance of the class.
-        The class has two attributes: a list of accounts and a boolean debug flag.
+        Cette fonction est utilisée pour créer une instance de la classe.
+        Elle prend une liste de comptes comme paramètre et renvoie une instance de la classe.
+        La classe a deux attributs : une liste de comptes et un indicateur de débogage booléen.
 
-        :param accountList: A dictionary of accounts
-        :param debug: bool = False, defaults to False
-        :type debug: bool (optional)
+        :param accountList: Un dictionnaire de comptes
+        :param debug: bool = False, par défaut False
+        :type debug: bool (optionnel)
         :return: None
         """
-        assert isinstance(
-            accountList, dict
-        ), "La liste de comptes doit etre un type dict"
+        assert isinstance(accountList, dict), "La liste de comptes doit être de type dict"
         self.accountList = accountList
-        self.debug = True
+        self.debug = debug
 
     def identify(self, file):
         """
-        The identify function takes a file as an argument and returns a boolean value.
-        If the file is a pdf, it converts it to text and checks if the text contains
-        the words "Relevé de Carte" or "BOURSORAMA BANQUE". If it does, it returns True.
-        Otherwise, it returns False.
+        La fonction identify prend un fichier comme argument et renvoie une valeur booléenne.
+        Si le fichier est un pdf, il le convertit en texte et vérifie si le texte contient
+        certains mots-clés. S'il les contient, il renvoie True.
+        Sinon, il renvoie False.
 
-        :param file: the file to be processed
-        :return: The type of the file.
+        :param file: le fichier à traiter
+        :return: Le type du fichier.
         """
-
         if file.mimetype() != "application/pdf":
             return False
 
@@ -61,37 +65,25 @@ class PDFBourso(importer.ImporterProtocol):
         if self.debug:
             print(text)
         if text:
-            if re.search(r"COUPONS REMBOURSEMENTS :", text) is not None:
+            if re.search(self.REGEX_DIVIDENDE, text) is not None:
                 self.type = "DividendeBourse"
                 return 1
-            if re.search(r"RELEVE COMPTE ESPECES :", text) is not None:
+            if re.search(self.REGEX_ESPECE_BOURSE, text) is not None:
                 self.type = "EspeceBourse"
                 return 1
-            if re.search(r"OPERATION DE BOURSE", text) is not None:
+            if re.search(self.REGEX_BOURSE, text) is not None:
                 self.type = "Bourse"
                 return 1
-            if re.search(r"OPERATION SUR OPC", text) is not None:
+            if re.search(self.REGEX_OPCVM, text) is not None:
                 self.type = "OPCVM"
                 return 1
-            if re.search("Relevé de Carte", text) is not None:
+            if re.search(self.REGEX_CB, text) is not None:
                 self.type = "CB"
                 return 1
-            if (
-                re.search(
-                    r"BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151",
-                    text,
-                )
-                is not None
-            ):
+            if re.search(self.REGEX_COMPTE, text) is not None:
                 self.type = "Compte"
                 return 1
-            if (
-                re.search(
-                    r"tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif",
-                    text,
-                )
-                is not None
-            ):
+            if re.search(self.REGEX_AMORTISSEMENT, text) is not None:
                 self.type = "Amortissement"
                 return 1
 
