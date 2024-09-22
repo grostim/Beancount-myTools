@@ -35,7 +35,7 @@ ACCOUNTLIST = {
     "00080340253": "Actif:Boursorama:CTO"
 }
 
-IMPORTER = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+IMPORTER = pdfbourso.PDFBourso(ACCOUNTLIST, debug=False)
 
 
 @regtest.with_importer(IMPORTER)

@@ -30,8 +30,15 @@ class PDFBourso(importer.ImporterProtocol):
     REGEX_CB = r"Relevé de Carte"
     REGEX_COMPTE = r"BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151"
     REGEX_AMORTISSEMENT = r"tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif"
-    
-    # ... Ajoutez d'autres constantes pour les autres motifs regex ...
+
+    REGEX_COMPTE_COMPTE = r"\s*(\d{11})"
+    REGEX_COMPTE_CB = r"\s*((4979|4810)\*{8}\d{4})"
+    REGEX_COMPTE_AMORTISSEMENT = r"N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
+    REGEX_COMPTE_ESPECE_DIVIDENDE_BOURSE = r"40618\s\d{5}\s(\d{11})\s"
+    REGEX_COMPTE_BOURSE_OPCVM = r"\d{5}\s\d{5}\s(\d{11})\s"
+    REGEX_ISIN = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
+
+    DATE_REGEX = r"(?:le\s|au\s*|Date départ\s*:\s)(\d*/\d*/\d*)"
 
     def __init__(self, accountList, debug: bool = False):
         """
@@ -114,39 +121,42 @@ class PDFBourso(importer.ImporterProtocol):
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
         self.identify(file)
+        
         if self.type == "Compte":
-            control = r"\s*(\d{11})"
+            control = self.REGEX_COMPTE_COMPTE
         elif self.type == "CB":
-            control = r"\s*((4979|4810)\*{8}\d{4})"
+            control = self.REGEX_COMPTE_CB
         elif self.type == "Amortissement":
-            control = r"N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
-        elif self.type == "EspeceBourse" or (self.type == "DividendeBourse"):
-            control = r"40618\s\d{5}\s(\d{11})\s"
-        elif (self.type == "Bourse") or (self.type == "OPCVM"):
-            control = r"\d{5}\s\d{5}\s(\d{11})\s"
+            control = self.REGEX_COMPTE_AMORTISSEMENT
+        elif self.type in ["EspeceBourse", "DividendeBourse"]:
+            control = self.REGEX_COMPTE_ESPECE_DIVIDENDE_BOURSE
+        elif self.type in ["Bourse", "OPCVM"]:
+            control = self.REGEX_COMPTE_BOURSE_OPCVM
+        
         # Si debogage, affichage de l'extraction
         if self.debug:
             print(self.type)
+        
         match = re.search(control, text)
+        
         # Si debogage, affichage de l'extraction
-        if self.debug:
+        if self.debug and match:
             print(match.group(1))
+        
         if match:
             compte = match.group(1)
-            if (self.type == "Bourse") or (self.type == "OPCVM"):
-                control = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
-                match = re.search(control, text)
-                if match:
-                    isin = match.group(1)
+            if self.type in ["Bourse", "OPCVM"]:
+                match_isin = re.search(self.REGEX_ISIN, text)
+                if match_isin:
+                    isin = match_isin.group(1)
                     if self.debug:
                         print(isin)
-                    return self.accountList[compte] + ":" + isin
-            elif (self.type == "DividendeBourse") or (
-                self.type == "EspeceDividende"
-            ):
-                return self.accountList[compte] + ":Cash"
+                    return f"{self.accountList[compte]}:{isin}"
+            elif self.type in ["DividendeBourse", "EspeceDividende"]:
+                return f"{self.accountList[compte]}:Cash"
             else:
                 return self.accountList[compte]
+
 
     def file_date(self, file):
         """
@@ -157,9 +167,7 @@ class PDFBourso(importer.ImporterProtocol):
         :return: The date of the statement.
         """
         text = file.convert(pdf_to_text)
-        match = re.search(
-            r"(?:le\s|au\s*|Date départ\s*:\s)(\d*/\d*/\d*)", text
-        )
+        match = re.search(self.DATE_REGEX, text)
         if match:
             return parse_datetime(match.group(1), dayfirst="True").date()
 
