@@ -40,6 +40,31 @@ class PDFBourso(importer.ImporterProtocol):
 
     DATE_REGEX = r"(?:le\s|au\s*|Date départ\s*:\s)(\d*/\d*/\d*)"
 
+    REGEX_SOLDE_INITIAL = r"SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
+    REGEX_OPERATION_COMPTE = r"\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{8,20})(.+?))?\n"
+    REGEX_SOLDE_FINAL = r"Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+    REGEX_DATE_SOLDE_FINAL = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
+
+    REGEX_AMORTISSEMENT_OPERATION = r"(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
+
+    REGEX_CB_OPERATION = r"(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
+    REGEX_CB_SOLDE_FINAL = r"A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+
+    REGEX_BOURSE_MONTANT = r"Montant transaction\s*Montant transaction brut\s*Intérêts\s*total brut\s*Courtages\s*Montant transaction net\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
+    REGEX_BOURSE_FRAIS = r"Commission\s*Frais divers\s*Montant total des frais\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
+    REGEX_BOURSE_DETAILS = r"locale d'exécution\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution\s*(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3})\s*([\s\S]{0,20})?\s*"
+    REGEX_BOURSE_COURS = r"Cours exécuté :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
+    REGEX_BOURSE_ACHAT = r"ACHAT COMPTANT"
+
+    REGEX_OPCVM_MONTANT = r"Montant brut\s*Droits d'entrée\s*Frais H.T.\s*T.V.A.\s*Montant net au débit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
+    REGEX_OPCVM_DETAILS = r"(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3}[.,]?\d{0,4})\s*([\s\S]{0,20})?\s*"
+    REGEX_OPCVM_COURS = r"Valeur liquidative :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
+    REGEX_OPCVM_SOUSCRIPTION = r"SOUSCRIPTION"
+
+    REGEX_DIVIDENDE_DETAILS = r"(\d{2}\/\d{2}\/\d{4})\s*(\d{1,5})\s*(.*)\s\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})?\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})"
+
+    REGEX_ESPECE_BOURSE_SOLDE = r"(\d*/\d*/\d*).*SOLDE\s*(\d{0,3}\s\d{1,3}[,.]\d{1,3})"
+
     def __init__(self, accountList, debug: bool = False):
         """
         Cette fonction est utilisée pour créer une instance de la classe.
@@ -210,7 +235,7 @@ class PDFBourso(importer.ImporterProtocol):
         """Extrait les données pour les dividendes boursiers."""
         entries = []
         compte = self.file_account(file)
-        control = r"(\d{2}\/\d{2}\/\d{4})\s*(\d{1,5})\s*(.*)\s\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})?\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})"
+        control = self.REGEX_DIVIDENDE_DETAILS
         chunks = re.findall(control, text)
         meta = data.new_metadata(file.name, 0)
         meta["source"] = "pdfbourso"
@@ -240,7 +265,7 @@ class PDFBourso(importer.ImporterProtocol):
         """Extrait les données pour les espèces en bourse."""
         entries = []
         print(self.file_account(file))
-        control = r"(\d*/\d*/\d*).*SOLDE\s*(\d{0,3}\s\d{1,3}[,.]\d{1,3})"
+        control = self.REGEX_ESPECE_BOURSE_SOLDE
         chunks = re.findall(control, text)
         meta = data.new_metadata(file.name, 0)
         meta["source"] = "pdfbourso"
@@ -265,7 +290,7 @@ class PDFBourso(importer.ImporterProtocol):
         """Extrait les données pour les opérations boursières."""
         entries = []
         # Identification du numéro de compte
-        control = r"\d{5}\s\d{5}\s(\d{11})\s"
+        control = self.REGEX_COMPTE_BOURSE_OPCVM
         match = re.search(control, text)
         if match:
             compte = match.group(1)
@@ -275,8 +300,7 @@ class PDFBourso(importer.ImporterProtocol):
 
         ope = dict()
 
-        control = r"Montant transaction\s*Montant transaction brut\s*Intérêts\s*total brut\s*Courtages\s*Montant transaction net\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_BOURSE_MONTANT, text)
         if match:
             ope["Montant Total"] = match.group(5)
             ope["currency Total"] = match.group(6)
@@ -285,23 +309,20 @@ class PDFBourso(importer.ImporterProtocol):
         self._debug(f"Montant Total : {ope['Montant Total']}")
         self._debug(f"Devise Total : {ope['currency Total']}")
 
-        control = r"Commission\s*Frais divers\s*Montant total des frais\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_BOURSE_FRAIS, text)
         if match:
             ope["Frais"] = match.group(5)
             ope["currency Frais"] = match.group(6)
         else:
             print("Frais introuvable")
 
-        control = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_ISIN, text)
         if match:
             ope["ISIN"] = match.group(1)
         else:
             print("ISIN introuvable")
 
-        control = r"locale d'exécution\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution\s*(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3})\s*([\s\S]{0,20})?\s*"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_BOURSE_DETAILS, text)
         if match:
             ope["Date"] = match.group(1)
             ope["Quantité"] = match.group(2)
@@ -309,8 +330,7 @@ class PDFBourso(importer.ImporterProtocol):
         else:
             print("Date, Qté, Designation introuvable")
 
-        control = r"Cours exécuté :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_BOURSE_COURS, text)
         if match:
             ope["Cours"] = match.group(1)
             ope["currency Cours"] = match.group(2)
@@ -318,8 +338,7 @@ class PDFBourso(importer.ImporterProtocol):
             print("Coursintrouvable")
         self._debug(f"Date de l'opération : {ope['Date']}")
 
-        control = r"ACHAT COMPTANT"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_BOURSE_ACHAT, text)
         if match:
             ope["Achat"] = True
         else:
@@ -374,7 +393,7 @@ class PDFBourso(importer.ImporterProtocol):
         """Extrait les données pour les opérations OPCVM."""
         entries = []
         # Identification du numéro de compte
-        control = r"\d{5}\s\d{5}\s(\d{11})\s"
+        control = self.REGEX_COMPTE_BOURSE_OPCVM
         match = re.search(control, text)
         if match:
             compte = match.group(1)
@@ -384,8 +403,7 @@ class PDFBourso(importer.ImporterProtocol):
 
         ope = dict()
 
-        control = r"Montant brut\s*Droits d'entrée\s*Frais H.T.\s*T.V.A.\s*Montant net au débit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_OPCVM_MONTANT, text)
         if match:
             ope["Montant Total"] = match.group(7)
             ope["currency Total"] = match.group(8)
@@ -398,15 +416,13 @@ class PDFBourso(importer.ImporterProtocol):
         self._debug(f"Montant Total : {ope['Montant Total']}")
         self._debug(f"Devise Total : {ope['currency Total']}")
 
-        control = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_ISIN, text)
         if match:
             ope["ISIN"] = match.group(1)
         else:
             print("ISIN introuvable")
 
-        control = r"(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3}[.,]?\d{0,4})\s*([\s\S]{0,20})?\s*"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_OPCVM_DETAILS, text)
         if match:
             ope["Date"] = match.group(1)
             ope["Quantité"] = match.group(2)
@@ -414,8 +430,7 @@ class PDFBourso(importer.ImporterProtocol):
         else:
             print("Date, Qté, Designation introuvable")
 
-        control = r"Valeur liquidative :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_OPCVM_COURS, text)
         if match:
             ope["Cours"] = match.group(1)
             ope["currency Cours"] = match.group(2)
@@ -423,8 +438,7 @@ class PDFBourso(importer.ImporterProtocol):
             print("Coursintrouvable")
         self._debug(f"Cours : {ope['Cours']}")
 
-        control = r"SOUSCRIPTION"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_OPCVM_SOUSCRIPTION, text)
         if match:
             ope["Achat"] = True
         else:
@@ -479,7 +493,7 @@ class PDFBourso(importer.ImporterProtocol):
         """Extrait les données pour les opérations de compte."""
         entries = []
         # Identification du numéro de compte
-        control = r"\s*\d{11}"
+        control = self.REGEX_COMPTE_COMPTE
         match = re.search(control, text)
         if match:
             compte = match.group(0).split(" ")[-1]
@@ -488,8 +502,7 @@ class PDFBourso(importer.ImporterProtocol):
         self._debug(f"Numéro de compte extrait : {compte}")
 
         # Affichage du solde initial
-        control = r"SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_SOLDE_INITIAL, text)
         datebalance = ""
         balance = ""
         if match:
@@ -522,8 +535,7 @@ class PDFBourso(importer.ImporterProtocol):
             )
         )
 
-        control = r"\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{8,20})(.+?))?\n"  # regexr.com/4ju06
-        chunks = re.findall(control, text)
+        chunks = re.findall(self.REGEX_OPERATION_COMPTE, text)
 
         # Si debogage, affichage de l'extraction
         self._debug(f"Chunks extraits : {chunks}")
@@ -592,8 +604,7 @@ class PDFBourso(importer.ImporterProtocol):
             entries.append(transaction)
 
         # Recherche du solde final
-        control = r"Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_SOLDE_FINAL, text)
         if match:
             balance = match.group(2).replace(".", "").replace(",", ".")
             longueur = len(match.group(1))
@@ -604,8 +615,7 @@ class PDFBourso(importer.ImporterProtocol):
                 # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                 balance = "-" + balance
             # Recherche de la date du solde final
-            control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
-            match = re.search(control, text)
+            match = re.search(self.REGEX_DATE_SOLDE_FINAL, text)
             if match:
                 datebalance = parse_datetime(
                     match.group(1), dayfirst="True"
@@ -633,16 +643,14 @@ class PDFBourso(importer.ImporterProtocol):
         """Extrait les données pour les opérations d'amortissement."""
         entries = []
         # Identification du numéro de compte
-        control = r"N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_COMPTE_AMORTISSEMENT, text)
         if match:
             compte = match.group(1)
 
         # Si debogage, affichage de l'extraction
         self._debug(f"Numéro de compte : {compte}")
 
-        control = r"(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
-        chunks = re.findall(control, text)
+        chunks = re.findall(self.REGEX_AMORTISSEMENT_OPERATION, text)
 
         # Si debogage, affichage de l'extraction
         self._debug(f"Chunks : {chunks}")
@@ -704,19 +712,17 @@ class PDFBourso(importer.ImporterProtocol):
         """Extrait les données pour les opérations CB."""
         entries = []
         # Identification du numéro de compte
-        control = r"\s*((4979|4810)\*{8}\d{4})"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_COMPTE_CB, text)
         if match:
             compte = match.group(1)
 
         # Si debogage, affichage de l'extraction
         self._debug(f"Numéro de compte : {compte}")
 
-        control = r"(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
-        chunks = re.findall(control, text)
+        chunks = re.findall(self.REGEX_CB_OPERATION, text)
 
         # Si debogage, affichage de l'extraction
-        self._debug(f"Expression régulière utilisée : {control}")
+        self._debug(f"Expression régulière utilisée : {self.REGEX_CB_OPERATION}")
         self._debug(f"Chunks extraits : {chunks}")
 
         index = 0
@@ -761,14 +767,12 @@ class PDFBourso(importer.ImporterProtocol):
             entries.append(transaction)
 
         # Recherche du solde final
-        control = r"A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
-        match = re.search(control, text)
+        match = re.search(self.REGEX_CB_SOLDE_FINAL, text)
         if match:
             balance = self._parse_decimal(match.group(2))*-1
             self._debug(f"Balance : {balance}")
             # Recherche de la date du solde final
-            control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
-            match = re.search(control, text)
+            match = re.search(self.REGEX_DATE_SOLDE_FINAL, text)
             if match:
                 datebalance = parse_datetime(
                     match.group(1), dayfirst="True"
