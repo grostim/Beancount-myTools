@@ -174,6 +174,10 @@ class PDFBourso(importer.ImporterProtocol):
         if match:
             return parse_datetime(match.group(1), dayfirst="True").date()
 
+    def _parse_decimal(self, value: str) -> Decimal:
+        """Parse une chaîne en Decimal en gérant les différents formats."""
+        return Decimal(value.replace(",", ".").replace(" ", "").replace("\xa0", "").replace(r"\u00a", ""))
+
     def extract(self, file, existing_entries=None):
 
         # Nom du fichier tel qu'il sera renommé.
@@ -198,14 +202,7 @@ class PDFBourso(importer.ImporterProtocol):
                 print(chunk)
                 posting_1 = data.Posting(
                     account="Revenus:Dividendes",
-                    units=amount.Amount(
-                        Decimal(
-                            chunk[4]
-                            .replace(",", ".")
-                            .replace(" ", "")
-                            .replace("\xa0", "")
-                            .replace(r"\u00a", "")
-                        )
+                    units=amount.Amount(self._parse_decimal(chunk[4])
                         * -1,
                         "EUR",
                     ),
@@ -218,20 +215,11 @@ class PDFBourso(importer.ImporterProtocol):
                 posting_2 = data.Posting(
                     account="Depenses:Impots:IR",
                     units=amount.Amount(
-                        Decimal(
-                            chunk[5]
-                            .replace(",", ".")
-                            .replace(" ", "")
-                            .replace("\xa0", "")
-                            .replace(r"\u00a", "")
-                            or 0
+                        self._parse_decimal(
+                            chunk[5] or '0'
                         )
-                        + Decimal(
+                        + self._parse_decimal(
                             chunk[6]
-                            .replace(",", ".")
-                            .replace(" ", "")
-                            .replace("\xa0", "")
-                            .replace(r"\u00a", "")
                         ),
                         "EUR",
                     ),
@@ -243,12 +231,8 @@ class PDFBourso(importer.ImporterProtocol):
                 posting_3 = data.Posting(
                     account=compte,
                     units=amount.Amount(
-                        Decimal(
+                        self._parse_decimal(
                             chunk[7]
-                            .replace(",", ".")
-                            .replace(" ", "")
-                            .replace("\xa0", "")
-                            .replace(r"\u00a", "")
                         ),
                         "EUR",
                     ),
@@ -287,8 +271,7 @@ class PDFBourso(importer.ImporterProtocol):
                         meta,
                         parse_datetime(chunk[0], dayfirst="True").date(),
                         self.file_account(file) + ":Cash",
-                        amount.Amount(
-                            D(chunk[1].replace(" ", "").replace(",", ".")),
+                        amount.Amount( self._parse_decimal(chunk[1]),
                             "EUR",
                         ),
                         None,
@@ -362,24 +345,16 @@ class PDFBourso(importer.ImporterProtocol):
             posting_1 = data.Posting(
                 account=self.accountList[compte] + ":" + ope["ISIN"],
                 units=amount.Amount(
-                    Decimal(
+                    self._parse_decimal(
                         ope["Quantité"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                        .replace(r"\u00a", "")
                     )
                     * (1 if ope["Achat"] else -1),
                     ope["ISIN"],
                 ),
                 cost=(
                     position.Cost(
-                        Decimal(
+                        self._parse_decimal(
                             ope["Cours"]
-                            .replace(",", ".")
-                            .replace(" ", "")
-                            .replace("\xa0", "")
-                            .replace(r"\u00a", "")
                         ),
                         ope["currency Cours"],
                         None,
@@ -391,12 +366,8 @@ class PDFBourso(importer.ImporterProtocol):
                 flag=None,
                 meta=None,
                 price=amount.Amount(
-                    Decimal(
+                    self._parse_decimal(
                         ope["Cours"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                        .replace(r"\u00a", "")
                     ),
                     ope["currency Cours"],
                 ),
@@ -405,12 +376,8 @@ class PDFBourso(importer.ImporterProtocol):
             posting_2 = data.Posting(
                 account=self.accountList[compte] + ":Cash",
                 units=amount.Amount(
-                    Decimal(
+                    self._parse_decimal(
                         ope["Montant Total"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                        .replace(r"\u00a", "")
                     )
                     * (-1 if ope["Achat"] else 1),
                     ope["currency Total"],
@@ -423,12 +390,8 @@ class PDFBourso(importer.ImporterProtocol):
             posting_3 = data.Posting(
                 account="Depenses:Banque:Frais",
                 units=amount.Amount(
-                    Decimal(
+                    self._parse_decimal(
                         ope["Frais"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                        .replace(r"\u00a", "")
                     ),
                     ope["currency Frais"],
                 ),
@@ -517,24 +480,16 @@ class PDFBourso(importer.ImporterProtocol):
             posting_1 = data.Posting(
                 account=self.accountList[compte] + ":" + ope["ISIN"],
                 units=amount.Amount(
-                    Decimal(
+                    self._parse_decimal(
                         ope["Quantité"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                        .replace(r"\u00a", "")
                     )
                     * (1 if ope["Achat"] else -1),
                     ope["ISIN"],
                 ),
                 cost=(
                     position.Cost(
-                        Decimal(
+                        self._parse_decimal(
                             ope["Cours"]
-                            .replace(",", ".")
-                            .replace(" ", "")
-                            .replace("\xa0", "")
-                            .replace(r"\u00a", "")
                         ),
                         ope["currency Cours"],
                         None,
@@ -546,12 +501,8 @@ class PDFBourso(importer.ImporterProtocol):
                 flag=None,
                 meta=None,
                 price=amount.Amount(
-                    Decimal(
+                    self._parse_decimal(
                         ope["Cours"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                        .replace(r"\u00a", "")
                     ),
                     ope["currency Cours"],
                 ),
@@ -560,12 +511,8 @@ class PDFBourso(importer.ImporterProtocol):
             posting_2 = data.Posting(
                 account=self.accountList[compte] + ":Cash",
                 units=amount.Amount(
-                    Decimal(
+                    self._parse_decimal(
                         ope["Montant Total"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                        .replace(r"\u00a", "")
                     )
                     * (-1 if ope["Achat"] else 1),
                     ope["currency Total"],
@@ -578,19 +525,11 @@ class PDFBourso(importer.ImporterProtocol):
             posting_3 = data.Posting(
                 account="Depenses:Banque:Frais",
                 units=amount.Amount(
-                    Decimal(
+                    self._parse_decimal(
                         ope["Frais"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                        .replace(r"\u00a", "")
                     )
-                    + Decimal(
+                    + self._parse_decimal(
                         ope["Droits"]
-                        .replace(",", ".")
-                        .replace(" ", "")
-                        .replace("\xa0", "")
-                        .replace(r"\u00a", "")
                     ),
                     ope["currency Frais"],
                 ),
@@ -796,19 +735,19 @@ class PDFBourso(importer.ImporterProtocol):
                 ope = dict()
                 ope["date"] = parse_datetime(chunk[0], dayfirst="True").date()
                 ope["prelevement"] = amount.Amount(
-                    Decimal("-" + chunk[1].replace(",", ".")), "EUR"
+                    self._parse_decimal(chunk[1])*-1, "EUR"
                 )
                 ope["amortissement"] = amount.Amount(
-                    Decimal(chunk[2].replace(",", ".")), "EUR"
+                    self._parse_decimal(chunk[2]), "EUR"
                 )
                 ope["interet"] = amount.Amount(
-                    Decimal(chunk[3].replace(",", ".")), "EUR"
+                    self._parse_decimal(chunk[3]), "EUR"
                 )
                 ope["assurance"] = amount.Amount(
-                    Decimal(chunk[4].replace(",", ".")), "EUR"
+                    self._parse_decimal(chunk[4]), "EUR"
                 )
                 ope["CRD"] = amount.Amount(
-                    Decimal("-" + str(chunk[7].replace(",", "."))), "EUR"
+                    self._parse_decimal(chunk[7])*-1, "EUR"
                 )
 
                 # Creation de la transactiocn
@@ -899,9 +838,7 @@ class PDFBourso(importer.ImporterProtocol):
                 # Si debogage, affichage de l'extraction
                 self._debug(f"Date de l'opération : {ope['date']}")
 
-                ope["montant"] = "-" + chunk[2].replace(".", "").replace(
-                    ",", "."
-                )
+                ope["montant"] = self._parse_decimal(chunk[2])*-1
                 # Si debogage, affichage de l'extraction
                 self._debug(f"Montant de l'opération : {ope['montant']}")
 
@@ -912,7 +849,7 @@ class PDFBourso(importer.ImporterProtocol):
                 # Creation de la transaction
                 posting_1 = data.Posting(
                     account=self.accountList[compte],
-                    units=amount.Amount(Decimal(ope["montant"]), "EUR"),
+                    units=amount.Amount(ope["montant"], "EUR"),
                     cost=None,
                     flag=None,
                     meta=None,
@@ -935,9 +872,7 @@ class PDFBourso(importer.ImporterProtocol):
             control = r"A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
             match = re.search(control, text)
             if match:
-                balance = "-" + match.group(2).replace(".", "").replace(
-                    ",", "."
-                )
+                balance = self._parse_decimal(match.group(2))*-1
                 self._debug(f"Balance : {balance}")
                 # Recherche de la date du solde final
                 control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
@@ -956,7 +891,7 @@ class PDFBourso(importer.ImporterProtocol):
                             meta,
                             datebalance,
                             self.accountList[compte],
-                            amount.Amount(D(balance), "EUR"),
+                            amount.Amount(balance, "EUR"),
                             None,
                             None,
                         )
