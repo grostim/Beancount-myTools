@@ -143,18 +143,18 @@ class PDFBourso(importer.ImporterProtocol):
             control = self.REGEX_COMPTE_BOURSE_OPCVM
         
         # Si debogage, affichage de l'extraction
-        self._debug(self.type)
+        self._debug(f"Type de document : {self.type}")
         
         match = re.search(control, text)
         
         if match:
-            self._debug(match.group(1))
+            self._debug(f"Numéro de compte extrait : {match.group(1)}")
             compte = match.group(1)
             if self.type in ["Bourse", "OPCVM"]:
                 match_isin = re.search(self.REGEX_ISIN, text)
                 if match_isin:
                     isin = match_isin.group(1)
-                    self._debug(f"{self.accountList[compte]}:{isin}")
+                    self._debug(f"Compte et ISIN : {self.accountList[compte]}:{isin}")
                     return f"{self.accountList[compte]}:{isin}"
             elif self.type in ["DividendeBourse", "EspeceDividende"]:
                 return f"{self.accountList[compte]}:Cash"
@@ -184,8 +184,8 @@ class PDFBourso(importer.ImporterProtocol):
         text = file.convert(pdf_to_text)
 
         # Si debogage, affichage de l'extraction
-        self._debug(text)
-        self._debug(self.type)
+        self._debug(f"Contenu du PDF :\n{text}")
+        self._debug(f"Type de document : {self.type}")
 
         if self.type == "DividendeBourse":
             compte = self.file_account(file)
@@ -315,9 +315,8 @@ class PDFBourso(importer.ImporterProtocol):
                 ope["currency Total"] = match.group(6)
             else:
                 print("Montant introuvable")
-            if self.debug:
-                print(ope["Montant Total"])
-                print(ope["currency Total"])
+            self._debug(f"Montant Total : {ope['Montant Total']}")
+            self._debug(f"Devise Total : {ope['currency Total']}")
 
             control = r"Commission\s*Frais divers\s*Montant total des frais\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
             match = re.search(control, text)
@@ -464,7 +463,7 @@ class PDFBourso(importer.ImporterProtocol):
                 compte = match.group(1)
 
             # Si débogage, affichage de l'extraction
-            self._debug(compte)
+            self._debug(f"Numéro de compte extrait : {compte}")
 
             ope = dict()
 
@@ -479,8 +478,8 @@ class PDFBourso(importer.ImporterProtocol):
                 ope["currency Droits"] = match.group(4)
             else:
                 print("Montant introuvable")
-            self._debug(f"Montant Total: {ope['Montant Total']}")
-            self._debug(f"Devise Total: {ope['currency Total']}")
+            self._debug(f"Montant Total : {ope['Montant Total']}")
+            self._debug(f"Devise Total : {ope['currency Total']}")
 
             control = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
             match = re.search(control, text)
@@ -696,8 +695,7 @@ class PDFBourso(importer.ImporterProtocol):
                     + len(chunk[3])
                 )
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(longueur)
+                self._debug(f"Longueur de l'espace intercalaire : {longueur}")
 
                 if longueur > 148:
                     ope["type"] = "Credit"
@@ -709,11 +707,11 @@ class PDFBourso(importer.ImporterProtocol):
 
                 ope["payee"] = re.sub(r"\s+", " ", chunk[0])
                 # Si debogage, affichage de l'extraction
-                self._debug(f"Payee de l'opération : {ope['payee']}")
+                self._debug(f"Payee : {ope['payee']}")
 
                 ope["narration"] = re.sub(r"\s+", " ", chunk[4])
                 # Si debogage, affichage de l'extraction
-                self._debug(f"Narration de l'opération : {ope['narration']}")
+                self._debug(f"Narration : {ope['narration']}")
 
                 # Creation de la transaction
                 posting_1 = data.Posting(
@@ -743,8 +741,9 @@ class PDFBourso(importer.ImporterProtocol):
             if match:
                 balance = match.group(2).replace(".", "").replace(",", ".")
                 longueur = len(match.group(1))
-                self._debug(f"Balance : {balance}")
-                self._debug(f"Longueur : {longueur}")
+                if self.debug:
+                    print(balance)
+                    print(longueur)
                 if longueur < 84:
                     # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                     balance = "-" + balance
@@ -755,7 +754,8 @@ class PDFBourso(importer.ImporterProtocol):
                     datebalance = parse_datetime(
                         match.group(1), dayfirst="True"
                     ).date()
-                    self._debug(f"Date du solde final : {datebalance}")
+                    if self.debug:
+                        print(datebalance)
                     meta = data.new_metadata(file.name, 0)
                     meta["source"] = "pdfbourso"
                     meta["document"] = document
@@ -881,8 +881,8 @@ class PDFBourso(importer.ImporterProtocol):
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
-            self._debug(f"Control : {control}")
-            self._debug(f"Chunks : {chunks}")
+            self._debug(f"Expression régulière utilisée : {control}")
+            self._debug(f"Chunks extraits : {chunks}")
 
             index = 0
             for chunk in chunks:
@@ -893,17 +893,17 @@ class PDFBourso(importer.ImporterProtocol):
                 ope = dict()
 
                 # Si debogage, affichage de l'extraction
-                self._debug(f"Chunk : {chunk}")
+                self._debug(f"Chunk extrait : {chunk}")
 
                 ope["date"] = chunk[0]
                 # Si debogage, affichage de l'extraction
-                self._debug(f"Date : {ope['date']}")
+                self._debug(f"Date de l'opération : {ope['date']}")
 
                 ope["montant"] = "-" + chunk[2].replace(".", "").replace(
                     ",", "."
                 )
                 # Si debogage, affichage de l'extraction
-                self._debug(f"Montant : {ope['montant']}")
+                self._debug(f"Montant de l'opération : {ope['montant']}")
 
                 ope["payee"] = re.sub(r"\s+", " ", chunk[1])
                 # Si debogage, affichage de l'extraction
