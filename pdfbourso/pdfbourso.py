@@ -179,722 +179,638 @@ class PDFBourso(importer.ImporterProtocol):
         return Decimal(value.replace(",", ".").replace(" ", "").replace("\xa0", "").replace(r"\u00a", ""))
 
     def extract(self, file, existing_entries=None):
-
-        # Nom du fichier tel qu'il sera renommé.
+        """
+        Extrait les données du fichier PDF et retourne une liste d'entrées.
+        """
         document = str(self.file_date(file)) + " " + self.file_name(file)
-
-        # Open the pdf file and convert it to text
-        entries = []
         text = file.convert(pdf_to_text)
+        entries = []
 
-        # Si debogage, affichage de l'extraction
         self._debug(f"Contenu du PDF :\n{text}")
         self._debug(f"Type de document : {self.type}")
 
         if self.type == "DividendeBourse":
-            compte = self.file_account(file)
-            control = r"(\d{2}\/\d{2}\/\d{4})\s*(\d{1,5})\s*(.*)\s\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})?\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})"
-            chunks = re.findall(control, text)
-            meta = data.new_metadata(file.name, 0)
+            entries.extend(self._extract_dividende_bourse(file, text, document))
+        elif self.type == "EspeceBourse":
+            entries.extend(self._extract_espece_bourse(file, text, document))
+        elif self.type == "Bourse":
+            entries.extend(self._extract_bourse(file, text, document))
+        elif self.type == "OPCVM":
+            entries.extend(self._extract_opcvm(file, text, document))
+        elif self.type == "Compte":
+            entries.extend(self._extract_compte(file, text, document))
+        elif self.type == "Amortissement":
+            entries.extend(self._extract_amortissement(file, text, document))
+        elif self.type == "CB":
+            entries.extend(self._extract_cb(file, text, document))
+
+        return entries
+
+    def _extract_dividende_bourse(self, file, text, document):
+        """Extrait les données pour les dividendes boursiers."""
+        entries = []
+        compte = self.file_account(file)
+        control = r"(\d{2}\/\d{2}\/\d{4})\s*(\d{1,5})\s*(.*)\s\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})?\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})"
+        chunks = re.findall(control, text)
+        meta = data.new_metadata(file.name, 0)
+        meta["source"] = "pdfbourso"
+        meta["document"] = document
+        
+        for chunk in chunks:
+            print(chunk)
+            postings = [
+                self._create_posting("Revenus:Dividendes", self._parse_decimal(chunk[4]) * -1, "EUR"),
+                self._create_posting("Depenses:Impots:IR", self._parse_decimal(chunk[5] or '0') + self._parse_decimal(chunk[6]), "EUR"),
+                self._create_posting(compte, self._parse_decimal(chunk[7]), "EUR")
+            ]
+            
+            transaction = self._create_transaction(
+                meta,
+                parse_datetime(chunk[0], dayfirst="True").date(),
+                f"Dividende pour {chunk[1]} titres {chunk[2]}",
+                None,
+                {chunk[3]},
+                postings
+            )
+            entries.append(transaction)
+        
+        return entries
+
+    def _extract_espece_bourse(self, file, text, document):
+        """Extrait les données pour les espèces en bourse."""
+        entries = []
+        print(self.file_account(file))
+        control = r"(\d*/\d*/\d*).*SOLDE\s*(\d{0,3}\s\d{1,3}[,.]\d{1,3})"
+        chunks = re.findall(control, text)
+        meta = data.new_metadata(file.name, 0)
+        meta["source"] = "pdfbourso"
+        meta["document"] = document
+        
+        for chunk in chunks:
+            print(chunk[0])
+            print(chunk[1])
+            balance = data.Balance(
+                meta,
+                parse_datetime(chunk[0], dayfirst="True").date(),
+                self.file_account(file) + ":Cash",
+                amount.Amount(self._parse_decimal(chunk[1]), "EUR"),
+                None,
+                None,
+            )
+            entries.append(balance)
+        
+        return entries
+
+    def _extract_bourse(self, file, text, document):
+        """Extrait les données pour les opérations boursières."""
+        entries = []
+        # Identification du numéro de compte
+        control = r"\d{5}\s\d{5}\s(\d{11})\s"
+        match = re.search(control, text)
+        if match:
+            compte = match.group(1)
+
+        # Si débogage, affichage de l'extraction
+        self._debug(f"Numéro de compte extrait : {compte}")
+
+        ope = dict()
+
+        control = r"Montant transaction\s*Montant transaction brut\s*Intérêts\s*total brut\s*Courtages\s*Montant transaction net\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
+        match = re.search(control, text)
+        if match:
+            ope["Montant Total"] = match.group(5)
+            ope["currency Total"] = match.group(6)
+        else:
+            print("Montant introuvable")
+        self._debug(f"Montant Total : {ope['Montant Total']}")
+        self._debug(f"Devise Total : {ope['currency Total']}")
+
+        control = r"Commission\s*Frais divers\s*Montant total des frais\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
+        match = re.search(control, text)
+        if match:
+            ope["Frais"] = match.group(5)
+            ope["currency Frais"] = match.group(6)
+        else:
+            print("Frais introuvable")
+
+        control = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
+        match = re.search(control, text)
+        if match:
+            ope["ISIN"] = match.group(1)
+        else:
+            print("ISIN introuvable")
+
+        control = r"locale d'exécution\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution\s*(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3})\s*([\s\S]{0,20})?\s*"
+        match = re.search(control, text)
+        if match:
+            ope["Date"] = match.group(1)
+            ope["Quantité"] = match.group(2)
+            ope["Designation"] = match.group(3)
+        else:
+            print("Date, Qté, Designation introuvable")
+
+        control = r"Cours exécuté :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
+        match = re.search(control, text)
+        if match:
+            ope["Cours"] = match.group(1)
+            ope["currency Cours"] = match.group(2)
+        else:
+            print("Coursintrouvable")
+        self._debug(f"Date de l'opération : {ope['Date']}")
+
+        control = r"ACHAT COMPTANT"
+        match = re.search(control, text)
+        if match:
+            ope["Achat"] = True
+        else:
+            ope["Achat"] = False
+
+        # Creation de la transaction
+        postings = [
+            self._create_posting(
+                self.accountList[compte] + ":" + ope["ISIN"],
+                self._parse_decimal(ope["Quantité"]) * (1 if ope["Achat"] else -1),
+                ope["ISIN"],
+                cost=position.Cost(
+                    self._parse_decimal(ope["Cours"]),
+                    ope["currency Cours"],
+                    None,
+                    None,
+                ) if ope["Achat"] else None,
+                price=amount.Amount(
+                    self._parse_decimal(ope["Cours"]),
+                    ope["currency Cours"],
+                ),
+            ),
+            self._create_posting(
+                self.accountList[compte] + ":Cash",
+                self._parse_decimal(ope["Montant Total"]) * (-1 if ope["Achat"] else 1),
+                ope["currency Total"],
+            ),
+            self._create_posting(
+                "Depenses:Banque:Frais",
+                self._parse_decimal(ope["Frais"]),
+                ope["currency Frais"],
+            ),
+        ]
+
+        meta = data.new_metadata(file.name, 0)
+        meta["source"] = "pdfbourso"
+        meta["document"] = document
+
+        transaction = self._create_transaction(
+            meta,
+            parse_datetime(ope["Date"], dayfirst="True").date(),
+            ope["Designation"] or "inconnu",
+            ope["ISIN"],
+            data.EMPTY_SET,
+            postings,
+        )
+        entries.append(transaction)
+
+        return entries
+
+    def _extract_opcvm(self, file, text, document):
+        """Extrait les données pour les opérations OPCVM."""
+        entries = []
+        # Identification du numéro de compte
+        control = r"\d{5}\s\d{5}\s(\d{11})\s"
+        match = re.search(control, text)
+        if match:
+            compte = match.group(1)
+
+        # Si débogage, affichage de l'extraction
+        self._debug(f"Numéro de compte extrait : {compte}")
+
+        ope = dict()
+
+        control = r"Montant brut\s*Droits d'entrée\s*Frais H.T.\s*T.V.A.\s*Montant net au débit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
+        match = re.search(control, text)
+        if match:
+            ope["Montant Total"] = match.group(7)
+            ope["currency Total"] = match.group(8)
+            ope["Frais"] = match.group(5)
+            ope["currency Frais"] = match.group(6)
+            ope["Droits"] = match.group(3)
+            ope["currency Droits"] = match.group(4)
+        else:
+            print("Montant introuvable")
+        self._debug(f"Montant Total : {ope['Montant Total']}")
+        self._debug(f"Devise Total : {ope['currency Total']}")
+
+        control = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
+        match = re.search(control, text)
+        if match:
+            ope["ISIN"] = match.group(1)
+        else:
+            print("ISIN introuvable")
+
+        control = r"(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3}[.,]?\d{0,4})\s*([\s\S]{0,20})?\s*"
+        match = re.search(control, text)
+        if match:
+            ope["Date"] = match.group(1)
+            ope["Quantité"] = match.group(2)
+            ope["Designation"] = match.group(3)
+        else:
+            print("Date, Qté, Designation introuvable")
+
+        control = r"Valeur liquidative :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
+        match = re.search(control, text)
+        if match:
+            ope["Cours"] = match.group(1)
+            ope["currency Cours"] = match.group(2)
+        else:
+            print("Coursintrouvable")
+        self._debug(f"Cours : {ope['Cours']}")
+
+        control = r"SOUSCRIPTION"
+        match = re.search(control, text)
+        if match:
+            ope["Achat"] = True
+        else:
+            ope["Achat"] = False
+
+        # Creation de la transaction
+        postings = [
+            self._create_posting(
+                self.accountList[compte] + ":" + ope["ISIN"],
+                self._parse_decimal(ope["Quantité"]) * (1 if ope["Achat"] else -1),
+                ope["ISIN"],
+                cost=position.Cost(
+                    self._parse_decimal(ope["Cours"]),
+                    ope["currency Cours"],
+                    None,
+                    None,
+                ) if ope["Achat"] else None,
+                price=amount.Amount(
+                    self._parse_decimal(ope["Cours"]),
+                    ope["currency Cours"],
+                ),
+            ),
+            self._create_posting(
+                self.accountList[compte] + ":Cash",
+                self._parse_decimal(ope["Montant Total"]) * (-1 if ope["Achat"] else 1),
+                ope["currency Total"],
+            ),
+            self._create_posting(
+                "Depenses:Banque:Frais",
+                self._parse_decimal(ope["Frais"]) + self._parse_decimal(ope["Droits"]),
+                ope["currency Frais"],
+            ),
+        ]
+
+        meta = data.new_metadata(file.name, 0)
+        meta["source"] = "pdfbourso"
+        meta["document"] = document
+
+        transaction = self._create_transaction(
+            meta,
+            parse_datetime(ope["Date"], dayfirst="True").date(),
+            ope["Designation"] or "inconnu",
+            ope["ISIN"],
+            data.EMPTY_SET,
+            postings,
+        )
+        entries.append(transaction)
+
+        return entries
+
+    def _extract_compte(self, file, text, document):
+        """Extrait les données pour les opérations de compte."""
+        entries = []
+        # Identification du numéro de compte
+        control = r"\s*\d{11}"
+        match = re.search(control, text)
+        if match:
+            compte = match.group(0).split(" ")[-1]
+
+        # Si debogage, affichage de l'extraction
+        self._debug(f"Numéro de compte extrait : {compte}")
+
+        # Affichage du solde initial
+        control = r"SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
+        match = re.search(control, text)
+        datebalance = ""
+        balance = ""
+        if match:
+            datebalance = parse_datetime(
+                match.group(2), dayfirst="True"
+            ).date() + datetime.timedelta(1)
+            longueur = (
+                len(match.group(1))
+                + len(match.group(3))
+                + len(match.group(2))
+                + len(match.group(4))
+            )
+            balance = match.group(4).replace(".", "").replace(",", ".")
+            if longueur < 84:
+                # Si la distance entre les 2 champs est petite, alors, c'est un débit.
+                balance = "-" + balance
+
+        meta = data.new_metadata(file.name, 0)
+        meta["source"] = "pdfbourso"
+        meta["document"] = document
+
+        entries.append(
+            data.Balance(
+                meta,
+                datebalance,
+                self.accountList[compte],
+                amount.Amount(D(balance), "EUR"),
+                None,
+                None,
+            )
+        )
+
+        control = r"\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{8,20})(.+?))?\n"  # regexr.com/4ju06
+        chunks = re.findall(control, text)
+
+        # Si debogage, affichage de l'extraction
+        self._debug(f"Chunks extraits : {chunks}")
+
+        index = 0
+        for chunk in chunks:
+            index += 1
+            meta = data.new_metadata(file.name, index)
             meta["source"] = "pdfbourso"
             meta["document"] = document
-            for chunk in chunks:
-                print(chunk)
-                posting_1 = data.Posting(
-                    account="Revenus:Dividendes",
-                    units=amount.Amount(self._parse_decimal(chunk[4])
-                        * -1,
-                        "EUR",
-                    ),
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
+            ope = dict()
 
-                posting_2 = data.Posting(
-                    account="Depenses:Impots:IR",
-                    units=amount.Amount(
-                        self._parse_decimal(
-                            chunk[5] or '0'
-                        )
-                        + self._parse_decimal(
-                            chunk[6]
-                        ),
-                        "EUR",
-                    ),
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
-                posting_3 = data.Posting(
-                    account=compte,
-                    units=amount.Amount(
-                        self._parse_decimal(
-                            chunk[7]
-                        ),
-                        "EUR",
-                    ),
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Chunk extrait : {chunk}")
 
-                flag = flags.FLAG_OKAY
+            ope["date"] = chunk[1]
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Date de l'opération : {ope['date']}")
 
-                transac = data.Transaction(
-                    meta=meta,
-                    date=parse_datetime(chunk[0], dayfirst="True").date(),
-                    flag=flag,
-                    payee="Dividende pour " + chunk[1] + " titres " + chunk[2],
-                    narration=None,
-                    tags={chunk[3]},
-                    links=data.EMPTY_SET,
-                    postings=[posting_1, posting_2, posting_3],
-                )
-                entries.append(transac)
+            ope["montant"] = chunk[3].replace(".", "").replace(",", ".")
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Montant de l'opération : {ope['montant']}")
 
-        if self.type == "EspeceBourse":
-            print(self.file_account(file))
-            control = r"(\d*/\d*/\d*).*SOLDE\s*(\d{0,3}\s\d{1,3}[,.]\d{1,3})"
-            chunks = re.findall(control, text)
-            meta = data.new_metadata(file.name, 0)
-            meta["source"] = "pdfbourso"
-            meta["document"] = document
-            for chunk in chunks:
-                print(chunk[0])
-                print(chunk[1])
+            # Longueur de l'espace intercalaire
+            longueur = (
+                len(chunk[0])
+                + len(chunk[1])
+                + len(chunk[2])
+                + len(chunk[3])
+            )
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Longueur de l'espace intercalaire : {longueur}")
+
+            if longueur > 148:
+                ope["type"] = "Credit"
+            else:
+                ope["type"] = "Debit"
+                ope["montant"] = "-" + ope["montant"]
+            # Si débogage, affichage de l'extraction
+            self._debug(f"Montant de l'opération : {ope['montant']}")
+
+            ope["payee"] = re.sub(r"\s+", " ", chunk[0])
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Payee : {ope['payee']}")
+
+            ope["narration"] = re.sub(r"\s+", " ", chunk[4])
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Narration : {ope['narration']}")
+
+            # Creation de la transaction
+            postings = [
+                self._create_posting(
+                    self.accountList[compte],
+                    Decimal(ope["montant"]),
+                    "EUR",
+                ),
+            ]
+            transaction = self._create_transaction(
+                meta,
+                parse_datetime(ope["date"], dayfirst="True").date(),
+                ope["payee"] or "inconnu",
+                ope["narration"],
+                data.EMPTY_SET,
+                postings,
+            )
+            entries.append(transaction)
+
+        # Recherche du solde final
+        control = r"Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+        match = re.search(control, text)
+        if match:
+            balance = match.group(2).replace(".", "").replace(",", ".")
+            longueur = len(match.group(1))
+            if self.debug:
+                print(balance)
+                print(longueur)
+            if longueur < 84:
+                # Si la distance entre les 2 champs est petite, alors, c'est un débit.
+                balance = "-" + balance
+            # Recherche de la date du solde final
+            control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
+            match = re.search(control, text)
+            if match:
+                datebalance = parse_datetime(
+                    match.group(1), dayfirst="True"
+                ).date()
+                if self.debug:
+                    print(datebalance)
+                meta = data.new_metadata(file.name, 0)
+                meta["source"] = "pdfbourso"
+                meta["document"] = document
+
                 entries.append(
                     data.Balance(
                         meta,
-                        parse_datetime(chunk[0], dayfirst="True").date(),
-                        self.file_account(file) + ":Cash",
-                        amount.Amount( self._parse_decimal(chunk[1]),
-                            "EUR",
-                        ),
+                        datebalance,
+                        self.accountList[compte],
+                        amount.Amount(D(balance), "EUR"),
                         None,
                         None,
                     )
                 )
 
-        if self.type == "Bourse":
-            # Identification du numéro de compte
-            control = r"\d{5}\s\d{5}\s(\d{11})\s"
-            match = re.search(control, text)
-            if match:
-                compte = match.group(1)
+        return entries
 
-            # Si débogage, affichage de l'extraction
-            self._debug(f"Numéro de compte extrait : {compte}")
+    def _extract_amortissement(self, file, text, document):
+        """Extrait les données pour les opérations d'amortissement."""
+        entries = []
+        # Identification du numéro de compte
+        control = r"N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
+        match = re.search(control, text)
+        if match:
+            compte = match.group(1)
+
+        # Si debogage, affichage de l'extraction
+        self._debug(f"Numéro de compte : {compte}")
+
+        control = r"(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
+        chunks = re.findall(control, text)
+
+        # Si debogage, affichage de l'extraction
+        self._debug(f"Chunks : {chunks}")
+
+        index = 0
+        for chunk in chunks:
+            index += 1
+            meta = data.new_metadata(file.name, index)
+            meta["source"] = "pdfbourso"
 
             ope = dict()
-
-            control = r"Montant transaction\s*Montant transaction brut\s*Intérêts\s*total brut\s*Courtages\s*Montant transaction net\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
-            match = re.search(control, text)
-            if match:
-                ope["Montant Total"] = match.group(5)
-                ope["currency Total"] = match.group(6)
-            else:
-                print("Montant introuvable")
-            self._debug(f"Montant Total : {ope['Montant Total']}")
-            self._debug(f"Devise Total : {ope['currency Total']}")
-
-            control = r"Commission\s*Frais divers\s*Montant total des frais\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
-            match = re.search(control, text)
-            if match:
-                ope["Frais"] = match.group(5)
-                ope["currency Frais"] = match.group(6)
-            else:
-                print("Frais introuvable")
-
-            control = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
-            match = re.search(control, text)
-            if match:
-                ope["ISIN"] = match.group(1)
-            else:
-                print("ISIN introuvable")
-
-            control = r"locale d'exécution\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution\s*(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3})\s*([\s\S]{0,20})?\s*"
-            match = re.search(control, text)
-            if match:
-                ope["Date"] = match.group(1)
-                ope["Quantité"] = match.group(2)
-                ope["Designation"] = match.group(3)
-            else:
-                print("Date, Qté, Designation introuvable")
-
-            control = r"Cours exécuté :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
-            match = re.search(control, text)
-            if match:
-                ope["Cours"] = match.group(1)
-                ope["currency Cours"] = match.group(2)
-            else:
-                print("Coursintrouvable")
-            self._debug(f"Date de l'opération : {ope['Date']}")
-
-            control = r"ACHAT COMPTANT"
-            match = re.search(control, text)
-            if match:
-                ope["Achat"] = True
-            else:
-                ope["Achat"] = False
+            ope["date"] = parse_datetime(chunk[0], dayfirst="True").date()
+            ope["prelevement"] = amount.Amount(
+                self._parse_decimal(chunk[1])*-1, "EUR"
+            )
+            ope["amortissement"] = amount.Amount(
+                self._parse_decimal(chunk[2]), "EUR"
+            )
+            ope["interet"] = amount.Amount(
+                self._parse_decimal(chunk[3]), "EUR"
+            )
+            ope["assurance"] = amount.Amount(
+                self._parse_decimal(chunk[4]), "EUR"
+            )
+            ope["CRD"] = amount.Amount(
+                self._parse_decimal(chunk[7])*-1, "EUR"
+            )
 
             # Creation de la transaction
-            posting_1 = data.Posting(
-                account=self.accountList[compte] + ":" + ope["ISIN"],
-                units=amount.Amount(
-                    self._parse_decimal(
-                        ope["Quantité"]
-                    )
-                    * (1 if ope["Achat"] else -1),
-                    ope["ISIN"],
-                ),
-                cost=(
-                    position.Cost(
-                        self._parse_decimal(
-                            ope["Cours"]
-                        ),
-                        ope["currency Cours"],
-                        None,
-                        None,
-                    )
-                    if ope["Achat"]
-                    else None
-                ),
-                flag=None,
-                meta=None,
-                price=amount.Amount(
-                    self._parse_decimal(
-                        ope["Cours"]
-                    ),
-                    ope["currency Cours"],
-                ),
+            postings = [
+                self._create_posting("Actif:Boursorama:CCJoint", ope["prelevement"].number, "EUR"),
+                self._create_posting(self.accountList[compte], ope["amortissement"].number, "EUR"),
+                self._create_posting("Depenses:Banque:Interet", ope["interet"].number, "EUR"),
+                self._create_posting("Depenses:Banque:AssuEmprunt", ope["assurance"].number, "EUR"),
+            ]
+            transaction = self._create_transaction(
+                meta,
+                ope["date"],
+                "ECH PRET:8028000060686223",
+                "",
+                data.EMPTY_SET,
+                postings,
             )
-
-            posting_2 = data.Posting(
-                account=self.accountList[compte] + ":Cash",
-                units=amount.Amount(
-                    self._parse_decimal(
-                        ope["Montant Total"]
-                    )
-                    * (-1 if ope["Achat"] else 1),
-                    ope["currency Total"],
-                ),
-                cost=None,
-                flag=None,
-                meta=None,
-                price=None,
-            )
-            posting_3 = data.Posting(
-                account="Depenses:Banque:Frais",
-                units=amount.Amount(
-                    self._parse_decimal(
-                        ope["Frais"]
-                    ),
-                    ope["currency Frais"],
-                ),
-                cost=None,
-                flag=None,
-                meta=None,
-                price=None,
-            )
-
-            flag = flags.FLAG_OKAY
-            meta = data.new_metadata(file.name, 0)
-            meta["source"] = "pdfbourso"
-            meta["document"] = document
-
-            transac = data.Transaction(
-                meta=meta,
-                date=parse_datetime(ope["Date"], dayfirst="True").date(),
-                flag=flag,
-                payee=ope["Designation"] or "inconnu",
-                narration=ope["ISIN"],
-                tags=data.EMPTY_SET,
-                links=data.EMPTY_SET,
-                postings=[posting_1, posting_2, posting_3],
-            )
-            entries.append(transac)
-
-        if self.type == "OPCVM":
-            # Identification du numéro de compte
-            control = r"\d{5}\s\d{5}\s(\d{11})\s"
-            match = re.search(control, text)
-            if match:
-                compte = match.group(1)
-
-            # Si débogage, affichage de l'extraction
-            self._debug(f"Numéro de compte extrait : {compte}")
-
-            ope = dict()
-
-            control = r"Montant brut\s*Droits d'entrée\s*Frais H.T.\s*T.V.A.\s*Montant net au débit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
-            match = re.search(control, text)
-            if match:
-                ope["Montant Total"] = match.group(7)
-                ope["currency Total"] = match.group(8)
-                ope["Frais"] = match.group(5)
-                ope["currency Frais"] = match.group(6)
-                ope["Droits"] = match.group(3)
-                ope["currency Droits"] = match.group(4)
-            else:
-                print("Montant introuvable")
-            self._debug(f"Montant Total : {ope['Montant Total']}")
-            self._debug(f"Devise Total : {ope['currency Total']}")
-
-            control = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
-            match = re.search(control, text)
-            if match:
-                ope["ISIN"] = match.group(1)
-            else:
-                print("ISIN introuvable")
-
-            control = r"(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3}[.,]?\d{0,4})\s*([\s\S]{0,20})?\s*"
-            match = re.search(control, text)
-            if match:
-                ope["Date"] = match.group(1)
-                ope["Quantité"] = match.group(2)
-                ope["Designation"] = match.group(3)
-            else:
-                print("Date, Qté, Designation introuvable")
-
-            control = r"Valeur liquidative :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
-            match = re.search(control, text)
-            if match:
-                ope["Cours"] = match.group(1)
-                ope["currency Cours"] = match.group(2)
-            else:
-                print("Coursintrouvable")
-            self._debug(f"Cours : {ope['Cours']}")
-
-            control = r"SOUSCRIPTION"
-            match = re.search(control, text)
-            if match:
-                ope["Achat"] = True
-            else:
-                ope["Achat"] = False
-
-            # Creation de la transaction
-            posting_1 = data.Posting(
-                account=self.accountList[compte] + ":" + ope["ISIN"],
-                units=amount.Amount(
-                    self._parse_decimal(
-                        ope["Quantité"]
-                    )
-                    * (1 if ope["Achat"] else -1),
-                    ope["ISIN"],
-                ),
-                cost=(
-                    position.Cost(
-                        self._parse_decimal(
-                            ope["Cours"]
-                        ),
-                        ope["currency Cours"],
-                        None,
-                        None,
-                    )
-                    if ope["Achat"]
-                    else None
-                ),
-                flag=None,
-                meta=None,
-                price=amount.Amount(
-                    self._parse_decimal(
-                        ope["Cours"]
-                    ),
-                    ope["currency Cours"],
-                ),
-            )
-
-            posting_2 = data.Posting(
-                account=self.accountList[compte] + ":Cash",
-                units=amount.Amount(
-                    self._parse_decimal(
-                        ope["Montant Total"]
-                    )
-                    * (-1 if ope["Achat"] else 1),
-                    ope["currency Total"],
-                ),
-                cost=None,
-                flag=None,
-                meta=None,
-                price=None,
-            )
-            posting_3 = data.Posting(
-                account="Depenses:Banque:Frais",
-                units=amount.Amount(
-                    self._parse_decimal(
-                        ope["Frais"]
-                    )
-                    + self._parse_decimal(
-                        ope["Droits"]
-                    ),
-                    ope["currency Frais"],
-                ),
-                cost=None,
-                flag=None,
-                meta=None,
-                price=None,
-            )
-
-            flag = flags.FLAG_OKAY
-            meta = data.new_metadata(file.name, 0)
-            meta["source"] = "pdfbourso"
-            meta["document"] = document
-
-            transac = data.Transaction(
-                meta=meta,
-                date=parse_datetime(ope["Date"], dayfirst="True").date(),
-                flag=flag,
-                payee=ope["Designation"] or "inconnu",
-                narration=ope["ISIN"],
-                tags=data.EMPTY_SET,
-                links=data.EMPTY_SET,
-                postings=[posting_1, posting_2, posting_3],
-            )
-            entries.append(transac)
-
-        if self.type == "Compte":
-            # Identification du numéro de compte
-            control = r"\s*\d{11}"
-            match = re.search(control, text)
-            if match:
-                compte = match.group(0).split(" ")[-1]
-
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Numéro de compte extrait : {compte}")
-
-            # Affichage du solde initial
-            control = r"SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
-            match = re.search(control, text)
-            datebalance = ""
-            balance = ""
-            if match:
-                datebalance = parse_datetime(
-                    match.group(2), dayfirst="True"
-                ).date() + datetime.timedelta(1)
-                longueur = (
-                    len(match.group(1))
-                    + len(match.group(3))
-                    + len(match.group(2))
-                    + len(match.group(4))
-                )
-                balance = match.group(4).replace(".", "").replace(",", ".")
-                if longueur < 84:
-                    # Si la distance entre les 2 champs est petite, alors, c'est un débit.
-                    balance = "-" + balance
-
-            meta = data.new_metadata(file.name, 0)
-            meta["source"] = "pdfbourso"
-            meta["document"] = document
-
+            entries.append(transaction)
             entries.append(
                 data.Balance(
                     meta,
-                    datebalance,
+                    ope["date"] + datetime.timedelta(1),
                     self.accountList[compte],
-                    amount.Amount(D(balance), "EUR"),
+                    ope["CRD"],
                     None,
                     None,
                 )
             )
 
-            control = r"\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{8,20})(.+?))?\n"  # regexr.com/4ju06
-            chunks = re.findall(control, text)
+        return entries
+
+    def _extract_cb(self, file, text, document):
+        """Extrait les données pour les opérations CB."""
+        entries = []
+        # Identification du numéro de compte
+        control = r"\s*((4979|4810)\*{8}\d{4})"
+        match = re.search(control, text)
+        if match:
+            compte = match.group(1)
+
+        # Si debogage, affichage de l'extraction
+        self._debug(f"Numéro de compte : {compte}")
+
+        control = r"(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
+        chunks = re.findall(control, text)
+
+        # Si debogage, affichage de l'extraction
+        self._debug(f"Expression régulière utilisée : {control}")
+        self._debug(f"Chunks extraits : {chunks}")
+
+        index = 0
+        for chunk in chunks:
+            index += 1
+            meta = data.new_metadata(file.name, index)
+            meta["source"] = "pdfbourso"
+            meta["document"] = document
+            ope = dict()
 
             # Si debogage, affichage de l'extraction
-            self._debug(f"Chunks extraits : {chunks}")
+            self._debug(f"Chunk extrait : {chunk}")
 
-            index = 0
-            for chunk in chunks:
-                index += 1
-                meta = data.new_metadata(file.name, index)
+            ope["date"] = chunk[0]
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Date de l'opération : {ope['date']}")
+
+            ope["montant"] = self._parse_decimal(chunk[2])*-1
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Montant de l'opération : {ope['montant']}")
+
+            ope["payee"] = re.sub(r"\s+", " ", chunk[1])
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Payee : {ope['payee']}")
+
+            # Creation de la transaction
+            postings = [
+                self._create_posting(
+                    self.accountList[compte],
+                    ope["montant"],
+                    "EUR",
+                ),
+            ]
+            transaction = self._create_transaction(
+                meta,
+                parse_datetime(ope["date"], dayfirst="True").date(),
+                ope["payee"] or "inconnu",
+                None,
+                data.EMPTY_SET,
+                postings,
+            )
+            entries.append(transaction)
+
+        # Recherche du solde final
+        control = r"A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
+        match = re.search(control, text)
+        if match:
+            balance = self._parse_decimal(match.group(2))*-1
+            self._debug(f"Balance : {balance}")
+            # Recherche de la date du solde final
+            control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
+            match = re.search(control, text)
+            if match:
+                datebalance = parse_datetime(
+                    match.group(1), dayfirst="True"
+                ).date()
+                self._debug(f"Date de la balance : {datebalance}")
+                meta = data.new_metadata(file.name, 0)
                 meta["source"] = "pdfbourso"
                 meta["document"] = document
-                ope = dict()
 
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Chunk extrait : {chunk}")
-
-                ope["date"] = chunk[1]
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Date de l'opération : {ope['date']}")
-
-                ope["montant"] = chunk[3].replace(".", "").replace(",", ".")
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Montant de l'opération : {ope['montant']}")
-
-                # Longueur de l'espace intercalaire
-                longueur = (
-                    len(chunk[0])
-                    + len(chunk[1])
-                    + len(chunk[2])
-                    + len(chunk[3])
-                )
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Longueur de l'espace intercalaire : {longueur}")
-
-                if longueur > 148:
-                    ope["type"] = "Credit"
-                else:
-                    ope["type"] = "Debit"
-                    ope["montant"] = "-" + ope["montant"]
-                # Si débogage, affichage de l'extraction
-                self._debug(f"Montant de l'opération : {ope['montant']}")
-
-                ope["payee"] = re.sub(r"\s+", " ", chunk[0])
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Payee : {ope['payee']}")
-
-                ope["narration"] = re.sub(r"\s+", " ", chunk[4])
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Narration : {ope['narration']}")
-
-                # Creation de la transaction
-                posting_1 = data.Posting(
-                    account=self.accountList[compte],
-                    units=amount.Amount(Decimal(ope["montant"]), "EUR"),
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
-                flag = flags.FLAG_OKAY
-                transac = data.Transaction(
-                    meta=meta,
-                    date=parse_datetime(ope["date"], dayfirst="True").date(),
-                    flag=flag,
-                    payee=ope["payee"] or "inconnu",
-                    narration=ope["narration"],
-                    tags=data.EMPTY_SET,
-                    links=data.EMPTY_SET,
-                    postings=[posting_1],
-                )
-                entries.append(transac)
-
-            # Recherche du solde final
-            control = r"Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
-            match = re.search(control, text)
-            if match:
-                balance = match.group(2).replace(".", "").replace(",", ".")
-                longueur = len(match.group(1))
-                if self.debug:
-                    print(balance)
-                    print(longueur)
-                if longueur < 84:
-                    # Si la distance entre les 2 champs est petite, alors, c'est un débit.
-                    balance = "-" + balance
-                # Recherche de la date du solde final
-                control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
-                match = re.search(control, text)
-                if match:
-                    datebalance = parse_datetime(
-                        match.group(1), dayfirst="True"
-                    ).date()
-                    if self.debug:
-                        print(datebalance)
-                    meta = data.new_metadata(file.name, 0)
-                    meta["source"] = "pdfbourso"
-                    meta["document"] = document
-
-                    entries.append(
-                        data.Balance(
-                            meta,
-                            datebalance,
-                            self.accountList[compte],
-                            amount.Amount(D(balance), "EUR"),
-                            None,
-                            None,
-                        )
-                    )
-
-        if self.type == "Amortissement":
-            # Identification du numéro de compte
-            control = r"N(?:°|º) du crédit\s*:\s?(\d{5}\s?-\s?\d{11})"
-            match = re.search(control, text)
-            if match:
-                compte = match.group(1)
-
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Numéro de compte : {compte}")
-
-            control = r"(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
-            chunks = re.findall(control, text)
-
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Chunks : {chunks}")
-
-            index = 0
-            for chunk in chunks:
-                index += 1
-                meta = data.new_metadata(file.name, index)
-                meta["source"] = "pdfbourso"
-
-                ope = dict()
-                ope["date"] = parse_datetime(chunk[0], dayfirst="True").date()
-                ope["prelevement"] = amount.Amount(
-                    self._parse_decimal(chunk[1])*-1, "EUR"
-                )
-                ope["amortissement"] = amount.Amount(
-                    self._parse_decimal(chunk[2]), "EUR"
-                )
-                ope["interet"] = amount.Amount(
-                    self._parse_decimal(chunk[3]), "EUR"
-                )
-                ope["assurance"] = amount.Amount(
-                    self._parse_decimal(chunk[4]), "EUR"
-                )
-                ope["CRD"] = amount.Amount(
-                    self._parse_decimal(chunk[7])*-1, "EUR"
-                )
-
-                # Creation de la transactiocn
-                posting_1 = data.Posting(
-                    account="Actif:Boursorama:CCJoint",
-                    units=ope["prelevement"],
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
-                posting_2 = data.Posting(
-                    account=self.accountList[compte],
-                    units=ope["amortissement"],
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
-                posting_3 = data.Posting(
-                    account="Depenses:Banque:Interet",
-                    units=ope["interet"],
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
-                posting_4 = data.Posting(
-                    account="Depenses:Banque:AssuEmprunt",
-                    units=ope["assurance"],
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
-                flag = flags.FLAG_OKAY
-                transac = data.Transaction(
-                    meta=meta,
-                    date=ope["date"],
-                    flag=flag,
-                    payee="ECH PRET:8028000060686223",
-                    narration="",
-                    tags=data.EMPTY_SET,
-                    links=data.EMPTY_SET,
-                    postings=[posting_1, posting_2, posting_3, posting_4],
-                )
-                entries.append(transac)
                 entries.append(
                     data.Balance(
                         meta,
-                        ope["date"] + datetime.timedelta(1),
+                        datebalance,
                         self.accountList[compte],
-                        ope["CRD"],
+                        amount.Amount(balance, "EUR"),
                         None,
                         None,
                     )
                 )
-
-        if self.type == "CB":
-            # Identification du numéro de compte
-            control = r"\s*((4979|4810)\*{8}\d{4})"
-            match = re.search(control, text)
-            if match:
-                compte = match.group(1)
-
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Numéro de compte : {compte}")
-
-            control = r"(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
-            chunks = re.findall(control, text)
-
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Expression régulière utilisée : {control}")
-            self._debug(f"Chunks extraits : {chunks}")
-
-            index = 0
-            for chunk in chunks:
-                index += 1
-                meta = data.new_metadata(file.name, index)
-                meta["source"] = "pdfbourso"
-                meta["document"] = document
-                ope = dict()
-
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Chunk extrait : {chunk}")
-
-                ope["date"] = chunk[0]
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Date de l'opération : {ope['date']}")
-
-                ope["montant"] = self._parse_decimal(chunk[2])*-1
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Montant de l'opération : {ope['montant']}")
-
-                ope["payee"] = re.sub(r"\s+", " ", chunk[1])
-                # Si debogage, affichage de l'extraction
-                self._debug(f"Payee : {ope['payee']}")
-
-                # Creation de la transaction
-                posting_1 = data.Posting(
-                    account=self.accountList[compte],
-                    units=amount.Amount(ope["montant"], "EUR"),
-                    cost=None,
-                    flag=None,
-                    meta=None,
-                    price=None,
-                )
-                flag = flags.FLAG_OKAY
-                transac = data.Transaction(
-                    meta=meta,
-                    date=parse_datetime(ope["date"], dayfirst="True").date(),
-                    flag=flag,
-                    payee=ope["payee"] or "inconnu",
-                    narration=None,
-                    tags=data.EMPTY_SET,
-                    links=data.EMPTY_SET,
-                    postings=[posting_1],
-                )
-                entries.append(transac)
-
-            # Recherche du solde final
-            control = r"A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
-            match = re.search(control, text)
-            if match:
-                balance = self._parse_decimal(match.group(2))*-1
-                self._debug(f"Balance : {balance}")
-                # Recherche de la date du solde final
-                control = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
-                match = re.search(control, text)
-                if match:
-                    datebalance = parse_datetime(
-                        match.group(1), dayfirst="True"
-                    ).date()
-                    self._debug(f"Date de la balance : {datebalance}")
-                    meta = data.new_metadata(file.name, 0)
-                    meta["source"] = "pdfbourso"
-                    meta["document"] = document
-
-                    entries.append(
-                        data.Balance(
-                            meta,
-                            datebalance,
-                            self.accountList[compte],
-                            amount.Amount(balance, "EUR"),
-                            None,
-                            None,
-                        )
-                    )
 
         return entries
+
+    def _create_posting(self, account, amount_value, currency, cost=None, price=None):
+        """Crée un posting pour une transaction."""
+        return data.Posting(
+            account=account,
+            units=amount.Amount(amount_value, currency),
+            cost=cost,
+            flag=None,
+            meta=None,
+            price=price,
+        )
+
+    def _create_transaction(self, meta, date, payee, narration, tags, postings):
+        """Crée une transaction."""
+        return data.Transaction(
+            meta=meta,
+            date=date,
+            flag=flags.FLAG_OKAY,
+            payee=payee,
+            narration=narration,
+            tags=tags,
+            links=data.EMPTY_SET,
+            postings=postings,
+        )
