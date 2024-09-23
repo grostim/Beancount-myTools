@@ -143,23 +143,18 @@ class PDFBourso(importer.ImporterProtocol):
             control = self.REGEX_COMPTE_BOURSE_OPCVM
         
         # Si debogage, affichage de l'extraction
-        if self.debug:
-            print(self.type)
+        self._debug(self.type)
         
         match = re.search(control, text)
         
-        # Si debogage, affichage de l'extraction
-        if self.debug and match:
-            print(match.group(1))
-        
         if match:
+            self._debug(match.group(1))
             compte = match.group(1)
             if self.type in ["Bourse", "OPCVM"]:
                 match_isin = re.search(self.REGEX_ISIN, text)
                 if match_isin:
                     isin = match_isin.group(1)
-                    if self.debug:
-                        print(isin)
+                    self._debug(f"{self.accountList[compte]}:{isin}")
                     return f"{self.accountList[compte]}:{isin}"
             elif self.type in ["DividendeBourse", "EspeceDividende"]:
                 return f"{self.accountList[compte]}:Cash"
@@ -189,9 +184,8 @@ class PDFBourso(importer.ImporterProtocol):
         text = file.convert(pdf_to_text)
 
         # Si debogage, affichage de l'extraction
-        if self.debug:
-            print(text)
-            print(self.type)
+        self._debug(text)
+        self._debug(self.type)
 
         if self.type == "DividendeBourse":
             compte = self.file_account(file)
@@ -309,9 +303,8 @@ class PDFBourso(importer.ImporterProtocol):
             if match:
                 compte = match.group(1)
 
-            # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(compte)
+            # Si débogage, affichage de l'extraction
+            self._debug(f"Numéro de compte extrait : {compte}")
 
             ope = dict()
 
@@ -357,8 +350,7 @@ class PDFBourso(importer.ImporterProtocol):
                 ope["currency Cours"] = match.group(2)
             else:
                 print("Coursintrouvable")
-            if self.debug:
-                print(ope["Date"])
+            self._debug(f"Date de l'opération : {ope['Date']}")
 
             control = r"ACHAT COMPTANT"
             match = re.search(control, text)
@@ -471,9 +463,8 @@ class PDFBourso(importer.ImporterProtocol):
             if match:
                 compte = match.group(1)
 
-            # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(compte)
+            # Si débogage, affichage de l'extraction
+            self._debug(compte)
 
             ope = dict()
 
@@ -488,9 +479,8 @@ class PDFBourso(importer.ImporterProtocol):
                 ope["currency Droits"] = match.group(4)
             else:
                 print("Montant introuvable")
-            if self.debug:
-                print(ope["Montant Total"])
-                print(ope["currency Total"])
+            self._debug(f"Montant Total: {ope['Montant Total']}")
+            self._debug(f"Devise Total: {ope['currency Total']}")
 
             control = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
             match = re.search(control, text)
@@ -515,8 +505,7 @@ class PDFBourso(importer.ImporterProtocol):
                 ope["currency Cours"] = match.group(2)
             else:
                 print("Coursintrouvable")
-            if self.debug:
-                print(ope["Cours"])
+            self._debug(f"Cours : {ope['Cours']}")
 
             control = r"SOUSCRIPTION"
             match = re.search(control, text)
@@ -637,8 +626,7 @@ class PDFBourso(importer.ImporterProtocol):
                 compte = match.group(0).split(" ")[-1]
 
             # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(compte)
+            self._debug(f"Numéro de compte extrait : {compte}")
 
             # Affichage du solde initial
             control = r"SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
@@ -660,13 +648,6 @@ class PDFBourso(importer.ImporterProtocol):
                     # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                     balance = "-" + balance
 
-            # Si debogage, affichage de l'extraction
-            #            if self.debug:
-            #                print(self.type)
-            #                print(datebalance)
-            #                print(balance)
-            #                print(longueur)
-
             meta = data.new_metadata(file.name, 0)
             meta["source"] = "pdfbourso"
             meta["document"] = document
@@ -686,8 +667,7 @@ class PDFBourso(importer.ImporterProtocol):
             chunks = re.findall(control, text)
 
             # Si debogage, affichage de l'extraction
-            if self.debug:
-                print(chunks)
+            self._debug(f"Chunks extraits : {chunks}")
 
             index = 0
             for chunk in chunks:
@@ -698,18 +678,15 @@ class PDFBourso(importer.ImporterProtocol):
                 ope = dict()
 
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(chunk)
+                self._debug(f"Chunk extrait : {chunk}")
 
                 ope["date"] = chunk[1]
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(ope["date"])
+                self._debug(f"Date de l'opération : {ope['date']}")
 
                 ope["montant"] = chunk[3].replace(".", "").replace(",", ".")
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(ope["montant"])
+                self._debug(f"Montant de l'opération : {ope['montant']}")
 
                 # Longueur de l'espace intercalaire
                 longueur = (
@@ -727,19 +704,16 @@ class PDFBourso(importer.ImporterProtocol):
                 else:
                     ope["type"] = "Debit"
                     ope["montant"] = "-" + ope["montant"]
-                # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(ope["montant"])
+                # Si débogage, affichage de l'extraction
+                self._debug(f"Montant de l'opération : {ope['montant']}")
 
                 ope["payee"] = re.sub(r"\s+", " ", chunk[0])
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(ope["payee"])
+                self._debug(f"Payee de l'opération : {ope['payee']}")
 
                 ope["narration"] = re.sub(r"\s+", " ", chunk[4])
                 # Si debogage, affichage de l'extraction
-                if self.debug:
-                    print(ope["narration"])
+                self._debug(f"Narration de l'opération : {ope['narration']}")
 
                 # Creation de la transaction
                 posting_1 = data.Posting(
@@ -769,9 +743,8 @@ class PDFBourso(importer.ImporterProtocol):
             if match:
                 balance = match.group(2).replace(".", "").replace(",", ".")
                 longueur = len(match.group(1))
-                if self.debug:
-                    print(balance)
-                    print(longueur)
+                self._debug(f"Balance : {balance}")
+                self._debug(f"Longueur : {longueur}")
                 if longueur < 84:
                     # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                     balance = "-" + balance
@@ -782,8 +755,7 @@ class PDFBourso(importer.ImporterProtocol):
                     datebalance = parse_datetime(
                         match.group(1), dayfirst="True"
                     ).date()
-                    if self.debug:
-                        print(datebalance)
+                    self._debug(f"Date du solde final : {datebalance}")
                     meta = data.new_metadata(file.name, 0)
                     meta["source"] = "pdfbourso"
                     meta["document"] = document
