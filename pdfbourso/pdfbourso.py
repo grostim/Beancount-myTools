@@ -50,7 +50,7 @@ class PDFBourso(importer.ImporterProtocol):
     REGEX_CB_OPERATION = r"(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
     REGEX_CB_SOLDE_FINAL = r"A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
 
-    REGEX_BOURSE_MONTANT = r"Montant transaction\s*Montant transaction brut\s*Intérêts\s*total brut\s*Courtages\s*Montant transaction net\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
+    REGEX_BOURSE_MONTANT = r"Montant transaction\s*Montant transaction brut\s*Intérêts\s*total brut\s*Courtages\s*Montant transaction net\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
     REGEX_BOURSE_FRAIS = r"Commission\s*Frais divers\s*Montant total des frais\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
     REGEX_BOURSE_DETAILS = r"locale d'exécution\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution\s*(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3})\s*([\s\S]{0,20})?\s*"
     REGEX_BOURSE_COURS = r"Cours exécuté :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
@@ -67,14 +67,12 @@ class PDFBourso(importer.ImporterProtocol):
 
     def __init__(self, accountList, debug: bool = False):
         """
-        Cette fonction est utilisée pour créer une instance de la classe.
-        Elle prend une liste de comptes comme paramètre et renvoie une instance de la classe.
-        La classe a deux attributs : une liste de comptes et un indicateur de débogage booléen.
+        Initialise l'importateur PDFBourso.
 
         :param accountList: Un dictionnaire de comptes
-        :param debug: bool = False, par défaut False
-        :type debug: bool (optionnel)
-        :return: None
+        :type accountList: dict
+        :param debug: Active le mode débogage si True, par défaut False
+        :type debug: bool
         """
         assert isinstance(accountList, dict), "La liste de comptes doit être de type dict"
         self.accountList = accountList
@@ -84,21 +82,20 @@ class PDFBourso(importer.ImporterProtocol):
         """
         Affiche un message de débogage si le mode debug est activé.
 
-        Args:
-            message (str): Le message à afficher.
+        :param message: Le message à afficher
+        :type message: str
         """
         if self.debug:
             print(f"[DEBUG] {message}")
 
     def identify(self, file):
         """
-        La fonction identify prend un fichier comme argument et renvoie une valeur booléenne.
-        Si le fichier est un pdf, il le convertit en texte et vérifie si le texte contient
-        certains mots-clés. S'il les contient, il renvoie True.
-        Sinon, il renvoie False.
+        Identifie si le fichier est un relevé Boursorama valide.
 
-        :param file: le fichier à traiter
-        :return: Le type du fichier.
+        :param file: Le fichier à identifier
+        :type file: object
+        :return: True si le fichier est identifié comme un relevé Boursorama, False sinon
+        :rtype: bool
         """
         if file.mimetype() != "application/pdf":
             return False
@@ -129,7 +126,14 @@ class PDFBourso(importer.ImporterProtocol):
                 return 1
 
     def file_name(self, file):
-        # Normalize the name to something meaningful.
+        """
+        Retourne un nom de fichier normalisé basé sur le type de relevé.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :return: Le nom de fichier normalisé
+        :rtype: str
+        """
         self.identify(file)
         if self.type == "DividendeBourse":
             return "Relevé Dividendes.pdf"
@@ -146,11 +150,12 @@ class PDFBourso(importer.ImporterProtocol):
 
     def file_account(self, file):
         """
-        The function file_account() takes a file object as an argument and returns the account number
-        associated with the file.
+        Extrait et retourne le numéro de compte associé au fichier.
 
-        :param file: the file to convert
-        :return: The account number.
+        :param file: Le fichier à traiter
+        :type file: object
+        :return: Le numéro de compte ou l'identifiant du compte
+        :rtype: str
         """
         # Recherche du numéro de compte dans le fichier.
         text = file.convert(pdf_to_text)
@@ -188,11 +193,12 @@ class PDFBourso(importer.ImporterProtocol):
 
     def file_date(self, file):
         """
-        It takes a file object as an argument, converts it to text, and then searches for the date in the
-        text. If it finds a date, it parses it and returns it as a datetime object.
+        Extrait et retourne la date du relevé.
 
-        :param file: The file to convert
-        :return: The date of the statement.
+        :param file: Le fichier à traiter
+        :type file: object
+        :return: La date du relevé
+        :rtype: datetime.date
         """
         text = file.convert(pdf_to_text)
         match = re.search(self.DATE_REGEX, text)
@@ -200,12 +206,26 @@ class PDFBourso(importer.ImporterProtocol):
             return parse_datetime(match.group(1), dayfirst="True").date()
 
     def _parse_decimal(self, value: str) -> Decimal:
-        """Parse une chaîne en Decimal en gérant les différents formats."""
+        """
+        Parse une chaîne en Decimal en gérant les différents formats.
+
+        :param value: La chaîne à parser
+        :type value: str
+        :return: La valeur décimale
+        :rtype: Decimal
+        """
         return Decimal(value.replace(",", ".").replace(" ", "").replace("\xa0", "").replace(r"\u00a", ""))
 
     def extract(self, file, existing_entries=None):
         """
         Extrait les données du fichier PDF et retourne une liste d'entrées.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :param existing_entries: Les entrées existantes, par défaut None
+        :type existing_entries: list, optional
+        :return: Une liste d'entrées extraites
+        :rtype: list
         """
         document = str(self.file_date(file)) + " " + self.file_name(file)
         text = file.convert(pdf_to_text)
@@ -232,7 +252,18 @@ class PDFBourso(importer.ImporterProtocol):
         return entries
 
     def _extract_dividende_bourse(self, file, text, document):
-        """Extrait les données pour les dividendes boursiers."""
+        """
+        Extrait les données pour les dividendes boursiers.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :param text: Le contenu texte du fichier
+        :type text: str
+        :param document: L'identifiant du document
+        :type document: str
+        :return: Une liste d'entrées extraites
+        :rtype: list
+        """
         entries = []
         compte = self.file_account(file)
         control = self.REGEX_DIVIDENDE_DETAILS
@@ -262,7 +293,18 @@ class PDFBourso(importer.ImporterProtocol):
         return entries
 
     def _extract_espece_bourse(self, file, text, document):
-        """Extrait les données pour les espèces en bourse."""
+        """
+        Extrait les données pour les espèces en bourse.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :param text: Le contenu texte du fichier
+        :type text: str
+        :param document: L'identifiant du document
+        :type document: str
+        :return: Une liste d'entrées extraites
+        :rtype: list
+        """
         entries = []
         print(self.file_account(file))
         control = self.REGEX_ESPECE_BOURSE_SOLDE
@@ -287,7 +329,18 @@ class PDFBourso(importer.ImporterProtocol):
         return entries
 
     def _extract_bourse(self, file, text, document):
-        """Extrait les données pour les opérations boursières."""
+        """
+        Extrait les données pour les opérations boursières.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :param text: Le contenu texte du fichier
+        :type text: str
+        :param document: L'identifiant du document
+        :type document: str
+        :return: Une liste d'entrées extraites
+        :rtype: list
+        """
         entries = []
         # Identification du numéro de compte
         control = self.REGEX_COMPTE_BOURSE_OPCVM
@@ -390,7 +443,18 @@ class PDFBourso(importer.ImporterProtocol):
         return entries
 
     def _extract_opcvm(self, file, text, document):
-        """Extrait les données pour les opérations OPCVM."""
+        """
+        Extrait les données pour les opérations OPCVM.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :param text: Le contenu texte du fichier
+        :type text: str
+        :param document: L'identifiant du document
+        :type document: str
+        :return: Une liste d'entrées extraites
+        :rtype: list
+        """
         entries = []
         # Identification du numéro de compte
         control = self.REGEX_COMPTE_BOURSE_OPCVM
@@ -490,7 +554,18 @@ class PDFBourso(importer.ImporterProtocol):
         return entries
 
     def _extract_compte(self, file, text, document):
-        """Extrait les données pour les opérations de compte."""
+        """
+        Extrait les données pour les opérations de compte.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :param text: Le contenu texte du fichier
+        :type text: str
+        :param document: L'identifiant du document
+        :type document: str
+        :return: Une liste d'entrées extraites
+        :rtype: list
+        """
         entries = []
         # Identification du numéro de compte
         control = self.REGEX_COMPTE_COMPTE
@@ -640,7 +715,18 @@ class PDFBourso(importer.ImporterProtocol):
         return entries
 
     def _extract_amortissement(self, file, text, document):
-        """Extrait les données pour les opérations d'amortissement."""
+        """
+        Extrait les données pour les opérations d'amortissement.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :param text: Le contenu texte du fichier
+        :type text: str
+        :param document: L'identifiant du document
+        :type document: str
+        :return: Une liste d'entrées extraites
+        :rtype: list
+        """
         entries = []
         # Identification du numéro de compte
         match = re.search(self.REGEX_COMPTE_AMORTISSEMENT, text)
@@ -709,7 +795,18 @@ class PDFBourso(importer.ImporterProtocol):
         return entries
 
     def _extract_cb(self, file, text, document):
-        """Extrait les données pour les opérations CB."""
+        """
+        Extrait les données pour les opérations CB.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :param text: Le contenu texte du fichier
+        :type text: str
+        :param document: L'identifiant du document
+        :type document: str
+        :return: Une liste d'entrées extraites
+        :rtype: list
+        """
         entries = []
         # Identification du numéro de compte
         match = re.search(self.REGEX_COMPTE_CB, text)
@@ -796,7 +893,22 @@ class PDFBourso(importer.ImporterProtocol):
         return entries
 
     def _create_posting(self, account, amount_value, currency, cost=None, price=None):
-        """Crée un posting pour une transaction."""
+        """
+        Crée un posting pour une transaction.
+
+        :param account: Le compte associé au posting
+        :type account: str
+        :param amount_value: La valeur du montant
+        :type amount_value: Decimal
+        :param currency: La devise
+        :type currency: str
+        :param cost: Le coût, par défaut None
+        :type cost: Cost, optional
+        :param price: Le prix, par défaut None
+        :type price: Amount, optional
+        :return: Un objet Posting
+        :rtype: data.Posting
+        """
         return data.Posting(
             account=account,
             units=amount.Amount(amount_value, currency),
@@ -807,7 +919,24 @@ class PDFBourso(importer.ImporterProtocol):
         )
 
     def _create_transaction(self, meta, date, payee, narration, tags, postings):
-        """Crée une transaction."""
+        """
+        Crée une transaction.
+
+        :param meta: Les métadonnées de la transaction
+        :type meta: dict
+        :param date: La date de la transaction
+        :type date: datetime.date
+        :param payee: Le bénéficiaire
+        :type payee: str
+        :param narration: La description de la transaction
+        :type narration: str
+        :param tags: Les tags associés à la transaction
+        :type tags: set
+        :param postings: Les postings de la transaction
+        :type postings: list
+        :return: Un objet Transaction
+        :rtype: data.Transaction
+        """
         return data.Transaction(
             meta=meta,
             date=date,
