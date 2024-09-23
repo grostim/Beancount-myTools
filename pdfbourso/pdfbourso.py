@@ -22,14 +22,16 @@ from beancount.core.number import Decimal, D
 class PDFBourso(importer.ImporterProtocol):
     """Un importateur pour les relevés PDF Boursorama."""
 
-    # Constantes de classe pour les motifs regex
-    REGEX_DIVIDENDE = r"COUPONS REMBOURSEMENTS :"
-    REGEX_ESPECE_BOURSE = r"RELEVE COMPTE ESPECES :"
-    REGEX_BOURSE = r"OPERATION DE BOURSE"
-    REGEX_OPCVM = r"OPERATION SUR OPC"
-    REGEX_CB = r"Relevé de Carte"
-    REGEX_COMPTE = r"BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151"
-    REGEX_AMORTISSEMENT = r"tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif"
+    # Déplacer les constantes de classe en haut pour une meilleure lisibilité
+    DOCUMENT_TYPES = {
+        "DividendeBourse": r"COUPONS REMBOURSEMENTS :",
+        "EspeceBourse": r"RELEVE COMPTE ESPECES :",
+        "Bourse": r"OPERATION DE BOURSE",
+        "OPCVM": r"OPERATION SUR OPC",
+        "CB": r"Relevé de Carte",
+        "Compte": r"BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151",
+        "Amortissement": r"tableau d'amortissement|Echéancier Prévisionnel|Échéancier Définitif"
+    }
 
     REGEX_COMPTE_COMPTE = r"\s*(\d{11})"
     REGEX_COMPTE_CB = r"\s*((4979|4810)\*{8}\d{4})"
@@ -102,28 +104,13 @@ class PDFBourso(importer.ImporterProtocol):
 
         text = file.convert(pdf_to_text)
         self._debug(f"Contenu du PDF :\n{text}")
-        if text:
-            if re.search(self.REGEX_DIVIDENDE, text) is not None:
-                self.type = "DividendeBourse"
-                return 1
-            if re.search(self.REGEX_ESPECE_BOURSE, text) is not None:
-                self.type = "EspeceBourse"
-                return 1
-            if re.search(self.REGEX_BOURSE, text) is not None:
-                self.type = "Bourse"
-                return 1
-            if re.search(self.REGEX_OPCVM, text) is not None:
-                self.type = "OPCVM"
-                return 1
-            if re.search(self.REGEX_CB, text) is not None:
-                self.type = "CB"
-                return 1
-            if re.search(self.REGEX_COMPTE, text) is not None:
-                self.type = "Compte"
-                return 1
-            if re.search(self.REGEX_AMORTISSEMENT, text) is not None:
-                self.type = "Amortissement"
-                return 1
+        
+        for doc_type, regex in self.DOCUMENT_TYPES.items():
+            if re.search(regex, text):
+                self.type = doc_type
+                return True
+        
+        return False
 
     def file_name(self, file):
         """
@@ -234,20 +221,19 @@ class PDFBourso(importer.ImporterProtocol):
         self._debug(f"Contenu du PDF :\n{text}")
         self._debug(f"Type de document : {self.type}")
 
-        if self.type == "DividendeBourse":
-            entries.extend(self._extract_dividende_bourse(file, text, document))
-        elif self.type == "EspeceBourse":
-            entries.extend(self._extract_espece_bourse(file, text, document))
-        elif self.type == "Bourse":
-            entries.extend(self._extract_bourse(file, text, document))
-        elif self.type == "OPCVM":
-            entries.extend(self._extract_opcvm(file, text, document))
-        elif self.type == "Compte":
-            entries.extend(self._extract_compte(file, text, document))
-        elif self.type == "Amortissement":
-            entries.extend(self._extract_amortissement(file, text, document))
-        elif self.type == "CB":
-            entries.extend(self._extract_cb(file, text, document))
+        extract_methods = {
+            "DividendeBourse": self._extract_dividende_bourse,
+            "EspeceBourse": self._extract_espece_bourse,
+            "Bourse": self._extract_bourse,
+            "OPCVM": self._extract_opcvm,
+            "Compte": self._extract_compte,
+            "Amortissement": self._extract_amortissement,
+            "CB": self._extract_cb
+        }
+
+        extract_method = extract_methods.get(self.type)
+        if extract_method:
+            entries.extend(extract_method(file, text, document))
 
         return entries
 
