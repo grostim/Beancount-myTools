@@ -1,0 +1,54 @@
+# Directives Générales
+
+## Réponses en Français
+Toujours répondre en français.
+
+## Documentation
+- Utiliser toujours Markdown pour la documentation et les fichiers README.
+- Maintenir la structure existante du fichier README.md.
+
+# Documentations des Commits
+Les messages de commit doivent suivre les règles CONVENTIONNALCOMMITS: https://www.conventionalcommits.org/en/v1.0.0/#summary
+Le descriptif du commit doit décrire le contenu du diff du commit.
+
+# Directives pour Python
+
+## Structure du Projet
+- Utiliser une structure de projet claire avec des répertoires séparés pour le code source, les tests, la documentation et la configuration.
+
+## Conception Modulaire
+- Adopter une conception modulaire avec des fichiers distincts pour les modèles, les services, les contrôleurs et les utilitaires.
+
+## Gestion de la Configuration
+- Gérer la configuration en utilisant des variables d'environnement.
+
+## Gestion des Erreurs et Journalisation
+- Implémenter une gestion robuste des erreurs et la journalisation, y compris la capture du contexte.
+
+## Tests
+- Effectuer des tests complets avec pytest.
+
+## Documentation
+- Fournir une documentation détaillée en utilisant des docstrings et des fichiers README.
+
+## Gestion des Dépendances
+- Gérer les dépendances via les fichiers pyproject.toml et requirements.txt; ainsi que grace à l'utilisation des environnements virtuels.
+
+## Consistance du Style de Code
+- Assurer la consistance du style de code en utilisant Ruff.
+
+## CI/CD
+- Implémenter CI/CD avec GitHub Actions ou GitLab CI.
+
+## Pratiques de Codage AI-Friendly
+- Utiliser des noms de variables et de fonctions descriptifs.
+- Ajouter des annotations de type.
+- Fournir des commentaires détaillés pour la logique complexe.
+- Capturer un contexte riche pour le débogage.
+
+# Maintenance et Mises à Jour
+
+## Mise à Jour du README.md
+- Mettre à jour le fichier README.md lorsqu'un module Python est modifié.
+- S'assurer que tous les liens dans le fichier README.md sont relatifs et corrects.
+- Maintenir l'exactitude de la table des matières dans le fichier README.md.
