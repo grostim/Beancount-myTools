@@ -87,8 +87,6 @@ class PDFBourso(importer.ImporterProtocol):
         else:
             logging.basicConfig(level=logging.INFO)
 
-
-
     def _debug(self, message: str):
         self.logger.debug(message)
 
@@ -201,7 +199,7 @@ class PDFBourso(importer.ImporterProtocol):
 
     def extract(self, file, existing_entries=None):
         try:
-            document = str(self.file_date(file)) + " " + self.file_name(file)
+            document = f"{self.file_date(file)} {self.file_name(file)}"
             text = file.convert(pdf_to_text)
             entries = []
 
