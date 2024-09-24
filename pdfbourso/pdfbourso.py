@@ -13,11 +13,13 @@ __license__ = "GNU GPLv2"
 
 import re
 import datetime
+import logging
 from dateutil.parser import parse as parse_datetime
 from myutils import pdf_to_text
 from beancount.core import amount, data, flags, position
 from beancount.ingest import importer
 from beancount.core.number import Decimal, D
+from decimal import InvalidOperation
 
 class PDFBourso(importer.ImporterProtocol):
     """Un importateur pour les relevés PDF Boursorama."""
@@ -79,38 +81,46 @@ class PDFBourso(importer.ImporterProtocol):
         assert isinstance(accountList, dict), "La liste de comptes doit être de type dict"
         self.accountList = accountList
         self.debug = debug
+        self.logger = logging.getLogger(__name__)
+        if debug:
+            logging.basicConfig(level=logging.DEBUG)
+        else:
+            logging.basicConfig(level=logging.INFO)
+           # Gestionnaire pour la console
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(logging.DEBUG if debug else logging.INFO)
+
+        # Format des messages
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        console_handler.setFormatter(formatter)
+
+        # Ajouter les gestionnaires au logger
+        self.logger.addHandler(console_handler)
+
 
     def _debug(self, message: str):
-        """
-        Affiche un message de débogage si le mode debug est activé.
+        self.logger.debug(message)
 
-        :param message: Le message à afficher
-        :type message: str
-        """
-        if self.debug:
-            print(f"[DEBUG] {message}")
+    def _error(self, message: str):
+        self.logger.error(message)
 
     def identify(self, file):
-        """
-        Identifie si le fichier est un relevé Boursorama valide.
+        try:
+            if file.mimetype() != "application/pdf":
+                return False
 
-        :param file: Le fichier à identifier
-        :type file: object
-        :return: True si le fichier est identifié comme un relevé Boursorama, False sinon
-        :rtype: bool
-        """
-        if file.mimetype() != "application/pdf":
+            text = file.convert(pdf_to_text)
+            self._debug(f"Contenu du PDF :\n{text}")
+            
+            for doc_type, regex in self.DOCUMENT_TYPES.items():
+                if re.search(regex, text):
+                    self.type = doc_type
+                    return True
+            
             return False
-
-        text = file.convert(pdf_to_text)
-        self._debug(f"Contenu du PDF :\n{text}")
-        
-        for doc_type, regex in self.DOCUMENT_TYPES.items():
-            if re.search(regex, text):
-                self.type = doc_type
-                return True
-        
-        return False
+        except Exception as e:
+            self._error(f"Erreur lors de l'identification du fichier : {str(e)}")
+            return False
 
     def file_name(self, file):
         """
@@ -193,90 +203,76 @@ class PDFBourso(importer.ImporterProtocol):
             return parse_datetime(match.group(1), dayfirst="True").date()
 
     def _parse_decimal(self, value: str) -> Decimal:
-        """
-        Parse une chaîne en Decimal en gérant les différents formats.
-
-        :param value: La chaîne à parser
-        :type value: str
-        :return: La valeur décimale
-        :rtype: Decimal
-        """
-        return Decimal(value.replace(",", ".").replace(" ", "").replace("\xa0", "").replace(r"\u00a", ""))
+        try:
+            return Decimal(value.replace(",", ".").replace(" ", "").replace("\xa0", "").replace(r"\u00a", ""))
+        except InvalidOperation:
+            self._error(f"Impossible de convertir '{value}' en Decimal")
+            return Decimal('0')
 
     def extract(self, file, existing_entries=None):
-        """
-        Extrait les données du fichier PDF et retourne une liste d'entrées.
+        try:
+            document = str(self.file_date(file)) + " " + self.file_name(file)
+            text = file.convert(pdf_to_text)
+            entries = []
 
-        :param file: Le fichier à traiter
-        :type file: object
-        :param existing_entries: Les entrées existantes, par défaut None
-        :type existing_entries: list, optional
-        :return: Une liste d'entrées extraites
-        :rtype: list
-        """
-        document = str(self.file_date(file)) + " " + self.file_name(file)
-        text = file.convert(pdf_to_text)
-        entries = []
+            self._debug(f"Contenu du PDF :\n{text}")
+            self._debug(f"Type de document : {self.type}")
 
-        self._debug(f"Contenu du PDF :\n{text}")
-        self._debug(f"Type de document : {self.type}")
+            extract_methods = {
+                "DividendeBourse": self._extract_dividende_bourse,
+                "EspeceBourse": self._extract_espece_bourse,
+                "Bourse": self._extract_bourse,
+                "OPCVM": self._extract_opcvm,
+                "Compte": self._extract_compte,
+                "Amortissement": self._extract_amortissement,
+                "CB": self._extract_cb
+            }
 
-        extract_methods = {
-            "DividendeBourse": self._extract_dividende_bourse,
-            "EspeceBourse": self._extract_espece_bourse,
-            "Bourse": self._extract_bourse,
-            "OPCVM": self._extract_opcvm,
-            "Compte": self._extract_compte,
-            "Amortissement": self._extract_amortissement,
-            "CB": self._extract_cb
-        }
+            extract_method = extract_methods.get(self.type)
+            if extract_method:
+                entries.extend(extract_method(file, text, document))
+            else:
+                self._error(f"Méthode d'extraction non trouvée pour le type : {self.type}")
 
-        extract_method = extract_methods.get(self.type)
-        if extract_method:
-            entries.extend(extract_method(file, text, document))
-
-        return entries
+            return entries
+        except Exception as e:
+            self._error(f"Erreur lors de l'extraction des données : {str(e)}")
+            return []
 
     def _extract_dividende_bourse(self, file, text, document):
-        """
-        Extrait les données pour les dividendes boursiers.
-
-        :param file: Le fichier à traiter
-        :type file: object
-        :param text: Le contenu texte du fichier
-        :type text: str
-        :param document: L'identifiant du document
-        :type document: str
-        :return: Une liste d'entrées extraites
-        :rtype: list
-        """
-        entries = []
-        compte = self.file_account(file)
-        control = self.REGEX_DIVIDENDE_DETAILS
-        chunks = re.findall(control, text)
-        meta = data.new_metadata(file.name, 0)
-        meta["source"] = "pdfbourso"
-        meta["document"] = document
-        
-        for chunk in chunks:
-            print(chunk)
-            postings = [
-                self._create_posting("Revenus:Dividendes", self._parse_decimal(chunk[4]) * -1, "EUR"),
-                self._create_posting("Depenses:Impots:IR", self._parse_decimal(chunk[5] or '0') + self._parse_decimal(chunk[6]), "EUR"),
-                self._create_posting(compte, self._parse_decimal(chunk[7]), "EUR")
-            ]
+        try:
+            entries = []
+            compte = self.file_account(file)
+            control = self.REGEX_DIVIDENDE_DETAILS
+            chunks = re.findall(control, text)
+            meta = data.new_metadata(file.name, 0)
+            meta["source"] = "pdfbourso"
+            meta["document"] = document
             
-            transaction = self._create_transaction(
-                meta,
-                parse_datetime(chunk[0], dayfirst="True").date(),
-                f"Dividende pour {chunk[1]} titres {chunk[2]}",
-                None,
-                {chunk[3]},
-                postings
-            )
-            entries.append(transaction)
-        
-        return entries
+            for chunk in chunks:
+                try:
+                    postings = [
+                        self._create_posting("Revenus:Dividendes", self._parse_decimal(chunk[4]) * -1, "EUR"),
+                        self._create_posting("Depenses:Impots:IR", self._parse_decimal(chunk[5] or '0') + self._parse_decimal(chunk[6]), "EUR"),
+                        self._create_posting(compte, self._parse_decimal(chunk[7]), "EUR")
+                    ]
+                    
+                    transaction = self._create_transaction(
+                        meta,
+                        parse_datetime(chunk[0], dayfirst="True").date(),
+                        f"Dividende pour {chunk[1]} titres {chunk[2]}",
+                        None,
+                        {chunk[3]},
+                        postings
+                    )
+                    entries.append(transaction)
+                except Exception as e:
+                    self._error(f"Erreur lors du traitement d'un dividende : {str(e)}")
+            
+            return entries
+        except Exception as e:
+            self._error(f"Erreur lors de l'extraction des dividendes : {str(e)}")
+            return []
 
     def _extract_espece_bourse(self, file, text, document):
         """
@@ -344,7 +340,7 @@ class PDFBourso(importer.ImporterProtocol):
             ope["Montant Total"] = match.group(5)
             ope["currency Total"] = match.group(6)
         else:
-            print("Montant introuvable")
+            self.logger.info("Montant introuvable")
         self._debug(f"Montant Total : {ope['Montant Total']}")
         self._debug(f"Devise Total : {ope['currency Total']}")
 
@@ -353,13 +349,13 @@ class PDFBourso(importer.ImporterProtocol):
             ope["Frais"] = match.group(5)
             ope["currency Frais"] = match.group(6)
         else:
-            print("Frais introuvable")
+            self.logger.info("Frais introuvable")
 
         match = re.search(self.REGEX_ISIN, text)
         if match:
             ope["ISIN"] = match.group(1)
         else:
-            print("ISIN introuvable")
+            self.logger.info("ISIN introuvable")
 
         match = re.search(self.REGEX_BOURSE_DETAILS, text)
         if match:
@@ -367,14 +363,14 @@ class PDFBourso(importer.ImporterProtocol):
             ope["Quantité"] = match.group(2)
             ope["Designation"] = match.group(3)
         else:
-            print("Date, Qté, Designation introuvable")
+            self.logger.info("Date, Qté, Designation introuvable")
 
         match = re.search(self.REGEX_BOURSE_COURS, text)
         if match:
             ope["Cours"] = match.group(1)
             ope["currency Cours"] = match.group(2)
         else:
-            print("Coursintrouvable")
+            self.logger.info("Cours introuvable")
         self._debug(f"Date de l'opération : {ope['Date']}")
 
         match = re.search(self.REGEX_BOURSE_ACHAT, text)
@@ -462,7 +458,7 @@ class PDFBourso(importer.ImporterProtocol):
             ope["Droits"] = match.group(3)
             ope["currency Droits"] = match.group(4)
         else:
-            print("Montant introuvable")
+            self.logger.info("Montant introuvable")
         self._debug(f"Montant Total : {ope['Montant Total']}")
         self._debug(f"Devise Total : {ope['currency Total']}")
 
@@ -470,7 +466,7 @@ class PDFBourso(importer.ImporterProtocol):
         if match:
             ope["ISIN"] = match.group(1)
         else:
-            print("ISIN introuvable")
+            self.logger.info("ISIN introuvable")
 
         match = re.search(self.REGEX_OPCVM_DETAILS, text)
         if match:
@@ -478,14 +474,14 @@ class PDFBourso(importer.ImporterProtocol):
             ope["Quantité"] = match.group(2)
             ope["Designation"] = match.group(3)
         else:
-            print("Date, Qté, Designation introuvable")
+            self.logger.info("Date, Qté, Designation introuvable")
 
         match = re.search(self.REGEX_OPCVM_COURS, text)
         if match:
             ope["Cours"] = match.group(1)
             ope["currency Cours"] = match.group(2)
         else:
-            print("Coursintrouvable")
+            self.logger.info("Cours introuvable")
         self._debug(f"Cours : {ope['Cours']}")
 
         match = re.search(self.REGEX_OPCVM_SOUSCRIPTION, text)
@@ -669,9 +665,8 @@ class PDFBourso(importer.ImporterProtocol):
         if match:
             balance = match.group(2).replace(".", "").replace(",", ".")
             longueur = len(match.group(1))
-            if self.debug:
-                print(balance)
-                print(longueur)
+            self.logger.debug(f"Balance : {balance}")
+            self.logger.debug(f"Longueur : {longueur}")
             if longueur < 84:
                 # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                 balance = "-" + balance
@@ -681,8 +676,7 @@ class PDFBourso(importer.ImporterProtocol):
                 datebalance = parse_datetime(
                     match.group(1), dayfirst="True"
                 ).date()
-                if self.debug:
-                    print(datebalance)
+                self.logger.debug(f"Date balance : {datebalance}")
                 meta = data.new_metadata(file.name, 0)
                 meta["source"] = "pdfbourso"
                 meta["document"] = document
