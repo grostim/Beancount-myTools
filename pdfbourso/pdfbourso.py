@@ -86,16 +86,7 @@ class PDFBourso(importer.ImporterProtocol):
             logging.basicConfig(level=logging.DEBUG)
         else:
             logging.basicConfig(level=logging.INFO)
-           # Gestionnaire pour la console
-        console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.DEBUG if debug else logging.INFO)
 
-        # Format des messages
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        console_handler.setFormatter(formatter)
-
-        # Ajouter les gestionnaires au logger
-        self.logger.addHandler(console_handler)
 
 
     def _debug(self, message: str):
