@@ -160,9 +160,7 @@ class PDFBourso(importer.ImporterProtocol):
         elif self.type in ["Bourse", "OPCVM"]:
             control = self.REGEX_COMPTE_BOURSE_OPCVM
         
-        # Si debogage, affichage de l'extraction
-        self._debug(f"Type de document : {self.type}")
-        
+
         match = re.search(control, text)
         
         if match:
@@ -192,6 +190,7 @@ class PDFBourso(importer.ImporterProtocol):
         match = re.search(self.DATE_REGEX, text)
         if match:
             return parse_datetime(match.group(1), dayfirst="True").date()
+        
 
     def _parse_decimal(self, value: str) -> Decimal:
         try:
@@ -206,7 +205,6 @@ class PDFBourso(importer.ImporterProtocol):
             text = file.convert(pdf_to_text)
             entries = []
 
-            self._debug(f"Contenu du PDF :\n{text}")
             self._debug(f"Type de document : {self.type}")
 
             extract_methods = {
