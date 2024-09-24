@@ -28,7 +28,7 @@ class PDFBourso(importer.ImporterProtocol):
     DOCUMENT_TYPES = {
         "DividendeBourse": r"COUPONS REMBOURSEMENTS :",
         "EspeceBourse": r"RELEVE COMPTE ESPECES :",
-        "Bourse": r"OPERATION DE BOURSE",
+        "ETR": r"COMPTANT ETR",
         "OPCVM": r"OPERATION SUR OPC",
         "CB": r"Relevé de Carte",
         "Compte": r"BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151",
@@ -127,7 +127,7 @@ class PDFBourso(importer.ImporterProtocol):
             return "Relevé Dividendes.pdf"
         elif self.type == "EspeceBourse":
             return "Relevé Espece.pdf"
-        elif self.type == "Bourse":
+        elif self.type == "ETR" or self.type == "OPCVM":
             return "Relevé Operation.pdf"
         elif self.type == "Compte":
             return "Relevé Compte.pdf"
@@ -157,7 +157,7 @@ class PDFBourso(importer.ImporterProtocol):
             control = self.REGEX_COMPTE_AMORTISSEMENT
         elif self.type in ["EspeceBourse", "DividendeBourse"]:
             control = self.REGEX_COMPTE_ESPECE_DIVIDENDE_BOURSE
-        elif self.type in ["Bourse", "OPCVM"]:
+        elif self.type in ["ETR", "OPCVM"]:
             control = self.REGEX_COMPTE_BOURSE_OPCVM
         
 
@@ -166,7 +166,7 @@ class PDFBourso(importer.ImporterProtocol):
         if match:
             self._debug(f"Numéro de compte extrait : {match.group(1)}")
             compte = match.group(1)
-            if self.type in ["Bourse", "OPCVM"]:
+            if self.type in ["ETR", "OPCVM"]:
                 match_isin = re.search(self.REGEX_ISIN, text)
                 if match_isin:
                     isin = match_isin.group(1)
@@ -210,7 +210,7 @@ class PDFBourso(importer.ImporterProtocol):
             extract_methods = {
                 "DividendeBourse": self._extract_dividende_bourse,
                 "EspeceBourse": self._extract_espece_bourse,
-                "Bourse": self._extract_bourse,
+                "ETR": self._extract_etr,
                 "OPCVM": self._extract_opcvm,
                 "Compte": self._extract_compte,
                 "Amortissement": self._extract_amortissement,
@@ -299,7 +299,7 @@ class PDFBourso(importer.ImporterProtocol):
         
         return entries
 
-    def _extract_bourse(self, file, text, document):
+    def _extract_etr(self, file, text, document):
         """
         Extrait les données pour les opérations boursières.
 
