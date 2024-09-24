@@ -524,7 +524,7 @@ class PDFBourso(importer.ImporterProtocol):
             parse_datetime(ope["Date"], dayfirst="True").date(),
             ope["Designation"] or "inconnu",
             ope["ISIN"],
-            data.EMPTY_SET,
+            {ope["ISIN"]},
             postings,
         )
         entries.append(transaction)
@@ -635,7 +635,7 @@ class PDFBourso(importer.ImporterProtocol):
             parse_datetime(ope["Date"], dayfirst="True").date(),
             ope["Designation"] or "inconnu",
             ope["ISIN"],
-            data.EMPTY_SET,
+            {ope["ISIN"]},
             postings,
         )
         entries.append(transaction)
