@@ -28,7 +28,8 @@ class PDFBourso(importer.ImporterProtocol):
     DOCUMENT_TYPES = {
         "DividendeBourse": r"COUPONS REMBOURSEMENTS :",
         "EspeceBourse": r"RELEVE COMPTE ESPECES :",
-        "ETR": r"COMPTANT ETR",
+        "ETR": r"(?:VENTE|ACHAT) COMPTANT[\s0-9]*ETR",
+        "ACTION": r"(?:VENTE|ACHAT) COMPTANT[\s0-9]*ACTION",
         "OPCVM": r"OPERATION SUR OPC",
         "CB": r"Relevé de Carte",
         "Compte": r"BOURSORAMA BANQUE|BOUSFRPPXXX|RCS\sNanterre\s351\s?058\s?151",
@@ -42,7 +43,7 @@ class PDFBourso(importer.ImporterProtocol):
     REGEX_COMPTE_BOURSE_OPCVM = r"\d{5}\s\d{5}\s(\d{11})\s"
     REGEX_ISIN = r"Code ISIN\s:\s*([A-Z,0-9]{12})"
 
-    DATE_REGEX = r"(?:le\s|au\s*|Date départ\s*:\s)(\d*/\d*/\d*)"
+    DATE_REGEX = r"(?:le\s|au\s*|Date départ\s*:\s)(\d*\/\d*\/\d*)"
 
     REGEX_SOLDE_INITIAL = r"SOLDE\s(?:EN\sEUR\s+)?AU\s:(\s+)(\d{1,2}\/\d{2}\/\d{4})(\s+)((?:\d{1,3}\.)?\d{1,3},\d{2})"
     REGEX_OPERATION_COMPTE = r"\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{8,20})(.+?))?\n"
@@ -54,11 +55,13 @@ class PDFBourso(importer.ImporterProtocol):
     REGEX_CB_OPERATION = r"(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
     REGEX_CB_SOLDE_FINAL = r"A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
 
-    REGEX_BOURSE_MONTANT = r"Montant transaction\s*Montant transaction brut\s*Intérêts\s*total brut\s*Courtages\s*Montant transaction net\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
+    REGEX_ETR_MONTANT = r"Montant transaction\s*Montant transaction brut\s*Intérêts\s*total brut\s*Courtages\s*Montant transaction net\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
     REGEX_BOURSE_FRAIS = r"Commission\s*Frais divers\s*Montant total des frais\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
     REGEX_BOURSE_DETAILS = r"locale d'exécution\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution\s*(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3})\s*([\s\S]{0,20})?\s*"
-    REGEX_BOURSE_COURS = r"Cours exécuté :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
+    REGEX_BOURSE_COURS = r"Cours exécuté :\s*(\d{0,3}\s\d{1,3}[,.]?\d{0,4})\s([A-Z]{1,3})"
     REGEX_BOURSE_ACHAT = r"ACHAT COMPTANT"
+
+    REGEX_ACTION_MONTANT = r"Montant brut\s*Commission\s*Frais\s\(.\)\s*Montant net au crédit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(?:(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3}))?\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
 
     REGEX_OPCVM_MONTANT = r"Montant brut\s*Droits d'entrée\s*Frais H.T.\s*T.V.A.\s*Montant net au débit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
     REGEX_OPCVM_DETAILS = r"(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3}[.,]?\d{0,4})\s*([\s\S]{0,20})?\s*"
@@ -99,7 +102,6 @@ class PDFBourso(importer.ImporterProtocol):
                 return False
 
             text = file.convert(pdf_to_text)
-            self._debug(f"Contenu du PDF :\n{text}")
             
             for doc_type, regex in self.DOCUMENT_TYPES.items():
                 if re.search(regex, text):
@@ -125,7 +127,7 @@ class PDFBourso(importer.ImporterProtocol):
             return "Relevé Dividendes.pdf"
         elif self.type == "EspeceBourse":
             return "Relevé Espece.pdf"
-        elif self.type == "ETR" or self.type == "OPCVM":
+        elif self.type in["ETR","OPCVM","ACTION"]:
             return "Relevé Operation.pdf"
         elif self.type == "Compte":
             return "Relevé Compte.pdf"
@@ -155,7 +157,7 @@ class PDFBourso(importer.ImporterProtocol):
             control = self.REGEX_COMPTE_AMORTISSEMENT
         elif self.type in ["EspeceBourse", "DividendeBourse"]:
             control = self.REGEX_COMPTE_ESPECE_DIVIDENDE_BOURSE
-        elif self.type in ["ETR", "OPCVM"]:
+        elif self.type in ["ETR", "OPCVM", "ACTION"]:
             control = self.REGEX_COMPTE_BOURSE_OPCVM
         
 
@@ -164,7 +166,7 @@ class PDFBourso(importer.ImporterProtocol):
         if match:
             self._debug(f"Numéro de compte extrait : {match.group(1)}")
             compte = match.group(1)
-            if self.type in ["ETR", "OPCVM"]:
+            if self.type in ["ETR", "OPCVM", "ACTION"]:
                 match_isin = re.search(self.REGEX_ISIN, text)
                 if match_isin:
                     isin = match_isin.group(1)
@@ -187,7 +189,7 @@ class PDFBourso(importer.ImporterProtocol):
         text = file.convert(pdf_to_text)
         match = re.search(self.DATE_REGEX, text)
         if match:
-            return parse_datetime(match.group(1), dayfirst="True").date()
+            return parse_datetime(match.group(1), dayfirst=True).date()
         
 
     def _parse_decimal(self, value: str) -> Decimal:
@@ -201,6 +203,8 @@ class PDFBourso(importer.ImporterProtocol):
         try:
             document = f"{self.file_date(file)} {self.file_name(file)}"
             text = file.convert(pdf_to_text)
+            #self._debug(f"Contenu du PDF :\n{text}")
+
             entries = []
 
             self._debug(f"Type de document : {self.type}")
@@ -208,6 +212,7 @@ class PDFBourso(importer.ImporterProtocol):
             extract_methods = {
                 "DividendeBourse": self._extract_dividende_bourse,
                 "EspeceBourse": self._extract_espece_bourse,
+                "ACTION": self._extract_action,
                 "ETR": self._extract_etr,
                 "OPCVM": self._extract_opcvm,
                 "Compte": self._extract_compte,
@@ -218,6 +223,7 @@ class PDFBourso(importer.ImporterProtocol):
             extract_method = extract_methods.get(self.type)
             if extract_method:
                 entries.extend(extract_method(file, text, document))
+                self._debug(f"Execution de la methode: {extract_method}")
             else:
                 self._error(f"Méthode d'extraction non trouvée pour le type : {self.type}")
 
@@ -297,6 +303,120 @@ class PDFBourso(importer.ImporterProtocol):
         
         return entries
 
+    def _extract_action(self, file, text, document):
+        """
+        Extrait les données pour les opérations boursières.
+
+        :param file: Le fichier à traiter
+        :type file: object
+        :param text: Le contenu texte du fichier
+        :type text: str
+        :param document: L'identifiant du document
+        :type document: str
+        :return: Une liste d'entrées extraites
+        :rtype: list
+        """
+        entries = []
+        # Identification du numéro de compte
+        control = self.REGEX_COMPTE_BOURSE_OPCVM
+        match = re.search(control, text)
+        if match:
+            compte = match.group(1)
+
+        # Si débogage, affichage de l'extraction
+        self._debug(f"Numéro de compte extrait : {compte}")
+
+        ope = dict()
+
+        match = re.search(self.REGEX_ACTION_MONTANT, text)
+        if match:
+            ope["Montant Total"] = match.group(7)
+            ope["currency Total"] = match.group(8)
+            ope["Montant TTF"] = match.group(5) or "0.0"
+            ope["currency TTF"] = match.group(6)
+            ope["Montant Frais"] = match.group(3)
+            ope["currency Frais"] = match.group(4)
+        else:
+            self.logger.info("Montant introuvable")
+        self._debug(f"Montant Total : {ope['Montant Total']}")
+        self._debug(f"Devise Total : {ope['currency Total']}")
+        self._debug(f"Frais : {ope['Montant Frais']}")
+        self._debug(f"TTF : {ope['Montant TTF']}")
+        self._debug(f"Devise Frais : {ope['currency Frais']}")
+
+        match = re.search(self.REGEX_ISIN, text)
+        if match:
+            ope["ISIN"] = match.group(1)
+        else:
+            self.logger.info("ISIN introuvable")
+
+        match = re.search(self.REGEX_BOURSE_DETAILS, text)
+        if match:
+            ope["Date"] = match.group(1)
+            ope["Quantité"] = match.group(2)
+            ope["Designation"] = match.group(3)
+        else:
+            self.logger.info("Date, Qté, Designation introuvable")
+
+        match = re.search(self.REGEX_BOURSE_COURS, text)
+        if match:
+            ope["Cours"] = match.group(1)
+            ope["currency Cours"] = match.group(2)
+        else:
+            self.logger.info("Cours introuvable")
+        self._debug(f"Date de l'opération : {ope['Date']}")
+
+        match = re.search(self.REGEX_BOURSE_ACHAT, text)
+        if match:
+            ope["Achat"] = True
+        else:
+            ope["Achat"] = False
+
+        # Creation de la transaction
+        postings = [
+            self._create_posting(
+                self.accountList[compte] + ":" + ope["ISIN"],
+                self._parse_decimal(ope["Quantité"]) * (1 if ope["Achat"] else -1),
+                ope["ISIN"],
+                cost=position.Cost(
+                    self._parse_decimal(ope["Cours"]),
+                    ope["currency Cours"],
+                    None,
+                    None,
+                ) if ope["Achat"] else None,
+                price=amount.Amount(
+                    self._parse_decimal(ope["Cours"]),
+                    ope["currency Cours"],
+                ),
+            ),
+            self._create_posting(
+                self.accountList[compte] + ":Cash",
+                self._parse_decimal(ope["Montant Total"]) * (-1 if ope["Achat"] else 1),
+                ope["currency Total"],
+            ),
+            self._create_posting(
+                "Depenses:Banque:Frais",
+                self._parse_decimal(ope["Montant Frais"]) + self._parse_decimal(ope["Montant TTF"]),
+                ope["currency Frais"],
+            ),
+        ]
+
+        meta = data.new_metadata(file.name, 0)
+        meta["source"] = "pdfbourso"
+        meta["document"] = document
+
+        transaction = self._create_transaction(
+            meta,
+            parse_datetime(ope["Date"], dayfirst="True").date(),
+            ope["Designation"] or "inconnu",
+            ope["ISIN"],
+            {ope["ISIN"]},
+            postings,
+        )
+        entries.append(transaction)
+
+        return entries
+
     def _extract_etr(self, file, text, document):
         """
         Extrait les données pour les opérations boursières.
@@ -322,7 +442,7 @@ class PDFBourso(importer.ImporterProtocol):
 
         ope = dict()
 
-        match = re.search(self.REGEX_BOURSE_MONTANT, text)
+        match = re.search(self.REGEX_ETR_MONTANT, text)
         if match:
             ope["Montant Total"] = match.group(5)
             ope["currency Total"] = match.group(6)

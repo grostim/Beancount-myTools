@@ -90,7 +90,6 @@ class FichePaye(importer.ImporterProtocol):
         if file.mimetype() != "application/pdf":
             return False
         text = self._get_pdf_text(file)
-        self._debug(f"Contenu du PDF :\n{text}")
         return bool(re.search(self.EMPLOYER_IDENTIFIER_PATTERN, text))
 
     def file_account(self, file) -> Optional[str]:
