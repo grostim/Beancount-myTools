@@ -15,7 +15,7 @@ import re
 import datetime
 import logging
 from dateutil.parser import parse as parse_datetime
-from myutils import pdf_to_text
+from ..myutils import pdf_to_text
 from beancount.core import amount, data, flags, position
 from beancount.ingest import importer
 from beancount.core.number import Decimal, D
@@ -252,7 +252,7 @@ class PDFBourso(importer.ImporterProtocol):
                     
                     transaction = self._create_transaction(
                         meta,
-                        parse_datetime(chunk[0], dayfirst="True").date(),
+                        parse_datetime(chunk[0], dayfirst=True).date(),
                         f"Dividende pour {chunk[1]} titres {chunk[2]}",
                         None,
                         {chunk[3]},
@@ -293,8 +293,8 @@ class PDFBourso(importer.ImporterProtocol):
             print(chunk[1])
             balance = data.Balance(
                 meta,
-                parse_datetime(chunk[0], dayfirst="True").date(),
-                self.file_account(file) + ":Cash",
+                parse_datetime(chunk[0], dayfirst=True).date(),
+                self.file_account(file) + ":Cash", # type: ignore
                 amount.Amount(self._parse_decimal(chunk[1]), "EUR"),
                 None,
                 None,
@@ -381,7 +381,7 @@ class PDFBourso(importer.ImporterProtocol):
                 cost=position.Cost(
                     self._parse_decimal(ope["Cours"]),
                     ope["currency Cours"],
-                    None,
+                    None, # type: ignore
                     None,
                 ) if ope["Achat"] else None,
                 price=amount.Amount(
@@ -407,7 +407,7 @@ class PDFBourso(importer.ImporterProtocol):
 
         transaction = self._create_transaction(
             meta,
-            parse_datetime(ope["Date"], dayfirst="True").date(),
+            parse_datetime(ope["Date"], dayfirst=True).date(),
             ope["Designation"] or "inconnu",
             ope["ISIN"],
             {ope["ISIN"]},
@@ -495,7 +495,7 @@ class PDFBourso(importer.ImporterProtocol):
                 cost=position.Cost(
                     self._parse_decimal(ope["Cours"]),
                     ope["currency Cours"],
-                    None,
+                    None, # type: ignore
                     None,
                 ) if ope["Achat"] else None,
                 price=amount.Amount(
@@ -521,7 +521,7 @@ class PDFBourso(importer.ImporterProtocol):
 
         transaction = self._create_transaction(
             meta,
-            parse_datetime(ope["Date"], dayfirst="True").date(),
+            parse_datetime(ope["Date"], dayfirst=True).date(),
             ope["Designation"] or "inconnu",
             ope["ISIN"],
             {ope["ISIN"]},
@@ -606,7 +606,7 @@ class PDFBourso(importer.ImporterProtocol):
                 cost=position.Cost(
                     self._parse_decimal(ope["Cours"]),
                     ope["currency Cours"],
-                    None,
+                    None, # type: ignore
                     None,
                 ) if ope["Achat"] else None,
                 price=amount.Amount(
@@ -632,7 +632,7 @@ class PDFBourso(importer.ImporterProtocol):
 
         transaction = self._create_transaction(
             meta,
-            parse_datetime(ope["Date"], dayfirst="True").date(),
+            parse_datetime(ope["Date"], dayfirst=True).date(),
             ope["Designation"] or "inconnu",
             ope["ISIN"],
             {ope["ISIN"]},
@@ -671,8 +671,8 @@ class PDFBourso(importer.ImporterProtocol):
         balance = ""
         if match:
             datebalance = parse_datetime(
-                match.group(2), dayfirst="True"
-            ).date() + datetime.timedelta(1)
+                match.group(2), dayfirst=True
+            ).date() + datetime.timedelta(days=1)
             longueur = (
                 len(match.group(1))
                 + len(match.group(3))
@@ -696,7 +696,7 @@ class PDFBourso(importer.ImporterProtocol):
                 amount.Amount(D(balance), "EUR"),
                 None,
                 None,
-            )
+            ) # type: ignore
         )
 
         chunks = re.findall(self.REGEX_OPERATION_COMPTE, text)
@@ -759,7 +759,7 @@ class PDFBourso(importer.ImporterProtocol):
             ]
             transaction = self._create_transaction(
                 meta,
-                parse_datetime(ope["date"], dayfirst="True").date(),
+                parse_datetime(ope["date"], dayfirst=True).date(),
                 ope["payee"] or "inconnu",
                 ope["narration"],
                 data.EMPTY_SET,
@@ -781,7 +781,7 @@ class PDFBourso(importer.ImporterProtocol):
             match = re.search(self.REGEX_DATE_SOLDE_FINAL, text)
             if match:
                 datebalance = parse_datetime(
-                    match.group(1), dayfirst="True"
+                    match.group(1), dayfirst=True
                 ).date()
                 self.logger.debug(f"Date balance : {datebalance}")
                 meta = data.new_metadata(file.name, 0)
@@ -796,7 +796,7 @@ class PDFBourso(importer.ImporterProtocol):
                         amount.Amount(D(balance), "EUR"),
                         None,
                         None,
-                    )
+                    ) # type: ignore
                 )
 
         return entries
@@ -833,11 +833,10 @@ class PDFBourso(importer.ImporterProtocol):
             index += 1
             meta = data.new_metadata(file.name, index)
             meta["source"] = "pdfbourso"
-
             ope = dict()
-            ope["date"] = parse_datetime(chunk[0], dayfirst="True").date()
+            ope["date"] = parse_datetime(chunk[0], dayfirst=True).date()
             ope["prelevement"] = amount.Amount(
-                self._parse_decimal(chunk[1])*-1, "EUR"
+                self._parse_decimal(chunk[1]) * -1, "EUR"
             )
             ope["amortissement"] = amount.Amount(
                 self._parse_decimal(chunk[2]), "EUR"
@@ -876,7 +875,7 @@ class PDFBourso(importer.ImporterProtocol):
                     ope["CRD"],
                     None,
                     None,
-                )
+                ) # type: ignore
             )
 
         return entries
@@ -942,7 +941,7 @@ class PDFBourso(importer.ImporterProtocol):
             ]
             transaction = self._create_transaction(
                 meta,
-                parse_datetime(ope["date"], dayfirst="True").date(),
+                parse_datetime(ope["date"], dayfirst=True).date(),
                 ope["payee"] or "inconnu",
                 None,
                 data.EMPTY_SET,
@@ -959,7 +958,7 @@ class PDFBourso(importer.ImporterProtocol):
             match = re.search(self.REGEX_DATE_SOLDE_FINAL, text)
             if match:
                 datebalance = parse_datetime(
-                    match.group(1), dayfirst="True"
+                    match.group(1), dayfirst=True
                 ).date()
                 self._debug(f"Date de la balance : {datebalance}")
                 meta = data.new_metadata(file.name, 0)
@@ -974,7 +973,7 @@ class PDFBourso(importer.ImporterProtocol):
                         amount.Amount(balance, "EUR"),
                         None,
                         None,
-                    )
+                    ) # type: ignore
                 )
 
         return entries
@@ -1033,4 +1032,4 @@ class PDFBourso(importer.ImporterProtocol):
             tags=tags,
             links=data.EMPTY_SET,
             postings=postings,
-        )
+        ) # type: ignore

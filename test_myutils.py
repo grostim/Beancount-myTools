@@ -1,6 +1,6 @@
 import pytest
 import subprocess
-from myutils import is_pdfminer_installed, pdf_to_text, traduire_mois, TRADUCTIONS_MOIS
+from .myutils import is_pdfminer_installed, pdf_to_text, traduire_mois, TRADUCTIONS_MOIS
 
 """
 Tests pour le module myutils.py.

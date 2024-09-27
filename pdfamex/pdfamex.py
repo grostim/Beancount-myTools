@@ -9,7 +9,7 @@ from functools import lru_cache
 from dateutil.parser import parse as parse_datetime
 from beancount.core import amount, data, flags
 from beancount.ingest import importer
-from myutils import pdf_to_text, traduire_mois
+from ..myutils import pdf_to_text, traduire_mois
 
 
 
