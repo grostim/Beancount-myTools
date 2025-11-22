@@ -10,6 +10,9 @@ Les fichiers de regtest ne sont pas partagés sur github, car bien entendu ce so
 
 Tous ces poutils sont très perfectibles, n'hésitez pas à me faire part de vos propositions d'améliorations, ou mieux encore une pull request.
 
+## Migration vers Beangulp
+Tous les importateurs (`pdfamex`, `fichepaye`, `pdfbourso`, `jsongenerali`) ont été migrés pour utiliser `beangulp` au lieu de `beancount.ingest`. Cela assure la compatibilité avec Beancount v3.
+
 ## QIFBoursorama
 Un importateur pour les fichiers QIF générés par Boursorama.
 
@@ -43,7 +46,7 @@ Il n'a pas été testé avec les autres types de comptes.
 Un importateur avancé pour les relevés au format PDF émis par American Express. Cet outil extrait les transactions et le solde des relevés, les convertit en directives Beancount, et gère efficacement les spécificités des relevés American Express, y compris les dates de transaction dans le futur et les différents types de transactions.
 
 ### Utilisation
-1. Assurez-vous d'avoir les dépendances nécessaires installées (beancount, dateutil, etc.).
+1. Assurez-vous d'avoir les dépendances nécessaires installées (`beangulp`, `beancount`, `dateutil`, etc.).
 2. Configurez le dictionnaire `account_list` dans votre fichier de configuration Beancount pour faire correspondre les numéros de compte American Express à vos comptes Beancount.
 3. Ajoutez l'importateur à votre configuration Beancount :
    ```python
@@ -74,7 +77,7 @@ Ce sript n'est plus  fonctionnel à ce jour.
 Un importateur avancé pour les relevés au format JSON générés par le script Generali. Cet outil extrait les transactions des fichiers JSON, les convertit en directives Beancount, et gère efficacement les spécificités des relevés Generali, y compris les différents types d'opérations comme les versements, les arbitrages, et les distributions de dividendes.
 
 ### Utilisation
-1. Assurez-vous d'avoir les dépendances nécessaires installées (beancount, json, etc.).
+1. Assurez-vous d'avoir les dépendances nécessaires installées (`beangulp`, `beancount`, `json`, etc.).
 2. Configurez le dictionnaire `account_list` dans votre fichier de configuration Beancount pour faire correspondre les comptes Generali à vos comptes Beancount.
 3. Ajoutez l'importateur à votre configuration Beancount :
    ```python
@@ -124,7 +127,7 @@ un price fetcher pour les Realtokens - basé sur l'API du site communautaire.
 Un importateur avancé pour les fiches de paie au format PDF émises par Sage ou DUO_TEC. Cet outil extrait les informations clés des fiches de paie, telles que la date de paiement, le net avant impôt, l'impôt sur le revenu et le net à payer, puis les convertit en directives Beancount. Il gère efficacement l'extraction des données et la création de transactions Beancount correspondantes.
 
 ### Utilisation
-1. Assurez-vous d'avoir les dépendances nécessaires installées (beancount, dateutil, pdfminer, etc.).
+1. Assurez-vous d'avoir les dépendances nécessaires installées (`beangulp`, `beancount`, `dateutil`, `pdfminer`, etc.).
 2. Configurez le dictionnaire `account_list` dans votre fichier de configuration Beancount pour faire correspondre les numéros de compte aux comptes Beancount appropriés.
 3. Ajoutez l'importateur à votre configuration Beancount :
    ```python

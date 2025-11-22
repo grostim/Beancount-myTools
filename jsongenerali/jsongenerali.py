@@ -10,9 +10,9 @@ from decimal import Decimal, ROUND_HALF_UP
 from typing import List, Dict, Optional
 from dateutil.parser import parse as parse_datetime
 from beancount.core import amount, position, data, flags
-from beancount.ingest import importer
+import beangulp
 
-class JSONGenerali(importer.ImporterProtocol):
+class JSONGenerali(beangulp.Importer):
     """Importateur pour Generali Assurance Vie."""
 
     def __init__(
@@ -46,22 +46,22 @@ class JSONGenerali(importer.ImporterProtocol):
 
     def identify(self, file) -> bool:
         """Identifie si le fichier est un relevé Generali JSON."""
-        return bool(re.match(r".*.generali.json", path.basename(file.name)))
+        return bool(re.match(r".*.generali.json", path.basename(file)))
 
-    def file_account(self, file) -> Optional[str]:
+    def account(self, file) -> Optional[str]:
         """Extrait le compte associé au fichier."""
-        with open(file.name, "r") as read_file:
+        with open(file, "r") as read_file:
             jsondata = json.load(read_file)
             self._debug(f"Compte extrait: {jsondata['compte']}")
             return self.account_list.get(jsondata["compte"])
 
-    def file_name(self, file) -> str:
+    def filename(self, file) -> str:
         """Retourne le nom du fichier pour le relevé."""
-        return re.sub(r"\d{4}-\d{2}-\d{2}-", "", path.basename(file.name))
+        return re.sub(r"\d{4}-\d{2}-\d{2}-", "", path.basename(file))
 
-    def file_date(self, file):
+    def date(self, file):
         """Extrait la date du relevé."""
-        date_match = re.search(r"(\d{4}-\d{2}-\d{2})-", path.basename(file.name))
+        date_match = re.search(r"(\d{4}-\d{2}-\d{2})-", path.basename(file))
         self._debug(f"Date extraite: {date_match.group(1) if date_match else 'Non trouvée'}")
         return parse_datetime(date_match.group(1)).date() if date_match else None
 
@@ -147,8 +147,8 @@ class JSONGenerali(importer.ImporterProtocol):
             postings.append(self._create_posting(self.compte_dividendes, str(-total), "EUR"))
 
         return data.Transaction(
-            meta=data.new_metadata(file.name, 0, {"source": "jsongenerali"}),
-            date=self.file_date(file),
+            meta=data.new_metadata(file, 0, {"source": "jsongenerali"}),
+            date=self.date(file),
             flag=flags.FLAG_OKAY,
             payee=f"{jsondata['ope']} Generali",
             narration=None,
@@ -160,13 +160,13 @@ class JSONGenerali(importer.ImporterProtocol):
     def extract(self, file, existing_entries=None) -> List[data.Directive]:
         """Extrait les transactions du relevé JSON Generali."""
         entries = []
-        with open(file.name, "r") as read_file:
+        with open(file, "r") as read_file:
             jsondata = json.load(read_file)
             self._debug(f"Opération extraite: {jsondata['ope']}")
 
             if jsondata["ope"] in ["prélèvement", "Versement Libre", "Frais de gestion", "Distribution de dividendes", "Arbitrage", "Opération sur titres"]:
                 entries.append(self._process_transaction(jsondata, file))
             else:
-                self._debug(f"{path.basename(file.name)} : Type de relevé inconnu")
+                self._debug(f"{path.basename(file)} : Type de relevé inconnu")
 
         return entries

@@ -14,7 +14,8 @@ name = "myTools"
 version = "0.1.0"
 description = "Librairie d'importateurs personnels"
 dependencies = [
-    "beancount>=2.3.4,<3.0",
+    "beancount>=3.0",
+    "beangulp",
     "python-dateutil",
 ]
 requires-python = ">=3.7"

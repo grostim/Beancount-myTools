@@ -1,5 +1,6 @@
 pre-commit
 pytest
-beancount >= 2.3.4, < 3.0
+beancount
 -e .
+beangulp
 pdftotext

@@ -14,14 +14,18 @@ __license__ = "GNU GPLv2"
 import re
 import datetime
 import logging
+import os
 from dateutil.parser import parse as parse_datetime
-from ..myutils import pdf_to_text
 from beancount.core import amount, data, flags, position
-from beancount.ingest import importer
+import beangulp
+try:
+    from myutils import pdf_to_text
+except ImportError:
+    from ..myutils import pdf_to_text
 from beancount.core.number import Decimal, D
 from decimal import InvalidOperation
 
-class PDFBourso(importer.ImporterProtocol):
+class PDFBourso(beangulp.Importer):
     """Un importateur pour les relevés PDF Boursorama."""
 
     # Déplacer les constantes de classe en haut pour une meilleure lisibilité
@@ -98,10 +102,10 @@ class PDFBourso(importer.ImporterProtocol):
 
     def identify(self, file):
         try:
-            if file.mimetype() != "application/pdf":
+            if not file.lower().endswith(".pdf"):
                 return False
 
-            text = file.convert(pdf_to_text)
+            text = pdf_to_text(file)
             
             for doc_type, regex in self.DOCUMENT_TYPES.items():
                 if re.search(regex, text):
@@ -113,7 +117,7 @@ class PDFBourso(importer.ImporterProtocol):
             self._error(f"Erreur lors de l'identification du fichier : {str(e)}")
             return False
 
-    def file_name(self, file):
+    def filename(self, file):
         """
         Retourne un nom de fichier normalisé basé sur le type de relevé.
 
@@ -136,7 +140,7 @@ class PDFBourso(importer.ImporterProtocol):
         else:
             return "Boursorama.pdf"
 
-    def file_account(self, file):
+    def account(self, file):
         """
         Extrait et retourne le numéro de compte associé au fichier.
 
@@ -146,7 +150,7 @@ class PDFBourso(importer.ImporterProtocol):
         :rtype: str
         """
         # Recherche du numéro de compte dans le fichier.
-        text = file.convert(pdf_to_text)
+        text = pdf_to_text(file)
         self.identify(file)
         
         if self.type == "Compte":
@@ -177,7 +181,7 @@ class PDFBourso(importer.ImporterProtocol):
             else:
                 return self.accountList[compte]
 
-    def file_date(self, file):
+    def date(self, file):
         """
         Extrait et retourne la date du relevé.
 
@@ -186,7 +190,7 @@ class PDFBourso(importer.ImporterProtocol):
         :return: La date du relevé
         :rtype: datetime.date
         """
-        text = file.convert(pdf_to_text)
+        text = pdf_to_text(file)
         match = re.search(self.DATE_REGEX, text)
         if match:
             return parse_datetime(match.group(1), dayfirst=True).date()
@@ -201,8 +205,8 @@ class PDFBourso(importer.ImporterProtocol):
 
     def extract(self, file, existing_entries=None):
         try:
-            document = f"{self.file_date(file)} {self.file_name(file)}"
-            text = file.convert(pdf_to_text)
+            document = f"{self.date(file)} {self.filename(file)}"
+            text = pdf_to_text(file)
             #self._debug(f"Contenu du PDF :\n{text}")
 
             entries = []
@@ -235,10 +239,10 @@ class PDFBourso(importer.ImporterProtocol):
     def _extract_dividende_bourse(self, file, text, document):
         try:
             entries = []
-            compte = self.file_account(file)
+            compte = self.account(file)
             control = self.REGEX_DIVIDENDE_DETAILS
             chunks = re.findall(control, text)
-            meta = data.new_metadata(file.name, 0)
+            meta = data.new_metadata(file, 0)
             meta["source"] = "pdfbourso"
             meta["document"] = document
             
@@ -281,10 +285,10 @@ class PDFBourso(importer.ImporterProtocol):
         :rtype: list
         """
         entries = []
-        print(self.file_account(file))
+        print(self.account(file))
         control = self.REGEX_ESPECE_BOURSE_SOLDE
         chunks = re.findall(control, text)
-        meta = data.new_metadata(file.name, 0)
+        meta = data.new_metadata(file, 0)
         meta["source"] = "pdfbourso"
         meta["document"] = document
         
@@ -294,7 +298,7 @@ class PDFBourso(importer.ImporterProtocol):
             balance = data.Balance(
                 meta,
                 parse_datetime(chunk[0], dayfirst=True).date(),
-                self.file_account(file) + ":Cash", # type: ignore
+                self.account(file) + ":Cash", # type: ignore
                 amount.Amount(self._parse_decimal(chunk[1]), "EUR"),
                 None,
                 None,
@@ -401,7 +405,7 @@ class PDFBourso(importer.ImporterProtocol):
             ),
         ]
 
-        meta = data.new_metadata(file.name, 0)
+        meta = data.new_metadata(file, 0)
         meta["source"] = "pdfbourso"
         meta["document"] = document
 
@@ -515,7 +519,7 @@ class PDFBourso(importer.ImporterProtocol):
             ),
         ]
 
-        meta = data.new_metadata(file.name, 0)
+        meta = data.new_metadata(file, 0)
         meta["source"] = "pdfbourso"
         meta["document"] = document
 
@@ -626,7 +630,7 @@ class PDFBourso(importer.ImporterProtocol):
             ),
         ]
 
-        meta = data.new_metadata(file.name, 0)
+        meta = data.new_metadata(file, 0)
         meta["source"] = "pdfbourso"
         meta["document"] = document
 
@@ -684,7 +688,7 @@ class PDFBourso(importer.ImporterProtocol):
                 # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                 balance = "-" + balance
 
-        meta = data.new_metadata(file.name, 0)
+        meta = data.new_metadata(file, 0)
         meta["source"] = "pdfbourso"
         meta["document"] = document
 
@@ -707,7 +711,7 @@ class PDFBourso(importer.ImporterProtocol):
         index = 0
         for chunk in chunks:
             index += 1
-            meta = data.new_metadata(file.name, index)
+            meta = data.new_metadata(file, index)
             meta["source"] = "pdfbourso"
             meta["document"] = document
             ope = dict()
@@ -784,7 +788,7 @@ class PDFBourso(importer.ImporterProtocol):
                     match.group(1), dayfirst=True
                 ).date()
                 self.logger.debug(f"Date balance : {datebalance}")
-                meta = data.new_metadata(file.name, 0)
+                meta = data.new_metadata(file, 0)
                 meta["source"] = "pdfbourso"
                 meta["document"] = document
 
@@ -831,7 +835,7 @@ class PDFBourso(importer.ImporterProtocol):
         index = 0
         for chunk in chunks:
             index += 1
-            meta = data.new_metadata(file.name, index)
+            meta = data.new_metadata(file, index)
             meta["source"] = "pdfbourso"
             ope = dict()
             ope["date"] = parse_datetime(chunk[0], dayfirst=True).date()
@@ -911,7 +915,7 @@ class PDFBourso(importer.ImporterProtocol):
         index = 0
         for chunk in chunks:
             index += 1
-            meta = data.new_metadata(file.name, index)
+            meta = data.new_metadata(file, index)
             meta["source"] = "pdfbourso"
             meta["document"] = document
             ope = dict()
@@ -961,7 +965,7 @@ class PDFBourso(importer.ImporterProtocol):
                     match.group(1), dayfirst=True
                 ).date()
                 self._debug(f"Date de la balance : {datebalance}")
-                meta = data.new_metadata(file.name, 0)
+                meta = data.new_metadata(file, 0)
                 meta["source"] = "pdfbourso"
                 meta["document"] = document
 

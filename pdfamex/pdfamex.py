@@ -1,6 +1,8 @@
 """Importateur pour les relevés PDF d'American Express."""
 
 import re
+import os
+import mimetypes
 from datetime import timedelta, datetime
 from decimal import Decimal
 from typing import List, Dict, Optional
@@ -8,12 +10,15 @@ from functools import lru_cache
 
 from dateutil.parser import parse as parse_datetime
 from beancount.core import amount, data, flags
-from beancount.ingest import importer
-from ..myutils import pdf_to_text, traduire_mois
+import beangulp
+try:
+    from myutils import pdf_to_text, traduire_mois
+except ImportError:
+    from ..myutils import pdf_to_text, traduire_mois
 
 
 
-class PDFAmex(importer.ImporterProtocol):
+class PDFAmex(beangulp.Importer):
     """
     Importateur pour les relevés PDF American Express.
 
@@ -61,10 +66,9 @@ class PDFAmex(importer.ImporterProtocol):
         if self.debug:
             print(f"[DEBUG] {message}")
 
-    @lru_cache(maxsize=None)
     def _get_pdf_text(self, file):
         """Cache et retourne le texte du PDF."""
-        return file.convert(pdf_to_text)
+        return pdf_to_text(file)
 
     def identify(self, file) -> bool:
         """
@@ -76,11 +80,11 @@ class PDFAmex(importer.ImporterProtocol):
         Returns:
             bool: True si le fichier est un relevé American Express, False sinon.
         """
-        if file.mimetype() != "application/pdf":
+        if not file.lower().endswith(".pdf"):
             return False
         return "Carte Air France KLM" in self._get_pdf_text(file)
 
-    def file_name(self, _) -> str:
+    def filename(self, _) -> str:
         """
         Retourne le nom du fichier pour le relevé.
 
@@ -92,7 +96,7 @@ class PDFAmex(importer.ImporterProtocol):
         """
         return "Amex.pdf"
 
-    def file_account(self, file) -> Optional[str]:
+    def account(self, file) -> Optional[str]:
         """
         Extrait le compte associé au fichier.
 
@@ -110,7 +114,7 @@ class PDFAmex(importer.ImporterProtocol):
             )
         return self.account_list.get(match.group(1)) if match else None
 
-    def file_date(self, file):
+    def date(self, file):
         """
         Extrait la date du relevé.
 
@@ -361,7 +365,7 @@ class PDFAmex(importer.ImporterProtocol):
             data.Transaction: La transaction Beancount créée.
         """
         meta = data.new_metadata(
-            file.name, 0, {"source": "pdfamex", "type": transaction["type"]}
+            file, 0, {"source": "pdfamex", "type": transaction["type"]}
         )
         posting = data.Posting(
             account=self.account_list[account_number],

@@ -2,6 +2,8 @@
 Classement des fichiers uniquement. Pas d'import des transactions.
 """
 import re
+import os
+import mimetypes
 from datetime import datetime
 from decimal import Decimal
 from typing import List, Dict, Optional
@@ -9,10 +11,13 @@ from functools import lru_cache
 
 from dateutil.parser import parse as parse_datetime
 from beancount.core import amount, data, flags
-from beancount.ingest import importer
-from ..myutils import pdf_to_text
+import beangulp
+try:
+    from myutils import pdf_to_text
+except ImportError:
+    from ..myutils import pdf_to_text
 
-class FichePaye(importer.ImporterProtocol):
+class FichePaye(beangulp.Importer):
     """
     Un importateur pour mes propres fiches de paie.
 
@@ -72,10 +77,9 @@ class FichePaye(importer.ImporterProtocol):
         if self.debug:
             print(f"[DEBUG] {message}")
 
-    @lru_cache(maxsize=None)
     def _get_pdf_text(self, file):
         """Cache et retourne le texte du PDF."""
-        return file.convert(pdf_to_text)
+        return pdf_to_text(file)
 
     def identify(self, file) -> bool:
         """
@@ -87,12 +91,12 @@ class FichePaye(importer.ImporterProtocol):
         Returns:
             bool: True si le fichier est une fiche de paie valide, False sinon.
         """
-        if file.mimetype() != "application/pdf":
+        if not file.lower().endswith(".pdf"):
             return False
         text = self._get_pdf_text(file)
         return bool(re.search(self.EMPLOYER_IDENTIFIER_PATTERN, text))
 
-    def file_account(self, file) -> Optional[str]:
+    def account(self, file) -> Optional[str]:
         """
         Extrait le compte associé au fichier.
 
@@ -107,7 +111,7 @@ class FichePaye(importer.ImporterProtocol):
         self._debug(f"Numéro de compte trouvé : {match.group(0) if match else 'Non trouvé'}")
         return self.account_list.get(match.group(0)) if match else None
 
-    def file_name(self, _) -> str:
+    def filename(self, _) -> str:
         """
         Retourne le nom du fichier pour la fiche de paie.
 
@@ -119,7 +123,7 @@ class FichePaye(importer.ImporterProtocol):
         """
         return "Bulletin_Paye.pdf"
 
-    def file_date(self, file) -> Optional[datetime.date]:
+    def date(self, file) -> Optional[datetime.date]:
         """
         Extrait la date de paiement de la fiche de paie.
 
@@ -148,8 +152,8 @@ class FichePaye(importer.ImporterProtocol):
             List[data.Directive]: Liste des directives extraites.
         """
         text = self._get_pdf_text(file)
-        payment_date = self.file_date(file)
-        account = self.file_account(file)
+        payment_date = self.date(file)
+        account = self.account(file)
 
         net_before_tax = self._extract_amount(text, self.NET_BEFORE_TAX_PATTERN, negate=True)
         income_tax = self._extract_amount(text, self.INCOME_TAX_PATTERN)
@@ -198,7 +202,7 @@ class FichePaye(importer.ImporterProtocol):
         Returns:
             data.Transaction: La transaction Beancount créée.
         """
-        meta = data.new_metadata(file.name, 0, {"source": "fichepaye", "document": f"{date} {self.file_name(None)}"})
+        meta = data.new_metadata(file, 0, {"source": "fichepaye", "document": f"{date} {self.filename(None)}"})
         
         postings = [
             data.Posting(account=f"{account}:Salaire", units=net_before_tax, cost=None, price=None, flag=None, meta=None),
