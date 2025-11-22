@@ -13,24 +13,7 @@ Tous ces poutils sont très perfectibles, n'hésitez pas à me faire part de vos
 ## Migration vers Beangulp
 Tous les importateurs (`pdfamex`, `fichepaye`, `pdfbourso`, `jsongenerali`) ont été migrés pour utiliser `beangulp` au lieu de `beancount.ingest`. Cela assure la compatibilité avec Beancount v3.
 
-## QIFBoursorama
-Un importateur pour les fichiers QIF générés par Boursorama.
 
-### Présentation générale
-Cet outil permet d'importer les transactions à partir des fichiers QIF générés par Boursorama et de les convertir en directives Beancount. Bien qu'il soit fonctionnel, il est recommandé d'utiliser plutôt l'importateur PDFBourso qui offre plus de détails et permet la récupération des soldes.
-
-### Utilisation
-1. Assurez-vous d'avoir les dépendances nécessaires installées (beancount, etc.).
-2. Configurez l'importateur dans votre fichier de configuration Beancount.
-3. Utilisez l'importateur avec les commandes habituelles de Beancount (bean-extract, bean-identify, etc.).
-
-### Limitations
-- Ne récupère pas les soldes des comptes.
-- Fournit moins de détails que l'importateur PDFBourso.
-- Peut nécessiter des ajustements en fonction des spécificités des fichiers QIF de Boursorama.
-
-### Recommandation
-Il est conseillé d'utiliser l'importateur PDFBourso à la place de cet outil pour obtenir des informations plus complètes et précises sur vos transactions Boursorama.
 
 ## PDFBourso
 Un importer pour les relevés au format PDF emis par Boursorama.
@@ -101,11 +84,7 @@ Un importateur avancé pour les relevés au format JSON générés par le script
 - La précision des calculs dépend de la qualité des données fournies dans les fichiers JSON.
 - Certains types d'opérations spécifiques peuvent nécessiter des ajustements manuels.
 
-## PDFBinck
-Un importer pour les relevés au format PDF emis par Binck France.
-A ce stade, cet importer se contente de classer le fichier.
 
-Cet importer n'est plus mis à jour suite au rachat de Binck par Saxo Bank.
 
 ## IEXCloud
 Un price fetcher qui utilise iexcloud.io.
