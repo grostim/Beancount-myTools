@@ -203,7 +203,7 @@ class PDFBourso(beangulp.Importer):
             self._error(f"Impossible de convertir '{value}' en Decimal")
             return Decimal('0')
 
-    def extract(self, file, existing_entries=None):
+    def extract(self, file, existing_entries=None, **kwargs):
         try:
             document = f"{self.date(file)} {self.filename(file)}"
             text = pdf_to_text(file)
@@ -231,7 +231,15 @@ class PDFBourso(beangulp.Importer):
             else:
                 self._error(f"Méthode d'extraction non trouvée pour le type : {self.type}")
 
-            return entries
+            cleaned = []
+            for e in entries:
+                if hasattr(e, "date") and isinstance(getattr(e, "date"), str):
+                    try:
+                        e = e._replace(date=parse_datetime(e.date).date())
+                    except Exception:
+                        pass
+                cleaned.append(e)
+            return cleaned
         except Exception as e:
             self._error(f"Erreur lors de l'extraction des données : {str(e)}")
             return []
@@ -671,8 +679,6 @@ class PDFBourso(beangulp.Importer):
 
         # Affichage du solde initial
         match = re.search(self.REGEX_SOLDE_INITIAL, text)
-        datebalance = ""
-        balance = ""
         if match:
             datebalance = parse_datetime(
                 match.group(2), dayfirst=True
@@ -688,20 +694,20 @@ class PDFBourso(beangulp.Importer):
                 # Si la distance entre les 2 champs est petite, alors, c'est un débit.
                 balance = "-" + balance
 
-        meta = data.new_metadata(file, 0)
-        meta["source"] = "pdfbourso"
-        meta["document"] = document
+            meta = data.new_metadata(file, 0)
+            meta["source"] = "pdfbourso"
+            meta["document"] = document
 
-        entries.append(
-            data.Balance(
-                meta,
-                datebalance,
-                self.accountList[compte],
-                amount.Amount(D(balance), "EUR"),
-                None,
-                None,
-            ) # type: ignore
-        )
+            entries.append(
+                data.Balance(
+                    meta,
+                    datebalance,
+                    self.accountList[compte],
+                    amount.Amount(D(balance), "EUR"),
+                    None,
+                    None,
+                ) # type: ignore
+            )
 
         chunks = re.findall(self.REGEX_OPERATION_COMPTE, text)
 
@@ -1027,6 +1033,9 @@ class PDFBourso(beangulp.Importer):
         :return: Un objet Transaction
         :rtype: data.Transaction
         """
+        if isinstance(date, str):
+            date = parse_datetime(date).date()
+
         return data.Transaction(
             meta=meta,
             date=date,
