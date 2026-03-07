@@ -7,4 +7,4 @@ qui ajoute l'option --generate aux tests.
 
 # This adds the --generate option.
 # pylint: disable=invalid-name
-pytest_plugins = "beancount.ingest.regression_pytest"
+# pytest_plugins = "beancount.ingest.regression_pytest"

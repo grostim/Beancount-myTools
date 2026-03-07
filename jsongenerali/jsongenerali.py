@@ -128,7 +128,7 @@ class JSONGenerali(beangulp.Importer):
             nb_parts = self._parse_decimal(ligne["nbpart"])
             valeur_part = montant / nb_parts
 
-            cost = position.Cost(self._round_decimal(valeur_part), "EUR", None, None) if nb_parts > 0 else None
+            cost = position.Cost(self._round_decimal(valeur_part), "EUR", self.date(file), None) if nb_parts > 0 else None
             price = amount.Amount(self._round_decimal(abs(valeur_part)), "EUR")
             postings.append(self._create_posting(
                 f"{self.account_list[jsondata['compte']]}:{ligne['isin'].replace(' ', '').upper()}",

@@ -393,7 +393,7 @@ class PDFBourso(beangulp.Importer):
                 cost=position.Cost(
                     self._parse_decimal(ope["Cours"]),
                     ope["currency Cours"],
-                    None, # type: ignore
+                    parse_datetime(ope["Date"], dayfirst=True).date(),
                     None,
                 ) if ope["Achat"] else None,
                 price=amount.Amount(
@@ -507,7 +507,7 @@ class PDFBourso(beangulp.Importer):
                 cost=position.Cost(
                     self._parse_decimal(ope["Cours"]),
                     ope["currency Cours"],
-                    None, # type: ignore
+                    parse_datetime(ope["Date"], dayfirst=True).date(),
                     None,
                 ) if ope["Achat"] else None,
                 price=amount.Amount(
@@ -618,7 +618,7 @@ class PDFBourso(beangulp.Importer):
                 cost=position.Cost(
                     self._parse_decimal(ope["Cours"]),
                     ope["currency Cours"],
-                    None, # type: ignore
+                    parse_datetime(ope["Date"], dayfirst=True).date(),
                     None,
                 ) if ope["Achat"] else None,
                 price=amount.Amount(
