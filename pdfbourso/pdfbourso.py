@@ -203,7 +203,7 @@ class PDFBourso(beangulp.Importer):
             self._error(f"Impossible de convertir '{value}' en Decimal")
             return Decimal('0')
 
-    def extract(self, file, existing_entries=None, **kwargs):
+    def extract(self, file, existing=None, **kwargs):
         try:
             document = f"{self.date(file)} {self.filename(file)}"
             text = pdf_to_text(file)

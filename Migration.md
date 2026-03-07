@@ -25,11 +25,13 @@ Voici les étapes pas à pas pour transformer votre ancien importateur.
 Remplacez l'import de `beancount.ingest` par `beangulp`.
 
 **Avant :**
+
 ```python
 from beancount.ingest import importer
 ```
 
 **Après :**
+
 ```python
 import beangulp
 ```
@@ -39,11 +41,13 @@ import beangulp
 Votre classe d'importateur doit maintenant hériter de `beangulp.Importer`.
 
 **Avant :**
+
 ```python
 class MonImporter(importer.ImporterProtocol):
 ```
 
 **Après :**
+
 ```python
 class MonImporter(beangulp.Importer):
 ```
@@ -61,8 +65,9 @@ class MonImporter(beangulp.Importer):
 ### 4. Gérer les fichiers comme des chaînes de caractères (Important !)
 
 C'est le changement le plus important.
-*   **Avant** : `file` était un objet spécial avec des méthodes comme `file.name`, `file.mimetype()`, et `file.convert()`.
-*   **Après** : `file` est simplement une **chaîne de caractères** (le chemin vers le fichier, ex: `/path/to/file.pdf`).
+
+- **Avant** : `file` était un objet spécial avec des méthodes comme `file.name`, `file.mimetype()`, et `file.convert()`.
+- **Après** : `file` est simplement une **chaîne de caractères** (le chemin vers le fichier, ex: `/path/to/file.pdf`).
 
 Il faut donc adapter votre code :
 
@@ -71,12 +76,14 @@ Il faut donc adapter votre code :
 Ne vérifiez plus le mimetype via `file.mimetype()`. Vérifiez l'extension du fichier directement.
 
 **Avant :**
+
 ```python
 def identify(self, file):
     return file.mimetype() == "application/pdf"
 ```
 
 **Après :**
+
 ```python
 def identify(self, file):
     return file.lower().endswith(".pdf")
@@ -87,11 +94,13 @@ def identify(self, file):
 N'utilisez plus `file.convert()`. Utilisez une fonction utilitaire externe (comme `pdf_to_text` dans `myutils.py`) qui prend le chemin du fichier en argument.
 
 **Avant :**
+
 ```python
 text = file.convert(pdf_to_text)
 ```
 
 **Après :**
+
 ```python
 # Assurez-vous d'avoir importé votre fonction utilitaire
 text = pdf_to_text(file)
@@ -102,12 +111,14 @@ text = pdf_to_text(file)
 Si vous utilisiez `file.name` pour obtenir le chemin, utilisez simplement `file` directement.
 
 **Avant :**
+
 ```python
 meta = data.new_metadata(file.name, 0)
 basename = os.path.basename(file.name)
 ```
 
 **Après :**
+
 ```python
 meta = data.new_metadata(file, 0)
 basename = os.path.basename(file)
@@ -118,11 +129,13 @@ basename = os.path.basename(file)
 Si vous ouvriez le fichier, utilisez le chemin directement.
 
 **Avant :**
+
 ```python
 with open(file.name) as f:
 ```
 
 **Après :**
+
 ```python
 with open(file) as f:
 ```
@@ -144,7 +157,7 @@ class MonImporter(importer.ImporterProtocol):
     def file_account(self, file):
         return "Assets:Bank"
 
-    def extract(self, file, existing_entries=None):
+    def extract(self, file, existing=None):
         text = file.convert(pdf_to_text)
         # ... logique d'extraction ...
         meta = data.new_metadata(file.name, 0)
@@ -164,7 +177,7 @@ class MonImporter(beangulp.Importer):
     def account(self, file):
         return "Assets:Bank"
 
-    def extract(self, file, existing_entries=None):
+    def extract(self, file, existing=None):
         text = pdf_to_text(file) # file est un str
         # ... logique d'extraction ...
         meta = data.new_metadata(file, 0) # file est un str
@@ -174,6 +187,7 @@ class MonImporter(beangulp.Importer):
 ## Vérification
 
 Après la migration, il est conseillé de tester votre importateur :
+
 1.  Instanciez votre classe.
 2.  Appelez `identify("chemin/vers/test.pdf")`.
 3.  Appelez `extract("chemin/vers/test.pdf")`.

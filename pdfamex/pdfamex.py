@@ -132,7 +132,7 @@ class PDFAmex(beangulp.Importer):
             else None
         )
 
-    def extract(self, file, existing_entries=None) -> List[data.Directive]:
+    def extract(self, file, existing=None) -> List[data.Directive]:
         """
         Extrait les transactions et le solde du relevé.
 
@@ -141,7 +141,7 @@ class PDFAmex(beangulp.Importer):
 
         Args:
             file: Le fichier à analyser.
-            existing_entries: Les entrées existantes (non utilisé).
+            existing: Les entrées existantes (non utilisé).
 
         Returns:
             List[data.Directive]: Liste des directives extraites (transactions et solde).

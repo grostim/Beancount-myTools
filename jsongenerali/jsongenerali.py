@@ -157,7 +157,7 @@ class JSONGenerali(beangulp.Importer):
             postings=postings
         )
 
-    def extract(self, file, existing_entries=None) -> List[data.Directive]:
+    def extract(self, file, existing=None) -> List[data.Directive]:
         """Extrait les transactions du relevé JSON Generali."""
         entries = []
         with open(file, "r") as read_file:
