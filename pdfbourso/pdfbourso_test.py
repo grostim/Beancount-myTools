@@ -4,10 +4,11 @@ __copyright__ = (
 )
 __license__ = "GNU GPLv2"
 
+import os
 from os import path
 import pytest
 
-from beancount.ingest import regression_pytest as regtest
+from beangulp.testing import compare_expected, run_importer
 from . import pdfbourso
 
 ACCOUNTLIST = {
@@ -37,10 +38,24 @@ ACCOUNTLIST = {
 
 IMPORTER = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
 
+TESTDIR = path.abspath("regtest/Beancount-myTools-tests/pdfbourso/")
 
-@regtest.with_importer(IMPORTER)
-@regtest.with_testdir(
-    path.abspath("regtest/Beancount-myTools-tests/pdfbourso/")
-)
-class TestImporter(regtest.ImporterTestBase):
-    pass
+def get_test_files():
+    if not path.isdir(TESTDIR):
+        return []
+    files = []
+    for f in os.listdir(TESTDIR):
+        if not f.endswith('.beancount'):
+            expected = path.join(TESTDIR, f + '.beancount')
+            if path.exists(expected):
+                files.append(path.join(TESTDIR, f))
+    return files
+
+@pytest.mark.parametrize("doc", get_test_files())
+def test_importer(doc):
+    assert IMPORTER.identify(doc)
+    account, date, name, entries = run_importer(IMPORTER, doc)
+    expected_filename = doc + ".beancount"
+    
+    diff = compare_expected(expected_filename, account, date, name, entries)
+    assert not diff, "Diff found:\n" + "".join(diff)
