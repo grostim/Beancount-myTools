@@ -198,7 +198,12 @@ class PDFBourso(beangulp.Importer):
 
     def _parse_decimal(self, value: str) -> Decimal:
         try:
-            return Decimal(value.replace(",", ".").replace(" ", "").replace("\xa0", "").replace(r"\u00a", ""))
+            cleaned = value.replace(" ", "").replace("\xa0", "").replace(r"\u00a", "")
+            # Remove thousands separators (e.g., "1.328,93")
+            cleaned = cleaned.replace(".", "")
+            # Convert decimal comma to dot
+            cleaned = cleaned.replace(",", ".")
+            return Decimal(cleaned)
         except InvalidOperation:
             self._error(f"Impossible de convertir '{value}' en Decimal")
             return Decimal('0')
