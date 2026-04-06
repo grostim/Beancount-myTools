@@ -53,6 +53,7 @@ class PDFBourso(beangulp.Importer):
     REGEX_OPERATION_COMPTE = r"\d{1,2}\/\d{2}\/\d{4}\s(.*)\s(\d{1,2}\/\d{2}\/\d{4})\s(\s*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})(?:(?:\n.\s{8,20})(.+?))?\n"
     REGEX_SOLDE_FINAL = r"Nouveau solde en EUR :(\s+)((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
     REGEX_DATE_SOLDE_FINAL = r"(\d{1,2}\/\d{2}\/\d{4}).*40618"
+    REGEX_AMOUNT = r"((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
 
     REGEX_AMORTISSEMENT_OPERATION = r"(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
 
@@ -207,6 +208,64 @@ class PDFBourso(beangulp.Importer):
         except InvalidOperation:
             self._error(f"Impossible de convertir '{value}' en Decimal")
             return Decimal('0')
+
+    def _find_compte_columns(self, text: str):
+        for line in text.splitlines():
+            if "Débit" not in line or "Crédit" not in line:
+                continue
+            if "Libell" not in line and "Date opération" not in line:
+                continue
+            try:
+                columns = {
+                    "debit": line.index("Débit"),
+                    "credit": line.index("Crédit"),
+                }
+                self._debug(f"Colonnes détectées : {columns}")
+                return columns
+            except ValueError:
+                continue
+        self._debug("Colonnes Débit/Crédit introuvables, repli sur l'heuristique historique")
+        return None
+
+    def _column_from_offset(self, text: str, offset: int) -> int:
+        line_start = text.rfind("\n", 0, offset) + 1
+        return offset - line_start
+
+    def _sign_from_column(self, column: int, columns, fallback_sign: int) -> int:
+        if columns:
+            credit_col = columns.get("credit")
+            debit_col = columns.get("debit")
+            if credit_col is not None and column >= credit_col:
+                return 1
+            if debit_col is not None and column >= debit_col:
+                return -1
+        return fallback_sign
+
+    def _signed_decimal_from_match(self, text: str, match, group_index: int, columns, fallback_sign: int) -> Decimal:
+        value = self._parse_decimal(match.group(group_index))
+        column = self._column_from_offset(text, match.start(group_index))
+        sign = self._sign_from_column(column, columns, fallback_sign)
+        return value if sign > 0 else -value
+
+    def _find_final_balance_amount(self, text: str):
+        offset = 0
+        for raw_line in text.splitlines(keepends=True):
+            line = raw_line.rstrip("\n")
+            if "Nouveau solde en EUR" not in line:
+                offset += len(raw_line)
+                continue
+            matches = list(re.finditer(self.REGEX_AMOUNT, line))
+            if matches:
+                match = matches[-1]
+                return match.group(1), offset + match.start(1)
+            offset += len(raw_line)
+        return None
+
+    def _final_balance_date(self, file, text: str):
+        match = re.search(self.REGEX_DATE_SOLDE_FINAL, text)
+        if match:
+            return parse_datetime(match.group(1), dayfirst=True).date()
+        return self.date(file)
 
     def extract(self, file, existing=None, **kwargs):
         try:
@@ -681,6 +740,7 @@ class PDFBourso(beangulp.Importer):
 
         # Si debogage, affichage de l'extraction
         self._debug(f"Numéro de compte extrait : {compte}")
+        columns = self._find_compte_columns(text)
 
         # Affichage du solde initial
         match = re.search(self.REGEX_SOLDE_INITIAL, text)
@@ -688,16 +748,14 @@ class PDFBourso(beangulp.Importer):
             datebalance = parse_datetime(
                 match.group(2), dayfirst=True
             ).date() + datetime.timedelta(days=1)
-            longueur = (
+            fallback_length = (
                 len(match.group(1))
                 + len(match.group(3))
                 + len(match.group(2))
                 + len(match.group(4))
             )
-            balance = match.group(4).replace(".", "").replace(",", ".")
-            if longueur < 84:
-                # Si la distance entre les 2 champs est petite, alors, c'est un débit.
-                balance = "-" + balance
+            fallback_sign = -1 if fallback_length < 84 else 1
+            balance = self._signed_decimal_from_match(text, match, 4, columns, fallback_sign)
 
             meta = data.new_metadata(file, 0)
             meta["source"] = "pdfbourso"
@@ -708,24 +766,25 @@ class PDFBourso(beangulp.Importer):
                     meta,
                     datebalance,
                     self.accountList[compte],
-                    amount.Amount(D(balance), "EUR"),
+                    amount.Amount(balance, "EUR"),
                     None,
                     None,
                 ) # type: ignore
             )
 
-        chunks = re.findall(self.REGEX_OPERATION_COMPTE, text)
+        chunks = list(re.finditer(self.REGEX_OPERATION_COMPTE, text))
 
         # Si debogage, affichage de l'extraction
         self._debug(f"Chunks extraits : {chunks}")
 
         index = 0
-        for chunk in chunks:
+        for chunk_match in chunks:
             index += 1
             meta = data.new_metadata(file, index)
             meta["source"] = "pdfbourso"
             meta["document"] = document
             ope = dict()
+            chunk = chunk_match.groups()
 
             # Si debogage, affichage de l'extraction
             self._debug(f"Chunk extrait : {chunk}")
@@ -734,25 +793,15 @@ class PDFBourso(beangulp.Importer):
             # Si debogage, affichage de l'extraction
             self._debug(f"Date de l'opération : {ope['date']}")
 
-            ope["montant"] = chunk[3].replace(".", "").replace(",", ".")
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Montant de l'opération : {ope['montant']}")
-
-            # Longueur de l'espace intercalaire
-            longueur = (
+            fallback_length = (
                 len(chunk[0])
                 + len(chunk[1])
                 + len(chunk[2])
                 + len(chunk[3])
             )
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Longueur de l'espace intercalaire : {longueur}")
-
-            if longueur > 148:
-                ope["type"] = "Credit"
-            else:
-                ope["type"] = "Debit"
-                ope["montant"] = "-" + ope["montant"]
+            fallback_sign = 1 if fallback_length > 148 else -1
+            ope["montant"] = self._signed_decimal_from_match(text, chunk_match, 4, columns, fallback_sign)
+            ope["type"] = "Credit" if ope["montant"] > 0 else "Debit"
             # Si débogage, affichage de l'extraction
             self._debug(f"Montant de l'opération : {ope['montant']}")
 
@@ -760,7 +809,7 @@ class PDFBourso(beangulp.Importer):
             # Si debogage, affichage de l'extraction
             self._debug(f"Payee : {ope['payee']}")
 
-            ope["narration"] = re.sub(r"\s+", " ", chunk[4])
+            ope["narration"] = re.sub(r"\s+", " ", chunk[4] or "")
             # Si debogage, affichage de l'extraction
             self._debug(f"Narration : {ope['narration']}")
 
@@ -768,7 +817,7 @@ class PDFBourso(beangulp.Importer):
             postings = [
                 self._create_posting(
                     self.accountList[compte],
-                    Decimal(ope["montant"]),
+                    ope["montant"],
                     "EUR",
                 ),
             ]
@@ -785,19 +834,21 @@ class PDFBourso(beangulp.Importer):
         # Recherche du solde final
         match = re.search(self.REGEX_SOLDE_FINAL, text)
         if match:
-            balance = match.group(2).replace(".", "").replace(",", ".")
-            longueur = len(match.group(1))
-            self.logger.debug(f"Balance : {balance}")
-            self.logger.debug(f"Longueur : {longueur}")
-            if longueur < 84:
-                # Si la distance entre les 2 champs est petite, alors, c'est un débit.
-                balance = "-" + balance
-            # Recherche de la date du solde final
-            match = re.search(self.REGEX_DATE_SOLDE_FINAL, text)
-            if match:
-                datebalance = parse_datetime(
-                    match.group(1), dayfirst=True
-                ).date()
+            fallback_sign = -1 if len(match.group(1)) < 84 else 1
+            balance = self._signed_decimal_from_match(text, match, 2, columns, fallback_sign)
+        else:
+            final_balance = self._find_final_balance_amount(text)
+            balance = None
+            if final_balance:
+                raw_balance, offset = final_balance
+                column = self._column_from_offset(text, offset)
+                balance_value = self._parse_decimal(raw_balance)
+                sign = self._sign_from_column(column, columns, 1)
+                balance = balance_value if sign > 0 else -balance_value
+
+        if balance is not None:
+            datebalance = self._final_balance_date(file, text)
+            if datebalance:
                 self.logger.debug(f"Date balance : {datebalance}")
                 meta = data.new_metadata(file, 0)
                 meta["source"] = "pdfbourso"
@@ -808,7 +859,7 @@ class PDFBourso(beangulp.Importer):
                         meta,
                         datebalance,
                         self.accountList[compte],
-                        amount.Amount(D(balance), "EUR"),
+                        amount.Amount(balance, "EUR"),
                         None,
                         None,
                     ) # type: ignore

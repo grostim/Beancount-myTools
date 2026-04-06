@@ -6,8 +6,10 @@ __license__ = "GNU GPLv2"
 
 import os
 from os import path
+from decimal import Decimal
 import pytest
 
+from beancount.core import data
 from beangulp.testing import compare_expected, run_importer
 from . import pdfbourso
 
@@ -59,3 +61,45 @@ def test_importer(doc):
     
     diff = compare_expected(expected_filename, account, date, name, entries)
     assert not diff, "Diff found:\n" + "".join(diff)
+
+
+def test_extract_compte_cel_layout_uses_credit_column(monkeypatch):
+    text = """BOURSORAMA BANQUE
+Relevé au 30/05/2025
+Compte 00030269844
+Date opération                                 Libellé                                      Valeur                   Débit                    Crédit
+                                                         SOLDE EN EUR        AU :         01/02/2025                                                319,11
+  30/05/2025        VIR Virement interne depuis COMPTE P                                  30/05/2025                                              3.000,00
+                                                Nouveau solde en EUR                           1                                                  3.319,11
+"""
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    entries = importer._extract_compte("fake.pdf", text, "2025-05-30 Relevé Compte.pdf")
+
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+    transactions = [entry for entry in entries if isinstance(entry, data.Transaction)]
+
+    assert [entry.amount.number for entry in balances] == [Decimal("319.11"), Decimal("3319.11")]
+    assert transactions[0].postings[0].units.number == Decimal("3000.00")
+
+
+def test_extract_compte_regular_layout_keeps_debit_negative(monkeypatch):
+    text = """BOURSORAMA BANQUE
+Relevé au 28/02/2026
+Compte 00040132901
+          Libellé                                                                                              Valeur              Débit                Crédit
+                                                                                             SOLDE AU : 30/01/2026                                          4.783,72
+05/02/2026 PRLV SEPA Free Telecom                                                                            05/02/2026                  37,97
+                                Nouveau solde en EUR :                                                                                                     3.104,54
+"""
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    entries = importer._extract_compte("fake.pdf", text, "2026-02-28 Relevé Compte.pdf")
+
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+    transactions = [entry for entry in entries if isinstance(entry, data.Transaction)]
+
+    assert [entry.amount.number for entry in balances] == [Decimal("4783.72"), Decimal("3104.54")]
+    assert transactions[0].postings[0].units.number == Decimal("-37.97")
