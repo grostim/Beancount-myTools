@@ -23,6 +23,16 @@ Testé avec:
 - Les relevés de carte à débit différé.
 Il n'a pas été testé avec les autres types de comptes.
 
+## PDFBanquePopulaire
+Un importeur pour les releves PDF Banque Populaire au format "compte cheques".
+Il extrait la date de releve, le numero de compte, le solde d'ouverture, les
+mouvements du tableau principal et le solde de cloture.
+
+Important :
+- aucun releve reel ne doit etre ajoute dans `myTools` ;
+- les tests de cet importeur doivent rester bases sur du texte synthetique et
+  anonymise, car le depot GitHub est public.
+
 ## PDFAmex
 
 ### Présentation générale
@@ -175,4 +185,3 @@ Ce module est particulièrement utile pour les importateurs qui nécessitent la 
 - Les fonctions sont conçues pour être réutilisables dans différents contextes d'importation.
 - Le module inclut des gestions d'erreurs appropriées, notamment pour les cas où `pdftotext` n'est pas installé ou échoue lors de la conversion.
 - La traduction des mois est particulièrement utile pour normaliser les dates extraites de documents en français vers un format compatible avec les bibliothèques de traitement de dates en anglais.
-
