@@ -57,7 +57,7 @@ class PDFBourso(beangulp.Importer):
 
     REGEX_AMORTISSEMENT_OPERATION = r"(\d*/\d*/\d*)\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})\s+(\d+.\d{2})"
 
-    REGEX_CB_OPERATION = r"(\d{1,2}\/\d{2}\/\d{4})\s*CARTE\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
+    REGEX_CB_OPERATION = r"(\d{1,2}\/\d{2}\/\d{4})\s*(CARTE|CION OP\.ETR)\s(.*)\s((?:\d{1,3}\.)?\d{1,3},\d{2})"
     REGEX_CB_SOLDE_FINAL = r"A VOTRE DEBIT LE\s(\d{1,2}\/\d{2}\/\d{4})\s*((?:\d{1,3}\.)?(?:\d{1,3}\.)?\d{1,3},\d{2})"
 
     REGEX_ETR_MONTANT = r"Montant transaction\s*Montant transaction brut\s*Intérêts\s*total brut\s*Courtages\s*Montant transaction net\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
@@ -989,11 +989,18 @@ class PDFBourso(beangulp.Importer):
             # Si debogage, affichage de l'extraction
             self._debug(f"Date de l'opération : {ope['date']}")
 
-            ope["montant"] = self._parse_decimal(chunk[2])*-1
+            ope["type"] = chunk[1]
+            # Si debogage, affichage de l'extraction
+            self._debug(f"Type d'opération : {ope['type']}")
+
+            ope["montant"] = self._parse_decimal(chunk[3])*-1
             # Si debogage, affichage de l'extraction
             self._debug(f"Montant de l'opération : {ope['montant']}")
 
-            ope["payee"] = re.sub(r"\s+", " ", chunk[1])
+            payee = re.sub(r"\s+", " ", chunk[2]).strip()
+            if ope["type"] == "CION OP.ETR":
+                payee = f"{ope['type']} {payee}".strip()
+            ope["payee"] = payee
             # Si debogage, affichage de l'extraction
             self._debug(f"Payee : {ope['payee']}")
 
@@ -1005,6 +1012,14 @@ class PDFBourso(beangulp.Importer):
                     "EUR",
                 ),
             ]
+            if ope["type"] == "CION OP.ETR":
+                postings.append(
+                    self._create_posting(
+                        "Depenses:Banque:Frais",
+                        -ope["montant"],
+                        "EUR",
+                    ),
+                )
             transaction = self._create_transaction(
                 meta,
                 parse_datetime(ope["date"], dayfirst=True).date(),

@@ -103,3 +103,29 @@ Compte 00040132901
 
     assert [entry.amount.number for entry in balances] == [Decimal("4783.72"), Decimal("3104.54")]
     assert transactions[0].postings[0].units.number == Decimal("-37.97")
+
+
+def test_extract_cb_commission_operation_posts_bank_fees(monkeypatch):
+    text = """BOURSORAMA BANQUE
+Relevé de Carte Premier
+Date           N° de RIB                                        N° Carte                    Période                                    Page
+ 28/03/2026    40618 80268     00040132901              60          4810********2766             du 26/02/2026 au 27/03/2026             1/2
+25/03/2026              CARTE 23/03/26 WH Smith Bristo                                                                             19,01
+                           16,38 GBP / 1 euro = 0,861651762
+25/03/2026              CION OP.ETR WH Smith Bristo                                                                                    0,32
+                                       A VOTRE DEBIT LE 01/04/2026                                                                                                        19,33
+"""
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    entries = importer._extract_cb("fake.pdf", text, "2026-03-27 Relevé CB.pdf")
+
+    transactions = [entry for entry in entries if isinstance(entry, data.Transaction)]
+    fee_entry = next(entry for entry in transactions if entry.payee == "CION OP.ETR WH Smith Bristo")
+
+    assert fee_entry.date.isoformat() == "2026-03-25"
+    assert len(fee_entry.postings) == 2
+    assert fee_entry.postings[0].account == "Passif:Boursorama:CBTim"
+    assert fee_entry.postings[0].units.number == Decimal("-0.32")
+    assert fee_entry.postings[1].account == "Depenses:Banque:Frais"
+    assert fee_entry.postings[1].units.number == Decimal("0.32")
