@@ -295,6 +295,32 @@ class PDFBanquePopulaire(beangulp.Importer):
         meta["source"] = "pdfbanquepopulaire"
         meta["document"] = document
 
+        postings = [
+            data.Posting(
+                account=account_name,
+                units=amount.Amount(transaction_amount, "EUR"),
+                cost=None,
+                price=None,
+                flag=None,
+                meta=None,
+            )
+        ]
+        counter_account = self._guess_counter_account(
+            payee=payee,
+            narration=self._normalize_spaces(" ".join(narration_lines)),
+        )
+        if counter_account:
+            postings.append(
+                data.Posting(
+                    account=counter_account,
+                    units=None,
+                    cost=None,
+                    price=None,
+                    flag=None,
+                    meta=None,
+                )
+            )
+
         return data.Transaction(
             meta=meta,
             date=transaction_date,
@@ -303,16 +329,7 @@ class PDFBanquePopulaire(beangulp.Importer):
             narration=self._normalize_spaces(" ".join(narration_lines)),
             tags=data.EMPTY_SET,
             links=data.EMPTY_SET,
-            postings=[
-                data.Posting(
-                    account=account_name,
-                    units=amount.Amount(transaction_amount, "EUR"),
-                    cost=None,
-                    price=None,
-                    flag=None,
-                    meta=None,
-                )
-            ],
+            postings=postings,
         )
 
     def _resolve_partial_date(
@@ -376,3 +393,10 @@ class PDFBanquePopulaire(beangulp.Importer):
 
     def _normalize_spaces(self, text: str) -> str:
         return re.sub(r"\s+", " ", text).strip()
+
+    def _guess_counter_account(self, *, payee: str, narration: str) -> Optional[str]:
+        upper_payee = payee.upper()
+        upper_narration = narration.upper()
+        if upper_payee.startswith("COTIS ") and "CONTRAT CARTE" in upper_narration:
+            return "Depenses:Banque:Frais"
+        return None
