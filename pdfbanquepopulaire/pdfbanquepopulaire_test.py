@@ -148,3 +148,76 @@ def test_extract_bpop_cctim_statement(monkeypatch):
     ]
     assert transactions[0].postings[0].units.number == Decimal("-136.30")
     assert transactions[0].postings[1].units is None
+
+
+SYNTHETIC_BP_CCSCI_STATEMENT = """BANQUE POPULAIRE
+Votre relevé de compte n°3 au 31/03/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 76321119905
+
+SOLDE CREDITEUR AU 27/02/2026                                                                                 31 000,00 €
+02/03             PRLV SEPA In Extenso Cen                                                                 05G1U1S              02/03                 02/03                         - 1 380,00 €
+                    MFA0577356
+                    643393-B13-001
+18/03             EVI ME MARTIAL FAUCHER C                                                                 SK3RTPF              18/03                 18/03                            480,00 €
+                    MF PAYE SCI LES RAGONDINS 79 DIS
+                    PO S/PROV FRAIS VTE SCI AUGUSTA
+
+TOTAL DES MOUVEMENTS DEBITEURS                                                                             - 1 380,00 €
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                480,00 €
+
+SOLDE CREDITEUR AU 31/03/2026*                                                                              30 100,00 €
+"""
+
+
+def test_identify_current_account_statement(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_BP_CCSCI_STATEMENT,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(
+        {**ACCOUNTLIST, "76321119905": "Actif:SCIRagondins:CCSCI"}
+    )
+
+    assert importer.identify("statement.pdf")
+    assert importer.account("statement.pdf") == "Actif:SCIRagondins:CCSCI"
+    assert importer.date("statement.pdf") == dt.date(2026, 3, 31)
+
+
+SYNTHETIC_BP_CCSCI_WITH_SEPA_SECTION = """BANQUE POPULAIRE
+Votre relevé de compte n°3 au 31/03/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 76321119905
+
+SOLDE CREDITEUR AU 27/02/2026                                                                                 31 000,00 €
+02/03             PRLV SEPA In Extenso Cen                                                                 05G1U1S              02/03                 02/03                         - 1 380,00 €
+                    MFA0577356
+                    643393-B13-001
+18/03             EVI ME MARTIAL FAUCHER C                                                                 SK3RTPF              18/03                 18/03                            480,00 €
+                    MF PAYE SCI LES RAGONDINS 79 DIS
+                    PO S/PROV FRAIS VTE SCI AUGUSTA
+
+SOLDE CREDITEUR AU 31/03/2026*
+(*) Sous réserve des opérations en cours d'enregistrement.
+Ce document ne justifie pas la déduction de la TVA.
+DETAIL DE VOS MOUVEMENTS SEPA
+"""
+
+
+def test_extract_current_account_without_totals_block(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_BP_CCSCI_WITH_SEPA_SECTION,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(
+        {**ACCOUNTLIST, "76321119905": "Actif:SCIRagondins:CCSCI"}
+    )
+
+    entries = importer.extract("statement.pdf")
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+
+    assert len(transactions) == 2
+    assert transactions[0].payee == "PRLV SEPA In Extenso Cen"
+    assert transactions[1].payee == "EVI ME MARTIAL FAUCHER C"

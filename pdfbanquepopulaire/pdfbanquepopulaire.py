@@ -1,6 +1,6 @@
 """Importateur pour les releves PDF Banque Populaire.
 
-Cet importateur cible le format "compte cheques" observe sur les releves
+Cet importateur cible les formats "compte cheques" et "compte courant" observes sur les releves
 Banque Populaire Aquitaine Centre Atlantique. Il extrait :
 - le numero de compte,
 - la date de releve,
@@ -33,7 +33,9 @@ except ImportError:
 class PDFBanquePopulaire(beangulp.Importer):
     """Importeur beangulp pour les releves Banque Populaire."""
 
-    ACCOUNT_NUMBER_PATTERN = re.compile(r"COMPTE CHEQUES N[°º]\s*(\d{11})")
+    ACCOUNT_NUMBER_PATTERN = re.compile(
+        r"COMPTE (?:CHEQUES|COURANT) N[°º]\s*(\d{11})"
+    )
     STATEMENT_DATE_PATTERN = re.compile(
         r"RELEV[ÉE](?:\s+DE\s+COMPTE)?\s+N[°º]?\s*\d+\s+AU\s+"
         r"(\d{2}/\d{2}/\d{4})",
@@ -72,7 +74,10 @@ class PDFBanquePopulaire(beangulp.Importer):
         upper = text.upper()
         return (
             "BANQUE POPULAIRE" in upper
-            and "DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES" in upper
+            and (
+                "DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES" in upper
+                or "DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT" in upper
+            )
         )
 
     def filename(self, _) -> str:
@@ -186,7 +191,7 @@ class PDFBanquePopulaire(beangulp.Importer):
                 continue
             if stripped.startswith("SOLDE "):
                 continue
-            if stripped.startswith("TOTAL DES MOUVEMENTS"):
+            if self._is_operations_section_terminator(stripped):
                 break
 
             if self.TRANSACTION_START_PATTERN.match(line):
@@ -208,10 +213,19 @@ class PDFBanquePopulaire(beangulp.Importer):
         upper = text.upper()
         detail_index = upper.find("DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES")
         if detail_index == -1:
+            detail_index = upper.find(
+                "DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT"
+            )
+        if detail_index == -1:
             raise ValueError("Section des operations Banque Populaire introuvable.")
 
         start_index = upper.find("SOLDE ", detail_index)
-        end_index = upper.find("TOTAL DES MOUVEMENTS DEBITEURS", start_index)
+        end_markers = [
+            upper.find("TOTAL DES MOUVEMENTS DEBITEURS", start_index),
+            upper.find("DETAIL DE VOS MOUVEMENTS SEPA", start_index),
+        ]
+        end_candidates = [index for index in end_markers if index != -1]
+        end_index = min(end_candidates) if end_candidates else -1
         if start_index == -1 or end_index == -1:
             raise ValueError(
                 "Bornes de la section d'operations Banque Populaire introuvables."
@@ -400,3 +414,13 @@ class PDFBanquePopulaire(beangulp.Importer):
         if upper_payee.startswith("COTIS ") and "CONTRAT CARTE" in upper_narration:
             return "Depenses:Banque:Frais"
         return None
+
+    def _is_operations_section_terminator(self, stripped_line: str) -> bool:
+        upper = stripped_line.upper()
+        return (
+            upper.startswith("TOTAL DES MOUVEMENTS")
+            or upper.startswith("DETAIL DE VOS MOUVEMENTS SEPA")
+            or upper.startswith("(*) SOUS RÉSERVE".upper())
+            or upper.startswith("(*) SOUS RESERVE")
+            or upper.startswith("CE DOCUMENT NE JUSTIFIE PAS")
+        )
