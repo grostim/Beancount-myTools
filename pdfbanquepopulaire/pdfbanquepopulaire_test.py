@@ -8,6 +8,7 @@ from . import pdfbanquepopulaire
 
 ACCOUNTLIST = {
     "12345678901": "Actif:BanquePopulaire:CCAnna",
+    "36319151452": "Actif:BPop:CCTim",
 }
 
 SYNTHETIC_STATEMENT = """BANQUE POPULAIRE
@@ -93,3 +94,57 @@ def test_resolve_partial_date_rolls_back_previous_year():
         "30/12", dt.date(2026, 1, 31)
     ) == dt.date(2025, 12, 30)
 
+
+SYNTHETIC_BP_CCTIM_STATEMENT = """BANQUE POPULAIRE
+Votre relevé de compte n°1 au 01/04/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 36319151452
+
+SOLDE CREDITEUR AU 07/03/2026                                                                                     0,00 €
+28/03             COTIS VISA PREMIER DD
+                    XCGFC005 2026032700059725000001
+                    CONTRAT CARTE ********788J
+                    0059725              27/03                 27/03                          - 136,30 €
+
+TOTAL DES MOUVEMENTS DEBITEURS                                                                                  - 136,30 €
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                    0,00 €
+
+SOLDE DEBITEUR AU 01/04/2026*                                                                                  - 136,30 €
+"""
+
+
+def test_extract_bpop_cctim_statement(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_BP_CCTIM_STATEMENT,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(ACCOUNTLIST)
+
+    assert importer.account("statement.pdf") == "Actif:BPop:CCTim"
+
+    entries = importer.extract("statement.pdf")
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+
+    assert [entry.amount.number for entry in balances] == [
+        Decimal("0.00"),
+        Decimal("-136.30"),
+    ]
+    assert [entry.date for entry in balances] == [
+        dt.date(2026, 3, 8),
+        dt.date(2026, 4, 1),
+    ]
+    assert len(transactions) == 1
+    assert transactions[0].payee == "COTIS VISA PREMIER DD"
+    assert (
+        transactions[0].narration
+        == "XCGFC005 2026032700059725000001 CONTRAT CARTE ********788J"
+    )
+    assert [posting.account for posting in transactions[0].postings] == [
+        "Actif:BPop:CCTim",
+        "Depenses:Banque:Frais",
+    ]
+    assert transactions[0].postings[0].units.number == Decimal("-136.30")
+    assert transactions[0].postings[1].units is None
