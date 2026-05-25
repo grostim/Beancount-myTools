@@ -7,8 +7,8 @@ from . import pdfbanquepopulaire
 
 
 ACCOUNTLIST = {
-    "12345678901": "Actif:BanquePopulaire:CCAnna",
-    "36319151452": "Actif:BPop:CCTim",
+    "12345678901": "Actif:BanquePopulaire:CCPrincipal",
+    "36319151452": "Actif:BPop:CCSecondaire",
 }
 
 SYNTHETIC_STATEMENT = """BANQUE POPULAIRE
@@ -42,7 +42,7 @@ def test_identify_date_and_account(monkeypatch):
 
     assert importer.identify("statement.pdf")
     assert importer.filename("statement.pdf") == "Relevé Compte.pdf"
-    assert importer.account("statement.pdf") == "Actif:BanquePopulaire:CCAnna"
+    assert importer.account("statement.pdf") == "Actif:BanquePopulaire:CCPrincipal"
     assert importer.date("statement.pdf") == dt.date(2026, 3, 31)
 
 
@@ -120,7 +120,7 @@ def test_extract_bpop_cctim_statement(monkeypatch):
     )
     importer = pdfbanquepopulaire.PDFBanquePopulaire(ACCOUNTLIST)
 
-    assert importer.account("statement.pdf") == "Actif:BPop:CCTim"
+    assert importer.account("statement.pdf") == "Actif:BPop:CCSecondaire"
 
     entries = importer.extract("statement.pdf")
     balances = [entry for entry in entries if isinstance(entry, data.Balance)]
@@ -143,7 +143,7 @@ def test_extract_bpop_cctim_statement(monkeypatch):
         == "XCGFC005 2026032700059725000001 CONTRAT CARTE ********788J"
     )
     assert [posting.account for posting in transactions[0].postings] == [
-        "Actif:BPop:CCTim",
+        "Actif:BPop:CCSecondaire",
         "Depenses:Banque:Frais",
     ]
     assert transactions[0].postings[0].units.number == Decimal("-136.30")
@@ -152,15 +152,15 @@ def test_extract_bpop_cctim_statement(monkeypatch):
 
 SYNTHETIC_BP_CCSCI_STATEMENT = """BANQUE POPULAIRE
 Votre relevé de compte n°3 au 31/03/2026
-DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 76321119905
+DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 22334455667
 
 SOLDE CREDITEUR AU 27/02/2026                                                                                 31 000,00 €
-02/03             PRLV SEPA In Extenso Cen                                                                 05G1U1S              02/03                 02/03                         - 1 380,00 €
-                    MFA0577356
-                    643393-B13-001
-18/03             EVI ME MARTIAL FAUCHER C                                                                 SK3RTPF              18/03                 18/03                            480,00 €
-                    MF PAYE SCI LES RAGONDINS 79 DIS
-                    PO S/PROV FRAIS VTE SCI AUGUSTA
+02/03             PRLV SEPA FOURNISSEUR TEST                                                            05G1U1S              02/03                 02/03                         - 1 380,00 €
+                    DOSSIER TEST 001
+                    REFERENCE TEST B13-001
+18/03             EVI ME PRESTATAIRE TEST                                                             SK3RTPF              18/03                 18/03                            480,00 €
+                    REGLEMENT DOSSIER TEST 01
+                    POUR FACTURE TEST AUGUSTA
 
 TOTAL DES MOUVEMENTS DEBITEURS                                                                             - 1 380,00 €
 TOTAL DES MOUVEMENTS CREDITEURS                                                                                480,00 €
@@ -176,25 +176,25 @@ def test_identify_current_account_statement(monkeypatch):
         lambda _: SYNTHETIC_BP_CCSCI_STATEMENT,
     )
     importer = pdfbanquepopulaire.PDFBanquePopulaire(
-        {**ACCOUNTLIST, "76321119905": "Actif:SCIRagondins:CCSCI"}
+        {**ACCOUNTLIST, "22334455667": "Actif:Tests:CCSCI"}
     )
 
     assert importer.identify("statement.pdf")
-    assert importer.account("statement.pdf") == "Actif:SCIRagondins:CCSCI"
+    assert importer.account("statement.pdf") == "Actif:Tests:CCSCI"
     assert importer.date("statement.pdf") == dt.date(2026, 3, 31)
 
 
 SYNTHETIC_BP_CCSCI_WITH_SEPA_SECTION = """BANQUE POPULAIRE
 Votre relevé de compte n°3 au 31/03/2026
-DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 76321119905
+DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 22334455667
 
 SOLDE CREDITEUR AU 27/02/2026                                                                                 31 000,00 €
-02/03             PRLV SEPA In Extenso Cen                                                                 05G1U1S              02/03                 02/03                         - 1 380,00 €
-                    MFA0577356
-                    643393-B13-001
-18/03             EVI ME MARTIAL FAUCHER C                                                                 SK3RTPF              18/03                 18/03                            480,00 €
-                    MF PAYE SCI LES RAGONDINS 79 DIS
-                    PO S/PROV FRAIS VTE SCI AUGUSTA
+02/03             PRLV SEPA FOURNISSEUR TEST                                                            05G1U1S              02/03                 02/03                         - 1 380,00 €
+                    DOSSIER TEST 001
+                    REFERENCE TEST B13-001
+18/03             EVI ME PRESTATAIRE TEST                                                             SK3RTPF              18/03                 18/03                            480,00 €
+                    REGLEMENT DOSSIER TEST 01
+                    POUR FACTURE TEST AUGUSTA
 
 SOLDE CREDITEUR AU 31/03/2026*
 (*) Sous réserve des opérations en cours d'enregistrement.
@@ -210,7 +210,7 @@ def test_extract_current_account_without_totals_block(monkeypatch):
         lambda _: SYNTHETIC_BP_CCSCI_WITH_SEPA_SECTION,
     )
     importer = pdfbanquepopulaire.PDFBanquePopulaire(
-        {**ACCOUNTLIST, "76321119905": "Actif:SCIRagondins:CCSCI"}
+        {**ACCOUNTLIST, "22334455667": "Actif:Tests:CCSCI"}
     )
 
     entries = importer.extract("statement.pdf")
@@ -219,5 +219,112 @@ def test_extract_current_account_without_totals_block(monkeypatch):
     ]
 
     assert len(transactions) == 2
-    assert transactions[0].payee == "PRLV SEPA In Extenso Cen"
-    assert transactions[1].payee == "EVI ME MARTIAL FAUCHER C"
+    assert transactions[0].payee == "PRLV SEPA FOURNISSEUR TEST"
+    assert transactions[1].payee == "EVI ME PRESTATAIRE TEST"
+
+
+SYNTHETIC_BP_CCSCI_OCR_CORRUPTED_STATEMENT = """BANQUE POPULAIRE
+Votre relevé de compte n°4 au 30/04/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 12345678901
+
+SOLDE CREDITEUR AU 31/03/2026                                                                                  7 714,94 €
+07/04               ARRETE DE CPTE                                                                     1151121                07/04                    31/03                                 -6175€
+                      1 ER TRIMESTRE 2026
+08/04                PRLV SEPA 0042 SYNDIC EXEM                                                        OSPWATY                07/04                   07/04                            73 639.47 €
+                      Paiement de la facture Telepaiem
+                      202603280000000141101T01669
+09/04                ECHEANCE PRET                                                                     9185489                07/04                   06/04                                 - 249,08 €
+                      DONT CAP           0,00 ASS.      0,00E
+                      INT,   249,08 COM.         0,00E
+10/04                FRAIS MANDAT PRLV SEPA                                                            0063904                09/04                   09/04                                   - 1,00 €
+                     XCIMRO10 2026040900063904000001
+                      CREANCIER            0042 SYNDIC EXEMPLE
+
+                                S DEBITEURS
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                                                                                0,00 €
+
+SOLDE CREDITEUR AU 30/04/2026*
+(*) Sous réserve des opérations en cours d'enregistrement et d'une provision suffisante et disponible lors de l'arrêté du solde du compte réalisé en fin de journée.
+Ce document ne justifie pas la déduction de la TVA ou de la charge en matière d'impôt direct.
+
+DETAIL DE VOS MOUVEMENTS SEPA
+VOTRE COMPTE COURANT N° 12345 678901 RELEVE N° 4 AU 30/04/2026
+DATE DETAIL DE VOS PRELEVEMENTS SEPA RECUS DEBIT
+07/04 0042 SYNDIC EXEMPLE ALPHA FR76123Z45TEST4 3 639,47 €
+202603280000000141101T01669 144-1
+Paiement de la facture Telepaiement du 01/04/2026 RESIDENCE TEST 01
+"""
+
+
+SYNTHETIC_BP_CCSCI_ONLY_CLOSING_BALANCE = """BANQUE POPULAIRE
+Votre relevé de compte n°4 au 30/04/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 12345678901
+
+SOLDE CREDITEUR AU 31/03/2026
+07/04               ARRETE DE CPTE                                                                     1151121                07/04                    31/03                                 -6175€
+                      1 ER TRIMESTRE 2026
+TOTAL DES MOUVEMENTS DEBITEURS                                                                                 - 61,75 €
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                                                                                0,00 €
+
+SOLDE CREDITEUR AU 30/04/2026                                                                                  7 653,19 €
+"""
+
+
+def test_extract_current_account_with_ocr_corrupted_amounts(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_BP_CCSCI_OCR_CORRUPTED_STATEMENT,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(
+        {**ACCOUNTLIST, "12345678901": "Actif:Tests:CCSCI"}
+    )
+
+    entries = importer.extract("statement.pdf")
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+
+    assert [entry.amount.number for entry in balances] == [
+        Decimal("7714.94"),
+        Decimal("3763.64"),
+    ]
+    assert [entry.date for entry in balances] == [
+        dt.date(2026, 4, 1),
+        dt.date(2026, 4, 30),
+    ]
+    assert [entry.postings[0].units.number for entry in transactions] == [
+        Decimal("-61.75"),
+        Decimal("-3639.47"),
+        Decimal("-249.08"),
+        Decimal("-1.00"),
+    ]
+    assert transactions[0].payee == "ARRETE DE CPTE"
+    assert transactions[0].narration == "1 ER TRIMESTRE 2026"
+    assert transactions[1].payee == "PRLV SEPA 0042 SYNDIC EXEM"
+    assert "202603280000000141101T01669" in transactions[1].narration
+
+
+def test_extract_current_account_with_single_closing_balance(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_BP_CCSCI_ONLY_CLOSING_BALANCE,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(
+        {**ACCOUNTLIST, "12345678901": "Actif:Tests:CCSCI"}
+    )
+
+    entries = importer.extract("statement.pdf")
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+
+    assert len(balances) == 1
+    assert balances[0].date == dt.date(2026, 4, 30)
+    assert balances[0].amount.number == Decimal("7653.19")
+    assert [entry.postings[0].units.number for entry in transactions] == [
+        Decimal("-61.75")
+    ]

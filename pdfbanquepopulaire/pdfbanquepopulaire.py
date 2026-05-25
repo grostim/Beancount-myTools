@@ -52,7 +52,7 @@ class PDFBanquePopulaire(beangulp.Importer):
         r"(?P<reference>[A-Z0-9]{7,})\s+"
         r"(?P<operation>\d{2}/\d{2})\s+"
         r"(?P<value>\d{2}/\d{2})\s+"
-        r"(?P<amount>[+-]?\s*\d(?:[\d .]*\d)?,\d{2})\s*€\s*$"
+        r"(?P<amount>[+-]?\s*\d(?:[\d .]*\d)?(?:[.,]\d{2})?)\s*€\s*$"
     )
 
     def __init__(self, account_list: dict[str, str], debug: bool = False):
@@ -113,7 +113,10 @@ class PDFBanquePopulaire(beangulp.Importer):
         document = f"{statement_date} {self.filename(file)}"
         entries: List[data.Directive] = []
 
-        opening_balance, closing_balance = self._extract_balances(text)
+        opening_balance, closing_balance = self._extract_balances(
+            text, statement_date
+        )
+        sepa_detail_amounts = self._extract_sepa_detail_amounts(text)
         if opening_balance:
             status, raw_date, raw_amount = opening_balance
             balance_date = (
@@ -131,8 +134,9 @@ class PDFBanquePopulaire(beangulp.Importer):
                 )
             )
 
+        transaction_entries: list[data.Transaction] = []
         for index, block in enumerate(self._split_transaction_blocks(text), start=1):
-            entries.append(
+            transaction_entries.append(
                 self._parse_transaction_block(
                     block_lines=block,
                     statement_date=statement_date,
@@ -140,8 +144,10 @@ class PDFBanquePopulaire(beangulp.Importer):
                     file=str(file),
                     line=index,
                     document=document,
+                    sepa_detail_amounts=sepa_detail_amounts,
                 )
             )
+        entries.extend(transaction_entries)
 
         if closing_balance:
             status, raw_date, raw_amount = closing_balance
@@ -156,6 +162,21 @@ class PDFBanquePopulaire(beangulp.Importer):
                     document=document,
                 )
             )
+        elif opening_balance:
+            status, _raw_date, raw_amount = opening_balance
+            derived_closing_amount = self._balance_amount(status, raw_amount)
+            for entry in transaction_entries:
+                derived_closing_amount += entry.postings[0].units.number
+            entries.append(
+                self._create_balance(
+                    file=str(file),
+                    line=0,
+                    entry_date=statement_date,
+                    account_name=account_name,
+                    balance_amount=derived_closing_amount,
+                    document=document,
+                )
+            )
 
         return entries
 
@@ -166,7 +187,7 @@ class PDFBanquePopulaire(beangulp.Importer):
         return match.group(1)
 
     def _extract_balances(
-        self, text: str
+        self, text: str, statement_date: dt.date
     ) -> tuple[
         Optional[tuple[str, str, str]],
         Optional[tuple[str, str, str]],
@@ -175,9 +196,26 @@ class PDFBanquePopulaire(beangulp.Importer):
         if not matches:
             return None, None
 
-        opening = matches[0]
-        closing = matches[-1]
-        return opening.groups(), closing.groups()
+        opening_match = matches[0]
+        opening = (
+            opening_match.group(1),
+            opening_match.group(2),
+            opening_match.group(3),
+        )
+        if len(matches) == 1:
+            single_balance_date = parse_datetime(
+                opening_match.group(2), dayfirst=True
+            ).date()
+            if single_balance_date == statement_date:
+                return None, opening
+            return opening, None
+        closing_match = matches[-1]
+        closing = (
+            closing_match.group(1),
+            closing_match.group(2),
+            closing_match.group(3),
+        )
+        return opening, closing
 
     def _split_transaction_blocks(self, text: str) -> list[list[str]]:
         section = self._extract_main_operations_section(text)
@@ -242,6 +280,7 @@ class PDFBanquePopulaire(beangulp.Importer):
         file: str,
         line: int,
         document: str,
+        sepa_detail_amounts: dict[str, Decimal],
     ) -> data.Transaction:
         first_line_match = re.match(
             r"^\s*(\d{2}/\d{2})(?:\s+[A-Z]\s+)?(.*)$", block_lines[0]
@@ -303,7 +342,12 @@ class PDFBanquePopulaire(beangulp.Importer):
         transaction_date = self._resolve_partial_date(
             detail_match.group("value"), statement_date
         )
-        transaction_amount = self._parse_decimal(detail_match.group("amount"))
+        transaction_amount = self._resolve_transaction_amount(
+            raw_amount=detail_match.group("amount"),
+            payee=payee,
+            block_lines=block_lines,
+            sepa_detail_amounts=sepa_detail_amounts,
+        )
 
         meta = data.new_metadata(file, line)
         meta["source"] = "pdfbanquepopulaire"
@@ -366,15 +410,28 @@ class PDFBanquePopulaire(beangulp.Importer):
         return abs(value)
 
     def _parse_decimal(self, raw_amount: str) -> Decimal:
-        cleaned = (
-            raw_amount.replace("€", "")
-            .replace("\xa0", " ")
-            .replace(".", "")
-            .strip()
-        )
+        cleaned = raw_amount.replace("€", "").replace("\xa0", " ").strip()
         sign = -1 if "-" in cleaned else 1
-        cleaned = cleaned.replace("-", "").replace("+", "").replace(" ", "")
-        cleaned = cleaned.replace(",", ".")
+        cleaned = cleaned.replace("-", "").replace("+", "").strip()
+
+        if "," not in cleaned and "." not in cleaned:
+            digits = cleaned.replace(" ", "")
+            if digits.isdigit():
+                cleaned = (
+                    f"{digits[:-2]}.{digits[-2:]}"
+                    if len(digits) > 2
+                    else f"0.{digits.zfill(2)}"
+                )
+            else:
+                cleaned = digits
+        else:
+            compact = cleaned.replace(" ", "")
+            if "," in compact:
+                compact = compact.replace(".", "").replace(",", ".")
+            elif "." in compact:
+                integer_part, decimal_part = compact.rsplit(".", 1)
+                compact = integer_part.replace(".", "") + "." + decimal_part
+            cleaned = compact
         try:
             value = Decimal(cleaned)
         except InvalidOperation as exc:
@@ -382,6 +439,52 @@ class PDFBanquePopulaire(beangulp.Importer):
                 f"Montant Banque Populaire invalide: {raw_amount!r}"
             ) from exc
         return value * sign
+
+    def _resolve_transaction_amount(
+        self,
+        *,
+        raw_amount: str,
+        payee: str,
+        block_lines: list[str],
+        sepa_detail_amounts: dict[str, Decimal],
+    ) -> Decimal:
+        if payee.upper().startswith("PRLV SEPA"):
+            joined_block = " ".join(
+                self._normalize_spaces(line) for line in block_lines if line.strip()
+            )
+            for reference, amount_value in sepa_detail_amounts.items():
+                if reference in joined_block:
+                    return amount_value
+        return self._parse_decimal(raw_amount)
+
+    def _extract_sepa_detail_amounts(self, text: str) -> dict[str, Decimal]:
+        marker = "DETAIL DE VOS MOUVEMENTS SEPA"
+        upper = text.upper()
+        section_index = upper.find(marker)
+        if section_index == -1:
+            return {}
+
+        lines = [
+            self._normalize_spaces(line)
+            for line in text[section_index:].splitlines()
+            if self._normalize_spaces(line)
+        ]
+        results: dict[str, Decimal] = {}
+        amount_pattern = re.compile(r"(?<![A-Z0-9])\d(?:[\d ]*\d)?[,.]\d{2}")
+        reference_pattern = re.compile(r"^(?P<reference>[A-Z0-9]{12,})\b")
+
+        for index, line in enumerate(lines[:-1]):
+            amount_matches = amount_pattern.findall(line)
+            if not amount_matches:
+                continue
+            reference_match = reference_pattern.match(lines[index + 1])
+            if not reference_match:
+                continue
+            results[reference_match.group("reference")] = -abs(
+                self._parse_decimal(amount_matches[-1])
+            )
+
+        return results
 
     def _create_balance(
         self,
