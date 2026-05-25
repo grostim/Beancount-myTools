@@ -162,7 +162,7 @@ class PDFBanquePopulaire(beangulp.Importer):
                     document=document,
                 )
             )
-        elif opening_balance and transaction_entries:
+        elif opening_balance:
             status, _raw_date, raw_amount = opening_balance
             derived_closing_amount = self._balance_amount(status, raw_amount)
             for entry in transaction_entries:
