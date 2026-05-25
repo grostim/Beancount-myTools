@@ -113,7 +113,9 @@ class PDFBanquePopulaire(beangulp.Importer):
         document = f"{statement_date} {self.filename(file)}"
         entries: List[data.Directive] = []
 
-        opening_balance, closing_balance = self._extract_balances(text)
+        opening_balance, closing_balance = self._extract_balances(
+            text, statement_date
+        )
         sepa_detail_amounts = self._extract_sepa_detail_amounts(text)
         if opening_balance:
             status, raw_date, raw_amount = opening_balance
@@ -185,7 +187,7 @@ class PDFBanquePopulaire(beangulp.Importer):
         return match.group(1)
 
     def _extract_balances(
-        self, text: str
+        self, text: str, statement_date: dt.date
     ) -> tuple[
         Optional[tuple[str, str, str]],
         Optional[tuple[str, str, str]],
@@ -201,6 +203,11 @@ class PDFBanquePopulaire(beangulp.Importer):
             opening_match.group(3),
         )
         if len(matches) == 1:
+            single_balance_date = parse_datetime(
+                opening_match.group(2), dayfirst=True
+            ).date()
+            if single_balance_date == statement_date:
+                return None, opening
             return opening, None
         closing_match = matches[-1]
         closing = (
