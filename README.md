@@ -32,6 +32,9 @@ Important :
 - aucun releve reel ne doit etre ajoute dans `myTools` ;
 - les tests de cet importeur doivent rester bases sur du texte synthetique et
   anonymise, car le depot GitHub est public.
+- l'importeur tolere des extractions OCR degradees sur certains releves SCI
+  Banque Populaire (montants sans separateur decimal, detail SEPA utilise comme
+  source de verite, solde de cloture derive si la ligne de solde est tronquee).
 
 ## PDFAmex
 

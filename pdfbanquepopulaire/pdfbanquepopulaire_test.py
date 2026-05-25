@@ -221,3 +221,72 @@ def test_extract_current_account_without_totals_block(monkeypatch):
     assert len(transactions) == 2
     assert transactions[0].payee == "PRLV SEPA In Extenso Cen"
     assert transactions[1].payee == "EVI ME MARTIAL FAUCHER C"
+
+
+SYNTHETIC_BP_CCSCI_OCR_CORRUPTED_STATEMENT = """BANQUE POPULAIRE
+Votre relevé de compte n°4 au 30/04/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 76321119905
+
+SOLDE CREDITEUR AU 31/03/2026                                                                                  7 714,94 €
+07/04               ARRETE DE CPTE                                                                     1151121                07/04                    31/03                                 -6175€
+                      1 ER TRIMESTRE 2026
+08/04                PRLV SEPA 0035 SDC CENT                                                           OSPWATY                07/04                   07/04                            73 639.47 €
+                      Paiement de la facture Telepaiem
+                      202603280000000141101T01669
+09/04                ECHEANCE PRET                                                                     9185489                07/04                   06/04                                 - 249,08 €
+                      DONT CAP           0,00 ASS.      0,00E
+                      INT,   249,08 COM.         0,00E
+10/04                FRAIS MANDAT PRLV SEPA                                                            0063904                09/04                   09/04                                   - 1,00 €
+                     XCIMRO10 2026040900063904000001
+                      CREANCIER            0035 SDC CENTRE
+
+                                S DEBITEURS
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                                                                                0,00 €
+
+SOLDE CREDITEUR AU 30/04/2026*
+(*) Sous réserve des opérations en cours d'enregistrement et d'une provision suffisante et disponible lors de l'arrêté du solde du compte réalisé en fin de journée.
+Ce document ne justifie pas la déduction de la TVA ou de la charge en matière d'impôt direct.
+
+DETAIL DE VOS MOUVEMENTS SEPA
+VOTRE COMPTE COURANT N° 76321 119905 RELEVE N° 4 AU 30/04/2026
+DATE DETAIL DE VOS PRELEVEMENTS SEPA RECUS DEBIT
+07/04 0035 SDC CENTRE LEO LAGRANGE FR93277Z82FAF4 3 639,47 €
+202603280000000141101T01669 144-1
+Paiement de la facture Telepaiement du 01/04/2026 LES RAGONDINS 79
+"""
+
+
+def test_extract_current_account_with_ocr_corrupted_amounts(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_BP_CCSCI_OCR_CORRUPTED_STATEMENT,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(
+        {**ACCOUNTLIST, "76321119905": "Actif:SCIRagondins:CCSCI"}
+    )
+
+    entries = importer.extract("statement.pdf")
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+
+    assert [entry.amount.number for entry in balances] == [
+        Decimal("7714.94"),
+        Decimal("3763.64"),
+    ]
+    assert [entry.date for entry in balances] == [
+        dt.date(2026, 4, 1),
+        dt.date(2026, 4, 30),
+    ]
+    assert [entry.postings[0].units.number for entry in transactions] == [
+        Decimal("-61.75"),
+        Decimal("-3639.47"),
+        Decimal("-249.08"),
+        Decimal("-1.00"),
+    ]
+    assert transactions[0].payee == "ARRETE DE CPTE"
+    assert transactions[0].narration == "1 ER TRIMESTRE 2026"
+    assert transactions[1].payee == "PRLV SEPA 0035 SDC CENT"
+    assert "202603280000000141101T01669" in transactions[1].narration
