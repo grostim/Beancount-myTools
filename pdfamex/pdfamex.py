@@ -34,8 +34,10 @@ class PDFAmex(beangulp.Importer):
         BALANCE_PATTERN (str): Motif regex pour extraire le solde total.
     """
 
-    ACCOUNT_NUMBER_PATTERN = r"xxxx-xxxxxx-(\d{5})"
-    STATEMENT_DATE_PATTERN = r"xxxx-xxxxxx-\d{5}\s*(\d*/\d*/\d*)"
+    ACCOUNT_NUMBER_PATTERN = r"[xX]{4}\s*-\s*[xX]{6}\s*-\s*(\d{5})"
+    STATEMENT_DATE_PATTERN = (
+        r"[xX]{4}\s*-\s*[xX]{6}\s*-\s*\d{5}\s*(\d{1,2}/\d{1,2}/\d{2,4})"
+    )
     TRANSACTION_PATTERN = r"\d{1,2}\s[a-zéèûôùê]{3,4}\s*\d{1,2}\s[a-zéèûôùê]{3,4}.*\d+,\d{2}(?:\s*CR)?"
     TRANSACTION_DATE_PATTERN = (
         r"(\d{1,2}\s[a-zéèûôùê]{3,4})\s*(\d{1,2}\s[a-zéèûôùê]{3,4})"

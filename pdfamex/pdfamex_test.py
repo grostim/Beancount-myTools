@@ -20,6 +20,18 @@ IMPORTER = pdfamex.PDFAmex(ACCOUNTLIST)
 
 TESTDIR = path.abspath("regtest/Beancount-myTools-tests/pdfamex/")
 
+AMEX_UPPERCASE_ACCOUNT_TEXT = """
+Carte Air France KLM - American Express Gold
+Numéro de Compte
+XXXX-XXXXXX-72001
+"""
+
+AMEX_UPPERCASE_ACCOUNT_WITH_DATE_TEXT = """
+XXXX-XXXXXX-72001
+08/05/26
+"""
+
+
 def get_test_files():
     if not path.isdir(TESTDIR):
         return []
@@ -31,11 +43,28 @@ def get_test_files():
                 files.append(path.join(TESTDIR, f))
     return files
 
+
 @pytest.mark.parametrize("doc", get_test_files())
 def test_importer(doc):
     assert IMPORTER.identify(doc)
     account, date, name, entries = run_importer(IMPORTER, doc)
     expected_filename = doc + ".beancount"
-    
+
     diff = compare_expected(expected_filename, account, date, name, entries)
     assert not diff, "Diff found:\n" + "".join(diff)
+
+
+def test_account_and_date_accept_uppercase_masked_number(monkeypatch):
+    importer = pdfamex.PDFAmex(ACCOUNTLIST)
+    monkeypatch.setattr(importer, "_get_pdf_text", lambda _: AMEX_UPPERCASE_ACCOUNT_TEXT)
+
+    assert importer.account("dummy.pdf") == "Passif:AirFrance:Amex"
+
+    monkeypatch.setattr(
+        importer,
+        "_get_pdf_text",
+        lambda _: AMEX_UPPERCASE_ACCOUNT_WITH_DATE_TEXT,
+    )
+    parsed_date = importer.date("dummy.pdf")
+    assert parsed_date is not None
+    assert parsed_date.isoformat() == "2026-05-08"
