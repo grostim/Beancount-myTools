@@ -52,8 +52,9 @@ class PDFBanquePopulaire(beangulp.Importer):
         r"(?P<reference>[A-Z0-9]{7,})\s+"
         r"(?P<operation>\d{2}/\d{2})\s+"
         r"(?P<value>\d{2}/\d{2})\s+"
-        r"(?P<amount>[+-]?\s*\d(?:[\d .]*\d)?(?:[.,]\d{2})?)\s*€\s*$"
+        r"[-–]?\s*(?P<amount>\d[\d\s,.]*(?:\d\s*€?|\s+€)?)(?:\s+[KSTGDCP]\s*)?$"
     )
+    AMOUNT_SPLIT_LINE_PATTERN = re.compile(r"^\s*€")
 
     def __init__(self, account_list: dict[str, str], debug: bool = False):
         self.account_list = account_list
@@ -455,7 +456,24 @@ class PDFBanquePopulaire(beangulp.Importer):
             for reference, amount_value in sepa_detail_amounts.items():
                 if reference in joined_block:
                     return amount_value
-        return self._parse_decimal(raw_amount)
+        try:
+            return self._parse_decimal(raw_amount)
+        except (ValueError, InvalidOperation):
+            pass
+        stripped_amount = raw_amount.strip()
+        if stripped_amount and self.AMOUNT_SPLIT_LINE_PATTERN.match(
+            stripped_amount
+        ):
+            return self._parse_decimal(raw_amount)
+        for candidate_line in block_lines:
+            if self.AMOUNT_SPLIT_LINE_PATTERN.match(candidate_line.strip()):
+                return self._parse_decimal(
+                    f"{raw_amount.rstrip()}{candidate_line.strip()}"
+                )
+        raise ValueError(
+            f"Montant Banque Populaire non parseable apres fallback:"
+            f" {raw_amount!r}"
+        )
 
     def _extract_sepa_detail_amounts(self, text: str) -> dict[str, Decimal]:
         marker = "DETAIL DE VOS MOUVEMENTS SEPA"
