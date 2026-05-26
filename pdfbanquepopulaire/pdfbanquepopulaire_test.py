@@ -8,7 +8,7 @@ from . import pdfbanquepopulaire
 
 ACCOUNTLIST = {
     "12345678901": "Actif:BanquePopulaire:CCPrincipal",
-    "36319151452": "Actif:BPop:CCSecondaire",
+    "99999999999": "Actif:BPop:CCSecondaire",
 }
 
 SYNTHETIC_STATEMENT = """BANQUE POPULAIRE
@@ -22,7 +22,7 @@ SOLDE CREDITEUR AU 07/03/2026                                                   
                     COMMERCE TEST
 28/03    F        COTIS CARTE TEST
                     CONTRAT CARTE ********1234
-                    0059723              27/03                 27/03                          - 136,30 €
+                    9999001              27/03                 27/03                          - 136,30 €
                     COTISATION MENSUELLE
 
 TOTAL DES MOUVEMENTS DEBITEURS                                                                                  - 196,30 €
@@ -97,13 +97,13 @@ def test_resolve_partial_date_rolls_back_previous_year():
 
 SYNTHETIC_BP_CCTIM_STATEMENT = """BANQUE POPULAIRE
 Votre relevé de compte n°1 au 01/04/2026
-DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 36319151452
+DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 99999999999
 
 SOLDE CREDITEUR AU 07/03/2026                                                                                     0,00 €
 28/03             COTIS VISA PREMIER DD
-                    XCGFC005 2026032700059725000001
+                    XSYNTH01 2026042700099990000001
                     CONTRAT CARTE ********788J
-                    0059725              27/03                 27/03                          - 136,30 €
+                    9999002              27/03                 27/03                          - 136,30 €
 
 TOTAL DES MOUVEMENTS DEBITEURS                                                                                  - 136,30 €
 TOTAL DES MOUVEMENTS CREDITEURS                                                                                    0,00 €
@@ -140,7 +140,7 @@ def test_extract_bpop_cctim_statement(monkeypatch):
     assert transactions[0].payee == "COTIS VISA PREMIER DD"
     assert (
         transactions[0].narration
-        == "XCGFC005 2026032700059725000001 CONTRAT CARTE ********788J"
+        == "XSYNTH01 2026042700099990000001 CONTRAT CARTE ********788J"
     )
     assert [posting.account for posting in transactions[0].postings] == [
         "Actif:BPop:CCSecondaire",
@@ -226,16 +226,16 @@ Votre relevé de compte n°4 au 30/04/2026
 DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 12345678901
 
 SOLDE CREDITEUR AU 31/03/2026                                                                                  7 714,94 €
-07/04               ARRETE DE CPTE                                                                     1151121                07/04                    31/03                                 -6175€
+07/04               ARRETE DE CPTE                                                                     1111111                07/04                    31/03                                 -6175€
                       1 ER TRIMESTRE 2026
-08/04                PRLV SEPA 0042 SYNDIC EXEM                                                        OSPWATY                07/04                   07/04                            73 639.47 €
+08/04                PRLV SEPA 0042 SYNDIC EXEM                                                        SYNTH01                07/04                   07/04                            73 639.47 €
                       Paiement de la facture Telepaiem
-                      202603280000000141101T01669
-09/04                ECHEANCE PRET                                                                     9185489                07/04                   06/04                                 - 249,08 €
+                      2026042800000SYNTHETIC001
+09/04                ECHEANCE PRET                                                                     9111111                07/04                   06/04                                 - 249,08 €
                       DONT CAP           0,00 ASS.      0,00E
                       INT,   249,08 COM.         0,00E
-10/04                FRAIS MANDAT PRLV SEPA                                                            0063904                09/04                   09/04                                   - 1,00 €
-                     XCIMRO10 2026040900063904000001
+10/04                FRAIS MANDAT PRLV SEPA                                                            9999003                09/04                   09/04                                   - 1,00 €
+                     XSYNTH03 202605099999003000001
                       CREANCIER            0042 SYNDIC EXEMPLE
 
                                 S DEBITEURS
@@ -249,7 +249,7 @@ DETAIL DE VOS MOUVEMENTS SEPA
 VOTRE COMPTE COURANT N° 12345 678901 RELEVE N° 4 AU 30/04/2026
 DATE DETAIL DE VOS PRELEVEMENTS SEPA RECUS DEBIT
 07/04 0042 SYNDIC EXEMPLE ALPHA FR76123Z45TEST4 3 639,47 €
-202603280000000141101T01669 144-1
+2026042800000SYNTHETIC001 144-1
 Paiement de la facture Telepaiement du 01/04/2026 RESIDENCE TEST 01
 """
 
@@ -259,7 +259,7 @@ Votre relevé de compte n°4 au 30/04/2026
 DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT N° 12345678901
 
 SOLDE CREDITEUR AU 31/03/2026
-07/04               ARRETE DE CPTE                                                                     1151121                07/04                    31/03                                 -6175€
+07/04               ARRETE DE CPTE                                                                     1111111                07/04                    31/03                                 -6175€
                       1 ER TRIMESTRE 2026
 TOTAL DES MOUVEMENTS DEBITEURS                                                                                 - 61,75 €
 TOTAL DES MOUVEMENTS CREDITEURS                                                                                                                                                0,00 €
@@ -301,7 +301,7 @@ def test_extract_current_account_with_ocr_corrupted_amounts(monkeypatch):
     assert transactions[0].payee == "ARRETE DE CPTE"
     assert transactions[0].narration == "1 ER TRIMESTRE 2026"
     assert transactions[1].payee == "PRLV SEPA 0042 SYNDIC EXEM"
-    assert "202603280000000141101T01669" in transactions[1].narration
+    assert "2026042800000SYNTHETIC001" in transactions[1].narration
 
 
 def test_extract_current_account_with_single_closing_balance(monkeypatch):
@@ -336,9 +336,9 @@ DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 12345678901
 
 SOLDE DEBITEUR AU 31/03/2026                                                                                     - 6,55 €
 13/04            ANN COTIS CARTE
-                        XCGFC004 2026032700059723000001
+                        XSYNTH02 2026042700099999000001
                                                 CONTRAT CARTE ********792J
-                        0059723              13/04                 31/03                            + 130,70 €
+                        9999001              13/04                 31/03                            + 130,70 €
 
 TOTAL DES MOUVEMENTS DEBITEURS                                                                                   0,00 €
 TOTAL DES MOUVEMENTS CREDITEURS                                                                               130,70 €
@@ -457,10 +457,10 @@ DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 12345678901
 SOLDE CREDITEUR AU 31/03/2026                                                                                     0,00 €
 01/04             PRLV SEPA FOURNISSEUR TEST                                                            05G1U1S              01/04                 01/04                         + 1 380,00 €
                     DOSSIER TEST 001
-                    202603280000000141101T01669 144-1
+                    2026040100000TESTSYNTH01 144-1
 02/04             PRLV SEPA DIRECTION GENE                                                               08CDEFG              02/04                 02/04                          + 124,00 €
                     TF 2026
-                    202603280000000072000T01669
+                    2026040200000TESTSYNTH02
 03/04             COTIS FAMILLE CONFORT                                                                  15JKLMN              03/04                 03/04                          + 12,45 €
 
 TOTAL DES MOUVEMENTS DEBITEURS                                                                              - 1 516,45 €
@@ -472,10 +472,10 @@ DETAIL DE VOS MOUVEMENTS SEPA
 VOTRE COMPTE CHEQUES N° 12345 678901 RELEVE N° 8 AU 30/04/2026
 DATE DETAIL DE VOS PRELEVEMENTS SEPA RECUS DEBIT
 01/04 FOURNISSEUR TEST ALPHA FR76ABCDE12345                 1 380,00 €
-202603280000000141101T01669 144-1
+2026040100000TESTSYNTH01 144-1
 Paiement de la facture Telepaiement du 01/04/2026 RESIDENCE TEST 01
 01/04 DIRECTION GENERALE DES FINANCES                        124,00 €
-202603280000000072000T01669 144-1
+2026040200000TESTSYNTH02 144-1
 Paiement de la facture Telepaiement TF 2026
 """
 
