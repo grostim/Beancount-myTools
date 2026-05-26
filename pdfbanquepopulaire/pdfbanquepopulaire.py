@@ -52,7 +52,7 @@ class PDFBanquePopulaire(beangulp.Importer):
         r"(?P<reference>[A-Z0-9]{7,})\s+"
         r"(?P<operation>\d{2}/\d{2})\s+"
         r"(?P<value>\d{2}/\d{2})\s+"
-        r"[-–]?\s*(?P<amount>\d[\d\s,.]*(?:\d\s*€?|\s+€)?)(?:\s+[KSTGDCP]\s*)?$"
+        r"(?P<sign>[-–+]?)\s*(?P<amount>\d[\d\s,.]*(?:\d\s*€?|\s+€)?)(?:\s+[KSTGDCP]\s*)?$"
     )
     AMOUNT_SPLIT_LINE_PATTERN = re.compile(r"^\s*€")
 
@@ -345,6 +345,7 @@ class PDFBanquePopulaire(beangulp.Importer):
         )
         transaction_amount = self._resolve_transaction_amount(
             raw_amount=detail_match.group("amount"),
+            raw_sign=detail_match.group("sign"),
             payee=payee,
             block_lines=block_lines,
             sepa_detail_amounts=sepa_detail_amounts,
@@ -445,10 +446,16 @@ class PDFBanquePopulaire(beangulp.Importer):
         self,
         *,
         raw_amount: str,
+        raw_sign: str,
         payee: str,
         block_lines: list[str],
         sepa_detail_amounts: dict[str, Decimal],
     ) -> Decimal:
+        # Prepend the sign (if any) to the amount so _parse_decimal
+        # can extract it.  The regex captures the sign outside the
+        # amount group – reattach it here.
+        signed_amount = f"{raw_sign}{raw_amount}" if raw_sign else raw_amount
+
         if payee.upper().startswith("PRLV SEPA"):
             joined_block = " ".join(
                 self._normalize_spaces(line) for line in block_lines if line.strip()
@@ -456,8 +463,9 @@ class PDFBanquePopulaire(beangulp.Importer):
             for reference, amount_value in sepa_detail_amounts.items():
                 if reference in joined_block:
                     return amount_value
+
         try:
-            return self._parse_decimal(raw_amount)
+            return self._parse_decimal(signed_amount)
         except (ValueError, InvalidOperation):
             pass
         stripped_amount = raw_amount.strip()
@@ -530,10 +538,61 @@ class PDFBanquePopulaire(beangulp.Importer):
         return re.sub(r"\s+", " ", text).strip()
 
     def _guess_counter_account(self, *, payee: str, narration: str) -> Optional[str]:
-        upper_payee = payee.upper()
-        upper_narration = narration.upper()
-        if upper_payee.startswith("COTIS ") and "CONTRAT CARTE" in upper_narration:
+        """Suggest a counter-account based on payee and narration heuristics.
+
+        Returns None when no strong guess can be made, leaving the
+        counter-account blank for manual assignment during review.
+        """
+        p = payee.upper()
+        n = narration.upper()
+
+        # ── Banking fees ──
+        if ("COTIS " in p and "CONTRAT CARTE" in n) or p.startswith("ANN COTIS"):
             return "Depenses:Banque:Frais"
+        if p.startswith("COTIS ") and ("FAMILLE" in p or "FAMILLE" in n):
+            return "Depenses:Banque:Frais"
+
+        # ── SEPA direct debits ──
+        if p.startswith("PRLV SEPA "):
+            # Energy
+            if "ENGIE" in p or "ENGIE" in n:
+                return "Depenses:Abo:Gaz"
+            if "EDF " in p or "EDF " in n:
+                return "Depenses:Abo:Elec"
+
+            # Insurance
+            if "GMF" in p or "GMF" in n:
+                return "Depenses:Voitures:Assurance"
+
+            # Taxes
+            if "DIRECTION GENE" in p or "DIRECTION GENE" in n:
+                return "Depenses:Impots:TF"
+
+            # Household employment
+            if "URSSAF" in p or "CESU" in n or "URSSAF" in n:
+                return "Depenses:Immobilier:Menage:Charges"
+
+            # PayPal – default to gadgets, manual review may change to Culture
+            if "PAYPAL" in p:
+                return "Depenses:Loisirs:Gadgets"
+
+            # Internet
+            if "FREE" in p or "FREE" in n:
+                return "Depenses:Abo:Internet"
+
+            # Amex
+            if "AMERICAN EXPRESS" in p:
+                return "Passif:AirFrance:Amex"
+
+        # ── Internal transfers ──
+        if p.startswith("VIR "):
+            if "GROS ANNA" in p or "GROS ANNA" in n:
+                return "Actif:BPop:CCAnna"
+            if "GROS TIMOTHEE" in p or "GROS TIMOTHEE" in n:
+                return "Actif:BPop:CCTim"
+            if "TRINQUIER" in p or "TRINQUIER" in n:
+                return "Actif:BPop:CCAnna"
+
         return None
 
     def _is_operations_section_terminator(self, stripped_line: str) -> bool:

@@ -328,3 +328,121 @@ def test_extract_current_account_with_single_closing_balance(monkeypatch):
     assert [entry.postings[0].units.number for entry in transactions] == [
         Decimal("-61.75")
     ]
+
+
+# ── Regression: Plus-sign refund (ANN COTIS CARTE) ───────────────────────
+
+SYNTHETIC_COTIS_REFUND = """BANQUE POPULAIRE
+Votre relevé de compte n°5 au 30/04/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 12345678901
+
+SOLDE DEBITEUR AU 31/03/2026                                                                                     - 6,55 €
+13/04            ANN COTIS CARTE
+                        XCGFC004 2026032700059723000001
+                                                CONTRAT CARTE ********792J
+                        0059723              13/04                 31/03                            + 130,70 €
+
+TOTAL DES MOUVEMENTS DEBITEURS                                                                                   0,00 €
+TOTAL DES MOUVEMENTS CREDITEURS                                                                               130,70 €
+
+SOLDE CREDITEUR AU 30/04/2026*                                                                                 124,15 €
+"""
+
+
+def test_extract_cotis_refund_with_plus_sign(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_COTIS_REFUND,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(ACCOUNTLIST)
+
+    entries = importer.extract("statement.pdf")
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+
+    assert len(transactions) == 1
+    assert transactions[0].payee == "ANN COTIS CARTE"
+    assert transactions[0].postings[0].units.number == Decimal("130.70")
+    assert [posting.account for posting in transactions[0].postings] == [
+        "Actif:BanquePopulaire:CCPrincipal",
+        "Depenses:Banque:Frais",
+    ]
+    assert [entry.amount.number for entry in balances] == [
+        Decimal("-6.55"),
+        Decimal("124.15"),
+    ]
+
+
+# ── Regression: counter-account heuristics ───────────────────────────────
+
+SYNTHETIC_SEPA_HEURISTICS = """BANQUE POPULAIRE
+Votre relevé de compte n°6 au 30/04/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 12345678901
+
+SOLDE CREDITEUR AU 31/03/2026                                                                                     0,00 €
+01/04             PRLV SEPA ENGIE S.A.                                                                    05NEU0G              01/04                 01/04                          - 154,73 €
+                    Mandat 00S010991238
+02/04             PRLV SEPA EDF clients pa                                                                05NIXMA              02/04                 02/04                          - 118,43 €
+                    TIMOTHEE TEST
+03/04             PRLV SEPA GMF ASSURANCES                                                               06ABCDE              03/04                 03/04                          - 178,28 €
+                    ICS: 700000009625824
+04/04             PRLV SEPA URSSAF RHONE A                                                               07BCDEF              04/04                 04/04                          - 195,00 €
+                    CESU + MME TEST
+05/04             PRLV SEPA DIRECTION GENE                                                               08CDEFG              05/04                 05/04                          - 124,00 €
+                    TF 2026
+06/04             PRLV SEPA PayPal Europe                                                                09DEFGH              06/04                 06/04                           - 21,24 €
+07/04             PRLV SEPA AMERICAN EXPRESS                                                             10EFGHI              07/04                 07/04                           - 50,00 €
+08/04             PRLV SEPA Free                                                                         11FGHIJ              08/04                 08/04                           - 39,99 €
+09/04             VIR MME GROS ANNA                                                                      12GHIJK              09/04                 09/04                           400,00 €
+10/04             VIR GROS TIMOTHEE                                                                      13HIJKL              10/04                 10/04                           200,00 €
+11/04             VIR INST TRINQUIER                                                                     14IJKLM              11/04                 11/04                           100,00 €
+12/04             COTIS FAMILLE CONFORT                                                                  15JKLMN              12/04                 12/04                           - 12,45 €
+
+TOTAL DES MOUVEMENTS DEBITEURS                                                                                - 893,87 €
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                700,00 €
+
+SOLDE DEBITEUR AU 30/04/2026*                                                                                - 193,87 €
+"""
+
+COUNTER_ACCOUNT_EXPECTATIONS = [
+    "Depenses:Abo:Gaz",                     # ENGIE
+    "Depenses:Abo:Elec",                    # EDF
+    "Depenses:Voitures:Assurance",          # GMF
+    "Depenses:Immobilier:Menage:Charges",   # URSSAF
+    "Depenses:Impots:TF",                   # DIRECTION GENE
+    "Depenses:Loisirs:Gadgets",             # PayPal
+    "Passif:AirFrance:Amex",                # AMEX
+    "Depenses:Abo:Internet",                # Free
+    "Actif:BPop:CCAnna",                    # VIR MME GROS ANNA
+    "Actif:BPop:CCTim",                     # VIR GROS TIMOTHEE
+    "Actif:BPop:CCAnna",                    # VIR TRINQUIER
+    "Depenses:Banque:Frais",                # COTIS FAMILLE
+]
+
+
+def test_counter_account_heuristics(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_SEPA_HEURISTICS,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(ACCOUNTLIST)
+
+    entries = importer.extract("statement.pdf")
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+
+    assert len(transactions) == len(COUNTER_ACCOUNT_EXPECTATIONS)
+
+    for idx, txn in enumerate(transactions):
+        expected = COUNTER_ACCOUNT_EXPECTATIONS[idx]
+        actual_accounts = [p.account for p in txn.postings]
+        assert expected in actual_accounts, (
+            f"Transaction {idx} ({txn.payee!r}): "
+            f"expected counter-account {expected!r} not found "
+            f"in {actual_accounts}"
+        )
