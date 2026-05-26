@@ -144,10 +144,8 @@ def test_extract_bpop_cctim_statement(monkeypatch):
     )
     assert [posting.account for posting in transactions[0].postings] == [
         "Actif:BPop:CCSecondaire",
-        "Depenses:Banque:Frais",
     ]
     assert transactions[0].postings[0].units.number == Decimal("-136.30")
-    assert transactions[0].postings[1].units is None
 
 
 SYNTHETIC_BP_CCSCI_STATEMENT = """BANQUE POPULAIRE
@@ -368,7 +366,6 @@ def test_extract_cotis_refund_with_plus_sign(monkeypatch):
     assert transactions[0].postings[0].units.number == Decimal("130.70")
     assert [posting.account for posting in transactions[0].postings] == [
         "Actif:BanquePopulaire:CCPrincipal",
-        "Depenses:Banque:Frais",
     ]
     assert [entry.amount.number for entry in balances] == [
         Decimal("-6.55"),
@@ -376,58 +373,124 @@ def test_extract_cotis_refund_with_plus_sign(monkeypatch):
     ]
 
 
-# ── Regression: counter-account heuristics ───────────────────────────────
+# ── Regression: sign parsing edge cases ──────────────────────────────────
 
-SYNTHETIC_SEPA_HEURISTICS = """BANQUE POPULAIRE
-Votre relevé de compte n°6 au 30/04/2026
+SYNTHETIC_SIGN_EDGE_CASES = """BANQUE POPULAIRE
+Votre relevé de compte n°7 au 30/04/2026
 DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 12345678901
 
 SOLDE CREDITEUR AU 31/03/2026                                                                                     0,00 €
-01/04             PRLV SEPA ENGIE S.A.                                                                    05NEU0G              01/04                 01/04                          - 154,73 €
-                    Mandat 00S010991238
-02/04             PRLV SEPA EDF clients pa                                                                05NIXMA              02/04                 02/04                          - 118,43 €
-                    TIMOTHEE TEST
-03/04             PRLV SEPA GMF ASSURANCES                                                               06ABCDE              03/04                 03/04                          - 178,28 €
-                    ICS: 700000009625824
-04/04             PRLV SEPA URSSAF RHONE A                                                               07BCDEF              04/04                 04/04                          - 195,00 €
-                    CESU + MME TEST
-05/04             PRLV SEPA DIRECTION GENE                                                               08CDEFG              05/04                 05/04                          - 124,00 €
+01/04             PRLV SEPA DIRECTION GENE                                                              08CDEFG              01/04                 01/04                          + 124,00 €
                     TF 2026
-06/04             PRLV SEPA PayPal Europe                                                                09DEFGH              06/04                 06/04                           - 21,24 €
-07/04             PRLV SEPA AMERICAN EXPRESS                                                             10EFGHI              07/04                 07/04                           - 50,00 €
-08/04             PRLV SEPA Free                                                                         11FGHIJ              08/04                 08/04                           - 39,99 €
-09/04             VIR MME GROS ANNA                                                                      12GHIJK              09/04                 09/04                           400,00 €
-10/04             VIR GROS TIMOTHEE                                                                      13HIJKL              10/04                 10/04                           200,00 €
-11/04             VIR INST TRINQUIER                                                                     14IJKLM              11/04                 11/04                           100,00 €
-12/04             COTIS FAMILLE CONFORT                                                                  15JKLMN              12/04                 12/04                           - 12,45 €
+02/04             COTIS FAMILLE CONFORT                                                                  15JKLMN              02/04                 02/04                          + 12,45 €
+03/04             PRLV SEPA URSSAF RHONE A                                                               07BCDEF              03/04                 03/04                         - 113,95 €
+                    CESU + MME TEST
+04/04             VIR INST VIREMENT TEST                                                                  ABC1234              04/04                 04/04                           500,00 €
+                    REFERENCE INTERNE
+05/04             210406 CB****1234                                                                       TCK1234              05/04                 05/04                            - 60,00 €
+                    COMMERCE TEST
 
-TOTAL DES MOUVEMENTS DEBITEURS                                                                                - 893,87 €
-TOTAL DES MOUVEMENTS CREDITEURS                                                                                700,00 €
+TOTAL DES MOUVEMENTS DEBITEURS                                                                                - 310,40 €
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                500,00 €
 
-SOLDE DEBITEUR AU 30/04/2026*                                                                                - 193,87 €
+SOLDE CREDITEUR AU 30/04/2026*                                                                                 189,60 €
 """
 
-COUNTER_ACCOUNT_EXPECTATIONS = [
-    "Depenses:Abo:Gaz",                     # ENGIE
-    "Depenses:Abo:Elec",                    # EDF
-    "Depenses:Voitures:Assurance",          # GMF
-    "Depenses:Immobilier:Menage:Charges",   # URSSAF
-    "Depenses:Impots:TF",                   # DIRECTION GENE
-    "Depenses:Loisirs:Gadgets",             # PayPal
-    "Passif:AirFrance:Amex",                # AMEX
-    "Depenses:Abo:Internet",                # Free
-    "Actif:BPop:CCAnna",                    # VIR MME GROS ANNA
-    "Actif:BPop:CCTim",                     # VIR GROS TIMOTHEE
-    "Actif:BPop:CCAnna",                    # VIR TRINQUIER
-    "Depenses:Banque:Frais",                # COTIS FAMILLE
-]
 
+def test_sign_edge_cases(monkeypatch):
+    """Regression: sign parsing for real-world OCR outputs.
 
-def test_counter_account_heuristics(monkeypatch):
+    Covers cases encountered in actual BanquePop statements:
+    - PRLV DIRECTION GENE with explicit + sign (TF payment, should be -)
+    - COTIS FAMILLE CONFORT with explicit + sign (fee, should be -)
+    - PRLV URSSAF with explicit - sign (household charges)
+    - VIR without sign (credit, positive)
+    - CB transaction with explicit - sign (debit)
+    """
     monkeypatch.setattr(
         pdfbanquepopulaire,
         "pdf_to_text",
-        lambda _: SYNTHETIC_SEPA_HEURISTICS,
+        lambda _: SYNTHETIC_SIGN_EDGE_CASES,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(ACCOUNTLIST)
+
+    entries = importer.extract("statement.pdf")
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+
+    assert len(transactions) == 5
+
+    # Transaction 0: DIRECTION GENE — OCR says '+', importer faithfully reports +
+    assert transactions[0].payee == "PRLV SEPA DIRECTION GENE"
+    assert transactions[0].postings[0].units.number == Decimal("124.00")
+
+    # Transaction 1: COTIS FAMILLE CONFORT — OCR says '+', importer reports +
+    assert transactions[1].payee == "COTIS FAMILLE CONFORT"
+    assert transactions[1].postings[0].units.number == Decimal("12.45")
+
+    # Transaction 2: URSSAF — explicit minus sign correctly parsed as debit
+    assert transactions[2].payee == "PRLV SEPA URSSAF RHONE A"
+    assert transactions[2].postings[0].units.number == Decimal("-113.95")
+
+    # Transaction 3: VIR — no explicit sign, positive credit
+    assert transactions[3].payee == "VIR INST VIREMENT TEST"
+    assert transactions[3].postings[0].units.number == Decimal("500.00")
+
+    # Transaction 4: CB — explicit minus sign correctly parsed as debit
+    assert transactions[4].postings[0].units.number == Decimal("-60.00")
+
+    # Balances
+    assert [entry.amount.number for entry in balances] == [
+        Decimal("0.00"),
+        Decimal("189.60"),
+    ]
+
+
+# ── Regression: SEPA detail amount override ──────────────────────────────
+
+SYNTHETIC_SEPA_DETAIL_SECTION = """BANQUE POPULAIRE
+Votre relevé de compte n°8 au 30/04/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 12345678901
+
+SOLDE CREDITEUR AU 31/03/2026                                                                                     0,00 €
+01/04             PRLV SEPA FOURNISSEUR TEST                                                            05G1U1S              01/04                 01/04                         + 1 380,00 €
+                    DOSSIER TEST 001
+                    202603280000000141101T01669 144-1
+02/04             PRLV SEPA DIRECTION GENE                                                               08CDEFG              02/04                 02/04                          + 124,00 €
+                    TF 2026
+                    202603280000000072000T01669
+03/04             COTIS FAMILLE CONFORT                                                                  15JKLMN              03/04                 03/04                          + 12,45 €
+
+TOTAL DES MOUVEMENTS DEBITEURS                                                                              - 1 516,45 €
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                  0,00 €
+
+SOLDE DEBITEUR AU 30/04/2026*                                                                              - 1 516,45 €
+
+DETAIL DE VOS MOUVEMENTS SEPA
+VOTRE COMPTE CHEQUES N° 12345 678901 RELEVE N° 8 AU 30/04/2026
+DATE DETAIL DE VOS PRELEVEMENTS SEPA RECUS DEBIT
+01/04 FOURNISSEUR TEST ALPHA FR76ABCDE12345                 1 380,00 €
+202603280000000141101T01669 144-1
+Paiement de la facture Telepaiement du 01/04/2026 RESIDENCE TEST 01
+01/04 DIRECTION GENERALE DES FINANCES                        124,00 €
+202603280000000072000T01669 144-1
+Paiement de la facture Telepaiement TF 2026
+"""
+
+
+def test_sepa_detail_overrides_sign(monkeypatch):
+    """SEPA detail section should override amounts (and sign) for SEPA transactions.
+
+    Transactions that appear as credits (+ sign) in the main table
+    but are actually debits should be corrected via the SEPA detail
+    section where amounts are always debits.
+    """
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_SEPA_DETAIL_SECTION,
     )
     importer = pdfbanquepopulaire.PDFBanquePopulaire(ACCOUNTLIST)
 
@@ -436,13 +499,17 @@ def test_counter_account_heuristics(monkeypatch):
         entry for entry in entries if isinstance(entry, data.Transaction)
     ]
 
-    assert len(transactions) == len(COUNTER_ACCOUNT_EXPECTATIONS)
+    assert len(transactions) == 3
 
-    for idx, txn in enumerate(transactions):
-        expected = COUNTER_ACCOUNT_EXPECTATIONS[idx]
-        actual_accounts = [p.account for p in txn.postings]
-        assert expected in actual_accounts, (
-            f"Transaction {idx} ({txn.payee!r}): "
-            f"expected counter-account {expected!r} not found "
-            f"in {actual_accounts}"
-        )
+    # Transaction 0: FOURNISSEUR TEST — SEPA detail overrides to -1380.00
+    assert transactions[0].payee == "PRLV SEPA FOURNISSEUR TEST"
+    assert transactions[0].postings[0].units.number == Decimal("-1380.00")
+
+    # Transaction 1: DIRECTION GENE — SEPA detail overrides to -124.00
+    assert transactions[1].payee == "PRLV SEPA DIRECTION GENE"
+    assert transactions[1].postings[0].units.number == Decimal("-124.00")
+
+    # Transaction 2: COTIS FAMILLE — not a SEPA transaction,
+    # no SEPA detail override, keeps its original +12.45
+    assert transactions[2].payee == "COTIS FAMILLE CONFORT"
+    assert transactions[2].postings[0].units.number == Decimal("12.45")

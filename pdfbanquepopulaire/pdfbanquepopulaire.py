@@ -365,21 +365,6 @@ class PDFBanquePopulaire(beangulp.Importer):
                 meta=None,
             )
         ]
-        counter_account = self._guess_counter_account(
-            payee=payee,
-            narration=self._normalize_spaces(" ".join(narration_lines)),
-        )
-        if counter_account:
-            postings.append(
-                data.Posting(
-                    account=counter_account,
-                    units=None,
-                    cost=None,
-                    price=None,
-                    flag=None,
-                    meta=None,
-                )
-            )
 
         return data.Transaction(
             meta=meta,
@@ -536,64 +521,6 @@ class PDFBanquePopulaire(beangulp.Importer):
 
     def _normalize_spaces(self, text: str) -> str:
         return re.sub(r"\s+", " ", text).strip()
-
-    def _guess_counter_account(self, *, payee: str, narration: str) -> Optional[str]:
-        """Suggest a counter-account based on payee and narration heuristics.
-
-        Returns None when no strong guess can be made, leaving the
-        counter-account blank for manual assignment during review.
-        """
-        p = payee.upper()
-        n = narration.upper()
-
-        # ── Banking fees ──
-        if ("COTIS " in p and "CONTRAT CARTE" in n) or p.startswith("ANN COTIS"):
-            return "Depenses:Banque:Frais"
-        if p.startswith("COTIS ") and ("FAMILLE" in p or "FAMILLE" in n):
-            return "Depenses:Banque:Frais"
-
-        # ── SEPA direct debits ──
-        if p.startswith("PRLV SEPA "):
-            # Energy
-            if "ENGIE" in p or "ENGIE" in n:
-                return "Depenses:Abo:Gaz"
-            if "EDF " in p or "EDF " in n:
-                return "Depenses:Abo:Elec"
-
-            # Insurance
-            if "GMF" in p or "GMF" in n:
-                return "Depenses:Voitures:Assurance"
-
-            # Taxes
-            if "DIRECTION GENE" in p or "DIRECTION GENE" in n:
-                return "Depenses:Impots:TF"
-
-            # Household employment
-            if "URSSAF" in p or "CESU" in n or "URSSAF" in n:
-                return "Depenses:Immobilier:Menage:Charges"
-
-            # PayPal – default to gadgets, manual review may change to Culture
-            if "PAYPAL" in p:
-                return "Depenses:Loisirs:Gadgets"
-
-            # Internet
-            if "FREE" in p or "FREE" in n:
-                return "Depenses:Abo:Internet"
-
-            # Amex
-            if "AMERICAN EXPRESS" in p:
-                return "Passif:AirFrance:Amex"
-
-        # ── Internal transfers ──
-        if p.startswith("VIR "):
-            if "GROS ANNA" in p or "GROS ANNA" in n:
-                return "Actif:BPop:CCAnna"
-            if "GROS TIMOTHEE" in p or "GROS TIMOTHEE" in n:
-                return "Actif:BPop:CCTim"
-            if "TRINQUIER" in p or "TRINQUIER" in n:
-                return "Actif:BPop:CCAnna"
-
-        return None
 
     def _is_operations_section_terminator(self, stripped_line: str) -> bool:
         upper = stripped_line.upper()
