@@ -68,9 +68,9 @@ class PDFBourso(beangulp.Importer):
 
     REGEX_ACTION_MONTANT = r"Montant brut\s*Commission\s*Frais\s\(.\)\s*Montant net au crédit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(?:(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3}))?\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
 
-    REGEX_OPCVM_MONTANT = r"Montant brut\s*Droits d'entrée\s*Frais H.T.\s*T.V.A.\s*Montant net au débit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
-    REGEX_OPCVM_DETAILS = r"(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3}[.,]?\d{0,4})\s*([\s\S]{0,20})?\s*"
-    REGEX_OPCVM_COURS = r"Valeur liquidative :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
+    REGEX_OPCVM_MONTANT = r"Montant brut\s*Droits (?:d'entrée|de sortie)\s*Frais H.T.\s*T.V.A.\s*Montant net au (?:débit|crédit) de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(?:(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*)?(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
+    REGEX_OPCVM_DETAILS = r"Date\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution[\s\S]*?(\d{1,2}\/\d{2}\/\d{4})\s*(\d+(?:[,.]\d{1,4})?)\s*([\s\S]{0,80}?)\s*Référence\s*:"
+    REGEX_OPCVM_COURS = r"Valeur liquidative\s*:\s*(\d+(?:\s\d{3})*[,.]\d{1,4})\s([A-Z]{1,3})"
     REGEX_OPCVM_SOUSCRIPTION = r"SOUSCRIPTION"
 
     REGEX_DIVIDENDE_DETAILS = r"(\d{2}\/\d{2}\/\d{4})\s*(\d{1,5})\s*(.*)\s\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})?\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})"
@@ -639,12 +639,14 @@ class PDFBourso(beangulp.Importer):
 
         match = re.search(self.REGEX_OPCVM_MONTANT, text)
         if match:
-            ope["Montant Total"] = match.group(7)
-            ope["currency Total"] = match.group(8)
+            ope["Montant Total"] = match.group(9)
+            ope["currency Total"] = match.group(10)
             ope["Frais"] = match.group(5)
             ope["currency Frais"] = match.group(6)
             ope["Droits"] = match.group(3)
             ope["currency Droits"] = match.group(4)
+            ope["TVA"] = match.group(7) or "0.0"
+            ope["currency TVA"] = match.group(8) or ope["currency Frais"]
         else:
             self.logger.info("Montant introuvable")
         self._debug(f"Montant Total : {ope['Montant Total']}")
@@ -702,7 +704,7 @@ class PDFBourso(beangulp.Importer):
             ),
             self._create_posting(
                 "Depenses:Banque:Frais",
-                self._parse_decimal(ope["Frais"]) + self._parse_decimal(ope["Droits"]),
+                self._parse_decimal(ope["Frais"]) + self._parse_decimal(ope["Droits"]) + self._parse_decimal(ope["TVA"]),
                 ope["currency Frais"],
             ),
         ]
