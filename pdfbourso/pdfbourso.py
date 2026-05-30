@@ -69,7 +69,7 @@ class PDFBourso(beangulp.Importer):
     REGEX_ACTION_MONTANT = r"Montant brut\s*Commission\s*Frais\s\(.\)\s*Montant net au crédit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(?:(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3}))?\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
 
     REGEX_OPCVM_MONTANT = r"Montant brut\s*Droits (?:d'entrée|de sortie)\s*Frais H.T.\s*T.V.A.\s*Montant net au (?:débit|crédit) de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(?:(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*)?(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
-    REGEX_OPCVM_DETAILS = r"Date\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution[\s\S]*?(\d{1,2}\/\d{2}\/\d{4})\s*(\d+(?:[,.]\d{1,4})?)\s*([\s\S]{0,80}?)\s*Référence\s*:"
+    REGEX_OPCVM_DETAILS = r"Date\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution[\s\S]*?(\d{1,2}\/\d{2}\/\d{4})\s*(\d+(?:\s\d{3})*(?:[,.]\d{1,4})?)\s*([\s\S]{0,80}?)\s*Référence\s*:"
     REGEX_OPCVM_COURS = r"Valeur liquidative\s*:\s*(\d+(?:\s\d{3})*[,.]\d{1,4})\s([A-Z]{1,3})"
     REGEX_OPCVM_SOUSCRIPTION = r"SOUSCRIPTION"
 
