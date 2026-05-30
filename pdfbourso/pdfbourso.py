@@ -357,21 +357,26 @@ class PDFBourso(beangulp.Importer):
         :rtype: list
         """
         entries = []
-        print(self.account(file))
+        columns = self._find_compte_columns(text)
         control = self.REGEX_ESPECE_BOURSE_SOLDE
-        chunks = re.findall(control, text)
+        chunks = re.finditer(control, text)
         meta = data.new_metadata(file, 0)
         meta["source"] = "pdfbourso"
         meta["document"] = document
         
         for chunk in chunks:
-            print(chunk[0])
-            print(chunk[1])
+            balance_amount = self._signed_decimal_from_match(
+                text,
+                chunk,
+                2,
+                columns,
+                1,
+            )
             balance = data.Balance(
                 meta,
-                parse_datetime(chunk[0], dayfirst=True).date(),
+                parse_datetime(chunk.group(1), dayfirst=True).date(),
                 self.account(file) + ":Cash", # type: ignore
-                amount.Amount(self._parse_decimal(chunk[1]), "EUR"),
+                amount.Amount(balance_amount, "EUR"),
                 None,
                 None,
             )

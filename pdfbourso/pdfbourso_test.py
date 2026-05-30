@@ -105,6 +105,32 @@ Compte 00040132901
     assert transactions[0].postings[0].units.number == Decimal("-37.97")
 
 
+def test_extract_espece_bourse_uses_debit_credit_columns_for_balance_sign(monkeypatch):
+    text = """BoursoBank
+RELEVE COMPTE ESPECES: FEVRIER 2025
+RIB du compte espèces : 40618 80295 00090339677 54
+Références de votre compte espèces
+40618 80295 00090339677
+Date de
+ compta.                           Libellé de l'opération                             Quantité             Nom de la valeur            Débit EUR                                            Crédit EUR
+ 31/01/2025                                                                        ANCIEN SOLDE                                                               720,38
+ 03/02/2025 RACHAT D'OPC                                                                         -10   AXA PEA REG.C 4DEC                                                                         1 025,91
+ 13/02/2025 RACHAT D'OPC                                                                         -10   AXA PEA REG.C 4DEC                                                                         1 026,86
+ 17/02/2025 ACHAT ETRANGER                                                                       200   ISHS VI-ISMWSPE EO                                1 189,78
+ 28/02/2025                                                                      NOUVEAU SOLDE                                                                                                     142,61
+"""
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+    monkeypatch.setattr(importer, "account", lambda _: "Actif:Boursorama:PEA")
+
+    entries = importer._extract_espece_bourse("fake.pdf", text, "2025-02-28 Relevé Espece.pdf")
+
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+
+    assert [entry.date.isoformat() for entry in balances] == ["2025-01-31", "2025-02-28"]
+    assert [entry.amount.number for entry in balances] == [Decimal("-720.38"), Decimal("142.61")]
+
+
 def test_extract_cb_commission_operation_posts_bank_fees(monkeypatch):
     text = """BOURSORAMA BANQUE
 Relevé de Carte Premier
