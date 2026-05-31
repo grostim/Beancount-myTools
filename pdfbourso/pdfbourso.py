@@ -353,19 +353,19 @@ class PDFBourso(beangulp.Importer):
                     )
 
                     # Écart entre brut et net = commission + impôts éventuels
-                    gap = gross - net
-                    if gap > Decimal('0'):
+                    amount_withheld = gross - net
+                    if amount_withheld > Decimal('0'):
                         if commission > 0:
                             postings.append(
                                 self._create_posting(
                                     "Depenses:Banque:Frais", commission, "EUR"
                                 )
                             )
-                            gap -= commission
-                        if gap > Decimal('0'):
+                            amount_withheld -= commission
+                        if amount_withheld > Decimal('0'):
                             postings.append(
                                 self._create_posting(
-                                    "Depenses:Impots:IR", gap, "EUR"
+                                    "Depenses:Impots:IR", amount_withheld, "EUR"
                                 )
                             )
 
@@ -387,7 +387,6 @@ class PDFBourso(beangulp.Importer):
         except Exception as e:
             self._error(f"Erreur lors de l'extraction des dividendes : {str(e)}")
             return []
-
     def _extract_espece_bourse(self, file, text, document):
         """
         Extrait les données pour les espèces en bourse.
