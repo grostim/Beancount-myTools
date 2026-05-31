@@ -105,6 +105,33 @@ Compte 00040132901
     assert transactions[0].postings[0].units.number == Decimal("-37.97")
 
 
+def test_extract_compte_pea_cash_statement_targets_pea_cash(monkeypatch):
+    text = """BOURSORAMA BANQUE
+Relevé au 02/04/2026
+Compte 00090339677
+          Libellé                                                                                              Valeur              Débit                Crédit
+                                                                                             SOLDE AU : 27/02/2026                                            193,78
+03/03/2026 VIR CTo - PEA                                                                                   03/03/2026                                       2.500,00
+01/04/2026 ACHAT ETRANGER                                                                                  01/04/2026                 993,62
+                                Nouveau solde en EUR :                                                                                                      -767,53
+"""
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    entries = importer._extract_compte("fake.pdf", text, "2026-03-31 Relevé Compte.pdf")
+
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+    transactions = [entry for entry in entries if isinstance(entry, data.Transaction)]
+
+    assert [entry.account for entry in balances] == [
+        "Actif:Boursorama:PEA:Cash",
+        "Actif:Boursorama:PEA:Cash",
+    ]
+    assert balances[0].amount.number == Decimal("193.78")
+    assert abs(balances[1].amount.number) == Decimal("767.53")
+    assert transactions == []
+
+
 def test_extract_espece_bourse_uses_debit_credit_columns_for_balance_sign(monkeypatch):
     text = """BoursoBank
 RELEVE COMPTE ESPECES: FEVRIER 2025
