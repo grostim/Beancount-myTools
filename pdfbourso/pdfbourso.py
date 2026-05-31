@@ -73,7 +73,7 @@ class PDFBourso(beangulp.Importer):
     REGEX_OPCVM_COURS = r"Valeur liquidative :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
     REGEX_OPCVM_SOUSCRIPTION = r"SOUSCRIPTION"
 
-    REGEX_DIVIDENDE_DETAILS = r"(\d{2}\/\d{2}\/\d{4})\s*(\d{1,5})\s*(.*)\s\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})?\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})"
+    REGEX_DIVIDENDE_DETAILS = r"(\d{2}\/\d{2}\/\d{4})\s*(.*?)\s+\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{1,5})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})?\s*(\d{0,3}\s\d{1,3}[,.]\d{2})"
 
     REGEX_ESPECE_BOURSE_SOLDE = r"(\d*/\d*/\d*).*SOLDE\s*(\d{0,3}\s\d{1,3}[,.]\d{1,3})"
 
@@ -309,6 +309,11 @@ class PDFBourso(beangulp.Importer):
             return []
 
     def _extract_dividende_bourse(self, file, text, document):
+        """Extrait les donnees pour les coupons/remboursements en bourse.
+
+        Le regex V2 capture : date, nom, ISIN, montant unitaire, quantite,
+        montant brut global, commission TTC (optionnelle), net client.
+        """
         try:
             entries = []
             compte = self.account(file)
@@ -317,32 +322,56 @@ class PDFBourso(beangulp.Importer):
             meta = data.new_metadata(file, 0)
             meta["source"] = "pdfbourso"
             meta["document"] = document
-            
+
             for chunk in chunks:
                 try:
+                    gross = self._parse_decimal(chunk[5])
+                    net = self._parse_decimal(chunk[7])
+                    commission = self._parse_decimal(chunk[6] or '0')
+
                     postings = [
-                        self._create_posting("Revenus:Dividendes", self._parse_decimal(chunk[4]) * -1, "EUR"),
-                        self._create_posting("Depenses:Impots:IR", self._parse_decimal(chunk[5] or '0') + self._parse_decimal(chunk[6]), "EUR"),
-                        self._create_posting(compte, self._parse_decimal(chunk[7]), "EUR")
+                        self._create_posting(
+                            "Revenus:Dividendes", -gross, "EUR"
+                        ),
                     ]
-                    
+                    postings.append(
+                        self._create_posting(compte, net, "EUR")
+                    )
+
+                    gap = gross - net
+                    if gap > Decimal('0'):
+                        if commission > 0:
+                            postings.append(
+                                self._create_posting(
+                                    "Depenses:Banque:Frais", commission, "EUR"
+                                )
+                            )
+                            gap -= commission
+                        if gap > Decimal('0'):
+                            postings.append(
+                                self._create_posting(
+                                    "Depenses:Impots:IR", gap, "EUR"
+                                )
+                            )
+
                     transaction = self._create_transaction(
                         meta,
                         parse_datetime(chunk[0], dayfirst=True).date(),
-                        f"Dividende pour {chunk[1]} titres {chunk[2]}",
+                        f"Dividende pour {chunk[4]} titres {chunk[1]}",
                         None,
-                        {chunk[3]},
-                        postings
+                        {chunk[2]},
+                        postings,
                     )
                     entries.append(transaction)
                 except Exception as e:
-                    self._error(f"Erreur lors du traitement d'un dividende : {str(e)}")
-            
+                    self._error(
+                        f"Erreur lors du traitement d'un dividende : {str(e)}"
+                    )
+
             return entries
         except Exception as e:
             self._error(f"Erreur lors de l'extraction des dividendes : {str(e)}")
             return []
-
     def _extract_espece_bourse(self, file, text, document):
         """
         Extrait les données pour les espèces en bourse.
