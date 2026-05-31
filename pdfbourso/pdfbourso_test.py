@@ -315,3 +315,74 @@ Montant brut                   Droits de sortie                    Frais H.T.   
     assert position_posting.units.number == Decimal("-10.0000")
     assert cash_posting.units.number == Decimal("998.60")
     assert fees_posting.units.number == Decimal("2.40")
+
+
+def test_extract_dividende_bourse_new_layout(monkeypatch):
+    """V2 layout: date, nom, ISIN, unitaire, qté, brut, commission?, net."""
+    text = ("15/05/2026 AXA PEA REGULARITE C FCP 4DEC (FR0000447039) "
+            "10,50 10 105,00 2,00 103,00")
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+    monkeypatch.setattr(importer, "account", lambda _: "Actif:Boursorama:PEA:Cash")
+
+    entries = importer._extract_dividende_bourse(
+        "fake.pdf", text, "2026-05-15 Relevé Operation.pdf"
+    )
+
+    assert len(entries) == 1
+    txn = entries[0]
+    assert txn.date.isoformat() == "2026-05-15"
+    assert txn.payee == "Dividende pour 10 titres AXA PEA REGULARITE C FCP 4DEC"
+    assert "FR0000447039" in txn.tags  # ISIN tag
+
+    div, cash, fee = txn.postings
+    assert div.account == "Revenus:Dividendes"
+    assert div.units.number == Decimal("-105.00")  # brut négatif
+    assert cash.account == "Actif:Boursorama:PEA:Cash"
+    assert cash.units.number == Decimal("103.00")  # net reçu
+    assert fee.account == "Depenses:Banque:Frais"
+    assert fee.units.number == Decimal("2.00")  # commission
+
+
+def test_extract_dividende_bourse_new_layout_no_commission(monkeypatch):
+    """Sans commission (groupe optionnel vide → '0')."""
+    text = ("15/05/2026 AXA PEA REGULARITE C FCP 4DEC (FR0000447039) "
+            "10,50 10 105,00   105,00")
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+    monkeypatch.setattr(importer, "account", lambda _: "Actif:Boursorama:PEA:Cash")
+
+    entries = importer._extract_dividende_bourse(
+        "fake.pdf", text, "2026-05-15 Relevé Operation.pdf"
+    )
+
+    assert len(entries) == 1
+    txn = entries[0]
+    div, cash = txn.postings[:2]
+    assert div.units.number == Decimal("-105.00")
+    assert cash.units.number == Decimal("105.00")
+    # Seulement 2 postings : pas de commission, pas d'IR (brut = net)
+    assert len(txn.postings) == 2
+
+
+def test_extract_dividende_bourse_new_layout_with_ir(monkeypatch):
+    """Avec commission + IR (écart brut-net > commission)."""
+    text = ("15/05/2026 AXA PEA REGULARITE C FCP 4DEC (FR0000447039) "
+            "12,50 8 100,00 1,50 81,00")
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+    monkeypatch.setattr(importer, "account", lambda _: "Actif:Boursorama:PEA:Cash")
+
+    entries = importer._extract_dividende_bourse(
+        "fake.pdf", text, "2026-05-15 Relevé Operation.pdf"
+    )
+
+    assert len(entries) == 1
+    txn = entries[0]
+    div, cash, fee, ir = txn.postings
+    assert div.units.number == Decimal("-100.00")
+    assert cash.units.number == Decimal("81.00")
+    assert fee.account == "Depenses:Banque:Frais"
+    assert fee.units.number == Decimal("1.50")
+    assert ir.account == "Depenses:Impots:IR"
+    assert ir.units.number == Decimal("17.50")  # 100 - 81 - 1.50 = 17.50
