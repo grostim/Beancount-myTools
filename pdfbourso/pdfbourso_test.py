@@ -105,6 +105,33 @@ Compte 00040132901
     assert transactions[0].postings[0].units.number == Decimal("-37.97")
 
 
+def test_extract_compte_pea_cash_statement_targets_pea_cash(monkeypatch):
+    text = """BOURSORAMA BANQUE
+Relevé au 02/04/2026
+Compte 00090339677
+          Libellé                                                                                              Valeur              Débit                Crédit
+                                                                                             SOLDE AU : 27/02/2026                                            193,78
+03/03/2026 VIR CTo - PEA                                                                                   03/03/2026                                       2.500,00
+01/04/2026 ACHAT ETRANGER                                                                                  01/04/2026                 993,62
+                                Nouveau solde en EUR :                                                                                                      -767,53
+"""
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    entries = importer._extract_compte("fake.pdf", text, "2026-03-31 Relevé Compte.pdf")
+
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+    transactions = [entry for entry in entries if isinstance(entry, data.Transaction)]
+
+    assert [entry.account for entry in balances] == [
+        "Actif:Boursorama:PEA:Cash",
+        "Actif:Boursorama:PEA:Cash",
+    ]
+    assert balances[0].amount.number == Decimal("193.78")
+    assert abs(balances[1].amount.number) == Decimal("767.53")
+    assert transactions == []
+
+
 def test_extract_espece_bourse_uses_debit_credit_columns_for_balance_sign(monkeypatch):
     text = """BoursoBank
 RELEVE COMPTE ESPECES: FEVRIER 2025
@@ -121,7 +148,7 @@ Date de
 """
     monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
     importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
-    monkeypatch.setattr(importer, "account", lambda _: "Actif:Boursorama:PEA")
+    monkeypatch.setattr(importer, "account", lambda _: "Actif:Boursorama:PEA:Cash")
 
     entries = importer._extract_espece_bourse("fake.pdf", text, "2025-02-28 Relevé Espece.pdf")
 
@@ -155,3 +182,136 @@ Date           N° de RIB                                        N° Carte      
     assert fee_entry.postings[0].units.number == Decimal("-0.32")
     assert fee_entry.postings[1].account == "Depenses:Banque:Frais"
     assert fee_entry.postings[1].units.number == Decimal("0.32")
+
+
+def test_extract_opcvm_reprise_credit_layout(monkeypatch):
+    text = """OPERATION SUR OPC
+(Organisme de Placement Collectif)
+le 09/07/2025
+Références de votre compte titres
+40618 80295 00088339677               Compte PEA
+Résident Français
+REPRISE F.C.P.
+Date                Quantité                           Informations sur la valeur                                        Informations sur l'exécution
+08/07/2025             10,0000          AXA PEA REGULARITE C FCP 4DEC                                         Référence :                                                                042144476474
+Code ISIN :    FR0000447039                                           Valeur liquidative :                                                       103,6699 EUR
+Montant brut                   Droits de sortie                    Frais H.T.                    T.V.A.               Montant net au crédit de votre compte
+1 036,70 EUR                       0,00 EUR                        0,00 EUR                                                       1 036,70 EUR
+"""
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    entries = importer._extract_opcvm("fake.pdf", text, "2025-07-09 Relevé Operation.pdf")
+
+    assert len(entries) == 1
+    transaction = entries[0]
+    assert transaction.date.isoformat() == "2025-07-08"
+    assert transaction.payee == "AXA PEA REGULARITE C FCP 4DEC"
+
+    position_posting = transaction.postings[0]
+    cash_posting = transaction.postings[1]
+    fees_posting = transaction.postings[2]
+
+    assert position_posting.account == "Actif:Boursorama:PEA:FR0000447039"
+    assert position_posting.units.number == Decimal("-10.0000")
+    assert position_posting.price.number == Decimal("103.6699")
+    assert cash_posting.account == "Actif:Boursorama:PEA:Cash"
+    assert cash_posting.units.number == Decimal("1036.70")
+    assert fees_posting.account == "Depenses:Banque:Frais"
+    assert fees_posting.units.number == Decimal("0.00")
+
+
+def test_extract_opcvm_reprise_credit_real_layout_noise(monkeypatch):
+    text = """OPERATION SUR OPC
+(Organisme de Placement Collectif)
+le 09/07/2025
+Références de votre compte titres
+40618 80295 00088339677               Compte PEA
+Résident Français
+REPRISE F.C.P.
+Date                Quantité                           Informations sur la valeur                                        Informations sur l'exécution
+
+
+
+
+                                                                                                                                                                                                            F1
+    08/07/2025             10,0000          AXA PEA REGULARITE C FCP 4DEC                                         Référence :                                                                042144476474
+
+
+
+
+                                                                                                                                                                                                            P82920 1/1
+                                            Code ISIN :    FR0000447039                                           Valeur liquidative :                                                       103,6699 EUR
+
+
+
+
+Montant brut                   Droits de sortie                    Frais H.T.                    T.V.A.               Montant net au crédit de votre compte
+1 036,70 EUR                       0,00 EUR                        0,00 EUR                                                       1 036,70 EUR
+"""
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    entries = importer._extract_opcvm("fake.pdf", text, "2025-07-09 Relevé Operation.pdf")
+
+    assert len(entries) == 1
+    transaction = entries[0]
+    assert transaction.date.isoformat() == "2025-07-08"
+    assert transaction.payee == "AXA PEA REGULARITE C FCP 4DEC"
+
+
+def test_extract_opcvm_reprise_credit_quantity_with_thousands_separator(monkeypatch):
+    text = """OPERATION SUR OPC
+(Organisme de Placement Collectif)
+le 09/07/2025
+Références de votre compte titres
+40618 80295 00088339677               Compte PEA
+Résident Français
+REPRISE F.C.P.
+Date                Quantité                           Informations sur la valeur                                        Informations sur l'exécution
+08/07/2025             1 234,5678          AXA PEA REGULARITE C FCP 4DEC                                         Référence :                                                                042144476474
+Code ISIN :    FR0000447039                                           Valeur liquidative :                                                       103,6699 EUR
+Montant brut                   Droits de sortie                    Frais H.T.                    T.V.A.               Montant net au crédit de votre compte
+127 987,53 EUR                     0,00 EUR                        0,00 EUR                                                       127 987,53 EUR
+"""
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    entries = importer._extract_opcvm("fake.pdf", text, "2025-07-09 Relevé Operation.pdf")
+
+    assert len(entries) == 1
+    transaction = entries[0]
+    position_posting = transaction.postings[0]
+    cash_posting = transaction.postings[1]
+
+    assert transaction.payee == "AXA PEA REGULARITE C FCP 4DEC"
+    assert position_posting.units.number == Decimal("-1234.5678")
+    assert cash_posting.units.number == Decimal("127987.53")
+
+
+
+def test_extract_opcvm_reprise_credit_with_tva_present(monkeypatch):
+    text = """OPERATION SUR OPC
+(Organisme de Placement Collectif)
+le 09/07/2025
+Références de votre compte titres
+40618 80295 00088339677               Compte PEA
+Résident Français
+REPRISE F.C.P.
+Date                Quantité                           Informations sur la valeur                                        Informations sur l'exécution
+08/07/2025             10,0000          AXA PEA REGULARITE C FCP 4DEC                                         Référence :                                                                042144476474
+Code ISIN :    FR0000447039                                           Valeur liquidative :                                                       99,8600 EUR
+Montant brut                   Droits de sortie                    Frais H.T.                    T.V.A.               Montant net au crédit de votre compte
+1 001,00 EUR                       2,00 EUR                        0,00 EUR                      0,40 EUR               998,60 EUR
+"""
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    entries = importer._extract_opcvm("fake.pdf", text, "2025-07-09 Relevé Operation.pdf")
+
+    assert len(entries) == 1
+    transaction = entries[0]
+    position_posting = transaction.postings[0]
+    cash_posting = transaction.postings[1]
+    fees_posting = transaction.postings[2]
+
+    assert transaction.payee == "AXA PEA REGULARITE C FCP 4DEC"
+    assert position_posting.units.number == Decimal("-10.0000")
+    assert cash_posting.units.number == Decimal("998.60")
+    assert fees_posting.units.number == Decimal("2.40")

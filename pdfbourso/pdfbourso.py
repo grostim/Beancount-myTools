@@ -28,6 +28,12 @@ from decimal import InvalidOperation
 class PDFBourso(beangulp.Importer):
     """Un importateur pour les relevés PDF Boursorama."""
 
+    BOURSE_CASH_PARENT_ACCOUNTS = {
+        "Actif:Boursorama:PEA",
+        "Actif:Boursorama:PEAPME",
+        "Actif:Boursorama:CTO",
+    }
+
     # Déplacer les constantes de classe en haut pour une meilleure lisibilité
     DOCUMENT_TYPES = {
         "DividendeBourse": r"COUPONS REMBOURSEMENTS :",
@@ -68,9 +74,9 @@ class PDFBourso(beangulp.Importer):
 
     REGEX_ACTION_MONTANT = r"Montant brut\s*Commission\s*Frais\s\(.\)\s*Montant net au crédit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(?:(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3}))?\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*"
 
-    REGEX_OPCVM_MONTANT = r"Montant brut\s*Droits d'entrée\s*Frais H.T.\s*T.V.A.\s*Montant net au débit de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
-    REGEX_OPCVM_DETAILS = r"(\d{1,2}\/\d{2}\/\d{4})\s*(\d{0,3}\s\d{1,3}[.,]?\d{0,4})\s*([\s\S]{0,20})?\s*"
-    REGEX_OPCVM_COURS = r"Valeur liquidative :\s*(\d{0,3}\s\d{1,3}[,.]\d{0,4})\s([A-Z]{1,3})"
+    REGEX_OPCVM_MONTANT = r"Montant brut\s*Droits (?:d'entrée|de sortie)\s*Frais H.T.\s*T.V.A.\s*Montant net au (?:débit|crédit) de votre compte\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*(?:(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s*)?(\d{0,3}\s*\d{1,3}[,.]\d{1,3})\s([A-Z]{3})\s"
+    REGEX_OPCVM_DETAILS = r"Date\s*Quantité\s*Informations sur la valeur\s*Informations sur l'exécution[\s\S]*?(\d{1,2}\/\d{2}\/\d{4})\s*(\d+(?:\s\d{3})*(?:[,.]\d{1,4})?)\s*([\s\S]{0,80}?)\s*Référence\s*:"
+    REGEX_OPCVM_COURS = r"Valeur liquidative\s*:\s*(\d+(?:\s\d{3})*[,.]\d{1,4})\s([A-Z]{1,3})"
     REGEX_OPCVM_SOUSCRIPTION = r"SOUSCRIPTION"
 
     REGEX_DIVIDENDE_DETAILS = r"(\d{2}\/\d{2}\/\d{4})\s*(.*?)\s+\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{1,5})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})?\s*(\d{0,3}\s\d{1,3}[,.]\d{2})"
@@ -177,10 +183,17 @@ class PDFBourso(beangulp.Importer):
                     isin = match_isin.group(1)
                     self._debug(f"Compte et ISIN : {self.accountList[compte]}:{isin}")
                     return f"{self.accountList[compte]}:{isin}"
-            elif self.type in ["DividendeBourse", "EspeceDividende"]:
+            elif self.type in ["DividendeBourse", "EspeceBourse", "EspeceDividende"]:
                 return f"{self.accountList[compte]}:Cash"
             else:
                 return self.accountList[compte]
+
+    def _resolve_cash_statement_account(self, compte: str, text: str) -> str:
+        """Résout le compte de posting/balance pour les relevés de type compte-espèces."""
+        base_account = self.accountList[compte]
+        if base_account in self.BOURSE_CASH_PARENT_ACCOUNTS:
+            return f"{base_account}:Cash"
+        return base_account
 
     def date(self, file):
         """
@@ -309,9 +322,9 @@ class PDFBourso(beangulp.Importer):
             return []
 
     def _extract_dividende_bourse(self, file, text, document):
-        """Extrait les donnees pour les coupons/remboursements en bourse.
+        """Extrait les données pour les coupons/remboursements en bourse.
 
-        Le regex V2 capture : date, nom, ISIN, montant unitaire, quantite,
+        Le regex V2 capture : date, nom, ISIN, montant unitaire, quantité,
         montant brut global, commission TTC (optionnelle), net client.
         """
         try:
@@ -325,32 +338,34 @@ class PDFBourso(beangulp.Importer):
 
             for chunk in chunks:
                 try:
-                    gross = self._parse_decimal(chunk[5])
-                    net = self._parse_decimal(chunk[7])
-                    commission = self._parse_decimal(chunk[6] or '0')
+                    gross = self._parse_decimal(chunk[5])       # montant brut global
+                    net = self._parse_decimal(chunk[7])         # net client
+                    commission = self._parse_decimal(chunk[6] or '0')  # commission TTC
 
                     postings = [
                         self._create_posting(
                             "Revenus:Dividendes", -gross, "EUR"
                         ),
                     ]
+                    # Cash = net reçu
                     postings.append(
                         self._create_posting(compte, net, "EUR")
                     )
 
-                    gap = gross - net
-                    if gap > Decimal('0'):
+                    # Écart entre brut et net = commission + impôts éventuels
+                    amount_withheld = gross - net
+                    if amount_withheld > Decimal('0'):
                         if commission > 0:
                             postings.append(
                                 self._create_posting(
                                     "Depenses:Banque:Frais", commission, "EUR"
                                 )
                             )
-                            gap -= commission
-                        if gap > Decimal('0'):
+                            amount_withheld -= commission
+                        if amount_withheld > Decimal('0'):
                             postings.append(
                                 self._create_posting(
-                                    "Depenses:Impots:IR", gap, "EUR"
+                                    "Depenses:Impots:IR", amount_withheld, "EUR"
                                 )
                             )
 
@@ -404,7 +419,7 @@ class PDFBourso(beangulp.Importer):
             balance = data.Balance(
                 meta,
                 parse_datetime(chunk.group(1), dayfirst=True).date(),
-                self.account(file) + ":Cash", # type: ignore
+                self.account(file), # already appends :Cash for EspeceBourse
                 amount.Amount(balance_amount, "EUR"),
                 None,
                 None,
@@ -668,12 +683,14 @@ class PDFBourso(beangulp.Importer):
 
         match = re.search(self.REGEX_OPCVM_MONTANT, text)
         if match:
-            ope["Montant Total"] = match.group(7)
-            ope["currency Total"] = match.group(8)
+            ope["Montant Total"] = match.group(9)
+            ope["currency Total"] = match.group(10)
             ope["Frais"] = match.group(5)
             ope["currency Frais"] = match.group(6)
             ope["Droits"] = match.group(3)
             ope["currency Droits"] = match.group(4)
+            ope["TVA"] = match.group(7) or "0.0"
+            ope["currency TVA"] = match.group(8) or ope["currency Frais"]
         else:
             self.logger.info("Montant introuvable")
         self._debug(f"Montant Total : {ope['Montant Total']}")
@@ -731,7 +748,7 @@ class PDFBourso(beangulp.Importer):
             ),
             self._create_posting(
                 "Depenses:Banque:Frais",
-                self._parse_decimal(ope["Frais"]) + self._parse_decimal(ope["Droits"]),
+                self._parse_decimal(ope["Frais"]) + self._parse_decimal(ope["Droits"]) + self._parse_decimal(ope["TVA"]),
                 ope["currency Frais"],
             ),
         ]
@@ -770,11 +787,13 @@ class PDFBourso(beangulp.Importer):
         control = self.REGEX_COMPTE_COMPTE
         match = re.search(control, text)
         if match:
-            compte = match.group(0).split(" ")[-1]
+            compte = match.group(1).strip()
 
         # Si debogage, affichage de l'extraction
         self._debug(f"Numéro de compte extrait : {compte}")
         columns = self._find_compte_columns(text)
+        statement_account = self._resolve_cash_statement_account(compte, text)
+        balances_only_statement = statement_account != self.accountList[compte]
 
         # Affichage du solde initial
         match = re.search(self.REGEX_SOLDE_INITIAL, text)
@@ -799,7 +818,7 @@ class PDFBourso(beangulp.Importer):
                 data.Balance(
                     meta,
                     datebalance,
-                    self.accountList[compte],
+                    statement_account,
                     amount.Amount(balance, "EUR"),
                     None,
                     None,
@@ -811,59 +830,60 @@ class PDFBourso(beangulp.Importer):
         # Si debogage, affichage de l'extraction
         self._debug(f"Chunks extraits : {chunks}")
 
-        index = 0
-        for chunk_match in chunks:
-            index += 1
-            meta = data.new_metadata(file, index)
-            meta["source"] = "pdfbourso"
-            meta["document"] = document
-            ope = dict()
-            chunk = chunk_match.groups()
+        if not balances_only_statement:
+            index = 0
+            for chunk_match in chunks:
+                index += 1
+                meta = data.new_metadata(file, index)
+                meta["source"] = "pdfbourso"
+                meta["document"] = document
+                ope = dict()
+                chunk = chunk_match.groups()
 
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Chunk extrait : {chunk}")
+                # Si debogage, affichage de l'extraction
+                self._debug(f"Chunk extrait : {chunk}")
 
-            ope["date"] = chunk[1]
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Date de l'opération : {ope['date']}")
+                ope["date"] = chunk[1]
+                # Si debogage, affichage de l'extraction
+                self._debug(f"Date de l'opération : {ope['date']}")
 
-            fallback_length = (
-                len(chunk[0])
-                + len(chunk[1])
-                + len(chunk[2])
-                + len(chunk[3])
-            )
-            fallback_sign = 1 if fallback_length > 148 else -1
-            ope["montant"] = self._signed_decimal_from_match(text, chunk_match, 4, columns, fallback_sign)
-            ope["type"] = "Credit" if ope["montant"] > 0 else "Debit"
-            # Si débogage, affichage de l'extraction
-            self._debug(f"Montant de l'opération : {ope['montant']}")
+                fallback_length = (
+                    len(chunk[0])
+                    + len(chunk[1])
+                    + len(chunk[2])
+                    + len(chunk[3])
+                )
+                fallback_sign = 1 if fallback_length > 148 else -1
+                ope["montant"] = self._signed_decimal_from_match(text, chunk_match, 4, columns, fallback_sign)
+                ope["type"] = "Credit" if ope["montant"] > 0 else "Debit"
+                # Si débogage, affichage de l'extraction
+                self._debug(f"Montant de l'opération : {ope['montant']}")
 
-            ope["payee"] = re.sub(r"\s+", " ", chunk[0])
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Payee : {ope['payee']}")
+                ope["payee"] = re.sub(r"\s+", " ", chunk[0])
+                # Si debogage, affichage de l'extraction
+                self._debug(f"Payee : {ope['payee']}")
 
-            ope["narration"] = re.sub(r"\s+", " ", chunk[4] or "")
-            # Si debogage, affichage de l'extraction
-            self._debug(f"Narration : {ope['narration']}")
+                ope["narration"] = re.sub(r"\s+", " ", chunk[4] or "")
+                # Si debogage, affichage de l'extraction
+                self._debug(f"Narration : {ope['narration']}")
 
-            # Creation de la transaction
-            postings = [
-                self._create_posting(
-                    self.accountList[compte],
-                    ope["montant"],
-                    "EUR",
-                ),
-            ]
-            transaction = self._create_transaction(
-                meta,
-                parse_datetime(ope["date"], dayfirst=True).date(),
-                ope["payee"] or "inconnu",
-                ope["narration"],
-                data.EMPTY_SET,
-                postings,
-            )
-            entries.append(transaction)
+                # Creation de la transaction
+                postings = [
+                    self._create_posting(
+                        statement_account,
+                        ope["montant"],
+                        "EUR",
+                    ),
+                ]
+                transaction = self._create_transaction(
+                    meta,
+                    parse_datetime(ope["date"], dayfirst=True).date(),
+                    ope["payee"] or "inconnu",
+                    ope["narration"],
+                    data.EMPTY_SET,
+                    postings,
+                )
+                entries.append(transaction)
 
         # Recherche du solde final
         match = re.search(self.REGEX_SOLDE_FINAL, text)
@@ -892,7 +912,7 @@ class PDFBourso(beangulp.Importer):
                     data.Balance(
                         meta,
                         datebalance,
-                        self.accountList[compte],
+                        statement_account,
                         amount.Amount(balance, "EUR"),
                         None,
                         None,
