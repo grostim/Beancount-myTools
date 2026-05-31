@@ -148,7 +148,7 @@ Date de
 """
     monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
     importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
-    monkeypatch.setattr(importer, "account", lambda _: "Actif:Boursorama:PEA")
+    monkeypatch.setattr(importer, "account", lambda _: "Actif:Boursorama:PEA:Cash")
 
     entries = importer._extract_espece_bourse("fake.pdf", text, "2025-02-28 Relevé Espece.pdf")
 
