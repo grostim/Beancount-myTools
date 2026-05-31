@@ -80,6 +80,7 @@ class PDFBourso(beangulp.Importer):
     REGEX_OPCVM_SOUSCRIPTION = r"SOUSCRIPTION"
 
     REGEX_DIVIDENDE_DETAILS = r"(\d{2}\/\d{2}\/\d{4})\s*(.*?)\s+\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{1,5})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})\s*(\d{0,3}\s\d{1,3}[,.]\d{2})?\s*(\d{0,3}\s\d{1,3}[,.]\d{2})"
+    REGEX_DIVIDENDE_DETAILS_LEGACY = r"(\d{2}\/\d{2}\/\d{4})\s*(\d{1,5})\s*(.*?)\s+\(([A-Z]{2}[A-Z,0-9]{10})\)\s*(\d{0,3}\s\d{1,3}[,.]\d{2})(?:\s*(\d{0,3}\s\d{1,3}[,.]\d{2})){0,4}"
 
     REGEX_ESPECE_BOURSE_SOLDE = r"(\d*/\d*/\d*).*SOLDE\s*(\d{0,3}\s\d{1,3}[,.]\d{1,3})"
 
@@ -322,39 +323,64 @@ class PDFBourso(beangulp.Importer):
             return []
 
     def _extract_dividende_bourse(self, file, text, document):
-        """Extrait les données pour les coupons/remboursements en bourse.
-
-        Le regex V2 capture : date, nom, ISIN, montant unitaire, quantité,
-        montant brut global, commission TTC (optionnelle), net client.
-        """
         try:
             entries = []
             compte = self.account(file)
-            control = self.REGEX_DIVIDENDE_DETAILS
-            chunks = re.findall(control, text)
             meta = data.new_metadata(file, 0)
             meta["source"] = "pdfbourso"
             meta["document"] = document
 
-            for chunk in chunks:
+            normalized_lines = [
+                re.sub(r"\s+", " ", line).strip()
+                for line in text.splitlines()
+                if line.strip()
+            ]
+
+            for line in normalized_lines:
                 try:
-                    gross = self._parse_decimal(chunk[5])       # montant brut global
-                    net = self._parse_decimal(chunk[7])         # net client
-                    commission = self._parse_decimal(chunk[6] or '0')  # commission TTC
+                    parsed = None
+                    match = re.match(self.REGEX_DIVIDENDE_DETAILS, line)
+                    if match:
+                        chunk = match.groups()
+                        parsed = {
+                            "date": chunk[0],
+                            "name": chunk[1],
+                            "isin": chunk[2],
+                            "quantity": chunk[4],
+                            "gross": self._parse_decimal(chunk[5]),
+                            "commission": self._parse_decimal(chunk[6] or "0"),
+                            "net": self._parse_decimal(chunk[7]),
+                        }
+                    else:
+                        legacy_match = re.match(self.REGEX_DIVIDENDE_DETAILS_LEGACY, line)
+                        if legacy_match:
+                            chunk = legacy_match.groups()
+                            amounts = re.findall(self.REGEX_AMOUNT, line)
+                            if len(amounts) >= 2:
+                                parsed = {
+                                    "date": chunk[0],
+                                    "quantity": chunk[1],
+                                    "name": chunk[2],
+                                    "isin": chunk[3],
+                                    "gross": self._parse_decimal(amounts[0]),
+                                    "commission": Decimal("0"),
+                                    "net": self._parse_decimal(amounts[-1]),
+                                }
+
+                    if not parsed:
+                        continue
+
+                    gross = parsed["gross"]
+                    net = parsed["net"]
+                    commission = parsed["commission"]
 
                     postings = [
-                        self._create_posting(
-                            "Revenus:Dividendes", -gross, "EUR"
-                        ),
+                        self._create_posting("Revenus:Dividendes", -gross, "EUR"),
+                        self._create_posting(compte, net, "EUR"),
                     ]
-                    # Cash = net reçu
-                    postings.append(
-                        self._create_posting(compte, net, "EUR")
-                    )
 
-                    # Écart entre brut et net = commission + impôts éventuels
                     amount_withheld = gross - net
-                    if amount_withheld > Decimal('0'):
+                    if amount_withheld > Decimal("0"):
                         if commission > 0:
                             postings.append(
                                 self._create_posting(
@@ -362,7 +388,7 @@ class PDFBourso(beangulp.Importer):
                                 )
                             )
                             amount_withheld -= commission
-                        if amount_withheld > Decimal('0'):
+                        if amount_withheld > Decimal("0"):
                             postings.append(
                                 self._create_posting(
                                     "Depenses:Impots:IR", amount_withheld, "EUR"
@@ -371,10 +397,10 @@ class PDFBourso(beangulp.Importer):
 
                     transaction = self._create_transaction(
                         meta,
-                        parse_datetime(chunk[0], dayfirst=True).date(),
-                        f"Dividende pour {chunk[4]} titres {chunk[1]}",
+                        parse_datetime(parsed["date"], dayfirst=True).date(),
+                        f"Dividende pour {parsed['quantity']} titres {parsed['name']}",
                         None,
-                        {chunk[2]},
+                        {parsed["isin"]},
                         postings,
                     )
                     entries.append(transaction)
@@ -387,6 +413,7 @@ class PDFBourso(beangulp.Importer):
         except Exception as e:
             self._error(f"Erreur lors de l'extraction des dividendes : {str(e)}")
             return []
+
     def _extract_espece_bourse(self, file, text, document):
         """
         Extrait les données pour les espèces en bourse.

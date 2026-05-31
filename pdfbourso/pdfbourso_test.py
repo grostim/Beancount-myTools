@@ -386,3 +386,32 @@ def test_extract_dividende_bourse_new_layout_with_ir(monkeypatch):
     assert fee.units.number == Decimal("1.50")
     assert ir.account == "Depenses:Impots:IR"
     assert ir.units.number == Decimal("17.50")  # 100 - 81 - 1.50 = 17.50
+
+
+def test_extract_dividende_bourse_legacy_taxed_layout(monkeypatch):
+    """Layout qty-first avec brut fiscal + retenues + net client."""
+    text = (
+        "04/06/2025 23 VAN.GL.RE.EST.UC.E (NL0009690239) "
+        "9,20 1,38 2,74 5,08 5,08"
+    )
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+    monkeypatch.setattr(importer, "account", lambda _: "Actif:Boursorama:CTO:Cash")
+
+    entries = importer._extract_dividende_bourse(
+        "fake.pdf", text, "2025-06-30 Relevé Dividendes.pdf"
+    )
+
+    assert len(entries) == 1
+    txn = entries[0]
+    assert txn.date.isoformat() == "2025-06-04"
+    assert txn.payee == "Dividende pour 23 titres VAN.GL.RE.EST.UC.E"
+    assert "NL0009690239" in txn.tags
+
+    div, cash, ir = txn.postings
+    assert div.account == "Revenus:Dividendes"
+    assert div.units.number == Decimal("-9.20")
+    assert cash.account == "Actif:Boursorama:CTO:Cash"
+    assert cash.units.number == Decimal("5.08")
+    assert ir.account == "Depenses:Impots:IR"
+    assert ir.units.number == Decimal("4.12")
