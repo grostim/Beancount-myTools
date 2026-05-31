@@ -388,7 +388,7 @@ class PDFBourso(beangulp.Importer):
             balance = data.Balance(
                 meta,
                 parse_datetime(chunk.group(1), dayfirst=True).date(),
-                self.account(file) + ":Cash", # type: ignore
+                self.account(file), # already appends :Cash for EspeceBourse
                 amount.Amount(balance_amount, "EUR"),
                 None,
                 None,
