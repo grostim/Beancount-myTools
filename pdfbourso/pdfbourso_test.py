@@ -132,6 +132,21 @@ Compte 00090339677
     assert transactions == []
 
 
+def test_account_compte_cto_statement_targets_cash(monkeypatch):
+    text = """BOURSORAMA BANQUE
+Relevé au 27/02/2026
+Compte 00050340253
+          Libellé                                                                                              Valeur              Débit                Crédit
+                                                                                             SOLDE AU : 06/02/2026                                              0,00
+23/02/2026 VENTE COMPTANT                                                                                 25/02/2026                                      2.596,82
+                                Nouveau solde en EUR :                                                                                                     2.771,57
+"""
+    monkeypatch.setattr(pdfbourso, "pdf_to_text", lambda _: text)
+    importer = pdfbourso.PDFBourso(ACCOUNTLIST, debug=True)
+
+    assert importer.account("fake.pdf") == "Actif:Boursorama:CTO:Cash"
+
+
 def test_extract_espece_bourse_uses_debit_credit_columns_for_balance_sign(monkeypatch):
     text = """BoursoBank
 RELEVE COMPTE ESPECES: FEVRIER 2025

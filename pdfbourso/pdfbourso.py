@@ -186,6 +186,8 @@ class PDFBourso(beangulp.Importer):
                     return f"{self.accountList[compte]}:{isin}"
             elif self.type in ["DividendeBourse", "EspeceBourse", "EspeceDividende"]:
                 return f"{self.accountList[compte]}:Cash"
+            elif self.type == "Compte":
+                return self._resolve_cash_statement_account(compte, text)
             else:
                 return self.accountList[compte]
 
