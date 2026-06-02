@@ -513,3 +513,90 @@ def test_sepa_detail_overrides_sign(monkeypatch):
     # no SEPA detail override, keeps its original +12.45
     assert transactions[2].payee == "COTIS FAMILLE CONFORT"
     assert transactions[2].postings[0].units.number == Decimal("12.45")
+
+
+SYNTHETIC_SEPA_WITHOUT_REFERENCE = """BANQUE POPULAIRE
+Votre relevé de compte n°3 au 29/05/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 12345678901
+
+SOLDE DEBITEUR AU 30/04/2026                                                                                   - 151,29 €
+18/05             VIREMENT SEPA                                                                                 18/05                 18/05                            159,86 €
+                    EVI ENGIE S.A.
+
+TOTAL DES MOUVEMENTS DEBITEURS                                                                                   0,00 €
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                159,86 €
+
+SOLDE CREDITEUR AU 29/05/2026*                                                                                   8,57 €
+"""
+
+
+def test_extract_sepa_credit_without_reference(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_SEPA_WITHOUT_REFERENCE,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(ACCOUNTLIST)
+
+    entries = importer.extract("statement.pdf")
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+
+    assert len(transactions) == 1
+    assert transactions[0].payee == "EVI ENGIE S.A."
+    assert transactions[0].narration == "VIREMENT SEPA"
+    assert transactions[0].postings[0].units.number == Decimal("159.86")
+    assert [entry.amount.number for entry in balances] == [
+        Decimal("-151.29"),
+        Decimal("8.57"),
+    ]
+
+
+SYNTHETIC_SEPA_PAYPAL_DUPLICATE_MANDATE = """BANQUE POPULAIRE
+Votre relevé de compte n°3 au 29/05/2026
+DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES N° 12345678901
+
+SOLDE CREDITEUR AU 30/04/2026                                                                                     0,00 €
+08/05             PRLV SEPA PayPal Europe                                                                  060G2L7              08/05                 08/05                            - 21,99 €
+                    1050112363126/PAYPAL
+                    4C7J224QVP96J
+08/05             PRLV SEPA PayPal Europe                                                                  060BF62              08/05                 08/05                            - 14,24 €
+                    1050104552595/PAYPAL
+                    4C7J224QVP96J
+
+TOTAL DES MOUVEMENTS DEBITEURS                                                                                  - 36,23 €
+TOTAL DES MOUVEMENTS CREDITEURS                                                                                   0,00 €
+
+SOLDE DEBITEUR AU 29/05/2026*                                                                                  - 36,23 €
+
+DETAIL DE VOS MOUVEMENTS SEPA
+VOTRE COMPTE CHEQUES N° 12345 678901 RELEVE N° 3 AU 29/05/2026
+DATE DETAIL DE VOS PRELEVEMENTS SEPA RECUS DEBIT
+08/05 PayPal Europe S.a.r.l. et Cie S.C. LU96ZZZ0000000000000000058 21,99 €
+1050112363126/PAYPAL
+4C7J224QVP96J
+08/05 PayPal Europe S.a.r.l. et Cie S.C. LU96ZZZ0000000000000000058 14,24 €
+1050104552595/PAYPAL
+4C7J224QVP96J
+"""
+
+
+def test_sepa_detail_uses_unique_paypal_reference(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_SEPA_PAYPAL_DUPLICATE_MANDATE,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(ACCOUNTLIST)
+
+    entries = importer.extract("statement.pdf")
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+
+    assert [tx.postings[0].units.number for tx in transactions] == [
+        Decimal("-21.99"),
+        Decimal("-14.24"),
+    ]

@@ -49,7 +49,7 @@ class PDFBanquePopulaire(beangulp.Importer):
     TRANSACTION_START_PATTERN = re.compile(r"^\s*(\d{2}/\d{2})\b")
     TRANSACTION_DETAILS_PATTERN = re.compile(
         r"(?P<prefix>.*?)"
-        r"(?P<reference>[A-Z0-9]{7,})\s+"
+        r"(?:(?P<reference>[A-Z0-9]{7,})\s+)?"
         r"(?P<operation>\d{2}/\d{2})\s+"
         r"(?P<value>\d{2}/\d{2})\s+"
         r"(?P<sign>[-–+]?)\s*(?P<amount>\d[\d\s,.]*(?:\d\s*€?|\s+€)?)(?:\s+[KSTGDCP]\s*)?$"
@@ -340,6 +340,13 @@ class PDFBanquePopulaire(beangulp.Importer):
                 if cleaned:
                     narration_lines.append(cleaned)
 
+        if (
+            payee.upper() == "VIREMENT SEPA"
+            and narration_lines
+            and narration_lines[0].upper().startswith("EVI ")
+        ):
+            payee, narration_lines = narration_lines[0], [payee, *narration_lines[1:]]
+
         transaction_date = self._resolve_partial_date(
             detail_match.group("value"), statement_date
         )
@@ -445,9 +452,14 @@ class PDFBanquePopulaire(beangulp.Importer):
             joined_block = " ".join(
                 self._normalize_spaces(line) for line in block_lines if line.strip()
             )
-            for reference, amount_value in sepa_detail_amounts.items():
-                if reference in joined_block:
-                    return amount_value
+            matching_refs = [
+                (reference, amount_value)
+                for reference, amount_value in sepa_detail_amounts.items()
+                if reference in joined_block
+            ]
+            if matching_refs:
+                matching_refs.sort(key=lambda item: len(item[0]), reverse=True)
+                return matching_refs[0][1]
 
         try:
             return self._parse_decimal(signed_amount)
@@ -482,18 +494,20 @@ class PDFBanquePopulaire(beangulp.Importer):
         ]
         results: dict[str, Decimal] = {}
         amount_pattern = re.compile(r"(?<![A-Z0-9])\d(?:[\d ]*\d)?[,.]\d{2}")
-        reference_pattern = re.compile(r"^(?P<reference>[A-Z0-9]{12,})\b")
+        reference_pattern = re.compile(
+            r"^(?P<reference>(?=[A-Z0-9/-]{10,}\b)(?=[A-Z0-9/-]*\d)[A-Z0-9/-]+)\b"
+        )
 
         for index, line in enumerate(lines[:-1]):
             amount_matches = amount_pattern.findall(line)
             if not amount_matches:
                 continue
-            reference_match = reference_pattern.match(lines[index + 1])
-            if not reference_match:
-                continue
-            results[reference_match.group("reference")] = -abs(
-                self._parse_decimal(amount_matches[-1])
-            )
+            amount_value = -abs(self._parse_decimal(amount_matches[-1]))
+            for candidate_line in lines[index + 1 : index + 3]:
+                reference_match = reference_pattern.match(candidate_line)
+                if not reference_match:
+                    continue
+                results[reference_match.group("reference")] = amount_value
 
         return results
 
