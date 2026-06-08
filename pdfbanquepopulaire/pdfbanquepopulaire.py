@@ -692,12 +692,10 @@ class PDFBanquePopulaire(beangulp.Importer):
                 )
             )
 
-        # Add closing balance from the statement TOTAL
-        balance_amount = self._extract_cb_total(text)
-        if balance_amount is None:
-            balance_amount = -abs(total_spent)
-        else:
-            balance_amount = -abs(balance_amount)
+        # Add closing balance: use the actual sum of extracted transactions.
+        # The statement TOTAL is unreliable when transactions span pages
+        # (the bank often double-counts the carry-over line).
+        balance_amount = total_spent
 
         entries.append(
             self._create_balance(

@@ -668,7 +668,7 @@ def test_extract_cb_statement(monkeypatch):
     assert len(transactions) == 4
     assert len(balances) == 1
 
-    # Balance should match the TOTAL from the statement (-494.79 EUR)
+    # Balance should match the sum of extracted transactions
     assert balances[0].date == dt.date(2026, 6, 1)
     assert balances[0].amount.number == Decimal("-494.79")
     assert balances[0].account == "Actif:BPop:CCTim"
