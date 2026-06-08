@@ -610,9 +610,6 @@ class PDFBanquePopulaire(beangulp.Importer):
         """Extract transactions from a monthly card-operations statement."""
         document = f"{statement_date} {self.filename(file)}"
         entries: list[data.Directive] = []
-
-        # Dedupe: page 2 repeats the last transaction from page 1
-        seen: set[tuple[dt.date, str, Decimal]] = set()
         line_index = 0
         total_spent = Decimal("0")
 
@@ -658,12 +655,6 @@ class PDFBanquePopulaire(beangulp.Importer):
             if transaction_date > statement_date:
                 transaction_date = dt.date(year - 1, int(month), int(day))
 
-            # Dedupe across pages
-            key = (transaction_date, merchant, amount_value)
-            if key in seen:
-                continue
-            seen.add(key)
-
             meta = data.new_metadata(file, line_index)
             meta["source"] = "pdfbanquepopulaire"
             meta["document"] = document
@@ -692,10 +683,12 @@ class PDFBanquePopulaire(beangulp.Importer):
                 )
             )
 
-        # Add closing balance: use the actual sum of extracted transactions.
-        # The statement TOTAL is unreliable when transactions span pages
-        # (the bank often double-counts the carry-over line).
-        balance_amount = total_spent
+        # Add closing balance from the statement TOTAL
+        total_from_statement = self._extract_cb_total(text)
+        if total_from_statement is not None:
+            balance_amount = -abs(total_from_statement)
+        else:
+            balance_amount = total_spent
 
         entries.append(
             self._create_balance(
