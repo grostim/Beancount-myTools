@@ -34,10 +34,15 @@ class PDFBanquePopulaire(beangulp.Importer):
     """Importeur beangulp pour les releves Banque Populaire."""
 
     ACCOUNT_NUMBER_PATTERN = re.compile(
-        r"COMPTE (?:CHEQUES|COURANT) N[°º]\s*(\d{11})"
+        r"COMPTE(?:\s+(?:CHEQUES|COURANT))?\s+N[°º]\s*(\d{11})"
     )
     STATEMENT_DATE_PATTERN = re.compile(
         r"RELEV[ÉE](?:\s+DE\s+COMPTE)?\s+N[°º]?\s*\d+\s+AU\s+"
+        r"(\d{2}/\d{2}/\d{4})",
+        re.IGNORECASE,
+    )
+    CB_STATEMENT_DATE_PATTERN = re.compile(
+        r"RELEV[ÉE]\s+MENSUEL\s+D[' ]OP[ÉE]RATIONS\s+PAR\s+CARTE\s+BANCAIRE\s+AU\s+"
         r"(\d{2}/\d{2}/\d{4})",
         re.IGNORECASE,
     )
@@ -78,10 +83,22 @@ class PDFBanquePopulaire(beangulp.Importer):
             and (
                 "DETAIL DES OPERATIONS DE VOTRE COMPTE CHEQUES" in upper
                 or "DETAIL DES OPERATIONS DE VOTRE COMPTE COURANT" in upper
+                or self._is_cb_statement(text)
             )
         )
 
-    def filename(self, _) -> str:
+    @staticmethod
+    def _is_cb_statement(text: str) -> bool:
+        """Detect the monthly card-transaction summary format."""
+        text_clean = text.replace("\u00e9", "e").replace("\u00c9", "E").upper()
+        return (
+            "RELEVE MENSUEL" in text_clean
+            and "OPERATIONS PAR CARTE BANCAIRE" in text_clean
+        )
+
+    def filename(self, file) -> str:
+        if self._is_cb_statement(self._get_pdf_text(str(file))):
+            return "Relevé Carte.pdf"
         return "Relevé Compte.pdf"
 
     def account(self, file) -> Optional[str]:
@@ -90,6 +107,11 @@ class PDFBanquePopulaire(beangulp.Importer):
 
     def date(self, file) -> Optional[dt.date]:
         text = self._get_pdf_text(str(file))
+        if self._is_cb_statement(text):
+            match = self.CB_STATEMENT_DATE_PATTERN.search(text)
+            if match:
+                return parse_datetime(match.group(1), dayfirst=True).date()
+            return None
         match = self.STATEMENT_DATE_PATTERN.search(text)
         if not match:
             return None
@@ -110,6 +132,14 @@ class PDFBanquePopulaire(beangulp.Importer):
         statement_date = self.date(str(file))
         if statement_date is None:
             raise ValueError("Date de releve Banque Populaire introuvable.")
+
+        if self._is_cb_statement(text):
+            return self._extract_cb_transactions(
+                text=text,
+                statement_date=statement_date,
+                account_name=account_name,
+                file=str(file),
+            )
 
         document = f"{statement_date} {self.filename(file)}"
         entries: List[data.Directive] = []
@@ -535,6 +565,115 @@ class PDFBanquePopulaire(beangulp.Importer):
 
     def _normalize_spaces(self, text: str) -> str:
         return re.sub(r"\s+", " ", text).strip()
+
+    # ── CB card-transaction summary extraction ──────────────────────────────
+
+    _CB_TRANSACTION_LINE_PATTERN = re.compile(
+        r"^\s+(\d{2}/\d{2}/\d{2})\s{2,}"
+        r"(.+?)\s{2,}"
+        r"([\d.,]+\s*[€$])"
+    )
+
+    _CB_MERCHANT_NAME_PATTERN = re.compile(
+        r"^(.+?)\s{2,}(?:FR|US|LU|GB|DE|ES|IT|BE|CH|NL)\s"
+    )
+
+    _CB_AMOUNT_PATTERN = re.compile(
+        r"(\d[\d\s.,]*)[€$]"
+    )
+
+    def _extract_cb_transactions(
+        self,
+        *,
+        text: str,
+        statement_date: dt.date,
+        account_name: str,
+        file: str,
+    ) -> list[data.Transaction]:
+        """Extract transactions from a monthly card-operations statement."""
+        document = f"{statement_date} {self.filename(file)}"
+        transactions: list[data.Transaction] = []
+
+        # Dedupe: page 2 repeats the last transaction from page 1
+        seen: set[tuple[dt.date, str, Decimal]] = set()
+        line_index = 0
+
+        for raw_line in text.splitlines():
+            match = self._CB_TRANSACTION_LINE_PATTERN.match(raw_line)
+            if not match:
+                continue
+            line_index += 1
+
+            date_str = match.group(1)  # DD/MM/YY
+            merchant_raw = match.group(2).strip()
+            amount_raw = match.group(3).strip()
+
+            # Extract merchant name (before the country code)
+            merchant_match = self._CB_MERCHANT_NAME_PATTERN.match(merchant_raw)
+            if merchant_match:
+                merchant = self._normalize_spaces(merchant_match.group(1))
+            else:
+                merchant = self._normalize_spaces(merchant_raw)
+
+            # Parse amount — format: "12,39 €" or "1 380,00 €"
+            amount_match = self._CB_AMOUNT_PATTERN.search(amount_raw)
+            if not amount_match:
+                raise ValueError(
+                    f"Montant CB introuvable dans: {amount_raw!r}"
+                )
+            amount_str = amount_match.group(1)
+            try:
+                amount_value = self._parse_decimal(amount_str)
+            except (ValueError, InvalidOperation) as exc:
+                raise ValueError(
+                    f"Montant CB non parseable: {amount_raw!r}"
+                ) from exc
+
+            # Card transactions are always debits on the bank account
+            amount_value = -abs(amount_value)
+
+            # Resolve date from DD/MM/YY
+            day, month, year_short = date_str.split("/")
+            year = 2000 + int(year_short)
+            transaction_date = dt.date(year, int(month), int(day))
+            if transaction_date > statement_date:
+                transaction_date = dt.date(year - 1, int(month), int(day))
+
+            # Dedupe across pages
+            key = (transaction_date, merchant, amount_value)
+            if key in seen:
+                continue
+            seen.add(key)
+
+            meta = data.new_metadata(file, line_index)
+            meta["source"] = "pdfbanquepopulaire"
+            meta["document"] = document
+
+            postings = [
+                data.Posting(
+                    account=account_name,
+                    units=amount.Amount(amount_value, "EUR"),
+                    cost=None,
+                    price=None,
+                    flag=None,
+                    meta=None,
+                )
+            ]
+
+            transactions.append(
+                data.Transaction(
+                    meta=meta,
+                    date=transaction_date,
+                    flag=flags.FLAG_OKAY,
+                    payee=merchant,
+                    narration="",
+                    tags=data.EMPTY_SET,
+                    links=data.EMPTY_SET,
+                    postings=postings,
+                )
+            )
+
+        return transactions
 
     def _is_operations_section_terminator(self, stripped_line: str) -> bool:
         upper = stripped_line.upper()

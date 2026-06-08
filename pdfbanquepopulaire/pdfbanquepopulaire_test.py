@@ -600,3 +600,93 @@ def test_sepa_detail_uses_unique_paypal_reference(monkeypatch):
         Decimal("-21.99"),
         Decimal("-14.24"),
     ]
+
+
+# ── CB card-transaction summary format ─────────────────────────────────
+
+SYNTHETIC_CB_STATEMENT = """BANQUE POPULAIRE
+
+Votre relevé mensuel d'opérations par carte bancaire au 01/06/2026
+
+VOTRE COMPTE N° 36319151452
+M TIMOTHEE GROS
+
+  DATE DE L'ACHAT              NOM ET ADRESSE DU COMMERCANT                                                                                                             MONTANT
+
+                                CB*7437 T.GROS
+          08/05/26              API SAINT PIERR                                       FR SAINT PIERRE                                                                        12,39 €
+                                   ORIGINE:12,39 EUR
+                                    1EURO =     1,00000000
+          08/05/26              Leboncoin                                             FR Paris                                                                               91,19 €
+                                   ORIGINE:91,19 EUR
+                                    1EURO =     1,00000000
+          17/05/26              LEROY MERLIN                                          FR NIORT                                                                               42,18 €
+                                   ORIGINE:42,18 EUR
+                                    1EURO =     1,00000000
+          19/05/26              WWW.AMAZON*NA2B                                       LU amzn.com/bil                                                                       349,03 €
+                                   ORIGINE:349,03 EUR
+                                    1EURO =     1,00000000
+
+                               TOTAL                                                                                                                                       494,79 €
+
+Banque Populaire Aquitaine Centre Atlantique
+"""
+
+
+def test_identify_cb_statement(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_CB_STATEMENT,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(
+        {**ACCOUNTLIST, "36319151452": "Actif:BPop:CCTim"}
+    )
+
+    assert importer.identify("statement.pdf")
+    assert importer.filename("statement.pdf") == "Relevé Carte.pdf"
+    assert importer.account("statement.pdf") == "Actif:BPop:CCTim"
+    assert importer.date("statement.pdf") == dt.date(2026, 6, 1)
+
+
+def test_extract_cb_statement(monkeypatch):
+    monkeypatch.setattr(
+        pdfbanquepopulaire,
+        "pdf_to_text",
+        lambda _: SYNTHETIC_CB_STATEMENT,
+    )
+    importer = pdfbanquepopulaire.PDFBanquePopulaire(
+        {**ACCOUNTLIST, "36319151452": "Actif:BPop:CCTim"}
+    )
+
+    entries = importer.extract("statement.pdf")
+    transactions = [
+        entry for entry in entries if isinstance(entry, data.Transaction)
+    ]
+    balances = [entry for entry in entries if isinstance(entry, data.Balance)]
+
+    assert len(transactions) == 4
+    assert len(balances) == 0  # CB statements have no balances
+
+    assert transactions[0].payee == "API SAINT PIERR"
+    assert transactions[0].postings[0].units.number == Decimal("-12.39")
+    assert transactions[0].date == dt.date(2026, 5, 8)
+    assert transactions[0].postings[0].account == "Actif:BPop:CCTim"
+
+    assert transactions[1].payee == "Leboncoin"
+    assert transactions[1].postings[0].units.number == Decimal("-91.19")
+    assert transactions[1].date == dt.date(2026, 5, 8)
+
+    assert transactions[2].payee == "LEROY MERLIN"
+    assert transactions[2].postings[0].units.number == Decimal("-42.18")
+    assert transactions[2].date == dt.date(2026, 5, 17)
+
+    assert transactions[3].payee == "WWW.AMAZON*NA2B"
+    assert transactions[3].postings[0].units.number == Decimal("-349.03")
+    assert transactions[3].date == dt.date(2026, 5, 19)
+
+    # All amounts are negative (debits on the bank account)
+    for tx in transactions:
+        assert tx.postings[0].units.number < 0
+        assert tx.postings[0].units.currency == "EUR"
+        assert tx.meta["source"] == "pdfbanquepopulaire"
