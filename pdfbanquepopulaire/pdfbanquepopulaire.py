@@ -582,6 +582,23 @@ class PDFBanquePopulaire(beangulp.Importer):
         r"(\d[\d\s.,]*)[€$]"
     )
 
+    _CB_TOTAL_PATTERN = re.compile(
+        r"^\s+TOTAL\s+([\d.,]+\s*[€$])"
+    )
+
+    def _extract_cb_total(self, text: str) -> Decimal | None:
+        """Extract the TOTAL amount from a CB statement."""
+        for raw_line in text.splitlines():
+            stripped = raw_line.strip()
+            if stripped.upper().startswith("TOTAL"):
+                match = self._CB_AMOUNT_PATTERN.search(stripped)
+                if match:
+                    try:
+                        return self._parse_decimal(match.group(1))
+                    except (ValueError, InvalidOperation):
+                        pass
+        return None
+
     def _extract_cb_transactions(
         self,
         *,
@@ -589,14 +606,15 @@ class PDFBanquePopulaire(beangulp.Importer):
         statement_date: dt.date,
         account_name: str,
         file: str,
-    ) -> list[data.Transaction]:
+    ) -> list[data.Directive]:
         """Extract transactions from a monthly card-operations statement."""
         document = f"{statement_date} {self.filename(file)}"
-        transactions: list[data.Transaction] = []
+        entries: list[data.Directive] = []
 
         # Dedupe: page 2 repeats the last transaction from page 1
         seen: set[tuple[dt.date, str, Decimal]] = set()
         line_index = 0
+        total_spent = Decimal("0")
 
         for raw_line in text.splitlines():
             match = self._CB_TRANSACTION_LINE_PATTERN.match(raw_line)
@@ -631,6 +649,7 @@ class PDFBanquePopulaire(beangulp.Importer):
 
             # Card transactions are always debits on the bank account
             amount_value = -abs(amount_value)
+            total_spent += amount_value
 
             # Resolve date from DD/MM/YY
             day, month, year_short = date_str.split("/")
@@ -660,7 +679,7 @@ class PDFBanquePopulaire(beangulp.Importer):
                 )
             ]
 
-            transactions.append(
+            entries.append(
                 data.Transaction(
                     meta=meta,
                     date=transaction_date,
@@ -673,7 +692,25 @@ class PDFBanquePopulaire(beangulp.Importer):
                 )
             )
 
-        return transactions
+        # Add closing balance from the statement TOTAL
+        balance_amount = self._extract_cb_total(text)
+        if balance_amount is None:
+            balance_amount = -abs(total_spent)
+        else:
+            balance_amount = -abs(balance_amount)
+
+        entries.append(
+            self._create_balance(
+                file=file,
+                line=0,
+                entry_date=statement_date,
+                account_name=account_name,
+                balance_amount=balance_amount,
+                document=document,
+            )
+        )
+
+        return entries
 
     def _is_operations_section_terminator(self, stripped_line: str) -> bool:
         upper = stripped_line.upper()

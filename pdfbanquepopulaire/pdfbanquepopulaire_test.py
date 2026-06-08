@@ -666,7 +666,12 @@ def test_extract_cb_statement(monkeypatch):
     balances = [entry for entry in entries if isinstance(entry, data.Balance)]
 
     assert len(transactions) == 4
-    assert len(balances) == 0  # CB statements have no balances
+    assert len(balances) == 1
+
+    # Balance should match the TOTAL from the statement (-494.79 EUR)
+    assert balances[0].date == dt.date(2026, 6, 1)
+    assert balances[0].amount.number == Decimal("-494.79")
+    assert balances[0].account == "Actif:BPop:CCTim"
 
     assert transactions[0].payee == "API SAINT PIERR"
     assert transactions[0].postings[0].units.number == Decimal("-12.39")
